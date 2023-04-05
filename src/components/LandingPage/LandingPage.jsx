@@ -13,6 +13,10 @@ function LandingPage() {
     history.push('/login');
   };
 
+  const registerHandle = () => {
+    console.log('Register Here Clicked!');
+  };
+
   return (
     <div className="container">
       <h2>{heading}</h2>
@@ -24,7 +28,7 @@ function LandingPage() {
         </p>
         <p> Last-minute houseKeeping service is what we do!</p>
 
-        <button>Register Here</button>
+        <button onClick={registerHandle}>Register Here</button>
       </div>
       <div className="keeper-section"></div>
       <h1>Become your own boss!</h1>
