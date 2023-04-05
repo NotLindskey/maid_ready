@@ -3,9 +3,9 @@ import { useHistory } from 'react-router-dom';
  
  function AdminPage() {
     return(
-        <>
-            Admin Page
-        </>
+        <div>
+            <h3>Manage Users</h3>
+        </div>
     )
  }
 
