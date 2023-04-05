@@ -36,12 +36,12 @@ CREATE TABLE "job" (
 CREATE TABLE "checklist_item" (
     "id" SERIAL PRIMARY KEY,
     "completed" BOOLEAN,
-    "user_id" INT REFERENCES "user",
+    "user_id" INT REFERENCES "user"
 );
 
 CREATE TABLE "job_checklist" (
     "id" SERIAL PRIMARY KEY,
     "job_id" INT REFERENCES "job",
-    "checklist_item_id" INT REFERENCES "checklist_item",
+    "checklist_item_id" INT REFERENCES "checklist_item"
 );
 
