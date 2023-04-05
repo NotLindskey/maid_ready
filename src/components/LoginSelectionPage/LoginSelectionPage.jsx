@@ -1,14 +1,16 @@
 import './LoginSelection.css';
+import { useHistory } from 'react-router-dom';
 
 function LoginSelection(){
+    const history = useHistory();
     return(
         <div className="login-register-selection-body">
-            <div>
-                <button>Sign in as an Owner</button>
+            <div className='login-owner'>
+                <button>Sign in/up as an Owner</button>
             </div>
 
-            <div>
-                <button>Sign in as a Keeper</button>
+            <div className='login-keeper'>
+                <button>Sign in/up as a Keeper</button>
             </div>
         </div>
     )
