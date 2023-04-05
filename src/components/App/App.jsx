@@ -22,6 +22,7 @@ import LoginPage from '../LoginPage/LoginPage';
 import AdminPage from '../AdminPage/AdminPage';
 import OwnerRegistration from '../RegisterPage/RegisterOwnerPage';
 import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
+import CleaningStandards from '../LandingPage/CleaningStandards';
 
 import './App.css';
 
@@ -74,6 +75,10 @@ function App() {
           <ProtectedRoute exact path="/admin">
             <AdminPage />
           </ProtectedRoute>
+
+          <Route exact path="/CleaningStandards">
+            <CleaningStandards />
+          </Route>
 
           <Route exact path="/login">
             {user.id ? (
