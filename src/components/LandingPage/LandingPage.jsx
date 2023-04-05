@@ -27,6 +27,14 @@ function LandingPage() {
 
         <button>Register Here</button>
       </div>
+
+      <div className="keeper-section"></div>
+      <h1>Become your own boss!</h1>
+      <p> Make a profile and decide when you want to work!</p>
+      <p>Choose your bookings based on your current location!</p>
+      <p> Maid Ready Cleaning Standards</p>
+
+      <button>Become a Keeper</button>
     </div>
   );
 }
