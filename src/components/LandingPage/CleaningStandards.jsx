@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
 import {useHistory} from 'react-router-dom'
 
 import '../App/App.css';
@@ -10,8 +9,8 @@ function CleaningStandards() {
     const history = useHistory();
 
   // Using hooks we're creating local state for a "heading" variable with
-  // a default value of 'Functional Component'
-//   const store = useSelector((store) => store);   // this is commented out until we need it or its deleted
+  // a default value of 'Maid Ready Cleaning Standards'
+
   const [heading, setHeading] = useState('Maid Ready Cleaning Standards');
 
   const goBack = () => {
@@ -19,14 +18,14 @@ function CleaningStandards() {
 }
 
   return (
-    <div>
+    <div className='container'>
         <div>
             <h2>{heading}</h2>
             <ol>
                 <li>Strip the beds, start load of sheets, if multiple sheets are provided make the bed with the second set that is provided.</li>
                 <li>Wash the comforter and shams (if requested by owner) will be extra charge.</li>
                 <li>Wipe down nightstands, dresser and if needed tv.</li>
-                <li>Clean bathroom: wipe down counters, sink, toilet (remember the base of toilet and neck), tub, mirror, stock paper products, remove any trash. (Repeat if multiple bathrooms)</li>
+                <li>Clean bathroom: wipe down counters, sink, toilet (don't forget the base of toilet and neck), tub, mirror, stock paper products, remove any trash. (Repeat if multiple bathrooms)</li>
                 <li> Check supply of hand soap and lotion, fill if necessary.</li>
                 <li>Check supply of hand soap and lotion, fill if necessary.</li>
                 <li>Clean kitchen: wipe down counters, appliances (stove top, fridge front) dishwasher, check inside fridge for any food left behind, remove any trash.</li>
@@ -52,7 +51,7 @@ function CleaningStandards() {
         </ul>
       </div>
       <div>
-        <label htmlFor="button">Become A Keeper!</label>
+        <p>Become A Keeper!</p>
 
         <button className='btn:hover' onClick={goBack}>Back</button>
         
