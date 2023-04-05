@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom'
 
 // component displaying MR cleaning standards
 // user arrives on this page after clicking link in LandingPage.jsx
 function CleaningStandards(props) {
+    const history = useHistory();
 
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
