@@ -49,7 +49,7 @@ function CleaningStandards(props) {
       </div>
       <div>
         <label htmlFor="button">Become A Keeper!</label>
-        <button onClick={goBack}>Back</button>
+        <button className='btn' onClick={goBack}>Back</button>
       </div>
 
     </div>
