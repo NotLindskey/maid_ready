@@ -3,11 +3,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegisterPage() {
+function RegisterKeeperPage() {
   const history = useHistory();
 
   return (
     <div>
+      <h2>Welcome Keeper</h2>
+      <p>Register here:</p>
       <RegisterForm />
 
       <center>
@@ -25,4 +27,4 @@ function RegisterPage() {
   );
 }
 
-export default RegisterPage;
+export default RegisterKeeperPage;
