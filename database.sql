@@ -14,9 +14,9 @@ CREATE TABLE "user" (
 CREATE TABLE "property" (
     "id" SERIAL PRIMARY KEY,
     "street" VARCHAR (300) NOT NULL,
-    "city" VARCHAR (1000) NOT NULL,
-    "state" VARCHAR (10) NOT NULL,
-    "zipcode" VARCHAR (300) NOT NULL,
+    "city" VARCHAR (300) NOT NULL,
+    "state" VARCHAR (100) NOT NULL,
+    "zipcode" VARCHAR (5) NOT NULL,
     "sq_footage" INT NOT NULL,
     "owner_id" INT REFERENCES "user"
 );
