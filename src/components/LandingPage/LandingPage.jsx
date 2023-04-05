@@ -13,6 +13,14 @@ function LandingPage() {
     history.push('/login');
   };
 
+  const registerHandle = () => {
+    console.log('Register Here Clicked!');
+  };
+
+  const registerKeeperHandle = () => {
+    console.log('Become a Keeper Clicked!');
+  };
+
   return (
     <div className="container">
       <h2>{heading}</h2>
@@ -24,7 +32,7 @@ function LandingPage() {
         </p>
         <p> Last-minute houseKeeping service is what we do!</p>
 
-        <button>Register Here</button>
+        <button onClick={registerHandle}>Register Here</button>
       </div>
       <div className="keeper-section"></div>
       <h1>Become your own boss!</h1>
@@ -33,7 +41,7 @@ function LandingPage() {
       <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
       <br />
       <br />
-      <button>Become a Keeper</button>
+      <button onClick={registerKeeperHandle}>Become a Keeper</button>
       <div className="landing-content">
         <h3>
           Get last-minute house keeping for your short term or vacation rental.
