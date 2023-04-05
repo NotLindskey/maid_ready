@@ -17,6 +17,10 @@ function LandingPage() {
     console.log('Register Here Clicked!');
   };
 
+  const registerKeeperHandle = () => {
+    console.log('Become a Keeper Clicked!');
+  };
+
   return (
     <div className="container">
       <h2>{heading}</h2>
@@ -37,7 +41,7 @@ function LandingPage() {
       <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
       <br />
       <br />
-      <button>Become a Keeper</button>
+      <button onClick={registerKeeperHandle}>Become a Keeper</button>
       <div className="landing-content">
         <h3>
           Get last-minute house keeping for your short term or vacation rental.
