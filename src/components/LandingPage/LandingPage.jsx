@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
@@ -16,7 +16,6 @@ function LandingPage() {
   return (
     <div className="container">
       <h2>{heading}</h2>
-
       <div className="owners-section">
         <h1>Need a quick clean?</h1>
         <p>Maid!Ready! 24/7</p>
@@ -27,15 +26,14 @@ function LandingPage() {
 
         <button>Register Here</button>
       </div>
-
       <div className="keeper-section"></div>
       <h1>Become your own boss!</h1>
       <p> Make a profile and decide when you want to work!</p>
       <p>Choose your bookings based on your current location!</p>
-      <p> Maid Ready Cleaning Standards</p>
-
+      <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
+      <br />
+      <br />
       <button>Become a Keeper</button>
-
       <div className="landing-content">
         <h3>
           Get last-minute house keeping for your short term or vacation rental.
