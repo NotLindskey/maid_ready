@@ -35,6 +35,40 @@ function LandingPage() {
       <p> Maid Ready Cleaning Standards</p>
 
       <button>Become a Keeper</button>
+
+      <div className="landing-content">
+        <h3>
+          Get last-minute house keeping for your short term or vacation rental.
+        </h3>
+        <p>
+          stop missing out on instant bookings just because you don't have a
+          scheduled cleaning. Make us your between clean!
+        </p>
+
+        <div className="grid">
+          <div className="grid-col grid-col_4">
+            <p>The streaks are talking!</p>
+            <p>
+              Our Keepers make sure your property looks and smells clean. And
+              trust, none of them are for the streaks!
+            </p>
+          </div>
+          <div className="grid-col grid-col_4">
+            <p>Eco-Friendly</p>
+            <p>
+              We live here too, we we provide mindful cleaning services that
+              wont harm our environment.
+            </p>
+          </div>
+          <div className="grid-col grid-col_4">
+            <p>Magic</p>
+            <p>
+              A clean, fresh smelling space after each guest, And you never even
+              have to lift a finger.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
