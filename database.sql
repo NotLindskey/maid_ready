@@ -30,7 +30,7 @@ CREATE TABLE "job" (
     "claimed" BOOLEAN,
     "property_id" INT REFERENCES "property",
     "owner_id" INT REFERENCES "user",
-    "keeper_id" INT REFERENCES "user",
+    "keeper_id" INT REFERENCES "user"
 );
 
 CREATE TABLE "checklist_item" (
