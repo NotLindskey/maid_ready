@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom'
+
+import '../App/App.css';
 
 // component displaying MR cleaning standards
 // user arrives on this page after clicking link in LandingPage.jsx
-function CleaningStandards(props) {
+function CleaningStandards() {
+    const history = useHistory();
 
   // Using hooks we're creating local state for a "heading" variable with
   // a default value of 'Functional Component'
@@ -11,7 +15,7 @@ function CleaningStandards(props) {
   const [heading, setHeading] = useState('Maid Ready Cleaning Standards');
 
   const goBack = () => {
-    history.push('/');      // leaving '/' until a different path name is set
+    history.push('/');      
 }
 
   return (
@@ -49,7 +53,9 @@ function CleaningStandards(props) {
       </div>
       <div>
         <label htmlFor="button">Become A Keeper!</label>
-        <button className='btn' onClick={goBack}>Back</button>
+
+        <button className='btn:hover' onClick={goBack}>Back</button>
+        
       </div>
 
     </div>
