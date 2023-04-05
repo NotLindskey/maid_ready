@@ -17,9 +17,9 @@ function LandingPage() {
     <div className="container">
       <h2>{heading}</h2>
 
-      <div className="cleaners-section">
+      <div className="owners-section">
         <h1>Need a quick clean?</h1>
-        <p>Maid! Ready! 24/7</p>
+        <p>Maid!Ready! 24/7</p>
         <p>
           Worry no more! We're your on demand solution when you're in a pinch.
         </p>
