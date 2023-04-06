@@ -107,7 +107,8 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <LoginPage />
+              // <LoginPage />
+              <ViewRequestsOwner />
             )}
           </Route>
 
