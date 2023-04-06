@@ -24,14 +24,12 @@ import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
 import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
 import CleaningStandards from "../LandingPage/CleaningStandards";
 
-import OwnersHomePage from "../OwnersHomePage/OwnersHomePage";
-
+import OwnersHomePage from "../Owners/OwnersHomePage"
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
-
 
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
-
+ 
 function App() {
   const dispatch = useDispatch();
 
@@ -90,7 +88,14 @@ function App() {
 
           {/* Login Selection */}
           <Route exact path="/login/selection">
-            <LoginSelection />
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the login page
+              <LoginSelection />
+            )}
           </Route>
 
           {/* login pages */}
@@ -160,11 +165,10 @@ function App() {
             ) : (
               // Otherwise, show the registration page
 
-              <OwnersHomePage />
-             
-
-              <OwnerRegistration type="owner" />
-
+              <>
+                <OwnersHomePage />
+                <OwnerRegistration type="owner" />
+              </>
             )}
           </Route>
 
