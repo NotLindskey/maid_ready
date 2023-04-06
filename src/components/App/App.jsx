@@ -141,7 +141,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <OwnerRegistration />
+              <OwnerRegistration type="owner"/>
             )}
           </Route>
 
@@ -152,7 +152,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <KeeperRegistration />
+              <KeeperRegistration type="keeper"/>
             )}
           </Route>
 
