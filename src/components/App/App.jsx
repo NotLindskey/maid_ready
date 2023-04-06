@@ -1,32 +1,32 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-// import RegisterPage from '../RegisterPage/RegisterPage';
-import AdminPage from '../AdminPage/AdminPage';
-import OwnerRegistration from '../RegisterPage/RegisterOwnerPage';
-import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
-import CleaningStandards from '../LandingPage/CleaningStandards';
-import ViewRequestsOwner from '../ViewRequestsOwner/ViewRequestsOwner';
+import AboutPage from "../AboutPage/AboutPage";
+import UserPage from "../UserPage/UserPage";
+import InfoPage from "../InfoPage/InfoPage";
+import LandingPage from "../LandingPage/LandingPage";
+import LoginPage from "../LoginPage/LoginPage";
+import RegisterPage from "../RegisterPage/RegisterPage";
+import AdminPage from "../AdminPage/AdminPage";
+import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
+import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
+import CleaningStandards from "../LandingPage/CleaningStandards";
+import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 
-import './App.css';
-import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
+import "./App.css";
+import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -34,7 +34,7 @@ function App() {
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
   return (
@@ -88,14 +88,50 @@ function App() {
           <Route exact path="/login/selection">
             <LoginSelection />
           </Route>
-          <Route exact path="/login">
+
+          {/* login pages */}
+          <Route exact path="/login/keeper">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the login page
-              <LoginPage />
+              <LoginPage type="keeper" />
+            )}
+          </Route>
+
+          <Route exact path="/login/owner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the login page
+              <LoginPage type="owner" />
+            )}
+          </Route>
+
+          {/* registration pages */}
+          <Route exact path="/register/keeper">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              <RegisterPage type="keeper" />
+            )}
+          </Route>
+
+          <Route exact path="/register/owner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              <RegisterPage type="owner" />
             )}
           </Route>
 
@@ -118,7 +154,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <OwnerRegistration />
+              <OwnerRegistration type="owner" />
             )}
           </Route>
 
@@ -129,7 +165,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <KeeperRegistration />
+              <KeeperRegistration type="keeper" />
             )}
           </Route>
 

@@ -6,6 +6,7 @@ import RegisterForm from '../RegisterForm/RegisterForm';
 function RegisterOwnerPage() {
   const history = useHistory();
 
+
   return (
     <div>
       <h2>Welcome Owner</h2>
@@ -17,7 +18,7 @@ function RegisterOwnerPage() {
           type="button"
           className="btn btn_asLink"
           onClick={() => {
-            history.push('/login');
+            history.push('/login/owner');
           }}
         >
           Login
