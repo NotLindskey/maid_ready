@@ -131,7 +131,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <RegisterPage type="ower" />
+              <RegisterPage type="owner" />
             )}
           </Route>
 
