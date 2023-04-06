@@ -13,8 +13,8 @@ function LandingPage() {
     history.push('/login');
   };
 
-  const registerHandle = () => {
-    console.log('Register Here Clicked!');
+  const registerOwnerHandle = () => {
+    console.log('Owners Register Here Clicked!');
     history.push('/register/owner');
   };
 
@@ -26,6 +26,7 @@ function LandingPage() {
   return (
     <div className="container">
       <h2>{heading}</h2>
+
       <div className="owners-section">
         <h1>Need a quick clean?</h1>
         <p>Maid!Ready! 24/7</p>
@@ -34,16 +35,19 @@ function LandingPage() {
         </p>
         <p> Last-minute houseKeeping service is what we do!</p>
 
-        <button onClick={registerHandle}>Register Here</button>
+        <button onClick={registerOwnerHandle}>Owners Register Here</button>
       </div>
-      <div className="keeper-section"></div>
-      <h1>Become your own boss!</h1>
-      <p> Make a profile and decide when you want to work!</p>
-      <p>Choose your bookings based on your current location!</p>
-      <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
-      <br />
-      <br />
-      <button onClick={registerKeeperHandle}>Become a Keeper</button>
+
+      <div className="keeper-section">
+        <h1>Become your own boss!</h1>
+        <p> Make a profile and decide when you want to work!</p>
+        <p>Choose your bookings based on your current location!</p>
+        <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
+        <br />
+        <br />
+        <button onClick={registerKeeperHandle}>Become a Keeper</button>
+      </div>
+
       <div className="landing-content">
         <h3>
           Get last-minute house keeping for your short term or vacation rental.
