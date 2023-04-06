@@ -23,6 +23,7 @@ import AdminPage from "../AdminPage/AdminPage";
 import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
 import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
 import CleaningStandards from "../LandingPage/CleaningStandards";
+import OwnersHomePage from "../OwnersHomePage/OwnersHomePage";
 
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
@@ -112,7 +113,8 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <OwnerRegistration />
+              <OwnersHomePage />
+              // <OwnerRegistration />
             )}
           </Route>
 
