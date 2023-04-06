@@ -18,11 +18,12 @@ import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
-import RegisterPage from '../RegisterPage/RegisterPage';
+import RegisterPage from "../RegisterPage/RegisterPage";
 import AdminPage from "../AdminPage/AdminPage";
 import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
 import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
 import CleaningStandards from "../LandingPage/CleaningStandards";
+import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
@@ -81,21 +82,12 @@ function App() {
             <CleaningStandards />
           </Route>
 
-
-
-
-
-
-
-
           {/* Login and Register Pages */}
 
           {/* Login Selection */}
-          <Route exact path='/login/selection'>
-            <LoginSelection/>
+          <Route exact path="/login/selection">
+            <LoginSelection />
           </Route>
-
-
 
           {/* login pages */}
           <Route exact path="/login/keeper">
@@ -105,7 +97,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the login page
-              <LoginPage type='keeper'/>
+              <LoginPage type="keeper" />
             )}
           </Route>
 
@@ -116,11 +108,9 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the login page
-              <LoginPage type='owner'/>
+              <LoginPage type="owner" />
             )}
           </Route>
-
-
 
           {/* registration pages */}
           <Route exact path="/register/keeper">
@@ -130,10 +120,9 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <RegisterPage type='keeper'/>
+              <RegisterPage type="keeper" />
             )}
           </Route>
-
 
           <Route exact path="/register/owner">
             {user.id ? (
@@ -142,13 +131,22 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <RegisterPage type='owner'/>
+              <RegisterPage type="ower" />
             )}
           </Route>
 
+          {/* ViewRequests */}
+          <Route exact path="/ViewRequestsOwner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              <LoginPage />
+            )}
+          </Route>
 
-
-          {/* hard coded Register Files */}
           <Route exact path="/OwnerRegistration">
             {user.id ? (
               // If the user is already logged in,
@@ -156,7 +154,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <OwnerRegistration type="owner"/>
+              <OwnerRegistration type="owner" />
             )}
           </Route>
 
@@ -167,7 +165,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <KeeperRegistration type="keeper"/>
+              <KeeperRegistration type="keeper" />
             )}
           </Route>
 
