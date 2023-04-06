@@ -1,29 +1,31 @@
 import React from 'react';
-import LoginForm from '../LoginForm/LoginForm';
-import { useHistory, useParams } from 'react-router-dom';
 
-function LoginPage({type}) {
+import { useHistory, useParams } from 'react-router-dom';
+import RegisterForm from '../RegisterForm/RegisterForm';
+
+function RegisterPage({type}) {
   const history = useHistory();
   const params = useParams();
-  const userType = type || params.type;
-  
+  const accountType = type || params.type
   return (
     <div>
-      <LoginForm />
-      <p>{userType}</p>
+      <h2>Welcome {accountType}</h2>
+      <p>Register here:</p>
+      <RegisterForm />
+
       <center>
         <button
           type="button"
           className="btn btn_asLink"
           onClick={() => {
-            history.push(`/register/${userType}`);
+            history.push('/login');
           }}
         >
-          Register
+          Login
         </button>
       </center>
     </div>
   );
 }
 
-export default LoginPage;
+export default RegisterPage;
