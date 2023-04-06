@@ -23,7 +23,11 @@ import AdminPage from "../AdminPage/AdminPage";
 import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
 import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
 import CleaningStandards from "../LandingPage/CleaningStandards";
+
+import OwnersHomePage from "../OwnersHomePage/OwnersHomePage";
+
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
+
 
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
@@ -150,7 +154,8 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <LoginPage />
+              // <LoginPage />
+              <ViewRequestsOwner />
             )}
           </Route>
 
@@ -161,7 +166,12 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
+
+              <OwnersHomePage />
+             
+
               <OwnerRegistration type="owner" />
+
             )}
           </Route>
 
