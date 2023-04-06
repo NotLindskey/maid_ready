@@ -3,10 +3,10 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegisterOwnerPage({ type }) {
+function RegisterOwnerPage() {
   const history = useHistory();
-  const accountType = type;
-  
+
+
   return (
     <div>
       <h2>Welcome Owner</h2>

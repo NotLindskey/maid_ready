@@ -3,10 +3,9 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegisterKeeperPage({ type }) {
+function RegisterKeeperPage() {
   const history = useHistory();
-  const accountType = type;
-  
+
   return (
     <div>
       <h2>Welcome Keeper</h2>
