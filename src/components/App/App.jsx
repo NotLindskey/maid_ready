@@ -24,7 +24,7 @@ import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
 import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
 import CleaningStandards from "../LandingPage/CleaningStandards";
 
-import OwnersHomePage from "../Owners/OwnersHomePage"
+import OwnersHomePage from "../OwnersHomePage/OwnersHomePage"
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 
 import "./App.css";
