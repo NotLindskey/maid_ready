@@ -120,6 +120,8 @@ function App() {
             )}
           </Route>
 
+
+
           {/* registration pages */}
           <Route exact path="/register/keeper">
             {user.id ? (
@@ -131,6 +133,7 @@ function App() {
               <RegisterPage type='keeper'/>
             )}
           </Route>
+
 
           <Route exact path="/register/owner">
             {user.id ? (
@@ -144,6 +147,8 @@ function App() {
           </Route>
 
 
+
+          {/* hard coded Register Files */}
           <Route exact path="/OwnerRegistration">
             {user.id ? (
               // If the user is already logged in,
