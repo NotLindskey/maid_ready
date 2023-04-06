@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {useSelector} from 'react-redux';
+import requestImg from './Request.png'; 
 
 
 function OwnersHomePage() {
@@ -12,7 +13,7 @@ function OwnersHomePage() {
     <div>
       <h2>{heading}</h2>
       <div className='container'>
-        <img src="public/images/Request.png" alt="image of two cleaners with cleaning tools" />
+        <img src={requestImg} alt="image of two cleaners with cleaning tools" />
         <button className='btn'>Create A Request</button>
       </div>
     </div>
