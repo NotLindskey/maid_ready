@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-function RegisterForm() {
+function RegisterForm({account_type}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -11,14 +11,16 @@ function RegisterForm() {
   const registerUser = (event) => {
     event.preventDefault();
 
+    if(account_type === 'keeper' || account_type === 'owner'){
     dispatch({
       type: 'REGISTER',
       payload: {
         username: username,
         password: password,
         email: email,
+        account_type: account_type,
       },
-    });
+    });}
   }; // end registerUser
 
   return (

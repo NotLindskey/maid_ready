@@ -98,38 +98,48 @@ function App() {
 
 
           {/* login pages */}
-          <Route exact path="/login/:type">
+          <Route exact path="/login/keeper">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the login page
-              <LoginPage />
+              <LoginPage type='keeper'/>
             )}
           </Route>
 
-          <Route exact path="/login/">
+          <Route exact path="/login/owner">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the login page
-              <LoginPage type="owner"/>
+              <LoginPage type='owner'/>
             )}
           </Route>
-
 
           {/* registration pages */}
-          <Route exact path="/register/:type">
+          <Route exact path="/register/keeper">
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <RegisterPage/>
+              <RegisterPage type='keeper'/>
+            )}
+          </Route>
+
+          <Route exact path="/register/owner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              <RegisterPage type='owner'/>
             )}
           </Route>
 
