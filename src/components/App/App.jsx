@@ -18,12 +18,16 @@ import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
 import LoginPage from "../LoginPage/LoginPage";
-// import RegisterPage from '../RegisterPage/RegisterPage';
+import RegisterPage from "../RegisterPage/RegisterPage";
 import AdminPage from "../AdminPage/AdminPage";
 import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
 import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
 import CleaningStandards from "../LandingPage/CleaningStandards";
+
 import OwnersHomePage from "../OwnersHomePage/OwnersHomePage";
+
+import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
+
 
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
@@ -82,26 +86,67 @@ function App() {
             <CleaningStandards />
           </Route>
 
-
-
-
-
-
-
-
           {/* Login and Register Pages */}
 
           {/* Login Selection */}
-          <Route exact path='/login/selection'>
-            <LoginSelection/>
+          <Route exact path="/login/selection">
+            <LoginSelection />
           </Route>
-          <Route exact path="/login">
+
+          {/* login pages */}
+          <Route exact path="/login/keeper">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the login page
+              <LoginPage type="keeper" />
+            )}
+          </Route>
+
+          <Route exact path="/login/owner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the login page
+              <LoginPage type="owner" />
+            )}
+          </Route>
+
+          {/* registration pages */}
+          <Route exact path="/register/keeper">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              <RegisterPage type="keeper" />
+            )}
+          </Route>
+
+          <Route exact path="/register/owner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              <RegisterPage type="owner" />
+            )}
+          </Route>
+
+          {/* ViewRequests */}
+          <Route exact path="/ViewRequestsOwner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
               <LoginPage />
             )}
           </Route>
@@ -113,8 +158,12 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
+
               <OwnersHomePage />
-              // <OwnerRegistration />
+             
+
+              <OwnerRegistration type="owner" />
+
             )}
           </Route>
 
@@ -125,7 +174,7 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-              <KeeperRegistration />
+              <KeeperRegistration type="keeper" />
             )}
           </Route>
 

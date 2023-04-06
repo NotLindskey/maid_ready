@@ -15,12 +15,12 @@ function LandingPage() {
 
   const registerHandle = () => {
     console.log('Register Here Clicked!');
-    history.push('/OwnerRegistration');
+    history.push('/register/owner');
   };
 
   const registerKeeperHandle = () => {
     console.log('Become a Keeper Clicked!');
-    history.push('/KeeperRegistration');
+    history.push('/register/keeper');
   };
 
   return (
