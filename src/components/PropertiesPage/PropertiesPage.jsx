@@ -7,6 +7,7 @@ import './PropertiesPage.css';
 function PropertiesPage(props) {
   //const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Properties');
+  const history = useHistory();
 
   return (
     <div>
@@ -14,6 +15,7 @@ function PropertiesPage(props) {
       <button className='btn'>Add A Property</button>
         <div className='properties-section'>
             <p>1234 Nicollet Ave Minneapolis, MN 55419</p>
+            <button>Select</button>
         </div>
     </div>
   );
