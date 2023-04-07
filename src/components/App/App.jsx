@@ -84,6 +84,10 @@ function App() {
             <CleaningStandards />
           </Route>
 
+          <ProtectedRoute exact path="/properties">
+            <PropertiesPage />
+          </ProtectedRoute>
+
           {/* Login and Register Pages */}
 
           {/* Login Selection */}
