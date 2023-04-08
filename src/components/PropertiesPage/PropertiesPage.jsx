@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import './PropertiesPage.css';
 
@@ -7,7 +7,12 @@ import './PropertiesPage.css';
 function PropertiesPage(props) {
   //const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Properties');
+  const dispatch = useDispatch();
   const history = useHistory();
+
+  useEffect(() => {
+    dispatch({type: 'FETCH_PROPERTIES'});
+    }, []);
 
   return (
     <div>
