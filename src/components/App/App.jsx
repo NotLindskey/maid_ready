@@ -27,6 +27,7 @@ import CleaningStandards from "../LandingPage/CleaningStandards";
 import OwnersHomePage from "../OwnersHomePage/OwnersHomePage"
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 import PropertiesPage from "../PropertiesPage/PropertiesPage";
+import CreateJobForm from "../CreateJobForm/CreateJobForm";
 
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
@@ -87,6 +88,10 @@ function App() {
 
           <ProtectedRoute exact path="/properties">
             <PropertiesPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/jobs/create">
+            <CreateJobForm />
           </ProtectedRoute>
 
           {/* Login and Register Pages */}
