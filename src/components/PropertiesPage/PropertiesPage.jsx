@@ -28,8 +28,6 @@ function PropertiesPage(props) {
                 </div>
               )
             })}
-            <p>1234 Nicollet Ave Minneapolis, MN 55419</p>
-            <button>Select</button>
         </div>
     </div>
   );
