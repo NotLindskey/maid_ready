@@ -3,21 +3,21 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegisterPage({type}) {
+function RegisterKeeperPage() {
   const history = useHistory();
 
   return (
     <div>
-      <h2>Welcome {type}</h2>
+      <h2>Welcome Keeper</h2>
       <p>Register here:</p>
-      <RegisterForm account_type={type}/>
+      <RegisterForm />
 
       <center>
         <button
           type="button"
           className="btn btn_asLink"
           onClick={() => {
-            history.push(`/login/${type}`);
+            history.push('/login/keeper');
           }}
         >
           Login
@@ -27,4 +27,4 @@ function RegisterPage({type}) {
   );
 }
 
-export default RegisterPage;
+export default RegisterKeeperPage;

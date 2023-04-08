@@ -1,22 +1,26 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-function RegisterForm() {
+function RegisterForm({account_type}) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
 
   const registerUser = (event) => {
     event.preventDefault();
 
+    if(account_type === 'keeper' || account_type === 'owner'){
     dispatch({
       type: 'REGISTER',
       payload: {
         username: username,
         password: password,
+        email: email,
+        account_type: account_type,
       },
-    });
+    });}
   }; // end registerUser
 
   return (
@@ -48,6 +52,18 @@ function RegisterForm() {
             value={password}
             required
             onChange={(event) => setPassword(event.target.value)}
+          />
+        </label>
+      </div>
+      <div>
+        <label htmlFor="email">
+          Email:
+          <input
+            type="email"
+            name="email"
+            value={email}
+            required
+            onChange={(event) => setEmail(event.target.value)}
           />
         </label>
       </div>

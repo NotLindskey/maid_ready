@@ -1,0 +1,13 @@
+.list-section {
+  background-color: hsl(193, 73%, 61%);
+  padding: 4px;
+}
+
+.list-active-requests,
+.list-completed-requests {
+  background-color: pink;
+}
+
+.list-completed-requests {
+  background-color: pink;
+}
