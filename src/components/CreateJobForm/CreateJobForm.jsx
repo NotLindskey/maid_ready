@@ -40,7 +40,7 @@ function CreateJobForm(props) {
             <label htmlFor="price">Price:</label>
             <input value={price} onChange={(event) => setPrice(event.target.value)} type="number"/>
             <br/>
-            <label htmlFor="date">Date:</label>
+            <label htmlFor="date">Date Completed By:</label>
             <input value={date} onChange={(event) => setDate(event.target.value)} type="date"/>
             <br/>
             <label htmlFor="time">Time:</label>
