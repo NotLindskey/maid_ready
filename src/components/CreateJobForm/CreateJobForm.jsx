@@ -8,7 +8,7 @@ function CreateJobForm(props) {
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
   const [zipcode, setZipcode] = useState('');
-  const [sq_footage, setSq_Footage] = useState('');
+  const [sqFootage, setSqFootage] = useState('');
   const [price, setPrice] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
@@ -34,8 +34,8 @@ function CreateJobForm(props) {
             <label htmlFor="zipcode">Zip Code:</label>
             <input value={zipcode} onChange={(event) => setZipcode(event.target.value)} type="text"/>
             <br/>
-            <label htmlFor="sq_footage">Sq Footage:</label>
-            <input value={sq_footage} onChange={(event) => setSq_Footage(event.target.value)} type="number"/>
+            <label htmlFor="sqFootage">Sq Footage:</label>
+            <input value={sqFootage} onChange={(event) => setSqFootage(event.target.value)} type="number"/>
             <br/>
             <label htmlFor="price">Price:</label>
             <input value={price} onChange={(event) => setPrice(event.target.value)} type="number"/>
