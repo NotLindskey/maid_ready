@@ -4,13 +4,14 @@ import './AdminPage.css';
  
  function AdminPage() {
     const dispatch = useDispatch();
-    const [manageUser, setManageUser] = useState('');
-    const [userType, setUserType] = useState('');
+    const [userName, setUserName] = useState('');
+    const [accountType, setAccountType] = useState('');
     const [email, setEmail] = useState('');
 
     //handles when the user clicks the add-btn
     const handleAdd = () => {
         //pop up modal to get password and email for the admin
+        // dispatch({type: 'REGISTER', payload: });
     }
 
     //handles when the user clicks the remove-btn
@@ -21,21 +22,17 @@ import './AdminPage.css';
         }else if (userType == ''){
             alert('Please select a user type.');
         }
-        //check if the user type is admin to pop up a modal
-        else if (userType == 'admin'){
-            //pop up modal to ask if the user wants to remove the admin or the admin's privileges
-            return;
-        }
         //remove the user
         else{
-            // dispatch({type: '', payload: {
-
-            // }})
+            dispatch({type: 'DELETE_USER', payload: {
+                userName: userName,
+                accountType: accountType,
+            }});
         }
     }
 
-    const toggleAddBtn = (value) => {
-        setManageUser(value);
+    const toggleAddBtn = (type, value) => {
+        setManageUser(type);
         document.getElementById("add-btn").disabled = value;
     }
 
@@ -46,14 +43,14 @@ import './AdminPage.css';
 
             <div id="manage-user-inputs">
                 <label> User Name:
-                    <input id="user-name-input" onChange={(event) => setManageUser(event.target.value)}></input>
+                    <input id="user-name-input" onChange={(event) => setUserName(event.target.value)}></input>
                 </label>
             </div>
             
             <div id="radio-btn-div" onChange={(event) => setUserType(event.target.value)}>
-                <input type="radio" value="admin" name="user" onChange={() => toggleAddBtn(false)}/> Admin <br></br>
-                <input type="radio" value="owner" name="user" onChange={() => toggleAddBtn(true)}/> Owner <br></br>
-                <input type="radio" value="keeper" name="user" onChange={() => toggleAddBtn(true)}/> Keeper
+                <input type="radio" value="admin" name="user" onChange={() => toggleAddBtn('admin', false)}/> Admin <br></br>
+                <input type="radio" value="owner" name="user" onChange={() => toggleAddBtn('owner', true)}/> Owner <br></br>
+                <input type="radio" value="keeper" name="user" onChange={() => toggleAddBtn('keeper', true)}/> Keeper
             </div>
 
             <div id="add-remove-btn-div">
