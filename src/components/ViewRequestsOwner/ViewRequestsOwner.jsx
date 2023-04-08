@@ -1,4 +1,5 @@
 import React from 'react';
+import ActiveRequest from '../ViewRequestsOwner/ActiveRequest/ActiveRequest';
 import './ViewRequestsOwner.css';
 
 function ViewRequestsOwner() {
@@ -17,7 +18,7 @@ function ViewRequestsOwner() {
 
         <div className="list-active-requests">
           <p>Active Requests:</p>
-          <p>[Recent 4 Active Requests component goes here]</p>
+          <ActiveRequest />
         </div>
 
         <div className="list-completed-requests">
