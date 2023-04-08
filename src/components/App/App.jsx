@@ -26,6 +26,7 @@ import CleaningStandards from "../LandingPage/CleaningStandards";
 
 import OwnersHomePage from "../OwnersHomePage/OwnersHomePage"
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
+import PropertiesPage from "../PropertiesPage/PropertiesPage";
 
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
@@ -83,6 +84,10 @@ function App() {
           <Route exact path="/CleaningStandards">
             <CleaningStandards />
           </Route>
+
+          <ProtectedRoute exact path="/properties">
+            <PropertiesPage />
+          </ProtectedRoute>
 
           {/* Login and Register Pages */}
 
