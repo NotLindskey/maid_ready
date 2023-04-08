@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import './AdminPage.css';
  
@@ -7,11 +7,6 @@ import './AdminPage.css';
     const [manageUser, setManageUser] = useState('');
     const [userType, setUserType] = useState('');
     const [email, setEmail] = useState('');
-    const [userState, setUserState] = useState(true);
-
-    useEffect(() => {
-        
-      }, []);
 
     //handles when the user clicks the add-btn
     const handleAdd = () => {
@@ -25,8 +20,6 @@ import './AdminPage.css';
             alert('Please enter a user name.');
         }else if (userType == ''){
             alert('Please select a user type.');
-        }else if (email == ''){
-            alert('Please enter an email address.');
         }
         //check if the user type is admin to pop up a modal
         else if (userType == 'admin'){
@@ -41,8 +34,9 @@ import './AdminPage.css';
         }
     }
 
-    const toggleAddBtn = () => {
-        document.getElementById("add-btn").disabled = userState;
+    const toggleAddBtn = (value) => {
+        setManageUser(value);
+        document.getElementById("add-btn").disabled = value;
     }
 
     return(
@@ -57,9 +51,9 @@ import './AdminPage.css';
             </div>
             
             <div id="radio-btn-div" onChange={(event) => setUserType(event.target.value)}>
-                <input type="radio" value="admin" name="user" checked={setUserState(true)}/> Admin <br></br>
-                <input type="radio" value="owner" name="user" checked={setUserState(false)}/> Owner <br></br>
-                <input type="radio" value="keeper" name="user" checked={setUserState(false)}/> Keeper
+                <input type="radio" value="admin" name="user" onChange={() => toggleAddBtn(false)}/> Admin <br></br>
+                <input type="radio" value="owner" name="user" onChange={() => toggleAddBtn(true)}/> Owner <br></br>
+                <input type="radio" value="keeper" name="user" onChange={() => toggleAddBtn(true)}/> Keeper
             </div>
 
             <div id="add-remove-btn-div">
