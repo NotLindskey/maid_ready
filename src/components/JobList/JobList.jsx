@@ -1,7 +1,9 @@
 import './JobList.css';
 function JobList(){
     return(
-        <div></div>
+        <div>
+            
+        </div>
     )
 }
 

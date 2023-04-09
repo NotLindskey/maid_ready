@@ -28,6 +28,7 @@ import OwnersHomePage from "../OwnersHomePage/OwnersHomePage"
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 import PropertiesPage from "../PropertiesPage/PropertiesPage";
 
+import JobList from "../JobList/JobList";
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
  
@@ -89,6 +90,11 @@ function App() {
             <PropertiesPage />
           </ProtectedRoute>
 
+
+          <ProtectedRoute exact path="/keeper/job-list">
+            <JobList/>
+          </ProtectedRoute>
+          
           {/* Login and Register Pages */}
 
           {/* Login Selection */}
