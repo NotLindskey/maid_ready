@@ -1,0 +1,50 @@
+.job-item-body{
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    
+    position: relative;
+}
+
+.job-item-body p{
+    margin: 0;
+}
+
+
+/* name and address */
+.job-item-dot{
+    background-color: black;
+    height: 5px;
+    width: 5px;
+    border-radius: 100%;
+}
+.job-item-name-address{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+
+    gap: 1rem;
+}
+
+/* distance */
+.job-item-distance, .job-item-due-date{
+    font-size: 17px;
+}
+
+/* price */
+.job-item-price{
+    font-size: 40px;
+}
+
+/* accept buttion */
+.job-item-accept-button{
+    width: 6rem;
+    height: 3rem;
+    border: none;
+    background-color: rgb(230,230,230);
+    border-radius: 7px;
+
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+}
