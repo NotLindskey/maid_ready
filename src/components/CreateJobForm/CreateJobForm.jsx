@@ -17,6 +17,11 @@ function CreateJobForm(props) {
     event.preventDefault();
   }
 
+//   const calculatePrice = () => {
+//     price = (0.08 * sqFootage);
+//     return price;
+//   }
+
   return (
     <div>
       <h2>{heading}</h2>
