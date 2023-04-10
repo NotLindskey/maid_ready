@@ -13,6 +13,27 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
+import AboutPage from '../AboutPage/AboutPage';
+import UserPage from '../UserPage/UserPage';
+import InfoPage from '../InfoPage/InfoPage';
+import LandingPage from '../LandingPage/LandingPage';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import AdminPage from '../AdminPage/AdminPage';
+import OwnerRegistration from '../RegisterPage/RegisterOwnerPage';
+import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
+import CleaningStandards from '../LandingPage/CleaningStandards';
+
+
+import OwnersHomePage from "../OwnersHomePage/OwnersHomePage"
+import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
+import PropertiesPage from "../PropertiesPage/PropertiesPage";
+import CreateJobForm from "../CreateJobForm/CreateJobForm";
+
+import './App.css';
+import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
+
+
 function App() {
   const dispatch = useDispatch();
 
