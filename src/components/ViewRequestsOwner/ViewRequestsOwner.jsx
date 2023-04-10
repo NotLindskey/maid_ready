@@ -1,7 +1,6 @@
 import React from 'react';
 import ActiveRequest from '../ViewRequestsOwner/ActiveRequest/ActiveRequest';
 import CompletedRequest from './CompletedRequest/CompletedRequest';
-
 import './ViewRequestsOwner.css';
 
 function ViewRequestsOwner() {
