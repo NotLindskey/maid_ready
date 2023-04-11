@@ -1,0 +1,72 @@
+.job-item-body {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: .2rem;
+  padding: 1rem;
+
+  transition: box-shadow ease .3s;
+}
+
+.job-item-body p {
+  margin: 0;
+}
+
+.job-item-body:hover{
+    box-shadow: rgba(99, 99, 99, 0.3) 1px 2px 9px 1px;
+}
+/* name and address */
+.job-item-dot {
+  background-color: black;
+  height: 5px;
+  width: 5px;
+  border-radius: 100%;
+}
+.job-item-name-address {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  color:rgb(75,75,75);
+  gap: 1rem;
+  margin-bottom: .05rem;
+}
+
+/* distance */
+.job-item-distance,
+.job-item-due-date {
+  font-size: 17px;
+  color:rgb(125,125,125)
+}
+
+/* price */
+.job-item-price {
+  font-size: 35px;
+  margin-top: .2rem;
+}
+
+/* accept buttion */
+.job-item-accept-button {
+  width: 6rem;
+  height: 3rem;
+  border: none;
+  background-color: rgb(240, 240, 240);
+  border-radius: 7px;
+
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+
+  transition: background-color ease .1s;
+}
+
+
+.job-item-accept-button:hover{
+    background-color: rgb(230, 230, 230);
+    cursor: pointer;
+}
+
+.job-item-accept-button:active{
+    background-color: rgb(210,210,210);
+}
