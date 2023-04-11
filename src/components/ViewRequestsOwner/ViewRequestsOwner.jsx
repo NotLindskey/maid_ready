@@ -1,6 +1,5 @@
 import React from 'react';
 import ActiveRequest from '../ViewRequestsOwner/ActiveRequest/ActiveRequest';
-import CompletedRequest from './CompletedRequest/CompletedRequest';
 import './ViewRequestsOwner.css';
 
 function ViewRequestsOwner() {
@@ -24,11 +23,7 @@ function ViewRequestsOwner() {
 
         <div className="list-completed-requests">
           <p>Completed Requests:</p>
-          <CompletedRequest />
-        </div>
-        <br />
-        <div>
-          <button>Back</button>
+          <p>[Recent 4 Completed Requests component goes here]</p>
         </div>
       </div>
     </div>
