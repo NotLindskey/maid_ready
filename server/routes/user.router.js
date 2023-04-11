@@ -49,4 +49,17 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+//delete a user from the admin page
+//we are using a POST command so we could send multiple pieces of data from the front end
+router.post('/deleteUser', (req,res) => {
+  let queryText = `DELETE FROM "user" WHERE "username" = ${req.body.userName} AND "account_type" = ${req.body.accountType}`;
+
+  pool.query(queryText)
+  .then(() => {
+    res.sendStatus(200);
+  }).catch((error) => {
+    console.log('error in user.router.js /deleteUser', error);
+  });
+});
+
 module.exports = router;
