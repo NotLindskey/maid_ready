@@ -6,12 +6,17 @@
   position: relative;
   gap: .2rem;
   padding: 1rem;
+
+  transition: box-shadow ease .3s;
 }
 
 .job-item-body p {
   margin: 0;
 }
 
+.job-item-body:hover{
+    box-shadow: rgba(99, 99, 99, 0.3) 1px 2px 9px 1px;
+}
 /* name and address */
 .job-item-dot {
   background-color: black;

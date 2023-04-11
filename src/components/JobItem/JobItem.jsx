@@ -17,7 +17,7 @@ function JobItem(){
             <div className='job-item-price'>
                 <p>$400</p>
             </div>
-            <button className='job-item-accept-button'><p>Accept</p></button>
+            <button className='job-item-accept-button'><p>view</p></button>
         </div>
     )
 }
