@@ -1,28 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
-} from 'react-router-dom';
+} from "react-router-dom";
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 
-import Nav from '../Nav/Nav';
-import Footer from '../Footer/Footer';
+import Nav from "../Nav/Nav";
+import Footer from "../Footer/Footer";
 
-import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
+import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-import AboutPage from '../AboutPage/AboutPage';
-import UserPage from '../UserPage/UserPage';
-import InfoPage from '../InfoPage/InfoPage';
-import LandingPage from '../LandingPage/LandingPage';
-import LoginPage from '../LoginPage/LoginPage';
-import RegisterPage from '../RegisterPage/RegisterPage';
-import AdminPage from '../AdminPage/AdminPage';
-import OwnerRegistration from '../RegisterPage/RegisterOwnerPage';
-import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
-import CleaningStandards from '../LandingPage/CleaningStandards';
+import AboutPage from "../AboutPage/AboutPage";
+import UserPage from "../UserPage/UserPage";
+import InfoPage from "../InfoPage/InfoPage";
+import LandingPage from "../LandingPage/LandingPage";
+import LoginPage from "../LoginPage/LoginPage";
+import RegisterPage from "../RegisterPage/RegisterPage";
+import AdminPage from "../AdminPage/AdminPage";
+import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
+import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
+import CleaningStandards from "../LandingPage/CleaningStandards";
 
 
 import OwnersHomePage from '../UserPage/OwnersHomePage/OwnersHomePage';
@@ -30,9 +30,10 @@ import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 import PropertiesPage from "../PropertiesPage/PropertiesPage";
 import CreateJobForm from "../CreateJobForm/CreateJobForm";
 
-import './App.css';
-import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
+import "./App.css";
+import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
 
+import JobList from "../JobList/JobList";
 
 function App() {
   const dispatch = useDispatch();
@@ -40,7 +41,7 @@ function App() {
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_USER' });
+    dispatch({ type: "FETCH_USER" });
   }, [dispatch]);
 
   return (
@@ -92,6 +93,10 @@ function App() {
             <PropertiesPage />
           </ProtectedRoute>
 
+          <ProtectedRoute exact path="/keeper/job-list">
+            <JobList />
+          </ProtectedRoute>
+          
           <ProtectedRoute exact path="/jobs/create">
             <CreateJobForm />
           </ProtectedRoute>

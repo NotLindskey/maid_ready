@@ -1,0 +1,14 @@
+.job-list-body{
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+
+}
+.job-list-container{
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    justify-content: center;
+    gap: 3rem;
+
+    width: 80rem;
+}
