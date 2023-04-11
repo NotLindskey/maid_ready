@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import './LandingPage.css';
 
 // CUSTOM COMPONENTS
@@ -13,53 +13,72 @@ function LandingPage() {
     history.push('/login');
   };
 
+  const registerOwnerHandle = () => {
+    console.log('Owners Register Here Clicked!');
+    history.push('/register/owner');
+  };
+
+  const registerKeeperHandle = () => {
+    console.log('Become a Keeper Clicked!');
+    history.push('/register/keeper');
+  };
+
   return (
     <div className="container">
       <h2>{heading}</h2>
 
-      <div className="grid">
-        <div className="grid-col grid-col_8">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
-            id felis metus. Vestibulum et pulvinar tortor. Morbi pharetra lacus
-            ut ex molestie blandit. Etiam et turpis sit amet risus mollis
-            interdum. Suspendisse et justo vitae metus bibendum fringilla sed
-            sed justo. Aliquam sollicitudin dapibus lectus, vitae consequat odio
-            elementum eget. Praesent efficitur eros vitae nunc interdum, eu
-            interdum justo facilisis. Sed pulvinar nulla ac dignissim efficitur.
-            Quisque eget eros metus. Vestibulum bibendum fringilla nibh a
-            luctus. Duis a sapien metus.
-          </p>
+      <div className="owners-section">
+        <h1>Need a quick clean?</h1>
+        <p>Maid!Ready! 24/7</p>
+        <p>
+          Worry no more! We're your on demand solution when you're in a pinch.
+        </p>
+        <p> Last-minute houseKeeping service is what we do!</p>
 
-          <p>
-            Praesent consectetur orci dui, id elementum eros facilisis id. Sed
-            id dolor in augue porttitor faucibus eget sit amet ante. Nunc
-            consectetur placerat pharetra. Aenean gravida ex ut erat commodo, ut
-            finibus metus facilisis. Nullam eget lectus non urna rhoncus
-            accumsan quis id massa. Curabitur sit amet dolor nisl. Proin
-            euismod, augue at condimentum rhoncus, massa lorem semper lacus, sed
-            lobortis augue mi vel felis. Duis ultrices sapien at est convallis
-            congue.
-          </p>
+        <button onClick={registerOwnerHandle}>Owners Register Here</button>
+      </div>
 
-          <p>
-            Fusce porta diam ac tortor elementum, ut imperdiet metus volutpat.
-            Suspendisse posuere dapibus maximus. Aliquam vitae felis libero. In
-            vehicula sapien at semper ultrices. Vivamus sed feugiat libero. Sed
-            sagittis neque id diam euismod, ut egestas felis ultricies. Nullam
-            non fermentum mauris. Sed in enim ac turpis faucibus pretium in sit
-            amet nisi.
-          </p>
-        </div>
-        <div className="grid-col grid-col_4">
-          <RegisterForm />
+      <div className="keeper-section">
+        <h1>Become your own boss!</h1>
+        <p> Make a profile and decide when you want to work!</p>
+        <p>Choose your bookings based on your current location!</p>
+        <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
+        <br />
+        <br />
+        <button onClick={registerKeeperHandle}>Become a Keeper</button>
+      </div>
 
-          <center>
-            <h4>Already a Member?</h4>
-            <button className="btn btn_sizeSm" onClick={onLogin}>
-              Login
-            </button>
-          </center>
+      <div className="landing-content">
+        <h3>
+          Get last-minute house keeping for your short term or vacation rental.
+        </h3>
+        <p>
+          stop missing out on instant bookings just because you don't have a
+          scheduled cleaning. Make us your between clean!
+        </p>
+
+        <div className="grid">
+          <div className="grid-col grid-col_4">
+            <p>The streaks are talking!</p>
+            <p>
+              Our Keepers make sure your property looks and smells clean. And
+              trust, none of them are for the streaks!
+            </p>
+          </div>
+          <div className="grid-col grid-col_4">
+            <p>Eco-Friendly</p>
+            <p>
+              We live here too, we we provide mindful cleaning services that
+              wont harm our environment.
+            </p>
+          </div>
+          <div className="grid-col grid-col_4">
+            <p>Magic</p>
+            <p>
+              A clean, fresh smelling space after each guest, And you never even
+              have to lift a finger.
+            </p>
+          </div>
         </div>
       </div>
     </div>

@@ -20,13 +20,21 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import AdminPage from '../AdminPage/AdminPage';
+import OwnerRegistration from '../RegisterPage/RegisterOwnerPage';
+import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
+import CleaningStandards from '../LandingPage/CleaningStandards';
+
+import OwnersHomePage from '../OwnersHomePage/OwnersHomePage';
+import ViewRequestsOwner from '../ViewRequestsOwner/ViewRequestsOwner';
+import PropertiesPage from '../PropertiesPage/PropertiesPage';
 
 import './App.css';
+import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
 
 function App() {
   const dispatch = useDispatch();
 
-  const user = useSelector(store => store.user);
+  const user = useSelector((store) => store.user);
 
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
@@ -69,52 +77,126 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          <ProtectedRoute
-            exact path="/admin">
-
+          <ProtectedRoute exact path="/admin">
             <AdminPage />
           </ProtectedRoute>
 
-          <Route
-            exact
-            path="/login"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/CleaningStandards">
+            <CleaningStandards />
+          </Route>
+
+          <ProtectedRoute exact path="/properties">
+            <PropertiesPage />
+          </ProtectedRoute>
+
+          {/* Login and Register Pages */}
+
+          {/* Login Selection */}
+          <Route exact path="/login/selection">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the login page
-              <LoginPage />
-            }
+              <LoginSelection />
+            )}
           </Route>
 
-          <Route
-            exact
-            path="/registration"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          {/* login pages */}
+          <Route exact path="/login/keeper">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the login page
+              <LoginPage type="keeper" />
+            )}
+          </Route>
+
+          <Route exact path="/login/owner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the login page
+              <LoginPage type="owner" />
+            )}
+          </Route>
+
+          {/* registration pages */}
+          <Route exact path="/register/keeper">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
               // Otherwise, show the registration page
-              <RegisterPage />
-            }
+              <RegisterPage type="keeper" />
+            )}
           </Route>
 
-          <Route
-            exact
-            path="/home"
-          >
-            {user.id ?
-              // If the user is already logged in, 
+          <Route exact path="/register/owner">
+            {user.id ? (
+              // If the user is already logged in,
               // redirect them to the /user page
               <Redirect to="/user" />
-              :
+            ) : (
+              // Otherwise, show the registration page
+              <RegisterPage type="owner" />
+            )}
+          </Route>
+
+          {/* View Requests Page for Owners*/}
+          <Route exact path="/ViewRequestsOwner">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              // <LoginPage />
+              <ViewRequestsOwner />
+            )}
+          </Route>
+
+          <Route exact path="/OwnerRegistration">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+
+              <>
+                <OwnersHomePage />
+                <OwnerRegistration type="owner" />
+              </>
+            )}
+          </Route>
+
+          <Route exact path="/KeeperRegistration">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              <KeeperRegistration type="keeper" />
+            )}
+          </Route>
+
+          <Route exact path="/home">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
               // Otherwise, show the Landing page
               <LandingPage />
-            }
+            )}
           </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
