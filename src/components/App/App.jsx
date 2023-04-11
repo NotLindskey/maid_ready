@@ -24,8 +24,8 @@ import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
 import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
 import CleaningStandards from "../LandingPage/CleaningStandards";
 
-
-import OwnersHomePage from '../UserPage/OwnersHomePage/OwnersHomePage';
+import KeeperHomePage from "../UserPage/KeeperHomePage/KeeperHomePage";
+import OwnersHomePage from "../UserPage/OwnersHomePage/OwnersHomePage";
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 import PropertiesPage from "../PropertiesPage/PropertiesPage";
 import CreateJobForm from "../CreateJobForm/CreateJobForm";
@@ -96,7 +96,7 @@ function App() {
           <ProtectedRoute exact path="/keeper/job-list">
             <JobList />
           </ProtectedRoute>
-          
+
           <ProtectedRoute exact path="/jobs/create">
             <CreateJobForm />
           </ProtectedRoute>
@@ -120,7 +120,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <KeeperHomePage />
             ) : (
               // Otherwise, show the login page
               <LoginPage type="keeper" />
@@ -143,7 +143,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <KeeperHomePage />
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="keeper" />
