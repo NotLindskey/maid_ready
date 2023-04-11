@@ -25,7 +25,7 @@ import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
 import CleaningStandards from '../LandingPage/CleaningStandards';
 
 
-import OwnersHomePage from "../OwnersHomePage/OwnersHomePage"
+import OwnersHomePage from '../UserPage/OwnersHomePage/OwnersHomePage';
 import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
 import PropertiesPage from "../PropertiesPage/PropertiesPage";
 import CreateJobForm from "../CreateJobForm/CreateJobForm";
