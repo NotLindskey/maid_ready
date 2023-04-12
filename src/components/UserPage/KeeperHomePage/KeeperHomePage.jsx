@@ -1,5 +1,5 @@
 import "./KeeperHomePage.css";
-
+import JobFeature from "./JobFeature/JobFeature";
 function KeeperHomePage() {
   return (
     <div className="keeper-home-page-body">
@@ -11,7 +11,9 @@ function KeeperHomePage() {
 
       {/* conditonal rendering */}
       {/* active job */}
-      <div className="keeper-home-page-active-job"></div>
+      <div className="keeper-home-page-active-job">
+        <JobFeature/>
+      </div>
 
       {/* previous jobs */}
       <div className="keeper-home-page-previous-job"></div>
