@@ -1,6 +1,6 @@
 import React from 'react';
 
-function CompleteRequest() {
+function OwnerCompletedRequest() {
   console.log('in active request component');
 
   return (
@@ -27,4 +27,4 @@ function CompleteRequest() {
   );
 }
 
-export default CompleteRequest;
+export default OwnerCompletedRequest;
