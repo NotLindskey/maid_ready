@@ -22,6 +22,7 @@ router.get("/", (req, res) => {
         ON "job"."owner_id" = "user"."id"
         JOIN "property" 
         ON "property"."id" = "job"."property_id";`;
+        
     pool
       .query(query)
       .then((result) => {

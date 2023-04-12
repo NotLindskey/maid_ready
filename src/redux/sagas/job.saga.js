@@ -15,8 +15,8 @@ function* fetchJobs() {
       withCredentials: true,
     };
 
-    const jobsData = axios.get('/api/job')
-
+    const jobsData = yield axios.get('/api/job')
+    console.log(jobsData.data)
     yield put({ type: 'SET_JOBS', payload: jobsData.data });
   } catch (err) {
     console.log("Error with fetching jobs: ", err);

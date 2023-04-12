@@ -4,7 +4,10 @@ import { combineReducers } from "redux";
 function jobs(state = [], action) {
   switch (action.type) {
     case "SET_JOBS":
-      return action.payload;
+        if(action.payload){
+            return action.payload;
+        }
+      return [];
     case "RESET_JOBS":
       return [];
     case "RESET":
