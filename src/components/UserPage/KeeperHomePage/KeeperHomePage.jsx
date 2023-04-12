@@ -2,11 +2,14 @@ import "./KeeperHomePage.css";
 import JobCarousel from "./JobCarousel/JobCarousel";
 import JobItem from "../../JobItem/JobItem";
 import JobFeature from "./JobFeature/JobFeature";
+import { useHistory } from "react-router-dom";
 function KeeperHomePage() {
+  const history = useHistory();
+
   return (
     <div className="keeper-home-page-body">
       <div className="keeper-home-page-find-job-container">
-        <button className="keeper-home-page-find-job-button">
+        <button className="keeper-home-page-find-job-button" onClick={()=>{history.push('/keeper/job-list')}}>
           <p>Find A Job</p>
         </button>
       </div>
