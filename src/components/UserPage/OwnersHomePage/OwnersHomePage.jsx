@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import requestImg from './Request.png'; 
 import viewImg from './View.png';
 import { useHistory } from 'react-router';
+import UserPage from '../UserPage';
 
 function OwnersHomePage() {
   // Using hooks we're creating local state for a "heading" variable with
@@ -18,6 +19,7 @@ function OwnersHomePage() {
 
   return (
     <div>
+      <UserPage />
       <h2 className='heading'>{heading}</h2>
       <div className='container1'>
         <img src={requestImg} alt="image of two cleaners with cleaning tools" />
