@@ -3,7 +3,7 @@ import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
 import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedRequest';
 
 function OwnerCompletedRequestPage() {
-  console.log('in the OwnerActiveRequestPage');
+  console.log('in the OwnerCompletedRequestPage');
 
   return (
     <div>
