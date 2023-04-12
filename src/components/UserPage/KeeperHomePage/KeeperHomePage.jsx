@@ -1,5 +1,5 @@
 import "./KeeperHomePage.css";
-import JobFeature from "./JobFeature/JobFeature";
+import JobCarousel from "./JobCarousel/JobCarousel";
 import JobItem from "../../JobItem/JobItem";
 function KeeperHomePage() {
   return (
@@ -15,23 +15,38 @@ function KeeperHomePage() {
       <div className="keeper-home-page-active-job">
         <div className="keeper-home-active-info">
           <div className="keeper-home-active-dot"></div>
-          <p  className="keeper-home-active-title">Active</p>
-          <div  className="keeper-home-active-navigate">
+          <p className="keeper-home-active-title">Active</p>
+          <div className="keeper-home-active-navigate">
             <div className="arrow-right"></div>
             <p>view all activity</p>
           </div>
         </div>
-        <JobItem width={60}/>
+        <JobItem width={60} />
       </div>
 
       {/* previous jobs */}
       <div className="keeper-home-page-previous-job">
-        <JobFeature />
+        <div className="keeper-header-link">
+          <p className="keeper-home-link-title">Pervious Jobs</p>
+          <div className="keeper-home-active-navigate">
+            <div className="arrow-right"></div>
+            <p>view</p>
+          </div>
+        </div>
+
+        <JobCarousel />
       </div>
 
       {/* applied jobs */}
       <div className="keeper-home-page-applied-job">
-        <JobFeature />
+        <div className="keeper-header-link">
+          <p className="keeper-home-link-title">Accepted Jobs</p>
+          <div className="keeper-home-active-navigate">
+            <div className="arrow-right"></div>
+            <p>view</p>
+          </div>
+        </div>
+        <JobCarousel />
       </div>
     </div>
   );

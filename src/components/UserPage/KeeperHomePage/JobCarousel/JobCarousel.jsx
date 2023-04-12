@@ -13,10 +13,10 @@ to use:
 - job will have follow the format of the job item
 ------------------------------------------------------
 */
-import "./JobFeature.css";
+import "./JobCarousel.css";
 import JobItem from "../../../JobItem/JobItem";
 
-function JobFeature() {
+function JobCarousel() {
   return (
     <div className="job-carousel-body">
       {/* <button className="job-carousel-left-button">left</button> */}
@@ -38,4 +38,4 @@ function JobFeature() {
   );
 }
 
-export default JobFeature;
+export default JobCarousel;
