@@ -19,9 +19,21 @@ import JobItem from "../../../JobItem/JobItem";
 function JobFeature() {
   return (
     <div className="job-carousel-body">
-      <button className="job-carousel-left-button">left</button>
-      <div className="job-carousel-job-listing-container"></div>
-      <button className="job-carousel-right-button">right</button>
+      {/* <button className="job-carousel-left-button">left</button> */}
+      <div className="job-carousel-job-listing-container">
+        <div className="job-carousel-job-listing-container-sub">
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+            <JobItem width={20}/>
+        </div>
+      </div>
+      {/* <button className="job-carousel-right-button">right</button> */}
     </div>
   );
 }

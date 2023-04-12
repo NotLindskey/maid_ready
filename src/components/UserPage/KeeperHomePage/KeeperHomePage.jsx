@@ -11,15 +11,17 @@ function KeeperHomePage() {
 
       {/* conditonal rendering */}
       {/* active job */}
-      <div className="keeper-home-page-active-job">
-        <JobFeature/>
-      </div>
+      <div className="keeper-home-page-active-job"></div>
 
       {/* previous jobs */}
-      <div className="keeper-home-page-previous-job"></div>
+      <div className="keeper-home-page-previous-job">
+        <JobFeature />
+      </div>
 
       {/* applied jobs */}
-      <div className="keeper-home-page-applied-job"></div>
+      <div className="keeper-home-page-applied-job">
+        <JobFeature />
+      </div>
     </div>
   );
 }
