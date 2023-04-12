@@ -31,10 +31,13 @@ import OwnerCompletedRequestsPage from '../OwnerCompletedRequestPage/OwnerComple
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
 import CreateJobForm from '../CreateJobForm/CreateJobForm';
 
+import KeeperHomePage from "../UserPage/KeeperHomePage/KeeperHomePage";
+import JobList from '../JobList/JobList';
+
 import './App.css';
 import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
 
-import JobList from '../JobList/JobList';
+
 
 function App() {
   const dispatch = useDispatch();
@@ -97,6 +100,10 @@ function App() {
           <ProtectedRoute exact path="/keeper/job-list">
             <JobList />
           </ProtectedRoute>
+          
+          <ProtectedRoute exact path="/keeper/home">
+            <KeeperHomePage/>
+          </ProtectedRoute>
 
           <ProtectedRoute exact path="/jobs/create">
             <CreateJobForm />
@@ -125,7 +132,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/keeper/home"/>
             ) : (
               // Otherwise, show the login page
               <LoginPage type="keeper" />
@@ -148,7 +155,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/keeper/home"/>
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="keeper" />

@@ -1,8 +1,8 @@
 import './JobItem.css';
 
-function JobItem(){
+function JobItem({width}){
     return(
-        <div className='job-item-body'>
+        <div className='job-item-body' style={width?{width: `${width}rem`}:{}}>
             <div className='job-item-name-address'>
                 <p>John Smith</p>
                 <div className='job-item-dot'></div>
