@@ -19,6 +19,7 @@ function PropertiesPage(props) {
       <h2>{heading}</h2>
       <button className='btn'>Add A Property</button>
         <div className='properties-section'>
+            {properties.length === 0 && <p>No properties listed</p>}
             {properties.map(property => {
               return (
                 <div className='property-listing' key={property.id}>
