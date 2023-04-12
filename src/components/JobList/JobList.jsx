@@ -13,7 +13,7 @@ function JobList(){
     return(
         <div className='job-list-body'>
             <div className='job-list-container'>
-                { jobs.length && !jobs  ?
+                { jobs.length ?
                     jobs.map((job)=>(
                         <JobItem
                         key={job.id}
