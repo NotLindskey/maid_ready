@@ -14,7 +14,8 @@ router.get("/", (req, res) => {
         "property"."street",
         "property"."city",
         "property"."state",
-        "property"."zipcode", 
+        "property"."zipcode",
+        "job"."id", 
         "job"."price",
         "job"."date_completed_by" 
         FROM "job"
