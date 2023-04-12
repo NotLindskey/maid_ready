@@ -1,6 +1,8 @@
 import React from 'react';
 
-function ActiveRequest() {
+import './OwnerActiveRequest.css';
+
+function OwnerActiveRequest() {
   console.log('in active request component');
 
   return (
@@ -25,4 +27,4 @@ function ActiveRequest() {
   );
 }
 
-export default ActiveRequest;
+export default OwnerActiveRequest;

@@ -1,39 +1,43 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
+import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
 
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from "../AboutPage/AboutPage";
-import UserPage from "../UserPage/UserPage";
-import InfoPage from "../InfoPage/InfoPage";
-import LandingPage from "../LandingPage/LandingPage";
-import LoginPage from "../LoginPage/LoginPage";
-import RegisterPage from "../RegisterPage/RegisterPage";
-import AdminPage from "../AdminPage/AdminPage";
-import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
-import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
-import CleaningStandards from "../LandingPage/CleaningStandards";
+import AboutPage from '../AboutPage/AboutPage';
+import UserPage from '../UserPage/UserPage';
+import InfoPage from '../InfoPage/InfoPage';
+import LandingPage from '../LandingPage/LandingPage';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import AdminPage from '../AdminPage/AdminPage';
+import OwnerRegistration from '../RegisterPage/RegisterOwnerPage';
+import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
+import CleaningStandards from '../LandingPage/CleaningStandards';
+
+import OwnersHomePage from '../UserPage/OwnersHomePage/OwnersHomePage';
+import OwnerViewRequestsPage from '../OwnerViewRequestsPage/OwnerViewRequestsPage';
+import OwnerActiveRequestsPage from '../OwnerActiveRequestPage/OwnerActiveRequestPage';
+import OwnerCompletedRequestsPage from '../OwnerCompletedRequestPage/OwnerCompletedRequestPage';
+import PropertiesPage from '../PropertiesPage/PropertiesPage';
+import CreateJobForm from '../CreateJobForm/CreateJobForm';
 
 import KeeperHomePage from "../UserPage/KeeperHomePage/KeeperHomePage";
-import OwnersHomePage from "../UserPage/OwnersHomePage/OwnersHomePage";
-import ViewRequestsOwner from "../ViewRequestsOwner/ViewRequestsOwner";
-import PropertiesPage from "../PropertiesPage/PropertiesPage";
-import CreateJobForm from "../CreateJobForm/CreateJobForm";
+import JobList from '../JobList/JobList';
 
-import "./App.css";
-import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
+import './App.css';
+import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
 
-import JobList from "../JobList/JobList";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +45,7 @@ function App() {
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    dispatch({ type: "FETCH_USER" });
+    dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
   return (
@@ -70,7 +74,7 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <OwnersHomePage />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -96,13 +100,17 @@ function App() {
           <ProtectedRoute exact path="/keeper/job-list">
             <JobList />
           </ProtectedRoute>
+          
+          <ProtectedRoute exact path="/keeper/home">
+            <KeeperHomePage/>
+          </ProtectedRoute>
 
           <ProtectedRoute exact path="/jobs/create">
             <CreateJobForm />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/home">
-            <KeeperHomePage/>
+          <ProtectedRoute exact path="/OwnerViewRequestsPage">
+            <OwnerViewRequestsPage />
           </ProtectedRoute>
 
           {/* Login and Register Pages */}
@@ -165,8 +173,8 @@ function App() {
             )}
           </Route>
 
-          {/* View Requests Page for Owners*/}
-          <Route exact path="/ViewRequestsOwner">
+          {/* View Requests Page for Owners
+          <Route exact path="/OwnerViewRequestsPage">
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
@@ -174,7 +182,33 @@ function App() {
             ) : (
               // Otherwise, show the registration page
               // <LoginPage />
-              <ViewRequestsOwner />
+              <OwnerViewRequestsPage />
+            )}
+          </Route> */}
+
+          {/* View Requests Page for Owners*/}
+          <Route exact path="/OwnerCompletedRequestsPage">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              // <LoginPage />
+              <OwnerCompletedRequestsPage />
+            )}
+          </Route>
+
+          {/* View Active Requests Page for Owners*/}
+          <Route exact path="/OwnerActiveRequestsPage">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              // <LoginPage />
+              <OwnerActiveRequestsPage />
             )}
           </Route>
 
@@ -186,10 +220,7 @@ function App() {
             ) : (
               // Otherwise, show the registration page
 
-              <>
-                <OwnersHomePage />
-                <OwnerRegistration type="owner" />
-              </>
+              <OwnerRegistration type="owner" />
             )}
           </Route>
 

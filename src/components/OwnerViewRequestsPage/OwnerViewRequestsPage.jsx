@@ -1,9 +1,9 @@
 import React from 'react';
-import ActiveRequest from '../ViewRequestsOwner/ActiveRequest/ActiveRequest';
-import CompletedRequest from '../ViewRequestsOwner/CompleteRequest/CompleteRequest';
-import './ViewRequestsOwner.css';
+import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
+import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedRequest';
+import './OwnerViewRequestsPage.css';
 
-function ViewRequestsOwner() {
+function OwnerViewRequestsPage() {
   console.log('hello world!');
 
   return (
@@ -19,16 +19,16 @@ function ViewRequestsOwner() {
 
         <div className="list-active-requests">
           <p>Active Requests:</p>
-          <ActiveRequest />
+          <OwnerActiveRequest />
         </div>
 
         <div className="list-completed-requests">
           <p>Completed Requests:</p>
-          <CompletedRequest />
+          <OwnerCompletedRequest />
         </div>
       </div>
     </div>
   );
 }
 
-export default ViewRequestsOwner;
+export default OwnerViewRequestsPage;
