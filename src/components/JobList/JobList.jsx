@@ -21,7 +21,7 @@ function JobList(){
                         street={job.street}
                         city={job.city}
                         state={job.state}
-                        zip={job.zip}
+                        zip={job.zipcode}
                         price={job.price}
                         date={job.date_completed_by}
                         />
