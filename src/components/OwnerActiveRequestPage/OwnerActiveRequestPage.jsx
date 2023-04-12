@@ -6,6 +6,7 @@ function OwnerActiveRequestList() {
 
   return (
     <div>
+      <p>Active Requests:</p>
       <OwnerActiveRequest />
     </div>
   );
