@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function CreateJobForm(props) {
   const store = useSelector((store) => store);
@@ -12,6 +13,8 @@ function CreateJobForm(props) {
   const [price, setPrice] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const createJob = (event) => {
     event.preventDefault();
