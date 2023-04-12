@@ -184,7 +184,7 @@ function App() {
 
               <>
                 <OwnersHomePage />
-                <OwnerRegistration type="owner" />
+                {/* <OwnerRegistration type="owner" /> */}
               </>
             )}
           </Route>
