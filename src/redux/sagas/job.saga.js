@@ -7,6 +7,7 @@ function* jobSaga() {
   yield takeLatest("FETCH_JOB", fetchJob);
 }
 
+// fetch all jobs
 function* fetchJobs() {
   try {
     const config = {
@@ -20,6 +21,7 @@ function* fetchJobs() {
   }
 }
 
+// fetch job by id
 function* fetchJob() {
     try {
       const config = {
