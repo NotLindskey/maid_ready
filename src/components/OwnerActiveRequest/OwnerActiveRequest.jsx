@@ -19,8 +19,9 @@ function OwnerActiveRequest() {
               <li>dates</li>
               <li>price</li>
             </ul>
-            <button>View</button>
           </div>
+          <button>View</button>
+          <button>Delete</button>
         </div>
       </div>
     </div>
