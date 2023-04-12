@@ -13,7 +13,7 @@ function JobList(){
     return(
         <div className='job-list-body'>
             <div className='job-list-container'>
-                {
+                { jobs.length && !jobs  ?
                     jobs.map((job)=>(
                         <JobItem
                         key={job.id}
@@ -26,6 +26,10 @@ function JobList(){
                         date={job.date_completed_by}
                         />
                     ))
+
+                    :
+
+                    <p>no jobs found</p>
                 }
             </div>
 
