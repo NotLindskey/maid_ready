@@ -70,7 +70,7 @@ function App() {
             exact
             path="/user"
           >
-            <UserPage />
+            <OwnersHomePage />
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -181,11 +181,9 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-
-              <>
-                <OwnersHomePage />
-                {/* <OwnerRegistration type="owner" /> */}
-              </>
+                
+                <OwnerRegistration type="owner" />
+           
             )}
           </Route>
 
