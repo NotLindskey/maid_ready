@@ -6,6 +6,7 @@
   position: relative;
   gap: .2rem;
   padding: 1rem;
+  height: 10rem;
 
   transition: box-shadow ease .3s;
 }

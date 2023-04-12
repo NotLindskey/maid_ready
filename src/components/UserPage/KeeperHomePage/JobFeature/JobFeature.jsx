@@ -1,18 +1,18 @@
 import './JobFeature.css';
 import JobCarousel from "../JobCarousel/JobCarousel";
 
-function JobFeature(){
+function JobFeature({title, link}){
     return(
         <div className="keeper-job-feature">
         <div className="keeper-header-link">
-          <p className="keeper-home-link-title">Pervious Jobs</p>
+          <p className="keeper-home-link-title">{title}</p>
           <div className="keeper-home-active-navigate">
             <div className="arrow-right"></div>
-            <p>view</p>
+            <button>view</button>
           </div>
         </div>
 
-        <JobCarousel />
+        <JobCarousel jobs={[]}/>
       </div>
     )
 }

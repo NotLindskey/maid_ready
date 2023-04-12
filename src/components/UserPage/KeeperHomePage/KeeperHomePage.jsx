@@ -19,17 +19,17 @@ function KeeperHomePage() {
           <p className="keeper-home-active-title">Active</p>
           <div className="keeper-home-active-navigate">
             <div className="arrow-right"></div>
-            <p>view all activity</p>
+            <button>view all activity</button>
           </div>
         </div>
         <JobItem width={60} />
       </div>
 
       {/* previous jobs */}
-      <JobFeature/>
+      <JobFeature title={"Previous Jobs"} link={'/keeper/activity'}/>
 
       {/* applied jobs */}
-      <JobFeature/>
+      <JobFeature title={"Acepted Jobs"} link={'/keeper/activity'}/>
     </div>
   );
 }
