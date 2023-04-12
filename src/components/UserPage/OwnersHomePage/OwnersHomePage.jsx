@@ -12,12 +12,12 @@ function OwnersHomePage() {
 
   return (
     <div>
-      <h2>{heading}</h2>
+      <h2 className='heading'>{heading}</h2>
       <div className='container'>
         <img src={requestImg} alt="image of two cleaners with cleaning tools" />
         <button className='btn'>Create A Request</button>
       </div>
-      <div>
+      <div className='container'>
         <img src={viewImg} alt="image of a person writing in a planner" />
         <button className='btn'>View Requests</button>
       </div>
