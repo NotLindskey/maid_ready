@@ -26,6 +26,7 @@ import CleaningStandards from '../LandingPage/CleaningStandards';
 
 import OwnersHomePage from '../UserPage/OwnersHomePage/OwnersHomePage';
 import OwnerViewRequestsPage from '../OwnerViewRequestsPage/OwnerViewRequestsPage';
+import OwnerActiveRequestsPage from '../OwnerActiveRequestPage/OwnerActiveRequestPage';
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
 import CreateJobForm from '../CreateJobForm/CreateJobForm';
 
@@ -170,6 +171,19 @@ function App() {
               // Otherwise, show the registration page
               // <LoginPage />
               <OwnerViewRequestsPage />
+            )}
+          </Route>
+
+          {/* View Active Requests Page for Owners*/}
+          <Route exact path="/OwnerActiveRequestsPage">
+            {user.id ? (
+              // If the user is already logged in,
+              // redirect them to the /user page
+              <Redirect to="/user" />
+            ) : (
+              // Otherwise, show the registration page
+              // <LoginPage />
+              <OwnerActiveRequestsPage />
             )}
           </Route>
 
