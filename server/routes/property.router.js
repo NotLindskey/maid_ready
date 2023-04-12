@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
  */
 router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
-      const query = `INSERT INTO "property" ("street", "city, "state", "zipcode", "sq_footage", "owner_id")
+      const query = `INSERT INTO "property" ("street", "city", "state", "zipcode", "sq_footage", "owner_id")
                     VALUES ($1, $2, $3, $4, $5, $6)`;
       pool.query(query, [req.body.street, req.body.city, req.body.state, req.body.zipcode, req.body.sq_footage, req.user.id])
         .then(() => {
