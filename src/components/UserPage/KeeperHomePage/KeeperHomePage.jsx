@@ -1,6 +1,5 @@
 import "./KeeperHomePage.css";
 import JobFeature from "./JobFeature/JobFeature";
-import ActiveJob from "./ActiveJob/ActiveJob";
 import JobItem from "../../JobItem/JobItem";
 function KeeperHomePage() {
   return (
@@ -18,7 +17,7 @@ function KeeperHomePage() {
           <div className="keeper-home-active-dot"></div>
           <p  className="keeper-home-active-title">Active</p>
           <div  className="keeper-home-active-navigate">
-            <p>.</p>
+            <div className="arrow-right"></div>
             <p>view all activity</p>
           </div>
         </div>
