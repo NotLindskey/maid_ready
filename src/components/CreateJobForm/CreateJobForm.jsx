@@ -59,6 +59,8 @@ function CreateJobForm(props) {
             <br/>
             <label htmlFor="time">Time:</label>
             <input value={time} onChange={(event) => setTime(event.target.value)} type="time"/>
+            <br/>
+            <input className="btn" type="submit" value="Submit" />
         </form>
       </div>
     </div>
