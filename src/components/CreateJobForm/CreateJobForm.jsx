@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import {useSelector} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 function CreateJobForm(props) {
   const store = useSelector((store) => store);
@@ -12,9 +13,20 @@ function CreateJobForm(props) {
   const [price, setPrice] = useState('');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const createJob = (event) => {
     event.preventDefault();
+    const newProperty = {
+      street,
+      city,
+      state,
+      zipcode,
+      sq_footage: sqFootage,
+    }
+    dispatch({type: 'ADD_PROPERTY', payload: newProperty});
+    history.push('/user');
   }
 
 //   const calculatePrice = () => {
@@ -50,6 +62,8 @@ function CreateJobForm(props) {
             <br/>
             <label htmlFor="time">Time:</label>
             <input value={time} onChange={(event) => setTime(event.target.value)} type="time"/>
+            <br/>
+            <input className="btn" type="submit" value="Submit" />
         </form>
       </div>
     </div>
