@@ -102,6 +102,10 @@ function App() {
             <CreateJobForm />
           </ProtectedRoute>
 
+          <ProtectedRoute exact path="/OwnerViewRequestsPage">
+            <OwnerViewRequestsPage />
+          </ProtectedRoute>
+
           {/* Login and Register Pages */}
 
           {/* Login Selection */}
@@ -162,7 +166,7 @@ function App() {
             )}
           </Route>
 
-          {/* View Requests Page for Owners*/}
+          {/* View Requests Page for Owners
           <Route exact path="/OwnerViewRequestsPage">
             {user.id ? (
               // If the user is already logged in,
@@ -173,7 +177,7 @@ function App() {
               // <LoginPage />
               <OwnerViewRequestsPage />
             )}
-          </Route>
+          </Route> */}
 
           {/* View Requests Page for Owners*/}
           <Route exact path="/OwnerCompletedRequestsPage">
@@ -208,9 +212,8 @@ function App() {
               <Redirect to="/user" />
             ) : (
               // Otherwise, show the registration page
-                
-                <OwnerRegistration type="owner" />
-           
+
+              <OwnerRegistration type="owner" />
             )}
           </Route>
 
