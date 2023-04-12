@@ -1,7 +1,7 @@
 import React from 'react';
 
 function OwnerCompletedRequest() {
-  console.log('in active request component');
+  console.log('in completed request component');
 
   return (
     <div>
@@ -19,8 +19,9 @@ function OwnerCompletedRequest() {
               <li>dates</li>
               <li>price</li>
             </ul>
-            <button>View</button>
           </div>
+          <button>View</button>
+          <button>Delete</button>
         </div>
       </div>
     </div>
