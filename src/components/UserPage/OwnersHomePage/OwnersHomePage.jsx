@@ -17,6 +17,11 @@ function OwnersHomePage() {
     history.push('/properties');
   }
 
+  const viewRequests = () => {
+    console.log('This will go to Owner Requests page')
+    history.push('/OwnerViewRequestsPage');
+  }
+
   return (
     <div>
       <UserPage />
@@ -27,7 +32,7 @@ function OwnersHomePage() {
       </div>
       <div className='container1'>
         <img src={viewImg} alt="image of a person writing in a planner" />
-        <button className='btn'>View Requests</button>
+        <button className='btn' onClick={viewRequests}>View Requests</button>
       </div>
     </div>
   );
