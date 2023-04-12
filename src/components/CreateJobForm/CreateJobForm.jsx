@@ -15,6 +15,15 @@ function CreateJobForm(props) {
 
   const createJob = (event) => {
     event.preventDefault();
+    const newProperty = {
+      street,
+      city,
+      state,
+      zipcode,
+      sq_footage: sqFootage,
+    }
+    dispatch({type: 'ADD_PROPERTY', payload: newProperty});
+    history.push('/user');
   }
 
 //   const calculatePrice = () => {
