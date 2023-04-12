@@ -2,7 +2,9 @@ import './KeeperHomePage.css'
 
 function KeeperHomePage(){
     return(
-        <div>Keeper Home page</div>
+        <div>
+            <button><p>Find A Job</p></button>
+        </div>
     )
 }
 
