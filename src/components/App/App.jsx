@@ -25,6 +25,7 @@ import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
 import CleaningStandards from '../LandingPage/CleaningStandards';
 
 import OwnersHomePage from '../UserPage/OwnersHomePage/OwnersHomePage';
+import OwnerRequestDetails from '../OwnerRequestDetails/OwnerRequestDetails';
 import OwnerViewRequestsPage from '../OwnerViewRequestsPage/OwnerViewRequestsPage';
 import OwnerActiveRequestsPage from '../OwnerActiveRequestPage/OwnerActiveRequestPage';
 import OwnerCompletedRequestsPage from '../OwnerCompletedRequestPage/OwnerCompletedRequestPage';
@@ -117,6 +118,10 @@ function App() {
 
           <ProtectedRoute exact path="/OwnerActiveRequestsPage">
             <OwnerActiveRequestsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/OwnerRequestDetails">
+            <OwnerRequestDetails />
           </ProtectedRoute>
 
           {/* Login and Register Pages */}
