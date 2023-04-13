@@ -1,12 +1,15 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './OwnerActiveRequest.css';
 
 function OwnerActiveRequest() {
   console.log('in active request component');
+  const history = useHistory();
 
   const handleViewRequest = () => {
     console.log('handleViewRequest clicked!');
+    history.push('/OwnerRequestDetails');
   };
 
   return (
