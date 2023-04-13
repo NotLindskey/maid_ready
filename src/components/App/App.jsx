@@ -34,7 +34,7 @@ import CreateJobForm from '../CreateJobForm/CreateJobForm';
 
 import KeeperHomePage from '../UserPage/KeeperHomePage/KeeperHomePage';
 import JobList from '../JobList/JobList';
-
+import JobDetails from '../JobDetails/JobDetails';
 import './App.css';
 import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
 
@@ -98,6 +98,10 @@ function App() {
 
           <ProtectedRoute exact path="/keeper/job-list">
             <JobList />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/keeper/job/details/:id">
+            <JobDetails />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/keeper/home">
