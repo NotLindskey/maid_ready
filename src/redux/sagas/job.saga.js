@@ -5,6 +5,7 @@ import { put, takeLatest } from "redux-saga/effects";
 function* jobSaga() {
   yield takeLatest("FETCH_JOBS", fetchJobs);
   yield takeLatest("FETCH_JOB", fetchJob);
+  yield takeLatest('ADD_JOB', addJob);
 }
 
 // fetch all jobs
@@ -35,6 +36,21 @@ function* fetchJob() {
     } catch (err) {
       console.log("Error with fetching jobs: ", err);
     }
+}
+
+// post job
+function* addJob() {
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+
+    const response = yield axios.post('/api/job')
+    
+  } catch (err) {
+    console.log("Error with posting jobs: ", err);
+  }
 }
 
 export default jobSaga;
