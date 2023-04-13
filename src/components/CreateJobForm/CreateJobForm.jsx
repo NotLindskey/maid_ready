@@ -27,14 +27,14 @@ function CreateJobForm(props) {
     }
     const newJob = {
       price,
-      date,
+      date_completed_by: date,
       time,
       status: 'incomplete',
       claimed: 'no',
     }
     dispatch({type: 'ADD_PROPERTY', payload: newProperty});
     dispatch({type: 'ADD_JOB', payload: newJob});
-    history.push('/user');
+    //history.push('/user');
   }
 
 //   const calculatePrice = () => {

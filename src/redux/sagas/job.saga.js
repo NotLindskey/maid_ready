@@ -39,14 +39,14 @@ function* fetchJob() {
 }
 
 // post job
-function* addJob() {
+function* addJob(action) {
   try {
     const config = {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     };
-
-    const response = yield axios.post('/api/job')
+    console.log(action.payload)
+    const response = yield axios.post('/api/job', action.payload, config)
     
   } catch (err) {
     console.log("Error with posting jobs: ", err);
