@@ -47,11 +47,29 @@ router.get("/", (req, res) => {
 // GET job details by ID
 router.get("/detail/:id", (req, res) => {
   // GET route code here
+  console.log(req.params)
   if (req.isAuthenticated()) {
-    const query = `SELECT * FROM "job"
-        WHERE "job"."id" = 5;`;
-    pool.query(query)
+    const query = `SELECT 
+        "user"."username", 
+        "property"."street",
+        "property"."city",
+        "property"."state",
+        "property"."zipcode",
+        "job"."id", 
+        "job"."price",
+        "job"."date_completed_by",
+        "job"."time" ,
+        "job"."owner_id",
+        "job"."property_id"
+        FROM "job"
+        JOIN "user" 
+        ON "job"."owner_id" = "user"."id"
+        JOIN "property" 
+        ON "property"."id" = "job"."property_id"
+        WHERE "job"."id" = $1;`;
+    pool.query(query, [req.params.id])
     .then((result)=>{
+        console.log(result.rows)
         res.send(result.rows);
     })
     .catch((error) => {
