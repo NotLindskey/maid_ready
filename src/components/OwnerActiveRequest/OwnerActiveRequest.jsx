@@ -5,6 +5,10 @@ import './OwnerActiveRequest.css';
 function OwnerActiveRequest() {
   console.log('in active request component');
 
+  const handleViewRequest = () => {
+    console.log('handleViewRequest clicked!');
+  };
+
   return (
     <div>
       <div className="active-request-header">
@@ -20,7 +24,7 @@ function OwnerActiveRequest() {
               <li>price</li>
             </ul>
           </div>
-          <button>View</button>
+          <button onClick={handleViewRequest}>View</button>
           <button>Delete</button>
         </div>
       </div>
