@@ -9,6 +9,7 @@ function OwnerViewRequestsPage() {
   console.log('hello world!');
   const history = useHistory();
 
+  // button to send user back to OwnersHomePage
   const handleToHome = () => {
     console.log('handleToHome clicked!');
     history.push('/');

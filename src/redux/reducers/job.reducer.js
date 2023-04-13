@@ -31,7 +31,24 @@ function job(state = {}, action) {
   }
 }
 
+// get job detail (by id)
+function job_detail(state={}, action){
+  switch(action.type){
+    case "SET_JOB_DETAIL":
+      if(action.payload){
+        return action.payload;
+      }
+      return state
+    case "RESET_JOB_DETAIL":
+      return [];
+    case "RESET":
+      return [];
+    default:
+      return state;
+  }
+}
 export default combineReducers({
   jobs, // all jobs
   job, // job by id
+  job_detail, // job detail
 });

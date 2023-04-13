@@ -1,9 +1,16 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 import './OwnerActiveRequest.css';
 
 function OwnerActiveRequest() {
   console.log('in active request component');
+  const history = useHistory();
+
+  const handleViewRequest = () => {
+    console.log('handleViewRequest clicked!');
+    history.push('/OwnerRequestDetails');
+  };
 
   return (
     <div>
@@ -20,7 +27,7 @@ function OwnerActiveRequest() {
               <li>price</li>
             </ul>
           </div>
-          <button>View</button>
+          <button onClick={handleViewRequest}>View</button>
           <button>Delete</button>
         </div>
       </div>
