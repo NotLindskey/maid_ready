@@ -32,8 +32,8 @@ function CreateJobForm(props) {
       status: 'incomplete',
       claimed: 'FALSE',
     }
-    dispatch({type: 'ADD_PROPERTY', payload: newProperty});
     dispatch({type: 'ADD_JOB', payload: newJob});
+    dispatch({type: 'ADD_PROPERTY', payload: newProperty});
     //history.push('/user');
   }
 
