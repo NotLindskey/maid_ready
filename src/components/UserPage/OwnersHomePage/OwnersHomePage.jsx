@@ -24,7 +24,7 @@ function OwnersHomePage() {
 
   return (
     <div>
-      <UserPage />
+      {/* <UserPage /> */}
       <h2 className='heading'>{heading}</h2>
       <div className='container1'>
         <img src={requestImg} alt="image of two cleaners with cleaning tools" />

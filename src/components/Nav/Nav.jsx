@@ -37,9 +37,11 @@ function Nav() {
             Sign in
           </Link>
         ) : (
-          <Link className="navLink" to="/user">
-              User
-            </Link>
+          // <Link className="navLink" to="/user">
+          //     User
+          //   </Link>
+          <LogOutButton className="navLink" />
+          
         )}
       </div>
     </div>
