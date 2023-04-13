@@ -32,10 +32,13 @@ function job(state = {}, action) {
 }
 
 // get job detail (by id)
-function job_detail(state=[], action){
+function job_detail(state={}, action){
   switch(action.type){
     case "SET_JOB_DETAIL":
-      return action.payload;
+      if(action.payload){
+        return action.payload;
+      }
+      return state
     case "RESET_JOB_DETAIL":
       return [];
     case "RESET":

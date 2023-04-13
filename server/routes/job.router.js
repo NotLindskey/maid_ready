@@ -47,7 +47,6 @@ router.get("/", (req, res) => {
 // GET job details by ID
 router.get("/detail/:id", (req, res) => {
   // GET route code here
-  console.log(req.params)
   if (req.isAuthenticated()) {
     const query = `SELECT 
         "user"."username", 
@@ -69,7 +68,6 @@ router.get("/detail/:id", (req, res) => {
         WHERE "job"."id" = $1;`;
     pool.query(query, [req.params.id])
     .then((result)=>{
-        console.log(result.rows)
         res.send(result.rows);
     })
     .catch((error) => {
