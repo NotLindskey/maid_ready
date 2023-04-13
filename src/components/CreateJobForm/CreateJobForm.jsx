@@ -25,7 +25,15 @@ function CreateJobForm(props) {
       zipcode,
       sq_footage: sqFootage,
     }
+    const newJob = {
+      price,
+      date,
+      time,
+      status: 'incomplete',
+      claimed: 'no',
+    }
     dispatch({type: 'ADD_PROPERTY', payload: newProperty});
+    dispatch({type: 'ADD_JOB', payload: newJob});
     history.push('/user');
   }
 
