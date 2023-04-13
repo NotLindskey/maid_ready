@@ -11,11 +11,11 @@ function JobDetails(){
     const details = useSelector(store=>store.job.job_detail);
 
     useEffect(()=>{
-
+        dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
     },[])
 
     return(
-        <div>job details page</div>
+        <div>job details page: {jobId}</div>
     )
 }
 
