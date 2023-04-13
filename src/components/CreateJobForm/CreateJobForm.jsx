@@ -30,7 +30,7 @@ function CreateJobForm(props) {
       date_completed_by: date,
       time,
       status: 'incomplete',
-      claimed: 'no',
+      claimed: 'FALSE',
     }
     dispatch({type: 'ADD_PROPERTY', payload: newProperty});
     dispatch({type: 'ADD_JOB', payload: newJob});
