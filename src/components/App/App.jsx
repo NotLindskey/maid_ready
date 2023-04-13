@@ -31,13 +31,11 @@ import OwnerCompletedRequestsPage from '../OwnerCompletedRequestPage/OwnerComple
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
 import CreateJobForm from '../CreateJobForm/CreateJobForm';
 
-import KeeperHomePage from "../UserPage/KeeperHomePage/KeeperHomePage";
+import KeeperHomePage from '../UserPage/KeeperHomePage/KeeperHomePage';
 import JobList from '../JobList/JobList';
 
 import './App.css';
 import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
-
-
 
 function App() {
   const dispatch = useDispatch();
@@ -100,9 +98,9 @@ function App() {
           <ProtectedRoute exact path="/keeper/job-list">
             <JobList />
           </ProtectedRoute>
-          
+
           <ProtectedRoute exact path="/keeper/home">
-            <KeeperHomePage/>
+            <KeeperHomePage />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/jobs/create">
@@ -111,6 +109,14 @@ function App() {
 
           <ProtectedRoute exact path="/OwnerViewRequestsPage">
             <OwnerViewRequestsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/OwnerCompletedRequestsPage">
+            <OwnerCompletedRequestsPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/OwnerActiveRequestsPage">
+            <OwnerActiveRequestsPage />
           </ProtectedRoute>
 
           {/* Login and Register Pages */}
@@ -132,7 +138,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/keeper/home"/>
+              <Redirect to="/keeper/home" />
             ) : (
               // Otherwise, show the login page
               <LoginPage type="keeper" />
@@ -155,7 +161,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/keeper/home"/>
+              <Redirect to="/keeper/home" />
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="keeper" />
@@ -170,45 +176,6 @@ function App() {
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="owner" />
-            )}
-          </Route>
-
-          {/* View Requests Page for Owners
-          <Route exact path="/OwnerViewRequestsPage">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the registration page
-              // <LoginPage />
-              <OwnerViewRequestsPage />
-            )}
-          </Route> */}
-
-          {/* View Requests Page for Owners*/}
-          <Route exact path="/OwnerCompletedRequestsPage">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the registration page
-              // <LoginPage />
-              <OwnerCompletedRequestsPage />
-            )}
-          </Route>
-
-          {/* View Active Requests Page for Owners*/}
-          <Route exact path="/OwnerActiveRequestsPage">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the registration page
-              // <LoginPage />
-              <OwnerActiveRequestsPage />
             )}
           </Route>
 
