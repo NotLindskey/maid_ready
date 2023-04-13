@@ -17,6 +17,7 @@ function JobList(){
                     jobs.map((job)=>(
                         <JobItem
                         key={job.id}
+                        id={job.id}
                         owner={job.username}
                         street={job.street}
                         city={job.city}
