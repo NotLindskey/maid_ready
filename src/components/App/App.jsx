@@ -55,87 +55,128 @@ function App() {
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
 
-          {/* Visiting localhost:3000/about will show the about page. */}
+          {/* ----------------------------------------------------------------
+            NOT Protected Routes
+          ---------------------------------------------------------------- */}
           <Route
-            // shows AboutPage at all times (logged in or not)
             exact
             path="/about"
           >
             <AboutPage />
           </Route>
 
-          {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-            Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-          <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-          >
-            <OwnersHomePage />
-          </ProtectedRoute>
-
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/admin">
-            <AdminPage />
-          </ProtectedRoute>
-
           <Route exact path="/CleaningStandards">
             <CleaningStandards />
           </Route>
 
-          <ProtectedRoute exact path="/properties">
-            <PropertiesPage />
+
+          {/* ----------------------------------------------------------------
+            Protected Routes
+          ---------------------------------------------------------------- */}
+          {/* For protected routes, the view could show one of several things on the same route.
+            Visiting localhost:3000/user will show the UserPage if the user is logged in.
+            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
+            Even though it seems like they are different pages, the user is always on localhost:3000/user */}
+
+
+
+          {/* ----------------------------------------------------------------
+            ANY (accounty_type)
+          ---------------------------------------------------------------- */}
+          <ProtectedRoute
+            // logged in shows UserPage else shows LoginPage
+            exact
+            path="/home"
+            type="all"
+          >
+            {
+              user.account_type === "owner" ? <OwnersHomePage /> :
+              user.account_type === "keeper" ? <KeeperHomePage/> :
+              user.account_type === "admin" ? <AdminPage/> :
+              <LoginPage/>
+            }
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/job-list">
+
+
+          {/* ----------------------------------------------------------------
+            ADMIN (admins only)
+          ---------------------------------------------------------------- */}
+          <ProtectedRoute exact path="/admin" type="admin">
+            <AdminPage />
+          </ProtectedRoute>
+
+
+
+          {/* ----------------------------------------------------------------
+            KEEPER (keepers only)
+          ---------------------------------------------------------------- */}
+          <ProtectedRoute exact path="/keeper/job-list" type="keeper">
             <JobList />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/job/details/:id">
+          <ProtectedRoute exact path="/keeper/job/details/:id" type="keeper">
             <JobDetails />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/home">
+          <ProtectedRoute exact path="/keeper/home" type="keeper">
             <KeeperHomePage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/jobs/create">
+
+
+          {/* ----------------------------------------------------------------
+            OWNER (owners only)
+          ---------------------------------------------------------------- */}
+          <ProtectedRoute exact path="/properties" type="owner">
+            <PropertiesPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/jobs/create" type="owner">
             <CreateJobForm />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerViewRequestsPage">
+          <ProtectedRoute exact path="/OwnerViewRequestsPage" type="owner">
             <OwnerViewRequestsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerCompletedRequestsPage">
+          <ProtectedRoute exact path="/OwnerCompletedRequestsPage" type="owner">
             <OwnerCompletedRequestsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerActiveRequestsPage">
+          <ProtectedRoute exact path="/OwnerActiveRequestsPage" type="owner">
             <OwnerActiveRequestsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerRequestDetails">
+          <ProtectedRoute exact path="/OwnerRequestDetails" type="owner">
             <OwnerRequestDetails />
           </ProtectedRoute>
 
-          {/* Login and Register Pages */}
 
+
+          {/* ----------------------------------------------------------------
+            LOGIN and REGISTER routes
+          ---------------------------------------------------------------- */}
+          {/* Login and Register routes deal with Logining in and Registering an account.
+          these Routes often use componets like the Login Form and Register Form to "directly"
+          communicate with the database to create a new user/ checking the credientals of a user.
+          
+          - currently Login is the same for all account no matter the account type
+              - the authorization check is done through the protected route
+          
+          - the Register pages have to be seperate (owners and keepers) so when being created within the
+          database, the correct account type is assigned to the account*/}
+
+
+          {/* ----------------------------------------------------------------
+            LOGIN routes
+          ---------------------------------------------------------------- */}
           {/* Login Selection */}
           <Route exact path="/login/selection">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the login page
               <LoginSelection />
@@ -147,7 +188,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/keeper/home" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the login page
               <LoginPage type="keeper" />
@@ -158,19 +199,24 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the login page
               <LoginPage type="owner" />
             )}
           </Route>
 
+
+
+          {/* ----------------------------------------------------------------
+            REGISTER routes
+          ---------------------------------------------------------------- */}
           {/* registration pages */}
           <Route exact path="/register/keeper">
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/keeper/home" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="keeper" />
@@ -181,7 +227,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="owner" />
@@ -192,7 +238,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
 
@@ -204,25 +250,20 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <KeeperRegistration type="keeper" />
             )}
           </Route>
 
-          <Route exact path="/home">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the Landing page
-              <LandingPage />
-            )}
-          </Route>
 
-          {/* If none of the other routes matched, we will show a 404. */}
+          {/* ----------------------------------------------------------------
+            404 (not found)
+          ---------------------------------------------------------------- */}
+          {/* if user enters a page that hasn't been created / route hasn't been declared then 
+          a 404 page will show up
+          */}
           <Route>
             <h1>404</h1>
           </Route>
