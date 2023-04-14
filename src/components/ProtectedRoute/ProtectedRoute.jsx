@@ -34,10 +34,10 @@ function ProtectedRoute({ type, component, children, ...props }) {
           <ProtectedComponent />
         ) : type === "all" ? (
           <ProtectedComponent />
-        ) : type === "admin" ? (
+        ) : user.account_type === "admin" ? (
           <ProtectedComponent />
         ) : (
-          <p>NOT authorized</p>
+          <Redirect exact path='/home'/>
         )
       ) : (
         // Otherwise, redirect to the Loginpage
