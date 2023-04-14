@@ -13,7 +13,7 @@ function OwnerActiveRequest() {
   };
 
   return (
-    <div>
+    <div className="active-box-container">
       <div className="active-request-header">
         Property Name Here
         <div className="active-request-content">
