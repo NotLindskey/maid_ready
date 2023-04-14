@@ -81,24 +81,17 @@ function App() {
               <LoginPage/>
             }
           </ProtectedRoute>
+          
 
-          <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/admin">
+          <ProtectedRoute exact path="/admin" type="admin">
             <AdminPage />
           </ProtectedRoute>
 
-          <Route exact path="/CleaningStandards">
+          <Route exact path="/CleaningStandards" type="all">
             <CleaningStandards />
           </Route>
 
-          <ProtectedRoute exact path="/properties">
+          <ProtectedRoute exact path="/properties" type="owner">
             <PropertiesPage />
           </ProtectedRoute>
 
@@ -114,23 +107,23 @@ function App() {
             <KeeperHomePage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/jobs/create">
+          <ProtectedRoute exact path="/jobs/create" type="owner">
             <CreateJobForm />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerViewRequestsPage">
+          <ProtectedRoute exact path="/OwnerViewRequestsPage" type="owner">
             <OwnerViewRequestsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerCompletedRequestsPage">
+          <ProtectedRoute exact path="/OwnerCompletedRequestsPage" type="owner">
             <OwnerCompletedRequestsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerActiveRequestsPage">
+          <ProtectedRoute exact path="/OwnerActiveRequestsPage" type="owner">
             <OwnerActiveRequestsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerRequestDetails">
+          <ProtectedRoute exact path="/OwnerRequestDetails" type="owner">
             <OwnerRequestDetails />
           </ProtectedRoute>
 

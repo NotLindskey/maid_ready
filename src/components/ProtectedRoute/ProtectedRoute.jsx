@@ -34,6 +34,8 @@ function ProtectedRoute({ type, component, children, ...props }) {
           <ProtectedComponent />
         ) : type === "all" ? (
           <ProtectedComponent />
+        ) : type === "admin" ? (
+          <ProtectedComponent />
         ) : (
           <p>NOT authorized</p>
         )
