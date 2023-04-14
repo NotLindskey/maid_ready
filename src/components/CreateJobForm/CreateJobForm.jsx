@@ -23,7 +23,7 @@ function CreateJobForm(props) {
       property_id: property.id
     }
     dispatch({type: 'ADD_JOB', payload: newJob});
-    history.push('/user');
+    history.push('/home');
   }
 
   const calculatePrice = () => {
