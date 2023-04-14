@@ -113,7 +113,7 @@ function App() {
             <KeeperHomePage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/jobs/create">
+          <ProtectedRoute exact path="/job/create">
             <CreateJobForm />
           </ProtectedRoute>
 

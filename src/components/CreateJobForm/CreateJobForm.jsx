@@ -30,7 +30,7 @@ function CreateJobForm(props) {
     price = (0.08 * property.sq_footage);
     return price;
   }
-console.log(property)
+
 
   return (
     <div>
