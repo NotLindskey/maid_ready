@@ -39,6 +39,8 @@ function OwnerViewRequestsPage() {
         </div>
       </div>
       <br />
+
+      {/* button to send back to home */}
       <div>
         <button onClick={handleToHome}>back</button>
       </div>
