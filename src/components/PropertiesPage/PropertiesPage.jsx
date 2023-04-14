@@ -5,7 +5,7 @@ import './PropertiesPage.css';
 
 
 function PropertiesPage(props) {
-  const properties = useSelector((store) => store.properties);
+  const properties = useSelector((store) => store.property.properties);
   const [heading, setHeading] = useState('Properties');
   const dispatch = useDispatch();
   const history = useHistory();
@@ -18,7 +18,8 @@ function PropertiesPage(props) {
     history.push('properties/add');
   }
 
-  const toCreateJobForm = () => {
+  const selectProperty = (property) => {
+    dispatch({type: 'FETCH_PROPERTY', payload: property})
     history.push('jobs/create');
   }
 
@@ -33,7 +34,7 @@ function PropertiesPage(props) {
                 <div className='property-listing' key={property.id}>
                   <p>{property.street} {property.city} {property.state} {property.zipcode}</p>
                   <p>{property.sq_footage} sq ft.</p>
-                  <button onClick={toCreateJobForm}>Select</button>
+                  <button onClick={() => selectProperty(property)}>Select</button>
                 </div>
               )
             })}
