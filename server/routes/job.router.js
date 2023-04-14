@@ -84,9 +84,9 @@ router.get("/detail/:id", (req, res) => {
  */
 router.post("/", (req, res) => {
   if (req.isAuthenticated()) {
-    const query = `INSERT INTO "job" ("price","date_completed_by", "time", "status", "claimed", "owner_id")
-                    VALUES ($1, $2, $3, $4, $5, $6)`;
-      pool.query(query, [req.body.price, req.body.date_completed_by, req.body.time, req.body.status, req.body.claimed, req.user.id])
+    const query = `INSERT INTO "job" ("price","date_completed_by", "time", "status", "claimed", "property_id", "owner_id")
+                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+      pool.query(query, [req.body.price, req.body.date_completed_by, req.body.time, req.body.status, req.body.claimed, req.body.property_id, req.user.id])
         .then(() => {
           res.sendStatus(201);
         })
