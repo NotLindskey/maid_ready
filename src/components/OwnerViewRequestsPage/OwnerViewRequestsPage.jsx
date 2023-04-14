@@ -26,11 +26,13 @@ function OwnerViewRequestsPage() {
           <p>Select a list to view:</p>
         </div>
 
+        {/* render 4 recent active requests */}
         <div className="list-active-requests">
           <p>Active Requests:</p>
           <OwnerActiveRequest />
         </div>
 
+        {/* render 4 recent completed requests */}
         <div className="list-completed-requests">
           <p>Completed Requests:</p>
           <OwnerCompletedRequest />
