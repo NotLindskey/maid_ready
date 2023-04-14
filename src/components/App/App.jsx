@@ -72,8 +72,14 @@ function App() {
             // logged in shows UserPage else shows LoginPage
             exact
             path="/home"
+            type="all"
           >
-            <OwnersHomePage />
+            {
+              user.account_type === "owner" ? <OwnersHomePage /> :
+              user.account_type === "keeper" ? <KeeperHomePage/> :
+              user.account_type === "admin" ? <AdminPage/> :
+              <LoginPage/>
+            }
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -135,7 +141,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the login page
               <LoginSelection />
@@ -147,7 +153,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/keeper/home" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the login page
               <LoginPage type="keeper" />
@@ -158,7 +164,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the login page
               <LoginPage type="owner" />
@@ -170,7 +176,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/keeper/home" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="keeper" />
@@ -181,7 +187,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <RegisterPage type="owner" />
@@ -192,7 +198,7 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
 
@@ -204,23 +210,13 @@ function App() {
             {user.id ? (
               // If the user is already logged in,
               // redirect them to the /user page
-              <Redirect to="/user" />
+              <Redirect to="/home" />
             ) : (
               // Otherwise, show the registration page
               <KeeperRegistration type="keeper" />
             )}
           </Route>
 
-          <Route exact path="/home">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the Landing page
-              <LandingPage />
-            )}
-          </Route>
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>
