@@ -1,10 +1,20 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
+
+import './OwnerCompletedRequest.css';
 
 function OwnerCompletedRequest() {
   console.log('in completed request component');
+  const history = useHistory();
 
+  const viewCompletedBtn = () => {
+    console.log('clicked!');
+    history.push('/OwnerRequestDetails');
+  };
+
+  // Render
   return (
-    <div>
+    <div className="completed-box-container">
       <div className="complete-request-header">
         Property Name Here
         <div className="complete-request-content">
@@ -20,7 +30,7 @@ function OwnerCompletedRequest() {
               <li>price</li>
             </ul>
           </div>
-          <button>View</button>
+          <button onClick={viewCompletedBtn}>View</button>
           <button>Delete</button>
         </div>
       </div>
