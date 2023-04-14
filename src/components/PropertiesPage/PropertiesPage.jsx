@@ -20,7 +20,7 @@ function PropertiesPage(props) {
 
   const selectProperty = (property) => {
     dispatch({type: 'FETCH_PROPERTY', payload: property})
-    history.push('job/create');
+    history.push('/job/create');
   }
 
   return (
