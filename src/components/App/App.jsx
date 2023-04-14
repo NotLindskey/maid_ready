@@ -71,7 +71,7 @@ function App() {
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
             exact
-            path="/user"
+            path="/home"
           >
             <OwnersHomePage />
           </ProtectedRoute>
@@ -104,7 +104,7 @@ function App() {
             <JobDetails />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/home">
+          <ProtectedRoute exact path="/keeper/home" type="keeper">
             <KeeperHomePage />
           </ProtectedRoute>
 
