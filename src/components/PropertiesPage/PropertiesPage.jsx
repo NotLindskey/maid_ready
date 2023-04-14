@@ -14,6 +14,10 @@ function PropertiesPage(props) {
     dispatch({type: 'FETCH_PROPERTIES'});
     }, []);
 
+  const toAddAProperty = () => {
+    history.push('properties/add');
+  }
+
   const toCreateJobForm = () => {
     history.push('jobs/create');
   }
@@ -21,7 +25,7 @@ function PropertiesPage(props) {
   return (
     <div>
       <h2>{heading}</h2>
-      <button className='btn' onClick={toCreateJobForm}>Add A Property</button>
+      <button className='btn' onClick={toAddAProperty}>Add A Property</button>
         <div className='properties-section'>
             {properties.length === 0 && <p>No properties listed</p>}
             {properties.map(property => {

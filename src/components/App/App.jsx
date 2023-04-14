@@ -31,6 +31,7 @@ import OwnerActiveRequestsPage from '../OwnerActiveRequestPage/OwnerActiveReques
 import OwnerCompletedRequestsPage from '../OwnerCompletedRequestPage/OwnerCompletedRequestPage';
 import PropertiesPage from '../PropertiesPage/PropertiesPage';
 import CreateJobForm from '../CreateJobForm/CreateJobForm';
+import AddPropertyPage from '../AddPropertyPage/AddPropertyPage';
 
 import KeeperHomePage from '../UserPage/KeeperHomePage/KeeperHomePage';
 import JobList from '../JobList/JobList';
@@ -94,6 +95,10 @@ function App() {
 
           <ProtectedRoute exact path="/properties">
             <PropertiesPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute exact path="/properties/add">
+            <AddPropertyPage />
           </ProtectedRoute>
 
           <ProtectedRoute exact path="/keeper/job-list">
