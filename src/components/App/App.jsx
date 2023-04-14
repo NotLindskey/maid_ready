@@ -109,12 +109,6 @@ function App() {
 
 
 
-          <ProtectedRoute exact path="/properties/add">
-            <AddPropertyPage />
-          </ProtectedRoute>
-
-          <ProtectedRoute exact path="/keeper/job-list">
-
           {/* ----------------------------------------------------------------
             KEEPER (keepers only)
           ---------------------------------------------------------------- */}
@@ -132,9 +126,6 @@ function App() {
           </ProtectedRoute>
 
 
-          <ProtectedRoute exact path="/job/create">
-
-
 
           {/* ----------------------------------------------------------------
             OWNER (owners only)
@@ -143,8 +134,13 @@ function App() {
             <PropertiesPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/jobs/create" type="owner">
+          <ProtectedRoute exact path="/properties/add" type="owner">
+            <AddPropertyPage />
+          </ProtectedRoute>
 
+          <ProtectedRoute exact path="/job/create" type="owner"></ProtectedRoute>
+
+          <ProtectedRoute exact path="/jobs/create" type="owner">
             <CreateJobForm />
           </ProtectedRoute>
 
@@ -164,6 +160,7 @@ function App() {
             <OwnerRequestDetails />
           </ProtectedRoute>
 
+          
 
 
           {/* ----------------------------------------------------------------
