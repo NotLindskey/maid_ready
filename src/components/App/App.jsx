@@ -102,11 +102,11 @@ function App() {
             <PropertiesPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/job-list">
+          <ProtectedRoute exact path="/keeper/job-list" type="keeper">
             <JobList />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/job/details/:id">
+          <ProtectedRoute exact path="/keeper/job/details/:id" type="keeper">
             <JobDetails />
           </ProtectedRoute>
 
