@@ -138,8 +138,6 @@ function App() {
             <AddPropertyPage />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute exact path="/job/create" type="owner"></ProtectedRoute> */}
-
           <ProtectedRoute exact path="/job/create" type="owner">
             <CreateJobForm />
           </ProtectedRoute>
