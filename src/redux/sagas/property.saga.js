@@ -21,7 +21,7 @@ function* fetchProperties() {
         withCredentials: true,
       };
       const response = yield axios.get(`/api/properties/${action.payload.id}`, config);
-      yield put({ type: 'SET_PROPERTY', payload: response.data });
+      yield put({ type: 'SET_PROPERTY', payload: response.data[0] });
     } catch (error) {
       console.log('This property get request failed', error);
     }

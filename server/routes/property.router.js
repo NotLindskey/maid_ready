@@ -21,6 +21,22 @@ router.get('/', (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `SELECT * FROM "property" WHERE "id" = $1 AND "owner_id" = $2;`;
+    pool.query(query, [req.params.id, req.user.id])
+      .then((result) => {
+          res.send(result.rows);
+      })
+      .catch((error) => {
+          console.log(`Error getting properties`, error);
+          res.sendStatus(500);
+      });
+  } else {
+      res.sendStatus(403);
+  }
+});
+
 /**
  * POST route
  */

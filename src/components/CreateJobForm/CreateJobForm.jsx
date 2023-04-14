@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function CreateJobForm(props) {
-  const store = useSelector((store) => store);
+  const property = useSelector((store) => store.property.property);
   const [heading, setHeading] = useState('Create A Job');
   const [street, setStreet] = useState('');
   const [city, setCity] = useState('');
@@ -18,13 +18,13 @@ function CreateJobForm(props) {
 
   const createJob = (event) => {
     event.preventDefault();
-    const newProperty = {
-      street,
-      city,
-      state,
-      zipcode,
-      sq_footage: sqFootage,
-    }
+    // const newProperty = {
+    //   street,
+    //   city,
+    //   state,
+    //   zipcode,
+    //   sq_footage: sqFootage,
+    // }
     const newJob = {
       price,
       date_completed_by: date,
@@ -33,7 +33,7 @@ function CreateJobForm(props) {
       claimed: 'FALSE',
     }
     dispatch({type: 'ADD_JOB', payload: newJob});
-    dispatch({type: 'ADD_PROPERTY', payload: newProperty});
+    // dispatch({type: 'ADD_PROPERTY', payload: newProperty});
     //history.push('/user');
   }
 
@@ -41,13 +41,14 @@ function CreateJobForm(props) {
 //     price = (0.08 * sqFootage);
 //     return price;
 //   }
+console.log(property)
 
   return (
     <div>
       <h2>{heading}</h2>
       <div className='job-form'>
         <form onSubmit ={createJob}>
-            <label htmlFor="street address">Street Address:</label> 
+            {/* <label htmlFor="street address">Street Address:</label> 
             <input value={street} onChange={(event) => setStreet(event.target.value)} type="text"/>
             <br/>
             <label htmlFor="city">City:</label>
@@ -61,7 +62,10 @@ function CreateJobForm(props) {
             <br/>
             <label htmlFor="sqFootage">Sq Footage:</label>
             <input value={sqFootage} onChange={(event) => setSqFootage(event.target.value)} type="number"/>
-            <br/>
+            <br/> */}
+            <p>Address:</p>
+            <p>{property.street} {property.city} {property.state} {property.zipcode}</p>
+            <p>{property.sq_footage} sq ft.</p>
             <label htmlFor="price">Price:</label>
             <input value={price} onChange={(event) => setPrice(event.target.value)} type="number"/>
             <br/>
