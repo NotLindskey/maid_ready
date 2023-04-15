@@ -54,12 +54,7 @@ router.get("/detail/:id", (req, res) => {
         "property"."city",
         "property"."state",
         "property"."zipcode",
-        "job"."id", 
-        "job"."price",
-        "job"."date_completed_by",
-        "job"."time" ,
-        "job"."owner_id",
-        "job"."property_id"
+        "job".*
         FROM "job"
         JOIN "user" 
         ON "job"."owner_id" = "user"."id"
