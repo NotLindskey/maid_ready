@@ -1,4 +1,3 @@
-
 -- create database: maid_ready_app
 
 -- USER is a reserved keyword with Postgres
