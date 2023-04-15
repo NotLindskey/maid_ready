@@ -1,17 +1,19 @@
 import "./JobDetails.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import { useEffect } from "react";
 
 function JobDetails() {
   const params = useParams();
+  const history = useHistory();
   const jobId = params.id;
 
   const dispatch = useDispatch();
   const details = useSelector((store) => store.job.job_detail);
 
-  const jobApplyHandler = () => {
-    dispatch({type:"APPLY_TO_JOB", payload: {jobId: details.id}})
+  const jobApplyHandler = async () => {
+    await dispatch({type:"APPLY_TO_JOB", payload: {jobId: details.id}})
+    history.push('/keeper/job-list')
   }
 
   const jobCompleteHandler = () => {
