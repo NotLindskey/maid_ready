@@ -74,7 +74,7 @@ function* applyToJob(action){
       withCredentials: true,
     };
     
-    const response = yield axios.put(`/api/apply/:id`, action.payload, config)
+    const response = yield axios.put(`/api/job/apply`, action.payload, config)
     yield put({type: "FETCH_JOBS"});
   }catch(err){
     console.log("Error with applying to job: ", err)

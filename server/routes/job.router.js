@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
         ON "job"."owner_id" = "user"."id"
         JOIN "property" 
         ON "property"."id" = "job"."property_id"
-        WHERE "job"."status" = 'incomplete';`;
+        WHERE "job"."status" = 'incomplete' AND claimed = false;`;
 
     pool
       .query(query)
@@ -112,8 +112,9 @@ router.post("/", (req, res) => {
 /**
  * UPDATE route
  */
-router.put("/apply/:id", (req, res) => {
+router.put("/apply", (req, res) => {
   if (req.isAuthenticated()) {
+    console.log(req.body.jobId, req.user.id)
     // you will need the job id and the keeper id
     const query = `
     WITH cte AS (
@@ -123,15 +124,15 @@ router.put("/apply/:id", (req, res) => {
       LIMIT 1
     )
     UPDATE "job" c
-    SET "claimed" = TRUE, "keeper_id" = $1
+    SET "claimed" = TRUE, "keeper_id" = $2
     FROM cte 
-    WHERE c."id" = $2
-    RETURNING *;
+    WHERE c."id" = $1;
     `;
 
     pool
-      .query(query, [req.body.jobId, req.body.keeperId])
-      .then(() => {
+      .query(query, [req.body.jobId, req.user.id])
+      .then((results) => {
+        console.log(results.rows)
         res.sendStatus(201);
       })
       .catch((err) => {

@@ -11,7 +11,7 @@ function JobDetails() {
   const details = useSelector((store) => store.job.job_detail);
 
   const jobActionHandler = () => {
-    console.log('hello')
+    dispatch({type:"APPLY_TO_JOB", payload: {jobId: details.id}})
   }
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
