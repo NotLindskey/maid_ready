@@ -1,12 +1,14 @@
-# Prime Solo Project Starting Repo
+# Maid!Ready! Project Repo
 
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+- - This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
 We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
 
-## Use the Template for This Repository (Don't Clone)
+# ABOUT MAID!READY!
 
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account. Make the project `PUBLIC`!
+Maid!Ready! Is a two-sided marketplace app that connects short term rental owners with qualified gig-workers who can clean their properties. It's like "DoorDash" for cleaning services, where owners can post a job with details such as pay rate, address, and a task list that is available to "keepers". Keepers can then log in to Maid!Ready@ and choose jobs based on their preferences, making it easy to find work that fits their lifestyle!
+
+With Maid!Ready Owners can easily access cleaning services without having to search for employees on their own and each Keeper is background checked before being allowed to access the job board. It's the perfect solution for both owners and gig-workers in the short term rental industry.
 
 ## Prerequisites
 
@@ -16,28 +18,35 @@ Before you get started, make sure you have the following software installed on y
 - [PostrgeSQL](https://www.postgresql.org/)
 - [Nodemon](https://nodemon.io/)
 
-## Create database and table
+### Installing ---
 
-Create a new database called `maid_ready_app` and create a `user` table:
+## Create the database and tables in SQL
 
-```SQL
-CREATE TABLE "user" (
-    "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
-    "password" VARCHAR (1000) NOT NULL
-);
-```
+1. - Create a database called `maid_ready_app`.
+2. - Create these tables: `user`, `property`, `job`, `checklist_item`, `job_checklist` from the database.sql file.
+     ![database.sql-file-location](documentation/images/database-location.png)
 
-If you would like to name your database something else, you will need to change `maid_ready_app` to the name of your new database name in `server/modules/pool.js`
+**_ If you would like to name your database something else, you will need to change `maid_ready_app` to the name of your new database name in `server/modules/pool.js` file _**
 
 ## Development Setup Instructions
 
 - Run `npm install`
-- Create a `.env` file at the root of the project and paste this line into the file:
+- Create a `.env` file at the root directory of this project and paste this line into the file:
+
   ```
   SERVER_SESSION_SECRET=superDuperSecret
   ```
-  While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
+
+  \*\*\* While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure.
+
+  - Use this password generator: [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
+
+- .env file creation example: ![env-file-example](documentation/images/env-file-example.png)
+
+  -- replace me section: ![env-file-example](documentation/images/env-file-replace-me.png)
+
+  **_ Fail to complete these steps to create a secret with less than eight characters, OR leave it as `superDuperSecret`, you will get a warning. _**
+
 - Start postgres if not running already by using `brew services start postgresql`
 - Run `npm run server`
 - Run `npm run client`
@@ -94,16 +103,34 @@ Directory Structure:
 This code is also heavily commented. We recommend reading through the comments, getting a lay of the land, and becoming comfortable with how the code works before you start making too many changes. If you're wondering where to start, consider reading through component file comments in the following order:
 
 - src/components
-  - App/App
-  - Footer/Footer
-  - Nav/Nav
+
   - AboutPage/AboutPage
+  - AddPropertyPagePage/addPropertyPage
+  - AdminPage/AdminPage
+  - App/App
+  - CreateJobForm/CreateJobForm
+  - Footer/Footer
   - InfoPage/InfoPage
-  - UserPage/UserPage
-  - LoginPage/LoginPage
-  - RegisterPage/RegisterPage
+  - JobDetails/JobDetails
+  - JobItem/JobItem
+  - LandingPage/LandingPage
+  - LoginForm/LoginForm
+  - LoginPge/LoginPage
+  - LoginSelectionPage/LoginSelectionPage
   - LogOutButton/LogOutButton
+  - Nav/Nav
+  - OwnerActiveRequest/OwnerActiveRequest
+  - OwnerActiveRequestPage/OwnerActiveRequestPage
+  - OwnerCompletedRequest/OwnerCompletedRequest
+  - OwnerCompletedRequestPage/OwnerCompletedRequestPage
+  - OwnerRequestDetails/OwnerRequestDetails
+  - OwnerViewRequestsPage/OwnerViewRequestsPage
+  - PropertiesPage/PropertiesPage
   - ProtectedRoute/ProtectedRoute
+  - RegisterForm/RegisterForm
+  - RegisterPage/RegisterPage
+  - ProtectedRoute/ProtectedRoute
+  - UserPage/KeeperHomePage + OwnersHomePage
 
 ## Deployment
 
