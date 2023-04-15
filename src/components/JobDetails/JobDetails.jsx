@@ -10,6 +10,9 @@ function JobDetails() {
   const dispatch = useDispatch();
   const details = useSelector((store) => store.job.job_detail);
 
+  const jobActionHandler = () => {
+    console.log('hello')
+  }
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
@@ -36,7 +39,7 @@ function JobDetails() {
             <p>${details.price}</p>
           </div>
         </div>
-        <button>Apply</button>
+        <button onClick={jobActionHandler}>Apply</button>
       </div>
       <div className="job-details-checklist">
         <div className="job-detail-title">
