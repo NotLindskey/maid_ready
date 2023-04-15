@@ -8,7 +8,7 @@ We **STRONGLY** recommend following these instructions carefully. It's a lot, an
 
 Maid!Ready! Is a two-sided marketplace app that connects short term rental owners with qualified gig-workers who can clean their properties. It's like "DoorDash" for cleaning services, where owners can post a job with details such as pay rate, address, and a task list that is available to "keepers". Keepers can then log in to Maid!Ready@ and choose jobs based on their preferences, making it easy to find work that fits their lifestyle!
 
-With Maid!Readt Owners can easily access cleaning services without having to search for employees on their own and each Keeper is background checked before being allowed to access the job board. It's the perfect solution for both owners and gig-workers in the short term rental industry.
+With Maid!Ready Owners can easily access cleaning services without having to search for employees on their own and each Keeper is background checked before being allowed to access the job board. It's the perfect solution for both owners and gig-workers in the short term rental industry.
 
 ## Prerequisites
 
@@ -20,7 +20,7 @@ Before you get started, make sure you have the following software installed on y
 
 ### Installing ---
 
-## Create the database and tables: `SQL`
+## Create the database and tables in SQL
 
 1. - Create a database called `maid_ready_app`.
 2. - Create these tables: `user`, `property`, `job`, `checklist_item`, `job_checklist` from the database.sql file.
@@ -37,12 +37,11 @@ Before you get started, make sure you have the following software installed on y
   SERVER_SESSION_SECRET=superDuperSecret
   ```
 
-  \*\*\* - While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure.
+  \*\*\* While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure.
 
   - Use this password generator: [https://passwordsgenerator.net/](https://passwordsgenerator.net/).
 
-- .env file creation example:
-  ![env-file-example](documentation/images/env-file-example.png)
+- .env file creation example: ![env-file-example](documentation/images/env-file-example.png)
 
   -- replace me section: ![env-file-example](documentation/images/env-file-replace-me.png)
 
