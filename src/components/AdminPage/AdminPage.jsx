@@ -13,19 +13,16 @@ import Modal from './AdminPageModal';
 
     //handles when the user clicks the add-btn
     const handleAdd = () => {
-        if(accountType == 'admin'){
+        //check if required fields are filled in
+        if(userName == ''){
+            alert('Please enter a user name.');
+        }else if(accountType == ''){
+            alert('Please select a user type.');
+        }else if (accountType == 'admin'){
             // pop up modal to get password and email for the admin to be added
             setOpenModal(true);
 
-            // dispatch({type: 'REGISTER', payload: {
-            //     username: userName,
-            //     account_type: accountType,
-            //     email: email,
-            //     password: password
-            //     }
-            // });
-        }else if (accountType == ''){
-            alert('Please select a user type.');
+            
         }
     }
 
@@ -57,7 +54,7 @@ import Modal from './AdminPageModal';
 
     return(
         <div>
-            {openModal && <Modal closeModal={setOpenModal} />}
+            {openModal && <Modal closeModal={setOpenModal} username={userName} accountType={accountType}/>}
             <h3 id="header">Manage Users</h3>
             <br></br>
 

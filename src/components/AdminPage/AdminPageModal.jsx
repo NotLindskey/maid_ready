@@ -1,7 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import './AdminPageModal.css';
 
-function adminPageModal({closeModal}) {
+function adminPageModal({closeModal, username, accountType}) {
+    let dispatch = useDispatch();
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+
+    const handleSubmit = () => {
+        if (email == ''){
+            alert("Please enter a email.");
+        } else if (password == '') {
+            alert("Please enter a password.")
+        } else {
+            dispatch({type: 'REGISTER', payload: {
+                username: username,
+                account_type: accountType,
+                email: email,
+                password: password
+                }
+            });
+        }
+    }
     
     return(
         <div className="modal-background">
@@ -16,12 +37,12 @@ function adminPageModal({closeModal}) {
 
                 <div className="email-input">
                     <label>Email:
-                        <input placeholder="Enter email"></input>
+                        <input placeholder="Enter email" onChange={(event) => setEmail(event.target.value)}></input>
                     </label>
                 </div>
                 <div className="password-input">
                     <label>Password:
-                        <input placeholder="Enter password"></input>
+                        <input placeholder="Enter password" onChange={(event) => setPassword(event.target.value)}></input>
                     </label>
                 </div>
                     
@@ -30,7 +51,7 @@ function adminPageModal({closeModal}) {
                 <div className="modal-btns">
                     <button className="btn" onClick={() => closeModal(false)}>Cancel</button>
                     &nbsp;
-                    <button className="btn">Add Admin</button>
+                    <button className="btn" onClick={() => handleSubmit()}>Add Admin</button>
                 </div>
                 
             </div>
