@@ -53,7 +53,10 @@ function user_jobs(state = [], action) {
   switch (action.type) {
     case "SET_USER_JOBS":
       if (action.payload) {
-        return action.payload;
+        const activeJobs = action.payload.filter((job)=>job.status !== 'incomplete')
+        const inactiveJobs = action.payload.filter((job)=>job.status === 'incomplete')
+        // return {activeJobs, inactiveJobs};
+        return action.payload
       }
       return state;
     case "RESET_JOB_DETAIL":

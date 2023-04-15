@@ -1,7 +1,7 @@
 import './JobFeature.css';
 import JobCarousel from "../JobCarousel/JobCarousel";
 
-function JobFeature({title, link}){
+function JobFeature({title, link, jobs}){
     return(
         <div className="keeper-job-feature">
         <div className="keeper-header-link">
@@ -12,7 +12,7 @@ function JobFeature({title, link}){
           </div>
         </div>
 
-        <JobCarousel jobs={[]}/>
+        <JobCarousel jobs={jobs}/>
       </div>
     )
 }

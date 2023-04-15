@@ -15,22 +15,16 @@ to use:
 */
 import "./JobCarousel.css";
 import JobItem from "../../../JobItem/JobItem";
+function JobCarousel({jobs}) {
 
-function JobCarousel() {
   return (
     <div className="job-carousel-body">
       {/* <button className="job-carousel-left-button">left</button> */}
       <div className="job-carousel-job-listing-container">
         <div className="job-carousel-job-listing-container-sub">
-            <JobItem width={20}/>
-            <JobItem width={20}/>
-            <JobItem width={20}/>
-            <JobItem width={20}/>
-            <JobItem width={20}/>
-            <JobItem width={20}/>
-            <JobItem width={20}/>
-            <JobItem width={20}/>
-            <JobItem width={20}/>
+          {jobs ? jobs.map((job)=>(
+            <JobItem width={20} key={job.id}/>
+          )) : <p> no jobs </p>}
         </div>
       </div>
       {/* <button className="job-carousel-right-button">right</button> */}
