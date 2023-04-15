@@ -89,6 +89,12 @@ Button
   text-decoration: none;
 }
 
+.btn:disabled {
+  background-color: grey;
+  color: lightgrey;
+  cursor: default;
+}
+
 /* This line makes the "Register" and "Login" buttons look like links */
 .btn_asLink {
   padding: 0;
