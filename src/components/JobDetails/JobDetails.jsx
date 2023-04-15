@@ -10,7 +10,11 @@ function JobDetails() {
   const dispatch = useDispatch();
   const details = useSelector((store) => store.job.job_detail);
 
-  const jobActionHandler = () => {
+  const jobApplyHandler = () => {
+    dispatch({type:"APPLY_TO_JOB", payload: {jobId: details.id}})
+  }
+
+  const jobCompleteHandler = () => {
     dispatch({type:"APPLY_TO_JOB", payload: {jobId: details.id}})
   }
   useEffect(() => {
@@ -39,7 +43,9 @@ function JobDetails() {
             <p>${details.price}</p>
           </div>
         </div>
-        <button onClick={jobActionHandler}>Apply</button>
+        {
+          details.claimed ? <button onClick={jobCompleteHandler}>Complete</button> : <button onClick={jobApplyHandler}>Apply</button>
+        }
       </div>
       <div className="job-details-checklist">
         <div className="job-detail-title">
