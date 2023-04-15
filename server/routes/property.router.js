@@ -21,12 +21,28 @@ router.get('/', (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `SELECT * FROM "property" WHERE "id" = $1 AND "owner_id" = $2;`;
+    pool.query(query, [req.params.id, req.user.id])
+      .then((result) => {
+          res.send(result.rows);
+      })
+      .catch((error) => {
+          console.log(`Error getting properties`, error);
+          res.sendStatus(500);
+      });
+  } else {
+      res.sendStatus(403);
+  }
+});
+
 /**
  * POST route
  */
 router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
-      const query = `INSERT INTO "property" ("street", "city, "state", "zipcode", "sq_footage", "owner_id")
+      const query = `INSERT INTO "property" ("street", "city", "state", "zipcode", "sq_footage", "owner_id")
                     VALUES ($1, $2, $3, $4, $5, $6)`;
       pool.query(query, [req.body.street, req.body.city, req.body.state, req.body.zipcode, req.body.sq_footage, req.user.id])
         .then(() => {

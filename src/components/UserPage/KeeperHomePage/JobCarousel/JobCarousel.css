@@ -1,0 +1,27 @@
+.job-carousel-body{
+    display: flex;
+}
+
+.job-carousel-body button{
+    height: 7rem;
+    width: 3rem
+}
+
+.job-carousel-job-listing-container{
+    height: 16rem;
+    width: 80rem;
+    overflow: scroll;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+}
+
+.job-carousel-job-listing-container-sub{
+    display: flex;
+    gap: 2rem;
+    position: absolute;
+    margin-left: 1rem; 
+    transition: transform ease-out .5s;
+}

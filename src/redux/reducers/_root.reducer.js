@@ -3,6 +3,8 @@ import errors from './errors.reducer';
 import user from './user.reducer';
 import properties from './property.reducer';
 import admins from './admins.reducer';
+import property from './property.reducer';
+import job from './job.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -15,6 +17,8 @@ const rootReducer = combineReducers({
   user, // will have an id and username if someone is logged in
   properties,
   admins,
+  property,
+  job,
 });
 
 export default rootReducer;

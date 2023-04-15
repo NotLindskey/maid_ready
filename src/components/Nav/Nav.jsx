@@ -12,7 +12,9 @@ function Nav() {
       <Link to="/home">
         <h2 className="nav-title">Maid!Ready!</h2>
       </Link>
-      <div>
+      <div style={{display:"flex", alignItems:"center"}}>
+
+        <p style={{marginRight:"3rem"}}>account type: {user.account_type}</p>
 
         <Link className="navLink" to="/why-us">
           Why Us
@@ -37,9 +39,11 @@ function Nav() {
             Sign in
           </Link>
         ) : (
-          <Link className="navLink" to="/user">
-              User
-            </Link>
+          // <Link className="navLink" to="/user">
+          //     User
+          //   </Link>
+          <LogOutButton className="navLink" />
+          
         )}
       </div>
     </div>

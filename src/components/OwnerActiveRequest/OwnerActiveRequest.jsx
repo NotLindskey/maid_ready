@@ -1,10 +1,19 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
-function ActiveRequest() {
+import './OwnerActiveRequest.css';
+
+function OwnerActiveRequest() {
   console.log('in active request component');
+  const history = useHistory();
+
+  const handleViewRequest = () => {
+    console.log('handleViewRequest clicked!');
+    history.push('/OwnerRequestDetails');
+  };
 
   return (
-    <div>
+    <div className="active-box-container">
       <div className="active-request-header">
         Property Name Here
         <div className="active-request-content">
@@ -17,12 +26,13 @@ function ActiveRequest() {
               <li>dates</li>
               <li>price</li>
             </ul>
-            <button>View</button>
           </div>
+          <button onClick={handleViewRequest}>View</button>
+          <button>Delete</button>
         </div>
       </div>
     </div>
   );
 }
 
-export default ActiveRequest;
+export default OwnerActiveRequest;

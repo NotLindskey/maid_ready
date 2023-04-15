@@ -1,8 +1,8 @@
-import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 // import LoginPage from '../LoginPage/LoginPage';
-import LandingPage from '../LandingPage/LandingPage';
-import {useSelector} from 'react-redux';
+import LandingPage from "../LandingPage/LandingPage";
+import { useSelector } from "react-redux";
 
 // A Custom Wrapper Component -- This will keep our code DRY.
 // Responsible for watching redux state, and returning an appropriate component
@@ -14,7 +14,7 @@ import {useSelector} from 'react-redux';
 // by checking req.isAuthenticated for authentication
 // and by checking req.user for authorization
 
-function ProtectedRoute({ component, children, ...props }) {
+function ProtectedRoute({ type, component, children, ...props }) {
   const user = useSelector((store) => store.user);
 
   // Component may be passed in as a "component" prop,
@@ -28,15 +28,22 @@ function ProtectedRoute({ component, children, ...props }) {
       // are now passed along to the 'Route' Component
       {...props}
     >
-      {user.id ?
+      {user.id ? (
         // If the user is logged in, show the protected component
-        <ProtectedComponent />
-        :
+        user.account_type === type ? (
+          <ProtectedComponent />
+        ) : type === "all" ? (
+          <ProtectedComponent />
+        ) : user.account_type === "admin" ? (
+          <ProtectedComponent />
+        ) : (
+          <Redirect exact path='/home'/>
+        )
+      ) : (
         // Otherwise, redirect to the Loginpage
         <LandingPage />
-      }
+      )}
     </Route>
-
   );
 }
 
