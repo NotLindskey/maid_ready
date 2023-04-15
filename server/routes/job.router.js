@@ -65,9 +65,9 @@ router.get("/detail/:id", (req, res) => {
         ON "job"."owner_id" = "user"."id"
         JOIN "property" 
         ON "property"."id" = "job"."property_id"
-        WHERE "job"."id" = $1;`;
+        WHERE ("job"."id" = $1  AND ("job"."keeper_id" = $2 OR "job"."keeper_id" IS NULL));`;
     pool
-      .query(query, [req.params.id])
+      .query(query, [req.params.id, req.user.id])
       .then((result) => {
         res.send(result.rows);
       })
