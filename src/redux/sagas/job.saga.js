@@ -3,13 +3,13 @@ import { put, take, takeLatest } from "redux-saga/effects";
 
 // watcher function
 function* jobSaga() {
-  yield takeLatest("FETCH_JOBS", fetchJobs);
-  yield takeLatest("FETCH_JOB", fetchJob);
+  yield takeLatest("FETCH_JOBS", fetchJobs); // GET all jobs
+  yield takeLatest("FETCH_JOB", fetchJob); // GET one job
+  yield takeLatest("FETCH_JOB_DETAIL", fetchJobDetail); // GET one job detail
 
   yield takeLatest('ADD_JOB', addJob);
 
-  yield takeLatest("FETCH_JOB_DETAIL", fetchJobDetail);
-
+  yield takeLatest("APPLY_TO_JOB", applyToJob); // UPDATE claimed to true and keeper id
 }
 
 // fetch all jobs
@@ -63,6 +63,21 @@ function* addJob(action) {
     
   } catch (err) {
     console.log("Error with posting jobs: ", err);
+  }
+}
+
+// Apply to Job (UPDATE)
+function* applyToJob(action){
+  try{
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+    
+    const response = yield axios.put(`/api/job/apply`, action.payload, config)
+    yield put({type: "FETCH_JOBS"});
+  }catch(err){
+    console.log("Error with applying to job: ", err)
   }
 }
 
