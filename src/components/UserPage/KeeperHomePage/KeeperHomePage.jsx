@@ -3,9 +3,17 @@ import JobCarousel from "./JobCarousel/JobCarousel";
 import JobItem from "../../JobItem/JobItem";
 import JobFeature from "./JobFeature/JobFeature";
 import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+
 function KeeperHomePage() {
   const history = useHistory();
+  const dispatch = useDispatch();
+  // const userJobs = useSelector(store => store)
 
+  useEffect(()=>{
+    dispatch({type:"FETCH_USER_JOBS"});
+  },[])
   return (
     <div className="keeper-home-page-body">
       <div className="keeper-home-page-find-job-container">

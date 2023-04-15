@@ -101,7 +101,6 @@ router.get("/user", (req, res) => {
     pool
       .query(query, [req.user.id])
       .then((results) => {
-        console.log(results.rows);
         res.send(results.rows);
       })
       .catch((err) => {
@@ -147,7 +146,6 @@ router.post("/", (req, res) => {
  */
 router.put("/apply", (req, res) => {
   if (req.isAuthenticated()) {
-    console.log(req.body.jobId, req.user.id);
     // you will need the job id and the keeper id
     const query = `
     WITH cte AS (
