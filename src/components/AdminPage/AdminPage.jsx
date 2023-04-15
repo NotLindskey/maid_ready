@@ -42,6 +42,10 @@ import Modal from './AdminPageModal';
                 accountType: accountType,
             }});
         }
+        //refresh table contents
+        dispatch({ type: 'FETCH_ADMINS' });
+        //reset input
+        setUserName('');
     }
 
     //function to handle when a radio button is clicked
@@ -62,7 +66,7 @@ import Modal from './AdminPageModal';
             <div className="admin-controls">
                 <div id="manage-user-inputs">
                     <label> User Name:
-                        <input id="user-name-input" placeholder="Enter Username" onChange={(event) => setUserName(event.target.value)}></input>
+                        <input id="user-name-input" value={userName} placeholder="Enter Username" onChange={(event) => setUserName(event.target.value)}></input>
                     </label>
                 </div>
             
