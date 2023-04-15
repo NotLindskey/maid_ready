@@ -62,4 +62,17 @@ router.post('/deleteUser', (req,res) => {
   });
 });
 
+//get admins to populate table on AdminPage
+router.get('/getAdmins', (req,res) => {
+  let queryText = `SELECT * FROM "user" WHERE "account_type" = 'admin';`
+
+  pool.query(queryText)
+  .then((response) => {
+    res.send(response.rows);
+  }).catch((error) => {
+    console.log('error in /getAdmins', error);
+    res.sendStatus(500);
+  });
+});
+
 module.exports = router;

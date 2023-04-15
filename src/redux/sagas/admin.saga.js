@@ -3,6 +3,7 @@ import axios from 'axios';
 
 function* adminSaga() {
     yield takeEvery('DELETE_USER', deleteUser);
+    yield takeEvery('FETCH_ADMINS', getAdmins);
 }
 
 //using POST route so we can send back multiple pieces of data
@@ -12,6 +13,15 @@ function* deleteUser(action) {
 
     }catch(error) {
         console.log('error in deleteAdmin', error);
+    }
+}
+
+function* getAdmins() {
+    try {
+        let admins = yield axios.get('/api/user/getAdmins');
+        yield put({type: 'SAVE_ADMINS', payload: admins.data});
+    }catch (error) {
+        console.log('error in getAdmins', error);
     }
 }
 

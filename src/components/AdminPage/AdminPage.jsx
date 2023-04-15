@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './AdminPage.css';
 import Modal from './AdminPageModal';
  
  function AdminPage() {
     const dispatch = useDispatch();
+    const admins = useSelector(store => store.admins);
     const [userName, setUserName] = useState('');
     const [accountType, setAccountType] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
     const [openModal, setOpenModal] = useState(false);
+
+    useEffect(() => {
+        dispatch({ type: 'FETCH_ADMINS' });
+      }, []);
 
     //handles when the user clicks the add-btn
     const handleAdd = () => {
@@ -21,8 +24,6 @@ import Modal from './AdminPageModal';
         }else if (accountType == 'admin'){
             // pop up modal to get password and email for the admin to be added
             setOpenModal(true);
-
-            
         }
     }
 
@@ -76,6 +77,33 @@ import Modal from './AdminPageModal';
                     &nbsp;
                     <button id="remove-btn" className="btn" onClick={() => handleRemove()}>Remove</button>
                 </div>
+
+                <div className="break"></div>
+
+                <div id="table-container">
+                    <table id="admin-table">
+                        <caption>Administrators</caption>
+
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>ID</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {admins.map((admin) => 
+                                <tr key={admin.id}>
+                                    <td>{admin.username}</td>
+                                    <td>{admin.email}</td>
+                                    <td>{admin.id}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
             
         </div>
