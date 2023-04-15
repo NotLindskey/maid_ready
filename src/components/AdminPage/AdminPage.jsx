@@ -78,6 +78,7 @@ import Modal from './AdminPageModal';
                     <button id="remove-btn" className="btn" onClick={() => handleRemove()}>Remove</button>
                 </div>
 
+                {/* line to break table to the next row */}
                 <div className="break"></div>
 
                 <div id="table-container">
