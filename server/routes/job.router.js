@@ -23,7 +23,7 @@ router.get("/", (req, res) => {
         ON "job"."owner_id" = "user"."id"
         JOIN "property" 
         ON "property"."id" = "job"."property_id"
-        WHERE "job"."status" = 'incomplete' AND claimed = false;`;
+        WHERE "job"."status" = 'incomplete' AND claimed = false AND keeper_id IS NULL;`;
 
     pool
       .query(query)
