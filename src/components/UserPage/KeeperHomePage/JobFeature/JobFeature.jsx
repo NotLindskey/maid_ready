@@ -1,18 +1,20 @@
 import './JobFeature.css';
 import JobCarousel from "../JobCarousel/JobCarousel";
+import { useHistory } from 'react-router-dom';
+function JobFeature({title, link, jobs}){
+  const history = useHistory();
 
-function JobFeature({title, link}){
     return(
         <div className="keeper-job-feature">
         <div className="keeper-header-link">
           <p className="keeper-home-link-title">{title}</p>
           <div className="keeper-home-active-navigate">
             <div className="arrow-right"></div>
-            <button>view</button>
+            <button onClick={()=>{history.push(`${link}`)}}>view</button>
           </div>
         </div>
 
-        <JobCarousel jobs={[]}/>
+        <JobCarousel jobs={jobs}/>
       </div>
     )
 }
