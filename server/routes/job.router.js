@@ -6,6 +6,40 @@ const router = express.Router();
  * GET route
  */
 
+// GET owners job requests
+router.get("/jobs/:owner_id", (req, res) => {
+  const ownerId = req.params.owner_id
+  if(req.isAuthenticated()) {
+    const query = `SELECT 
+    "user"."username", 
+    "property"."street", 
+    "property"."city", 
+    "property"."state", 
+    "property"."zipcode",
+    "job"."date_completed_by",
+    "job"."price"
+    FROM "user"
+    JOIN "property" 
+    ON "user"."id" = "property"."owner_id"
+    JOIN "job"
+    ON "property"."id" = "job"."property_id"
+    WHERE "owner_id" = $1;
+    `;
+    pool.query(query, [ownerId])
+    .then((result) => {
+      // Send query result as response
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      //Handle error
+      console.log(`Error getting jobs for owner: `, error);
+      res.sendStatus(500);
+    });
+  } else {
+    res.sendStatus(403);
+  }
+});
+
 // get all jobs
 router.get("/", (req, res) => {
   if (req.isAuthenticated()) {
@@ -75,7 +109,7 @@ router.get("/detail/:id", (req, res) => {
   }
 });
 
-// GET user's jobs
+// GET keepers's jobs
 router.get("/user", (req, res) => {
   // GET route code here
   if (req.isAuthenticated()) {

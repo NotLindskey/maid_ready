@@ -22,7 +22,7 @@ function OwnerActiveRequest() {
             <ul>
               <li>Name</li>
               <li>address</li>
-              <li>miles</li>
+              {/* <li>miles</li> */} 
               <li>dates</li>
               <li>price</li>
             </ul>
