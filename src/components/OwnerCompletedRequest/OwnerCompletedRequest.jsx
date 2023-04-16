@@ -1,38 +1,45 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+
+import JobItem from '../JobItem/JobItem';
 
 import './OwnerCompletedRequest.css';
 
 function OwnerCompletedRequest() {
   console.log('in completed request component');
   const history = useHistory();
+  const dispatch = useDispatch();
+  const jobs = useSelector((store) => store.job.jobs);
 
-  const viewCompletedBtn = () => {
-    console.log('clicked!');
-    history.push('/OwnerRequestDetails');
-  };
+  useEffect(() => {
+    dispatch({ type: 'FETCH_JOBS' });
+  }, []);
 
   // Render
   return (
-    <div className="completed-box-container">
-      <div className="complete-request-header">
-        Property Name Here
-        <div className="complete-request-content">
-          <div className="complete-request-image">
-            Insert Image Property Here
-          </div>
-          <div className="complete-request-details">
-            <ul>
-              <li>Name</li>
-              <li>address</li>
-              <li>miles</li>
-              <li>dates</li>
-              <li>price</li>
-            </ul>
-          </div>
-          <button onClick={viewCompletedBtn}>View</button>
-          <button>Delete</button>
-        </div>
+    <div className="job-list-body">
+      <div className="job-list-container">
+        {jobs.length ? (
+          jobs.map((job) => (
+            <div>
+              <JobItem
+                key={job.id}
+                id={job.id}
+                owner={job.username}
+                street={job.street}
+                city={job.city}
+                state={job.state}
+                zip={job.zipcode}
+                price={job.price}
+                date={job.date_completed_by}
+              />
+            </div>
+          ))
+        ) : (
+          <p>no jobs found</p>
+        )}
       </div>
     </div>
   );

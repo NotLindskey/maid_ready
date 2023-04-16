@@ -15,6 +15,11 @@ function OwnerViewRequestsPage() {
     history.push('/');
   };
 
+  const viewCompletedList = () => {
+    console.log('viewCompletedList clicked');
+    history.push('OwnerCompletedRequestsPage');
+  };
+
   return (
     <div>
       <div>
@@ -34,7 +39,11 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent completed requests */}
         <div className="list-completed-requests">
-          <p>Completed Requests:</p>
+          <button onClick={viewCompletedList}>Completed Requests:</button>
+          <p>
+            `get route to display jobItem only by: status = completed && ORDER
+            BY date_completed_by` LIMIT 4;{' '}
+          </p>
           <OwnerCompletedRequest />
         </div>
       </div>

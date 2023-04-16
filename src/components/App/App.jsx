@@ -60,17 +60,13 @@ function App() {
           {/* ----------------------------------------------------------------
             NOT Protected Routes
           ---------------------------------------------------------------- */}
-          <Route
-            exact
-            path="/about"
-          >
+          <Route exact path="/about">
             <AboutPage />
           </Route>
 
           <Route exact path="/CleaningStandards">
             <CleaningStandards />
           </Route>
-
 
           {/* ----------------------------------------------------------------
             Protected Routes
@@ -80,10 +76,8 @@ function App() {
             If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
             Even though it seems like they are different pages, the user is always on localhost:3000/user */}
 
-
-
           {/* ----------------------------------------------------------------
-            ANY (accounty_type)
+            ANY (account_type)
           ---------------------------------------------------------------- */}
           <ProtectedRoute
             // logged in shows UserPage else shows LoginPage
@@ -91,15 +85,16 @@ function App() {
             path="/home"
             type="all"
           >
-            {
-              user.account_type === "owner" ? <OwnersHomePage /> :
-              user.account_type === "keeper" ? <KeeperHomePage/> :
-              user.account_type === "admin" ? <AdminPage/> :
-              <LoginPage/>
-            }
+            {user.account_type === 'owner' ? (
+              <OwnersHomePage />
+            ) : user.account_type === 'keeper' ? (
+              <KeeperHomePage />
+            ) : user.account_type === 'admin' ? (
+              <AdminPage />
+            ) : (
+              <LoginPage />
+            )}
           </ProtectedRoute>
-
-
 
           {/* ----------------------------------------------------------------
             ADMIN (admins only)
@@ -107,8 +102,6 @@ function App() {
           <ProtectedRoute exact path="/admin" type="admin">
             <AdminPage />
           </ProtectedRoute>
-
-
 
           {/* ----------------------------------------------------------------
             KEEPER (keepers only)
@@ -125,10 +118,9 @@ function App() {
             <KeeperHomePage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/keeper/activity" type="keeper">
-            <KeeperActivityPage/>
+          <ProtectedRoute exact path="/keeper/job/details/:id" type="keeper">
+            <JobDetails />
           </ProtectedRoute>
-
 
           {/* ----------------------------------------------------------------
             OWNER (owners only)
@@ -161,22 +153,18 @@ function App() {
             <OwnerRequestDetails />
           </ProtectedRoute>
 
-          
-
-
           {/* ----------------------------------------------------------------
             LOGIN and REGISTER routes
           ---------------------------------------------------------------- */}
-          {/* Login and Register routes deal with Logining in and Registering an account.
-          these Routes often use componets like the Login Form and Register Form to "directly"
-          communicate with the database to create a new user/ checking the credientals of a user.
-          
+          {/* Login and Register routes deal with Login in and Registering an account.
+          these Routes often use components like the Login Form and Register Form to "directly"
+          communicate with the database to create a new user/ checking the credentials of a user.
+
           - currently Login is the same for all account no matter the account type
               - the authorization check is done through the protected route
-          
-          - the Register pages have to be seperate (owners and keepers) so when being created within the
-          database, the correct account type is assigned to the account*/}
 
+          - the Register pages have to be separate (owners and keepers) so when being created within the
+          database, the correct account type is assigned to the account*/}
 
           {/* ----------------------------------------------------------------
             LOGIN routes
@@ -215,8 +203,6 @@ function App() {
               <LoginPage type="owner" />
             )}
           </Route>
-
-
 
           {/* ----------------------------------------------------------------
             REGISTER routes
@@ -267,11 +253,10 @@ function App() {
             )}
           </Route>
 
-
           {/* ----------------------------------------------------------------
             404 (not found)
           ---------------------------------------------------------------- */}
-          {/* if user enters a page that hasn't been created / route hasn't been declared then 
+          {/* if user enters a page that hasn't been created / route hasn't been declared then
           a 404 page will show up
           */}
           <Route>
