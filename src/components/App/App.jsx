@@ -36,6 +36,7 @@ import AddPropertyPage from '../AddPropertyPage/AddPropertyPage';
 import KeeperHomePage from '../UserPage/KeeperHomePage/KeeperHomePage';
 import JobList from '../JobList/JobList';
 import JobDetails from '../JobDetails/JobDetails';
+import KeeperActivityPage from '../KeeperActivityPage/KeeperActivityPage';
 import './App.css';
 import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
 
@@ -113,7 +114,6 @@ function App() {
             KEEPER (keepers only)
           ---------------------------------------------------------------- */}
           <ProtectedRoute exact path="/keeper/job-list" type="keeper">
-
             <JobList />
           </ProtectedRoute>
 
@@ -125,6 +125,9 @@ function App() {
             <KeeperHomePage />
           </ProtectedRoute>
 
+          <ProtectedRoute exact path="/keeper/activity" type="keeper">
+            <KeeperActivityPage/>
+          </ProtectedRoute>
 
 
           {/* ----------------------------------------------------------------

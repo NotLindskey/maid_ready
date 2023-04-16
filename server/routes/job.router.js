@@ -75,6 +75,43 @@ router.get("/detail/:id", (req, res) => {
   }
 });
 
+// GET user's jobs
+router.get("/user", (req, res) => {
+  // GET route code here
+  if (req.isAuthenticated()) {
+    const query = `
+    SELECT 
+    "user"."username", 
+
+    "property"."street",
+    "property"."city",
+    "property"."state",
+    "property"."zipcode",
+        
+    "job".*
+        
+    FROM "job"
+    JOIN "user" 
+    ON "job"."owner_id" = "user"."id"
+    JOIN "property" 
+    ON "property"."id" = "job"."property_id"
+    WHERE "job"."keeper_id" = $1;
+    `;
+
+    pool
+      .query(query, [req.user.id])
+      .then((results) => {
+        res.send(results.rows);
+      })
+      .catch((err) => {
+        console.log("Error with geting user's jobs: ", err);
+        res.sendStatus(500);
+      });
+  } else {
+    res.sendStatus(403);
+  }
+});
+
 /**
  * POST route
  */
@@ -109,7 +146,6 @@ router.post("/", (req, res) => {
  */
 router.put("/apply", (req, res) => {
   if (req.isAuthenticated()) {
-    console.log(req.body.jobId, req.user.id)
     // you will need the job id and the keeper id
     const query = `
     WITH cte AS (
@@ -127,7 +163,7 @@ router.put("/apply", (req, res) => {
     pool
       .query(query, [req.body.jobId, req.user.id])
       .then((results) => {
-        console.log(results.rows)
+        console.log(results.rows);
         res.sendStatus(201);
       })
       .catch((err) => {
