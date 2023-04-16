@@ -7,8 +7,8 @@ const router = express.Router();
  */
 
 // GET owners job requests
-router.get("/jobs/:owner_id", (req, res) => {
-  const ownerId = req.params.owner_id
+router.get("/jobs/owner/request", (req, res) => {
+
   if(req.isAuthenticated()) {
     const query = `SELECT 
     "user"."username", 
@@ -25,7 +25,7 @@ router.get("/jobs/:owner_id", (req, res) => {
     ON "property"."id" = "job"."property_id"
     WHERE "owner_id" = $1;
     `;
-    pool.query(query, [ownerId])
+    pool.query(query, [req.user.id])
     .then((result) => {
       // Send query result as response
       res.send(result.rows);
