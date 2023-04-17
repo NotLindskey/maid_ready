@@ -7,7 +7,7 @@ const router = express.Router();
  */
 
 // GET owners job requests
-router.get("/jobs/owner/request", (req, res) => {
+router.get("/owner/request", (req, res) => {
 
   if(req.isAuthenticated()) {
     const query = `SELECT 
@@ -18,7 +18,8 @@ router.get("/jobs/owner/request", (req, res) => {
     "property"."zipcode",
     "job"."date_completed_by",
     "job"."price",
-    "job"."status"
+    "job"."status",
+    "job"."claimed"
     FROM "user"
     JOIN "property" 
     ON "user"."id" = "property"."owner_id"

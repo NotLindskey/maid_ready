@@ -64,9 +64,26 @@ function user_jobs(state = [], action) {
       return state;
   }
 }
+
+function owner_requests(state = [], action) {
+  switch (action.type) {
+    case "SET_OWNER_REQUESTS":
+      if (action.payload) {
+        return action.payload;
+      }
+      return [];
+    case "RESET_REQUESTS":
+      return [];
+    case "RESET":
+      return [];
+    default:
+      return state;
+  }
+}
 export default combineReducers({
   jobs, // all jobs
   job, // job by id
   job_detail, // job detail
   user_jobs, // user's jobs
+  owner_requests // owner's requests
 });

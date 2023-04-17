@@ -8,6 +8,8 @@ function* jobSaga() {
   yield takeLatest("FETCH_JOB_DETAIL", fetchJobDetail); // GET one job detail
   yield takeLatest("FETCH_USER_JOBS", fetchUserJobs); // GET user's jobs
 
+  yield takeLatest("FETCH_OWNER_REQUESTS", fetchOwnerRequests); // GET owner's requests
+
   yield takeLatest("ADD_JOB", addJob);
 
   yield takeLatest("APPLY_TO_JOB", applyToJob); // UPDATE claimed to true and keeper id
@@ -64,6 +66,21 @@ function* fetchUserJobs() {
     yield put({ type: "SET_USER_JOBS", payload: userJobs.data });
   } catch (err) {
     console.log("Error with getting user's jobs: ", err);
+  }
+}
+
+// fetch owner's requests
+function* fetchOwnerRequests() {
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+
+    const ownerRequests = yield axios.get(`/api/job/owner/request`);
+    yield put({ type: "SET_OWNER_REQUESTS", payload: ownerRequests.data });
+  } catch (err) {
+    console.log("Error with getting owner's requests: ", err);
   }
 }
 
