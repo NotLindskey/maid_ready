@@ -6,7 +6,7 @@
 -- Otherwise you will have errors!
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "username" VARCHAR (80) NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
     "account_type" VARCHAR (10) NOT NULL,
     "email" VARCHAR (300) NOT NULL
