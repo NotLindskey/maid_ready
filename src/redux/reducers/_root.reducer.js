@@ -5,6 +5,7 @@ import properties from './property.reducer';
 import admins from './admins.reducer';
 import property from './property.reducer';
 import job from './job.reducer';
+import suggestions from './suggestions.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   admins,
   property,
   job,
+  suggestions,
 });
 
 export default rootReducer;
