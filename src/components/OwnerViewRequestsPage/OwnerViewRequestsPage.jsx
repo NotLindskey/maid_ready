@@ -9,6 +9,7 @@ import './OwnerViewRequestsPage.css';
 
 function OwnerViewRequestsPage() {
   console.log('hello world!');
+  const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -52,6 +53,14 @@ function OwnerViewRequestsPage() {
             BY date_completed_by` LIMIT 4;{' '}
           </p>
           <OwnerCompletedRequest />
+          {requests.map(request => {
+              return (
+                <div className='completed-requests' key={request.id}>
+                  <p>{request.street} {request.city} {request.state} {request.zipcode}</p>
+                  
+                </div>
+              )
+            })}
         </div>
       </div>
       <br />
