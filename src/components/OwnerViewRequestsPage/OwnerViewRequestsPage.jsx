@@ -1,5 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import React, { useEffect, useState } from 'react';
 
 import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
 import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedRequest';
@@ -8,6 +10,7 @@ import './OwnerViewRequestsPage.css';
 function OwnerViewRequestsPage() {
   console.log('hello world!');
   const history = useHistory();
+  const dispatch = useDispatch();
 
   // button to send user back to OwnersHomePage
   const handleToHome = () => {
