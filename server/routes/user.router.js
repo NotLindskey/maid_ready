@@ -64,7 +64,7 @@ router.post('/deleteUser', (req,res) => {
 
 //get admins to populate table on AdminPage
 router.get('/getAdmins', (req,res) => {
-  let queryText = `SELECT * FROM "user" WHERE "account_type" = 'admin';`
+  let queryText = `SELECT * FROM "user" WHERE "account_type" = 'admin' ORDER BY "username";`
 
   pool.query(queryText)
   .then((response) => {
@@ -76,9 +76,8 @@ router.get('/getAdmins', (req,res) => {
 });
 
 //gets suggestions as you type on the AdminPage
-router.post('/getSuggestions/:id', (req, res) => {
-  console.log('req.params:', req.params.id);
-  let queryText = `SELECT "id", "username", "email", "account_type"  FROM "user" where "username" LIKE '${req.params.id}%' LIMIT 3;`;
+router.get('/getSuggestions/:id', (req, res) => {
+  let queryText = `SELECT "id", "username", "email", "account_type"  FROM "user" where "username" LIKE '${req.params.id}%' ORDER BY "username" LIMIT 5;`;
 
   pool.query(queryText)
   .then((response) => {

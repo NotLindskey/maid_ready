@@ -10,6 +10,9 @@ import Modal from './AdminPageModal';
     const [userName, setUserName] = useState('');
     const [accountType, setAccountType] = useState('');
     const [openModal, setOpenModal] = useState(false);
+    const [adminChecked, setAdminChecked] = useState (false);
+    const [keeperChecked, setKeeperChecked] = useState(false);
+    const [ownerChecked, setOwnerChecked] = useState(false);
 
     useEffect(() => {
         dispatch({ type: 'FETCH_ADMINS' });
@@ -55,13 +58,39 @@ import Modal from './AdminPageModal';
         setAccountType(type);
         //toggle the add-btn
         document.getElementById("add-btn").disabled = value;
-
+        if(type == 'admin'){
+            setAdminChecked(true);
+            setOwnerChecked(false);
+            setKeeperChecked(false);
+        }else if (type == 'owner'){
+            setAdminChecked(false);
+            setOwnerChecked(true);
+            setKeeperChecked(false);
+        }else if (type == 'keeper'){
+            setAdminChecked(false);
+            setOwnerChecked(false);
+            setKeeperChecked(true);
+        }
     }
+
 
     //function to get autocomplete data from the database
     const usernameInputChange = (value) => {
         setUserName(value);
         dispatch({type: 'GET_SUGGESTIONS', payload: value});
+    }
+
+    //function to handle when a search result is clicked
+    const handleResultClick = (user, account) => {
+        //change the input value for user-name-input
+        setUserName(user);
+        //change state based on account type for disable/enable add button
+        let state = false;
+        if (account == 'owner' || account == 'keeper'){
+            state = true;
+        }
+        //check the radio button for the appropriate account type
+        handleRadioBtnClick(account, state);
     }
 
     return(
@@ -78,9 +107,9 @@ import Modal from './AdminPageModal';
                 </div>
             
                 <div id="radio-btn-div" onChange={(event) => setAccountType(event.target.value)}>
-                    <input type="radio" value="admin" name="user" onChange={() => handleRadioBtnClick('admin', false)}/> Admin <br></br>
-                    <input type="radio" value="owner" name="user" onChange={() => handleRadioBtnClick('owner', true)}/> Owner <br></br>
-                    <input type="radio" value="keeper" name="user" onChange={() => handleRadioBtnClick('keeper', true)}/> Keeper
+                    <input type="radio" value="admin" name="user" checked={adminChecked} onChange={() => handleRadioBtnClick('admin', false)}/> Admin <br></br>
+                    <input type="radio" value="owner" name="user" checked={ownerChecked} onChange={() => handleRadioBtnClick('owner', true)}/> Owner <br></br>
+                    <input type="radio" value="keeper" name="user" checked={keeperChecked} onChange={() => handleRadioBtnClick('keeper', true)}/> Keeper
                 </div>
 
                 <div id="add-remove-btn-div">
@@ -107,7 +136,7 @@ import Modal from './AdminPageModal';
 
                         <tbody>
                             {results.map((result) => 
-                                <tr key={result.id} onClick={() => setUserName(result.username)}>
+                                <tr key={result.id} onClick={() => handleResultClick(result.username, result.account_type)}>
                                     <td>{result.username}</td>
                                     <td>{result.email}</td>
                                     <td>{result.id}</td>
@@ -115,7 +144,7 @@ import Modal from './AdminPageModal';
                                 </tr>
                             )}
                         </tbody>
-                        *results are clickable
+                        *rows are clickable
                     </table>
                 </div>
                 
@@ -136,13 +165,14 @@ import Modal from './AdminPageModal';
 
                         <tbody>
                             {admins.map((admin) => 
-                                <tr key={admin.id}>
+                                <tr key={admin.id} onClick={() => handleResultClick(admin.username, admin.account_type)}>
                                     <td>{admin.username}</td>
                                     <td>{admin.email}</td>
                                     <td>{admin.id}</td>
                                 </tr>
                             )}
                         </tbody>
+                        *rows are clickable
                     </table>
                 </div>
 

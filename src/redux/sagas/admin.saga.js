@@ -27,7 +27,7 @@ function* getAdmins() {
 
 function* getSuggestions(action) {
     try {
-        const suggestions = yield axios.post(`/api/user/getSuggestions/${action.payload}`);
+        const suggestions = yield axios.get(`/api/user/getSuggestions/${action.payload}`);
         yield put({type: 'SAVE_SUGGESTIONS', payload: suggestions.data});
     }catch (error) {
         console.log('error in getSuggestions', error);
