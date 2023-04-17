@@ -52,6 +52,25 @@ import Modal from './AdminPageModal';
         setUserName('');
     }
 
+     //function to get autocomplete data from the database
+     const usernameInputChange = (value) => {
+        setUserName(value);
+        dispatch({type: 'GET_SUGGESTIONS', payload: value});
+    }
+
+    //function to handle when a search result is clicked
+    const handleResultClick = (user, account) => {
+        //change the input value for user-name-input
+        setUserName(user);
+        //change state based on account type for disable/enable add button
+        let state = false;
+        if (account == 'owner' || account == 'keeper'){
+            state = true;
+        }
+        //check the radio button for the appropriate account type
+        handleRadioBtnClick(account, state);
+    }
+
     //function to handle when a radio button is clicked
     const handleRadioBtnClick = (type, value) => {
         //set account type
@@ -71,25 +90,6 @@ import Modal from './AdminPageModal';
             setOwnerChecked(false);
             setKeeperChecked(true);
         }
-    }
-
-    //function to get autocomplete data from the database
-    const usernameInputChange = (value) => {
-        setUserName(value);
-        dispatch({type: 'GET_SUGGESTIONS', payload: value});
-    }
-
-    //function to handle when a search result is clicked
-    const handleResultClick = (user, account) => {
-        //change the input value for user-name-input
-        setUserName(user);
-        //change state based on account type for disable/enable add button
-        let state = false;
-        if (account == 'owner' || account == 'keeper'){
-            state = true;
-        }
-        //check the radio button for the appropriate account type
-        handleRadioBtnClick(account, state);
     }
 
     return(
