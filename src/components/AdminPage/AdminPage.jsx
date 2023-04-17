@@ -73,7 +73,6 @@ import Modal from './AdminPageModal';
         }
     }
 
-
     //function to get autocomplete data from the database
     const usernameInputChange = (value) => {
         setUserName(value);
@@ -144,7 +143,7 @@ import Modal from './AdminPageModal';
                                 </tr>
                             )}
                         </tbody>
-                        *rows are clickable
+                        *Rows are clickable
                     </table>
                 </div>
                 
@@ -172,12 +171,10 @@ import Modal from './AdminPageModal';
                                 </tr>
                             )}
                         </tbody>
-                        *rows are clickable
+                        *Rows are clickable
                     </table>
                 </div>
-
             </div>
-            
         </div>
     )
  }
