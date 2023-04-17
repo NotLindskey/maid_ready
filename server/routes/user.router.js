@@ -75,4 +75,18 @@ router.get('/getAdmins', (req,res) => {
   });
 });
 
+//gets suggestions as you type on the AdminPage
+router.post('/getSuggestions/:id', (req, res) => {
+  console.log('req.params:', req.params.id);
+  let queryText = `SELECT "id", "username", "email", "account_type"  FROM "user" where "username" LIKE '${req.params.id}%' LIMIT 3;`;
+
+  pool.query(queryText)
+  .then((response) => {
+    res.send(response.rows);
+  }).catch((error) => {
+    console.log('error in /getSuggestions', error);
+    res.sendStatus(500);
+  })
+})
+
 module.exports = router;

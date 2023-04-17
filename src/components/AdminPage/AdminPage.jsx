@@ -6,6 +6,7 @@ import Modal from './AdminPageModal';
  function AdminPage() {
     const dispatch = useDispatch();
     const admins = useSelector(store => store.admins);
+    const results = useSelector(store => store.suggestions);
     const [userName, setUserName] = useState('');
     const [accountType, setAccountType] = useState('');
     const [openModal, setOpenModal] = useState(false);
@@ -57,6 +58,12 @@ import Modal from './AdminPageModal';
 
     }
 
+    //function to get autocomplete data from the database
+    const usernameInputChange = (value) => {
+        setUserName(value);
+        dispatch({type: 'GET_SUGGESTIONS', payload: value});
+    }
+
     return(
         <div>
             {openModal && <Modal closeModal={setOpenModal} username={userName} accountType={accountType}/>}
@@ -66,7 +73,7 @@ import Modal from './AdminPageModal';
             <div className="admin-controls">
                 <div id="manage-user-inputs">
                     <label> User Name:
-                        <input id="user-name-input" value={userName} placeholder="Enter Username" onChange={(event) => setUserName(event.target.value)}></input>
+                        <input id="user-name-input" value={userName} placeholder="Enter Username" onChange={(event) => usernameInputChange(event.target.value)}></input>
                     </label>
                 </div>
             
@@ -85,9 +92,39 @@ import Modal from './AdminPageModal';
                 {/* line to break table to the next row */}
                 <div className="break"></div>
 
-                <div id="table-container">
+                <div className="table-container">
+                    <table>
+                        <caption>Results</caption>
+
+                        <thead>
+                            <tr>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>ID</th>
+                                <th>Account Type</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {results.map((result) => 
+                                <tr key={result.id} onClick={() => setUserName(result.username)}>
+                                    <td>{result.username}</td>
+                                    <td>{result.email}</td>
+                                    <td>{result.id}</td>
+                                    <td>{result.account_type}</td>
+                                </tr>
+                            )}
+                        </tbody>
+                        *results are clickable
+                    </table>
+                </div>
+                
+                {/* line to break table to the next row */}
+                <div className="break"></div>
+
+                <div className="table-container">
                     <table id="admin-table">
-                        <caption>Administrators</caption>
+                        <caption>Current Administrators</caption>
 
                         <thead>
                             <tr>

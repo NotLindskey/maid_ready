@@ -34,7 +34,7 @@
     height: 0;
 }
 
-#table-container {
+.table-container {
     display: flex;
     align-items: center;
     max-width: 100%;
