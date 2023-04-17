@@ -24,7 +24,9 @@ router.post('/register', (req, res, next) => {
   const account_type = req.body.account_type;
 
   const queryText = `INSERT INTO "user" (username, password, email, account_type)
-    VALUES ($1, $2, $3, $4) RETURNING id`;
+    SELECT $1, $2, $3, $4 WHERE NOT EXISTS (
+      SELECT "username", "account_type" FROM "user" WHERE "username"='${username}' AND "account_type"='${account_type}'
+      ) RETURNING id;`;
   pool
     .query(queryText, [username, password, email, account_type])
     .then(() => res.sendStatus(201))
