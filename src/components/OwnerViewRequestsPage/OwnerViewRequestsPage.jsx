@@ -12,6 +12,10 @@ function OwnerViewRequestsPage() {
   const history = useHistory();
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch({type: 'FETCH_OWNER_REQUESTS'});
+    }, []);
+
   // button to send user back to OwnersHomePage
   const handleToHome = () => {
     console.log('handleToHome clicked!');
