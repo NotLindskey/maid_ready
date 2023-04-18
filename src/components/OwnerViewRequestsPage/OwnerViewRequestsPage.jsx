@@ -1,5 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import { useEffect, useState } from 'react';
 
 import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
 import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedRequest';
@@ -7,7 +9,14 @@ import './OwnerViewRequestsPage.css';
 
 function OwnerViewRequestsPage() {
   console.log('hello world!');
+  const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
+  const dispatch = useDispatch();
+  const completedRequests = requests.filter((request) => request.status === 'complete')
+
+  useEffect(() => {
+    dispatch({type: 'FETCH_OWNER_REQUESTS'});
+    }, []);
 
   // button to send user back to OwnersHomePage
   const handleToHome = () => {
@@ -44,7 +53,17 @@ function OwnerViewRequestsPage() {
             `get route to display jobItem only by: status = completed && ORDER
             BY date_completed_by` LIMIT 4;{' '}
           </p>
-          <OwnerCompletedRequest />
+          {/* <OwnerCompletedRequest /> */}
+          {completedRequests.map(request => {
+              return (
+                <div className='completed-requests' key={request.id}>
+                  <p>{request.street} {request.city} {request.state} {request.zipcode}</p>
+                  <p>{request.date_completed_by}</p>
+                  <p>{request.price}</p>
+                  
+                </div>
+              )
+            })}
         </div>
       </div>
       <br />

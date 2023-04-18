@@ -7,7 +7,7 @@ const router = express.Router();
  */
 
 // GET owners job requests
-router.get("/jobs/owner/request", (req, res) => {
+router.get("/owner/request", (req, res) => {
 
   if(req.isAuthenticated()) {
     const query = `SELECT 
@@ -17,13 +17,15 @@ router.get("/jobs/owner/request", (req, res) => {
     "property"."state", 
     "property"."zipcode",
     "job"."date_completed_by",
-    "job"."price"
+    "job"."price",
+    "job"."status",
+    "job"."claimed"
     FROM "user"
     JOIN "property" 
     ON "user"."id" = "property"."owner_id"
     JOIN "job"
     ON "property"."id" = "job"."property_id"
-    WHERE "owner_id" = $1;
+    WHERE "job"."owner_id" = $1;
     `;
     pool.query(query, [req.user.id])
     .then((result) => {
