@@ -3,7 +3,8 @@
     flex-wrap: wrap;
     margin: 10px;
     padding: 10px;
-    margin-left: 10;
+    margin-left: 25%;
+    color: #454B66;
 }
 
 .admin-controls {
@@ -42,24 +43,24 @@
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
-    border-color: black;
-    background-color: lightgrey;
+    border-color: #454B66;
+    background-color: #94C5CC;
 }
 
 .result-table {
     border: 1px solid;
-    border-color: black;
+    border-color: #454B66;
     width: 100%;
     border-collapse: collapse;
 }
   
 th {
     border: 3px solid;
-    border-color: black;
+    border-color: #454B66;
     border-radius: 5px;
 }
   
 td {
     border: 2px solid;
-    border-color: black;
+    border-color: #454B66;
 }
