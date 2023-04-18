@@ -12,6 +12,7 @@ function OwnerViewRequestsPage() {
   const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
   const dispatch = useDispatch();
+  const completedRequests = requests.filter((request) => request.status === 'complete')
 
   useEffect(() => {
     dispatch({type: 'FETCH_OWNER_REQUESTS'});
@@ -52,11 +53,13 @@ function OwnerViewRequestsPage() {
             `get route to display jobItem only by: status = completed && ORDER
             BY date_completed_by` LIMIT 4;{' '}
           </p>
-          <OwnerCompletedRequest />
-          {requests.map(request => {
+          {/* <OwnerCompletedRequest /> */}
+          {completedRequests.map(request => {
               return (
                 <div className='completed-requests' key={request.id}>
                   <p>{request.street} {request.city} {request.state} {request.zipcode}</p>
+                  <p>{request.date_completed_by}</p>
+                  <p>{request.price}</p>
                   
                 </div>
               )
