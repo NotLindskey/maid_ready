@@ -95,7 +95,7 @@ import Modal from './AdminPageModal';
     return(
         <div>
             {openModal && <Modal closeModal={setOpenModal} username={userName} accountType={accountType}/>}
-            <h3 id="header">Manage Users</h3>
+            <h2 id="header">Manage Users</h2>
             <br></br>
 
             <div className="admin-controls">
