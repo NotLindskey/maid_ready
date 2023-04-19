@@ -53,7 +53,7 @@ function CleaningStandards() {
       <div>
         <p>Become A Keeper!</p>
 
-        <button className='btn:hover' onClick={goBack}>Back</button>
+        <button className='btn' onClick={goBack}>Back</button>
         
       </div>
 

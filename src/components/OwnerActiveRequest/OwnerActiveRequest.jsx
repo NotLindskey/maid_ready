@@ -27,20 +27,20 @@ function OwnerActiveRequest() {
   return (
     <div className="active-box-container">
       <div className="active-request-header">
-        Property Name Here
+        <h2>Property</h2> 
         <div className="active-request-content">
-          <div className="active-request-image">Insert Image Property Here</div>
-          <div className="active-request-details">
-            <ul>
+          {/* <div className="active-request-image">Insert Image Property Here</div> */}
+          <div className="job-list-container">
+            {/* <ul>
               <li>Name</li>
               <li>address</li>
-              {/* <li>miles</li> */}
+              <li>miles</li>
               <li>dates</li>
               <li>price</li>
-            </ul>
+            </ul> */}
             {activeRequests.map((request) => {
               return (
-                <div className="active-request" key={request.id}>
+                <div className="job-item-body" key={request.id}>
                   <p>
                     {request.street} {request.city} {request.state}{' '}
                     {request.zipcode}

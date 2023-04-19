@@ -7,11 +7,13 @@ body,
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  background-color: #f9f0f4;
 }
 
 img {
   display: inline-block;
   max-width: 100%;
+  box-shadow: #454b45 0px 8px 5px;
 }
 
 h2 {
@@ -31,16 +33,18 @@ Container
   position: relative;
   width: 100%;
   max-width: 400px;
+  
+
 }
 
-.container1 .btn {
+.container1 .btn1 {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
+  background-color: #3c887f;
+  color: #f9f0f4;
   font-size: 16px;
   padding: 12px 24px;
   border: none;
@@ -49,8 +53,8 @@ Container
   text-align: center;
 }
 
-.container1 .btn:hover {
-  background-color: black;
+.container1 .btn1:hover {
+  background-color: #454B66;
 }
 /* --------------------------------------------------------------------------------
 Button
@@ -63,6 +67,19 @@ Button
   border-width: 1px 1px 3px;
   border-radius: 4px;
   background-color: #94C5CC;
+  color: #454B66;
+  font-size: 1.1rem;
+  outline: 0;
+  cursor: pointer;
+}
+
+.btn1 {
+  display: inline-block;
+  padding: 10px 20px;
+  border-color: #454B66;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
+  background-color: #3c887f;
   color: #454B66;
   font-size: 1.1rem;
   outline: 0;
