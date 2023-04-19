@@ -38,7 +38,7 @@ import JobList from "../JobList/JobList";
 import JobDetails from "../JobDetails/JobDetails";
 import KeeperActivityPage from "../KeeperActivityPage/KeeperActivityPage";
 import KeeperJobCompletion from "../KeeperJobCompletion/KeeperJobCompletion";
-
+import KeeperNav from "../KeeperNav/KeeperNav";
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
 
@@ -55,6 +55,7 @@ function App() {
     <Router>
       <div>
         <Nav />
+        {user.account_type === "keeper" && <KeeperNav />}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
