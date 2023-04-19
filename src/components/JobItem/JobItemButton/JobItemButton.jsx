@@ -20,15 +20,15 @@ function JobItemButton({ status, claimed, keeper, id }) {
       if (claimed) {
         if (user.id === keeper) {
           if (status === "incomplete") {
-            console.log("complete or cancel");
+            history.push(`/keeper/job/details/complete/${id}`);
           } else {
-            console.log("delete");
+            history.push(`/keeper/job/details/${id}`);
           }
         }
       } else if (!claimed) {
         if (keeper === null) {
           if (status === "incomplete") {
-            console.log("apply");
+            history.push(`/keeper/job/details/${id}`);
           }
         }
       }
