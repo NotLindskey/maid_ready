@@ -80,10 +80,27 @@ function owner_requests(state = [], action) {
       return state;
   }
 }
+
+function request_detail(state = {}, action) {
+  switch (action.type) {
+    case "SET_REQUEST_DETAIL":
+      if (action.payload) {
+        return action.payload;
+      }
+      return [];
+    case "RESET_REQUEST_DETAIL":
+      return [];
+    case "RESET":
+      return [];
+    default:
+      return state;
+  }
+}
 export default combineReducers({
   jobs, // all jobs
   job, // job by id
   job_detail, // job detail
   user_jobs, // user's jobs
-  owner_requests // owner's requests
+  owner_requests, // owner's requests
+  request_detail // request detail
 });

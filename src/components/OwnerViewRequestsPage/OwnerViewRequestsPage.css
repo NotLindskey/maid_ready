@@ -6,6 +6,7 @@
 
 .list-active-requests {
   background-color: #da9494;
+
   display: inline;  /*this was grid originally */
   grid-template-columns: repeat(3, 30%);
   justify-content: center;
