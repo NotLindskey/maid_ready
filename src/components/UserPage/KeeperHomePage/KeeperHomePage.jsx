@@ -77,7 +77,7 @@ function KeeperHomePage() {
 
       {/* applied jobs */}
       <JobFeature
-        title={"Acepted Jobs"}
+        title={"Accepted Jobs"}
         link={"/keeper/activity"}
         jobs={userJobs.filter((job) => job.status === "incomplete")}
       />
