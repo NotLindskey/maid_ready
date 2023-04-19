@@ -1,13 +1,38 @@
 .list-section {
-  background-color: hsl(193, 73%, 61%);
+  background-color: #94c5cc;
   padding: 4px;
+  
 }
 
-.list-active-requests,
-.list-completed-requests {
-  background-color: pink;
+.list-active-requests {
+  background-color: #d9b;
+  display: inline;  /*this was grid originally */
+  grid-template-columns: repeat(3, 30%);
+  justify-content: center;
+  gap: 3rem;
+  width: 80rem;
 }
 
+.active-box-container {
+  display: block;
+  grid-template-columns: repeat(3, 30%);
+  justify-content: center;
+  gap: 3rem;
+
+  width: 80rem;
+  flex-wrap: wrap;
+}
+
+.list-header {
+  background-color: #94c5cc;
+  width: 50rem;
+  display: inline;
+}
+/* .list-active-requests,
 .list-completed-requests {
+  background-color: #d9b;
+} */
+
+/* .list-completed-requests {
   background-color: rgb(181, 235, 100);
-}
+} */

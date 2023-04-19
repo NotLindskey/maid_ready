@@ -4,19 +4,19 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  gap: .2rem;
+  gap: 0.2rem;
   padding: 1rem;
   height: 10rem;
   width: 22rem;
-  transition: box-shadow ease .3s;
+  transition: box-shadow ease 0.3s;
 }
 
 .job-item-body p {
   margin: 0;
 }
 
-.job-item-body:hover{
-    box-shadow: rgba(99, 99, 99, 0.3) 1px 2px 9px 1px;
+.job-item-body:hover {
+  box-shadow: rgba(99, 99, 99, 0.3) 1px 2px 9px 1px;
 }
 /* name and address */
 .job-item-dot {
@@ -29,22 +29,22 @@
   font-size: 18px;
   display: flex;
   align-items: center;
-  color:rgb(75,75,75);
+  color: rgb(75, 75, 75);
   gap: 1rem;
-  margin-bottom: .05rem;
+  margin-bottom: 0.05rem;
 }
 
 /* distance */
 .job-item-distance,
 .job-item-due-date {
   font-size: 17px;
-  color:rgb(125,125,125)
+  color: rgb(125, 125, 125);
 }
 
 /* price */
 .job-item-price {
   font-size: 35px;
-  margin-top: .2rem;
+  margin-top: 0.2rem;
 }
 
 /* accept buttion */
@@ -58,15 +58,10 @@
   bottom: 1rem;
   right: 1rem;
 
-  transition: background-color ease .1s;
+  transition: background-color ease 0.1s;
 }
 
-
-.job-item-accept-button:hover{
-    /* background-color: rgb(230, 230, 230); */
-    cursor: pointer;
-}
-
-.job-item-accept-button:active{
-    /* background-color: rgb(210,210,210); */
+.job-item-accept-button:hover {
+  /* background-color: rgb(230, 230, 230); */
+  cursor: pointer;
 }

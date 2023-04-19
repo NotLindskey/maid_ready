@@ -1,13 +1,28 @@
 import "./JobItem.css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-function JobItem({ width, owner, street, city, state, zip, price, date, id }) {
+
+import JobItemButton from "./JobItemButton/JobItemButton";
+function JobItem({
+  width,
+  owner,
+  street,
+  city,
+  state,
+  zip,
+  price,
+  date,
+  id,
+  status,
+  claimed,
+  keeper_id,
+}) {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const navigateHandler = () => {
     if (id) {
-      history.push(`/keeper/job/details/${id}`)
+      history.push(`/keeper/job/details/${id}`);
     }
   };
 
@@ -25,18 +40,25 @@ function JobItem({ width, owner, street, city, state, zip, price, date, id }) {
           {city}, {state} {zip}
         </p>
       </div>
-      <div className="job-item-distance">
+      {/* <div className="job-item-distance">
         <p>3.1 miles away</p>
-      </div>
+      </div> */}
       <div className="job-item-due-date">
-        <p>March 23 - March 28</p>
+        <p>{date}</p>
       </div>
       <div className="job-item-price">
         <p>${price}</p>
       </div>
-      <button className="job-item-accept-button btn" onClick={navigateHandler}>
+      {/* <button className="job-item-accept-button btn" onClick={navigateHandler}>
         view
-      </button>
+      </button> */}
+
+      <JobItemButton
+        status={status}
+        claimed={claimed}
+        keeper={keeper_id}
+        id={id}
+      />
     </div>
   );
 }

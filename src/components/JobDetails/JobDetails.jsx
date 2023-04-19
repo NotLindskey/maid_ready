@@ -12,13 +12,13 @@ function JobDetails() {
   const details = useSelector((store) => store.job.job_detail);
 
   const jobApplyHandler = async () => {
-    await dispatch({type:"APPLY_TO_JOB", payload: {jobId: details.id}})
-    history.push('/keeper/job-list')
-  }
+    await dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
+    history.push("/keeper/job-list");
+  };
 
   const jobCompleteHandler = () => {
-    dispatch({type:"APPLY_TO_JOB", payload: {jobId: details.id}})
-  }
+    dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
+  };
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
@@ -39,15 +39,21 @@ function JobDetails() {
             </p>
           </div>
           <div className="job-detail-date">
-            <p>{details.date_completed_by}</p>
+            <p>{new Date(details.date_completed_by).toLocaleDateString()}</p>
           </div>
           <div className="job-detail-price">
             <p>${details.price}</p>
           </div>
         </div>
-        {
-          details.claimed ? <button className="btn" onClick={jobCompleteHandler}>Complete</button> : <button onClick={jobApplyHandler}>Apply</button>
-        }
+        {details.claimed ? (
+          <button className="btn" onClick={jobCompleteHandler}>
+            delete
+          </button>
+        ) : (
+          <button onClick={jobApplyHandler} className="btn">
+            Apply
+          </button>
+        )}
       </div>
       <div className="job-details-checklist">
         <div className="job-detail-title">

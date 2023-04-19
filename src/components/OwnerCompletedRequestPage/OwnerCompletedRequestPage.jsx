@@ -16,13 +16,7 @@ function OwnerCompletedRequestPage() {
 
   return (
     <div>
-      <p>Completed Requests List:</p>
-      <p>
-        <strong>
-          `get route to display jobItem only by: status = completed && ORDER BY
-          date_completed_by`
-        </strong>
-      </p>
+      <h2>Completed Requests</h2>
       <div className="job-list-body">
         <div className="job-list-container">
           {jobs.length ? (

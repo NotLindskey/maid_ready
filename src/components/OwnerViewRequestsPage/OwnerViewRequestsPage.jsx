@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
@@ -8,15 +8,17 @@ import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedReques
 import './OwnerViewRequestsPage.css';
 
 function OwnerViewRequestsPage() {
-  console.log('hello world!');
   const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
   const dispatch = useDispatch();
-  const completedRequests = requests.filter((request) => request.status === 'complete')
+  const completedRequests = requests.filter(
+    (request) => request.status === 'complete',
+  );
 
   useEffect(() => {
-    dispatch({type: 'FETCH_OWNER_REQUESTS'});
-    }, []);
+    dispatch({ type: "FETCH_OWNER_REQUESTS" });
+    dispatch({type: "RESET_JOB_DETAIL"})
+  }, []);
 
   // button to send user back to OwnersHomePage
   const handleToHome = () => {
@@ -29,48 +31,55 @@ function OwnerViewRequestsPage() {
     history.push('OwnerCompletedRequestsPage');
   };
 
+  const handleViewRequest = (request) => {
+    console.log(request.id);
+    history.push(`/OwnerRequestDetails/${request.id}`);
+  };
+
   return (
     <div>
       <div>
         <h3>View Requests</h3>
       </div>
 
-      <div className="list-section">
+      <div className="job-list-body">
         <div className="list-header">
           <p>Select a list to view:</p>
         </div>
 
         {/* render 4 recent active requests */}
         <div className="list-active-requests">
-          <p>Active Requests:</p>
+          <h4>Active Requests:</h4>
           <OwnerActiveRequest />
         </div>
 
         {/* render 4 recent completed requests */}
-        <div className="list-completed-requests">
-          <button className="btn" onClick={viewCompletedList}>Completed Requests:</button>
-          <p>
-            `get route to display jobItem only by: status = completed && ORDER
-            BY date_completed_by` LIMIT 4;{' '}
-          </p>
+        <div className="active-box-container">
+          <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
           {/* <OwnerCompletedRequest /> */}
-          {completedRequests.map(request => {
-              return (
-                <div className='completed-requests' key={request.id}>
-                  <p>{request.street} {request.city} {request.state} {request.zipcode}</p>
-                  <p>{request.date_completed_by}</p>
-                  <p>{request.price}</p>
-                  
-                </div>
-              )
-            })}
+          {completedRequests.map((request) => {
+            return (
+              <div className="completed-requests" key={request.id}>
+                <p>
+                  {request.street} {request.city} {request.state}{' '}
+                  {request.zipcode}
+                </p>
+                <p>{new Date(request.date_completed_by).toLocaleDateString('en-US')}</p>
+                <p>${request.price}</p>
+                <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
+                <button className="btn">Delete</button>
+              </div>
+            );
+          })}
         </div>
       </div>
       <br />
 
       {/* button to send back to home */}
       <div>
-        <button className="btn" onClick={handleToHome}>back</button>
+        <button className="btn" onClick={handleToHome}>
+          back
+        </button>
       </div>
     </div>
   );
