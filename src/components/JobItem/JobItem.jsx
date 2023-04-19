@@ -40,11 +40,11 @@ function JobItem({
           {city}, {state} {zip}
         </p>
       </div>
-      <div className="job-item-distance">
+      {/* <div className="job-item-distance">
         <p>3.1 miles away</p>
-      </div>
+      </div> */}
       <div className="job-item-due-date">
-        <p>March 23 - March 28</p>
+        <p>{date}</p>
       </div>
       <div className="job-item-price">
         <p>${price}</p>

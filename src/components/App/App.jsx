@@ -159,7 +159,7 @@ function App() {
             <OwnerActiveRequestsPage />
           </ProtectedRoute>
 
-          <ProtectedRoute exact path="/OwnerRequestDetails" type="owner">
+          <ProtectedRoute exact path="/OwnerRequestDetails/:id" type="owner">
             <OwnerRequestDetails />
           </ProtectedRoute>
 

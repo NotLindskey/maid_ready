@@ -39,7 +39,7 @@ function JobDetails() {
             </p>
           </div>
           <div className="job-detail-date">
-            <p>{details.date_completed_by}</p>
+            <p>{new Date(details.date_completed_by).toLocaleDateString()}</p>
           </div>
           <div className="job-detail-price">
             <p>${details.price}</p>

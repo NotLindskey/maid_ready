@@ -7,6 +7,7 @@ function CreateJobForm(props) {
   const [heading, setHeading] = useState('Create A Job');
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
+  const [today, setToday] = useState(new Date().toJSON().slice(0, 10));
   const dispatch = useDispatch();
   const history = useHistory();
   let price = 0;
@@ -42,7 +43,7 @@ function CreateJobForm(props) {
             <p>{property.sq_footage} sq ft.</p>
             <p>Price: ${calculatePrice()}</p>
             <label htmlFor="date">Date Completed By:</label>
-            <input value={date} onChange={(event) => setDate(event.target.value)} type="date"/>
+            <input value={date} min={today} onChange={(event) => setDate(event.target.value)} type="date"/>
             <br/>
             <label htmlFor="time">Time:</label>
             <input value={time} onChange={(event) => setTime(event.target.value)} type="time"/>
