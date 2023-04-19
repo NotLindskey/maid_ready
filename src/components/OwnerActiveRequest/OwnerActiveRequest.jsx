@@ -16,9 +16,10 @@ function OwnerActiveRequest() {
     dispatch({type: 'FETCH_OWNER_REQUESTS'});
     }, []);
 
-  const handleViewRequest = () => {
+  const handleViewRequest = (request) => {
     console.log('handleViewRequest clicked!');
-    history.push('/OwnerRequestDetails');
+    console.log(request.id)
+    history.push(`/OwnerRequestDetails/${request.id}`);
   };
 
   return (
@@ -42,7 +43,7 @@ function OwnerActiveRequest() {
                   <p>{request.date_completed_by}</p>
                   <p>${request.price}</p>
                   
-                  <button onClick={handleViewRequest}>View</button>
+                  <button onClick={() => handleViewRequest(request)}>View</button>
                   <button>Delete</button>
                 </div>
               )})}
