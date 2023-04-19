@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import './AdminPageModal.css';
 
 function adminPageModal({closeModal, username, accountType}) {
     let dispatch = useDispatch();
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const errors = useSelector((store) => store.errors);
 
 
     const handleSubmit = () => {
@@ -28,6 +29,12 @@ function adminPageModal({closeModal, username, accountType}) {
         <div className="modal-background">
             <div className="modal-container">
                 <button className="close-btn" onClick={() => closeModal(false)}> X </button>
+
+                {errors.registrationMessage && (
+                    <h3 className="alert" role="alert">
+                    {errors.registrationMessage}
+                    </h3>
+                 )}
 
                 <div className="title">
                     <h3>Enter an email and password for this new Admin.</h3>

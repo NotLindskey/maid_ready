@@ -27,8 +27,8 @@ function OwnerActiveRequest() {
               <li>price</li>
             </ul>
           </div>
-          <button onClick={handleViewRequest}>View</button>
-          <button>Delete</button>
+          <button className="btn" onClick={handleViewRequest}>View</button>
+          <button className="btn">Delete</button>
         </div>
       </div>
     </div>

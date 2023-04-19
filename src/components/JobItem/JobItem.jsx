@@ -34,8 +34,8 @@ function JobItem({ width, owner, street, city, state, zip, price, date, id }) {
       <div className="job-item-price">
         <p>${price}</p>
       </div>
-      <button className="job-item-accept-button" onClick={navigateHandler}>
-        <p>view</p>
+      <button className="job-item-accept-button btn" onClick={navigateHandler}>
+        view
       </button>
     </div>
   );

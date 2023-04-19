@@ -2,6 +2,8 @@ import styles from "./KeeperActivityPage.css";
 import ActivitySection from "./ActivitySection/ActivitySection";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+
+
 function KeeperActivityPage() {
   const dispatch = useDispatch();
   const userJobs = useSelector((store) => store.job.user_jobs);
