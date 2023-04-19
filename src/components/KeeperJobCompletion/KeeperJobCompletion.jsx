@@ -1,7 +1,9 @@
 import "./KeeperJobCompletion.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+
+import Modal from "./CompletionModal/CompletionModal";
 
 function KeeperJobCompletion() {
   const params = useParams();
@@ -10,6 +12,15 @@ function KeeperJobCompletion() {
 
   const dispatch = useDispatch();
   const details = useSelector((store) => store.job.job_detail);
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleButtonClick() {
+    setIsModalOpen(true);
+  }
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
 
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
@@ -48,7 +59,14 @@ function KeeperJobCompletion() {
         <input type="file"></input>
       </label>
 
-      <button className="btn">Complete</button>
+      <button onClick={handleButtonClick}>complete</button>
+      <Modal
+        isModalOpen={isModalOpen}
+        onCloseModal={handleCloseModal}
+        title="Modal Title"
+      >
+        <p>Modal content goes here</p>
+      </Modal>
     </div>
   );
 }
