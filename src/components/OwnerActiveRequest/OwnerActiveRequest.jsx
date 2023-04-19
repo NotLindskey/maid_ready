@@ -1,11 +1,20 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
+import { useEffect, useState } from 'react';
 
 import './OwnerActiveRequest.css';
 
 function OwnerActiveRequest() {
   console.log('in active request component');
   const history = useHistory();
+  const requests = useSelector((store) => store.job.owner_requests);
+  const dispatch = useDispatch();
+  const activeRequests = requests.filter((request) => request.status !== 'complete')
+
+  useEffect(() => {
+    dispatch({type: 'FETCH_OWNER_REQUESTS'});
+    }, []);
 
   const handleViewRequest = () => {
     console.log('handleViewRequest clicked!');
@@ -26,9 +35,22 @@ function OwnerActiveRequest() {
               <li>dates</li>
               <li>price</li>
             </ul>
+            {activeRequests.map(request => {
+              return (
+                <div className='active-request' key={request.id}>
+                  <p>{request.street} {request.city} {request.state} {request.zipcode}</p>
+                  <p>{request.date_completed_by}</p>
+                  <p>${request.price}</p>
+                  
+                  <button onClick={handleViewRequest}>View</button>
+                  <button>Delete</button>
+                </div>
+              )})}
           </div>
+
           <button className="btn" onClick={handleViewRequest}>View</button>
           <button className="btn">Delete</button>
+
         </div>
       </div>
     </div>
