@@ -1,6 +1,6 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
@@ -12,11 +12,13 @@ function OwnerViewRequestsPage() {
   const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
   const dispatch = useDispatch();
-  const completedRequests = requests.filter((request) => request.status === 'complete')
+  const completedRequests = requests.filter(
+    (request) => request.status === 'complete',
+  );
 
   useEffect(() => {
-    dispatch({type: 'FETCH_OWNER_REQUESTS'});
-    }, []);
+    dispatch({ type: 'FETCH_OWNER_REQUESTS' });
+  }, []);
 
   // button to send user back to OwnersHomePage
   const handleToHome = () => {
@@ -50,23 +52,27 @@ function OwnerViewRequestsPage() {
         <div className="list-completed-requests">
           <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
           {/* <OwnerCompletedRequest /> */}
-          {completedRequests.map(request => {
-              return (
-                <div className='completed-requests' key={request.id}>
-                  <p>{request.street} {request.city} {request.state} {request.zipcode}</p>
-                  <p>{request.date_completed_by}</p>
-                  <p>{request.price}</p>
-                  
-                </div>
-              )
-            })}
+          {completedRequests.map((request) => {
+            return (
+              <div className="completed-requests" key={request.id}>
+                <p>
+                  {request.street} {request.city} {request.state}{' '}
+                  {request.zipcode}
+                </p>
+                <p>{request.date_completed_by}</p>
+                <p>{request.price}</p>
+              </div>
+            );
+          })}
         </div>
       </div>
       <br />
 
       {/* button to send back to home */}
       <div>
-        <button className="btn" onClick={handleToHome}>back</button>
+        <button className="btn" onClick={handleToHome}>
+          back
+        </button>
       </div>
     </div>
   );
