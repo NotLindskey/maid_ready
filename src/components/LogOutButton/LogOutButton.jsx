@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { GrLogout } from 'react-icons/gr';
+import { MdLogout } from 'react-icons/md';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
@@ -12,7 +12,7 @@ function LogOutButton(props) {
       className={props.className}
       onClick={() => dispatch({ type: 'LOGOUT' })}
     >
-      <GrLogout/>
+      <MdLogout/>
     </button>
   );
 }
