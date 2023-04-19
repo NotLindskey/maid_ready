@@ -11,13 +11,29 @@ function JobItemButton({ status, claimed, keeper, id }) {
     //     type: ${userType}
     //     `);
   });
-  const userType = useSelector((store) => store.user.account_type);
+  const user = useSelector((store) => store.user);
 
   const history = useHistory();
 
   const navigateHandler = () => {
-    if (id) {
-      history.push(`/keeper/job/details/${id}`);
+    if (id && user.account_type === "keeper") {
+      if (claimed) {
+        if (user.id === keeper) {
+          if (status === "incomplete") {
+            console.log("complete or cancel");
+          } else {
+            console.log("delete");
+          }
+        }
+      } else if (!claimed) {
+        if (keeper === null) {
+          if (status === "incomplete") {
+            console.log("apply");
+          }
+        }
+      }
+
+      //   history.push(`/keeper/job/details/${id}`);
     }
   };
 
