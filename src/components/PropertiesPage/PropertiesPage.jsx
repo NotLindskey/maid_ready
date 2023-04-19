@@ -34,7 +34,7 @@ function PropertiesPage(props) {
                 <div className='property-listing' key={property.id}>
                   <p>{property.street} {property.city} {property.state} {property.zipcode}</p>
                   <p>{property.sq_footage} sq ft.</p>
-                  <button onClick={() => selectProperty(property)}>Select</button>
+                  <button className="btn" onClick={() => selectProperty(property)}>Select</button>
                 </div>
               )
             })}
