@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import Modal from "./CompletionModal/CompletionModal";
+import CompletionModal from "./CompletionModal/CompletionModal";
 
 function KeeperJobCompletion() {
   const params = useParams();
@@ -59,14 +59,54 @@ function KeeperJobCompletion() {
         <input type="file"></input>
       </label>
 
-      <button onClick={handleButtonClick}>complete</button>
-      <Modal
+      <button onClick={handleButtonClick} className="btn">
+        complete
+      </button>
+
+      <CompletionModal
         isModalOpen={isModalOpen}
         onCloseModal={handleCloseModal}
-        title="Modal Title"
+        title="Review"
       >
-        <p>Modal content goes here</p>
-      </Modal>
+        <div className="job-details-body">
+          <div className="job-details-overview">
+            <div className="job-detail-title">
+              <p>Overview</p>
+            </div>
+            <div className="job-detail-info">
+              <div className="job-detail-name">
+                <p>{details.username}</p>
+              </div>
+              <div className="job-detail-location">
+                <p>
+                  {details.street} {details.city}, {details.state}{" "}
+                  {details.zipcode}
+                </p>
+              </div>
+              <div className="job-detail-date">
+                <p>{details.date_completed_by}</p>
+              </div>
+              <div className="job-detail-price">
+                <p>${details.price}</p>
+              </div>
+            </div>
+          </div>
+          <div className="job-details-checklist">
+            <div className="job-detail-title">
+              <p>Checklist</p>
+            </div>
+            <div className="job-detail-checklist-container"></div>
+          </div>
+          <div className="job-details-checklist">
+            <div className="job-detail-title">
+              <p>photos</p>
+            </div>
+            <div className="job-detail-checklist-container"></div>
+          </div>
+
+          <button className="btn">complete</button>
+        </div>
+      </CompletionModal>
     </div>
   );
 }
