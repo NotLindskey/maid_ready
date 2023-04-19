@@ -8,7 +8,6 @@ import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedReques
 import './OwnerViewRequestsPage.css';
 
 function OwnerViewRequestsPage() {
-  console.log('hello world!');
   const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -17,7 +16,8 @@ function OwnerViewRequestsPage() {
   );
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_OWNER_REQUESTS' });
+    dispatch({ type: "FETCH_OWNER_REQUESTS" });
+    dispatch({type: "RESET_JOB_DETAIL"})
   }, []);
 
   // button to send user back to OwnersHomePage
@@ -29,6 +29,11 @@ function OwnerViewRequestsPage() {
   const viewCompletedList = () => {
     console.log('viewCompletedList clicked');
     history.push('OwnerCompletedRequestsPage');
+  };
+
+  const handleViewRequest = (request) => {
+    console.log(request.id);
+    history.push(`/OwnerRequestDetails/${request.id}`);
   };
 
   return (
@@ -61,6 +66,8 @@ function OwnerViewRequestsPage() {
                 </p>
                 <p>{request.date_completed_by}</p>
                 <p>{request.price}</p>
+                <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
+                <button className="btn">Delete</button>
               </div>
             );
           })}

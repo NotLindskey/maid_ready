@@ -15,7 +15,7 @@ function OwnerActiveRequest() {
   );
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_OWNER_REQUESTS' });
+    dispatch({ type: "FETCH_OWNER_REQUESTS" });
   }, []);
 
   const handleViewRequest = (request) => {
