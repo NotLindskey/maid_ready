@@ -1,6 +1,8 @@
 import './JobFeature.css';
 import JobCarousel from "../JobCarousel/JobCarousel";
 import { useHistory } from 'react-router-dom';
+
+
 function JobFeature({title, link, jobs}){
   const history = useHistory();
 

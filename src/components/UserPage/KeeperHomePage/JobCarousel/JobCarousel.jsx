@@ -15,6 +15,8 @@ to use:
 */
 import "./JobCarousel.css";
 import JobItem from "../../../JobItem/JobItem";
+
+
 function JobCarousel({ jobs }) {
   return (
     <div className="job-carousel-body">

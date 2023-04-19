@@ -35,7 +35,7 @@ function LandingPage() {
         </p>
         <p> Last-minute houseKeeping service is what we do!</p>
 
-        <button onClick={registerOwnerHandle}>Owners Register Here</button>
+        <button className="btn" onClick={registerOwnerHandle}>Owners Register Here</button>
       </div>
 
       <div className="keeper-section">
@@ -45,7 +45,7 @@ function LandingPage() {
         <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
         <br />
         <br />
-        <button onClick={registerKeeperHandle}>Become a Keeper</button>
+        <button className="btn" onClick={registerKeeperHandle}>Become a Keeper</button>
       </div>
 
       <div className="landing-content">

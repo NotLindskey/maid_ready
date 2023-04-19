@@ -41,12 +41,14 @@ function OwnerActiveRequest() {
                   <p>{request.street} {request.city} {request.state} {request.zipcode}</p>
                   <p>{request.date_completed_by}</p>
                   <p>${request.price}</p>
-                  
-                  <button onClick={() => handleViewRequest(request)}>View</button>
-                  <button>Delete</button>
+                  <button className="btn" onClick={handleViewRequest}>View</button>
+                  <button className="btn">Delete</button>
                 </div>
               )})}
           </div>
+
+   
+
         </div>
       </div>
     </div>
