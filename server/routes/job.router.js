@@ -8,7 +8,6 @@ const router = express.Router();
 
 // GET owners job requests
 router.get("/owner/request", (req, res) => {
-
   if (req.isAuthenticated()) {
     const query = `SELECT 
     "user"."username", 
@@ -36,6 +35,42 @@ router.get("/owner/request", (req, res) => {
       .catch((error) => {
         //Handle error
         console.log(`Error getting jobs for owner: `, error);
+        res.sendStatus(500);
+      });
+  } else {
+    res.sendStatus(403);
+  }
+});
+
+// GET owner request for specific id
+router.get("/owner/request/:id", (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `SELECT 
+    "user"."username", 
+    "property"."street", 
+    "property"."city", 
+    "property"."state", 
+    "property"."zipcode",
+    "job"."id",
+    "job"."date_completed_by",
+    "job"."price",
+    "job"."status",
+    "job"."claimed"
+    FROM "user"
+    JOIN "property" 
+    ON "user"."id" = "property"."owner_id"
+    JOIN "job"
+    ON "property"."id" = "job"."property_id"
+    WHERE "job"."id" = $1 AND "job"."owner_id" = $2;
+    `;
+    pool.query(query, [req.params.id, req.user.id])
+      .then((result) => {
+        // Send query result as response
+        res.send(result.rows);
+      })
+      .catch((error) => {
+        //Handle error
+        console.log(`Error getting request details for owner: `, error);
         res.sendStatus(500);
       });
   } else {
