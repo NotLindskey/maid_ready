@@ -10,6 +10,7 @@ function* jobSaga() {
   yield takeLatest("FETCH_ACTIVE_JOBS", fetchActiveJobs); // GET user's active jobs
 
   yield takeLatest("FETCH_OWNER_REQUESTS", fetchOwnerRequests); // GET owner's requests
+  yield takeLatest("FETCH_REQUEST_DETAIL", fetchRequestDetail) // GET one request detail
 
   yield takeLatest("ADD_JOB", addJob);
 
@@ -90,6 +91,18 @@ function* fetchOwnerRequests() {
   }
 }
 
+// fetch request detail
+function* fetchRequestDetail(action) {
+  console.log('in job saga:', action.payload.id)
+  try {
+    const requestDetail = yield axios.get(`/api/job/owner/request/${action.payload.id}`);
+    yield put({ type: "SET_REQUEST_DETAIL", payload: requestDetail.data[0] });
+  } catch (err) {
+    console.log("Error with getting request detail: ", err);
+  }
+}
+
+
 // fetch user's active jobs
 function* fetchActiveJobs() {
   try {
@@ -104,6 +117,7 @@ function* fetchActiveJobs() {
     console.log("Error with getting Active request: ", err);
   }
 }
+
 /* -------------------------
   POST req
 ------------------------- */

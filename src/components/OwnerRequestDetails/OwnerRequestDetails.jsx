@@ -7,12 +7,14 @@ import { useEffect } from "react";
 function OwnerRequestDetails() {
   const params = useParams();
   const history = useHistory();
-  const requestDetails = useSelector((store) => store.job.job_detail);
+  const requestDetails = useSelector((store) => store.job.request_detail);
   const requestId = params.id;
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: requestId } });
+  //   dispatch({ type: "FETCH_JOB_DETAIL", payload: {id: requestId} });
+  // }, []);
+  dispatch({ type: "FETCH_REQUEST_DETAIL", payload: {id: requestId} });
   }, []);
 
   const goBack = () => {

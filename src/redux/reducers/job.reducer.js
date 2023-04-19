@@ -81,6 +81,22 @@ function owner_requests(state = [], action) {
   }
 }
 
+function request_detail(state = {}, action) {
+  switch (action.type) {
+    case "SET_REQUEST_DETAIL":
+      if (action.payload) {
+        return action.payload;
+      }
+      return [];
+    case "RESET_REQUEST_DETAIL":
+      return [];
+    case "RESET":
+      return [];
+    default:
+      return state;
+  }
+}
+
 // GET active jobs
 function keeper_active_jobs(state = [], action) {
   switch (action.type) {
@@ -103,5 +119,6 @@ export default combineReducers({
   job_detail, // job detail
   user_jobs, // user's jobs
   owner_requests, // owner's requests
+  request_detail, // request detail
   keeper_active_jobs, // keepers active jobs
 });

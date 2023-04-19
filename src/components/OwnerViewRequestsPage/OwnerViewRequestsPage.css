@@ -6,7 +6,7 @@
 
 .list-active-requests {
   background-color: #d9b;
-  display: grid;
+  display: inline;  /*this was grid originally */
   grid-template-columns: repeat(3, 30%);
   justify-content: center;
   gap: 3rem;
@@ -14,12 +14,19 @@
 }
 
 .active-box-container {
-  display: grid;
+  display: block;
   grid-template-columns: repeat(3, 30%);
   justify-content: center;
   gap: 3rem;
 
   width: 80rem;
+  flex-wrap: wrap;
+}
+
+.list-header {
+  background-color: #94c5cc;
+  width: 50rem;
+  display: inline;
 }
 /* .list-active-requests,
 .list-completed-requests {
