@@ -22,7 +22,7 @@ function OwnerRequestDetails() {
             </div>
             <div className="grid-button-section">
               <div className="request-details-cancel">
-                <button>cancel</button>
+                <button className="btn">cancel</button>
               </div>
             </div>
           </div>
