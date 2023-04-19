@@ -1,12 +1,11 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import {useDispatch, useSelector} from 'react-redux';
 import { useEffect, useState } from 'react';
 
 import './OwnerActiveRequest.css';
 
 function OwnerActiveRequest() {
-  console.log('in active request component');
   const history = useHistory();
   const requests = useSelector((store) => store.job.owner_requests);
   const dispatch = useDispatch();
