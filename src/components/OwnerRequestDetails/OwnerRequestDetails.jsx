@@ -41,7 +41,7 @@ function OwnerRequestDetails() {
             </div>
             <div className="grid-button-section">
               <div className="request-details-cancel">
-                <button onClick={() => goBack()}>back</button>
+                <button className="btn" onClick={() => goBack()}>back</button>
               </div>
             </div>
           </div>
