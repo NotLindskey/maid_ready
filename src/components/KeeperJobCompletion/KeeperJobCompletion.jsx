@@ -23,6 +23,7 @@ function KeeperJobCompletion() {
   }
   function completeJobHandler() {
     dispatch({ type: "COMPLETE_JOB", payload: { id: jobId } });
+    handleCloseModal();
   }
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
@@ -60,11 +61,13 @@ function KeeperJobCompletion() {
       <label>
         <input type="file"></input>
       </label>
-
-      <button onClick={handleButtonClick} className="btn">
-        complete
-      </button>
-
+      {details.status === "incomplete" ? (
+        <button onClick={handleButtonClick} className="btn">
+          complete
+        </button>
+      ) : (
+        <button className="btn">processing...</button>
+      )}
       <CompletionModal
         isModalOpen={isModalOpen}
         onCloseModal={handleCloseModal}
