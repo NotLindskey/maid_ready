@@ -34,7 +34,7 @@ function KeeperHomePage() {
 
       {/* conditonal rendering */}
       {/* active job */}
-      {activeJobs.length && (
+      {activeJobs.length ? (
         <div className="keeper-home-page-active-job">
           <div className="keeper-home-active-info">
             <div className="keeper-home-active-dot"></div>
@@ -64,6 +64,8 @@ function KeeperHomePage() {
             />
           ))}
         </div>
+      ) : (
+        <div></div>
       )}
 
       {/* previous jobs */}
