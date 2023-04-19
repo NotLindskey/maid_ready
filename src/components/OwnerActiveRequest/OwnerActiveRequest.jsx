@@ -47,6 +47,10 @@ function OwnerActiveRequest() {
                 </div>
               )})}
           </div>
+
+          <button className="btn" onClick={handleViewRequest}>View</button>
+          <button className="btn">Delete</button>
+
         </div>
       </div>
     </div>

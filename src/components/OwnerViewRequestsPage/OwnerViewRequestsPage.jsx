@@ -48,7 +48,7 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent completed requests */}
         <div className="list-completed-requests">
-          <button onClick={viewCompletedList}>Completed Requests:</button>
+          <button className="btn" onClick={viewCompletedList}>Completed Requests:</button>
           <p>
             `get route to display jobItem only by: status = completed && ORDER
             BY date_completed_by` LIMIT 4;{' '}
@@ -70,7 +70,7 @@ function OwnerViewRequestsPage() {
 
       {/* button to send back to home */}
       <div>
-        <button onClick={handleToHome}>back</button>
+        <button className="btn" onClick={handleToHome}>back</button>
       </div>
     </div>
   );
