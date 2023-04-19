@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import './OwnerActiveRequest.css';
 
 function OwnerActiveRequest() {
-  console.log('in active request component');
   const history = useHistory();
   const requests = useSelector((store) => store.job.owner_requests);
   const dispatch = useDispatch();
