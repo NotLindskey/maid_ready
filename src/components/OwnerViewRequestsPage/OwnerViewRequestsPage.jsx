@@ -44,7 +44,7 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent active requests */}
         <div className="list-active-requests">
-          <p>Active Requests:</p>
+          <h4>Active Requests:</h4>
           <OwnerActiveRequest />
         </div>
 
