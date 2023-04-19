@@ -18,9 +18,10 @@ function OwnerActiveRequest() {
     dispatch({ type: 'FETCH_OWNER_REQUESTS' });
   }, []);
 
-  const handleViewRequest = () => {
+  const handleViewRequest = (request) => {
     console.log('handleViewRequest clicked!');
-    history.push('/OwnerRequestDetails');
+    console.log(request.id);
+    history.push(`/OwnerRequestDetails/${request.id}`);
   };
 
   return (
