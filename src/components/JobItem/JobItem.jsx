@@ -53,7 +53,12 @@ function JobItem({
         view
       </button> */}
 
-      <JobItemButton status={status} claimed={claimed} keeper={keeper_id} />
+      <JobItemButton
+        status={status}
+        claimed={claimed}
+        keeper={keeper_id}
+        id={id}
+      />
     </div>
   );
 }
