@@ -50,9 +50,7 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent completed requests */}
         <div className="list-completed-requests">
-          <button className="btn" onClick={viewCompletedList}>
-            Completed Requests:
-          </button>
+          <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
           {/* <OwnerCompletedRequest /> */}
           {completedRequests.map((request) => {
             return (

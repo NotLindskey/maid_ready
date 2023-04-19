@@ -1,6 +1,7 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+
 import { useEffect, useState } from 'react';
 
 import './OwnerActiveRequest.css';
@@ -51,9 +52,8 @@ function OwnerActiveRequest() {
                   </p>
                   <p>${request.price}</p>
 
-                  <button className="btn" onClick={handleViewRequest}>
-                    View
-                  </button>
+                  <button className="btn" onClick={handleViewRequest}>View</button>
+
                   <button className="btn">Delete</button>
                 </div>
               );

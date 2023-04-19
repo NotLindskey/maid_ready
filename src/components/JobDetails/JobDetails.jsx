@@ -45,13 +45,11 @@ function JobDetails() {
             <p>${details.price}</p>
           </div>
         </div>
-        {details.claimed ? (
-          <button className="btn" onClick={jobCompleteHandler}>
-            Complete
-          </button>
-        ) : (
-          <button onClick={jobApplyHandler}>Apply</button>
-        )}
+
+        {
+          details.claimed ? <button className="btn" onClick={jobCompleteHandler}>Complete</button> : <button className="btn" onClick={jobApplyHandler}>Apply</button>
+        }
+        
       </div>
       <div className="job-details-checklist">
         <div className="job-detail-title">
