@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
 import { useSelector } from "react-redux";
-import { MdOutlineCleaningServices } from 'react-icons/md';
-import { GrContact, GrInfo } from 'react-icons/gr'
+import { MdOutlineCleaningServices, MdOutlineMessage } from 'react-icons/md';
+import { FaInfoCircle } from 'react-icons/fa';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -28,11 +28,11 @@ function Nav() {
         </Link>
 
         <Link className="navLink" to="/about">
-        <GrInfo/>
+        <FaInfoCircle/>
         </Link>
 
         <Link className="navLink" to="/contact">
-          <GrContact/>
+          <MdOutlineMessage/>
         </Link>
 
         {/* If no user is logged in, show these links */}
