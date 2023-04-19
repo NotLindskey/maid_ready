@@ -9,7 +9,7 @@ const router = express.Router();
 // GET owners job requests
 router.get("/owner/request", (req, res) => {
 
-  if(req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     const query = `SELECT 
     "user"."username", 
     "property"."street", 
@@ -28,15 +28,15 @@ router.get("/owner/request", (req, res) => {
     WHERE "job"."owner_id" = $1;
     `;
     pool.query(query, [req.user.id])
-    .then((result) => {
-      // Send query result as response
-      res.send(result.rows);
-    })
-    .catch((error) => {
-      //Handle error
-      console.log(`Error getting jobs for owner: `, error);
-      res.sendStatus(500);
-    });
+      .then((result) => {
+        // Send query result as response
+        res.send(result.rows);
+      })
+      .catch((error) => {
+        //Handle error
+        console.log(`Error getting jobs for owner: `, error);
+        res.sendStatus(500);
+      });
   } else {
     res.sendStatus(403);
   }
@@ -51,9 +51,8 @@ router.get("/", (req, res) => {
         "property"."city",
         "property"."state",
         "property"."zipcode",
-        "job"."id", 
-        "job"."price",
-        "job"."date_completed_by" 
+        "job".*
+        
         FROM "job"
         JOIN "user" 
         ON "job"."owner_id" = "user"."id"
