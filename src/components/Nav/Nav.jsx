@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
 import { useSelector } from "react-redux";
-import { MdOutlineCleaningServices, MdOutlineMessage } from 'react-icons/md';
+import { MdOutlineCleaningServices, MdOutlineMessage, MdHome, MdLogin } from 'react-icons/md';
 import { FaInfoCircle } from 'react-icons/fa';
 
 function Nav() {
@@ -23,6 +23,10 @@ function Nav() {
           Why Us
         </Link>
 
+        <Link className="navLink" to="/home">
+          <MdHome/>
+        </Link>
+
         <Link className="navLink" to="/service">
           <MdOutlineCleaningServices/>
         </Link>
@@ -39,7 +43,7 @@ function Nav() {
         {!user.id ? (
           // If there's no user, show login/registration links
           <Link className="navLink" to="/login/selection">
-            Sign in
+            <MdLogin/>
           </Link>
         ) : (
           // <Link className="navLink" to="/user">
