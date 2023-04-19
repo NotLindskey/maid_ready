@@ -1,6 +1,8 @@
 import "./JobItem.css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
+import JobItemButton from "./JobItemButton/JobItemButton";
 function JobItem({
   width,
   owner,
@@ -47,9 +49,11 @@ function JobItem({
       <div className="job-item-price">
         <p>${price}</p>
       </div>
-      <button className="job-item-accept-button btn" onClick={navigateHandler}>
+      {/* <button className="job-item-accept-button btn" onClick={navigateHandler}>
         view
-      </button>
+      </button> */}
+
+      <JobItemButton status={status} claimed={claimed} keeper={keeper_id} />
     </div>
   );
 }
