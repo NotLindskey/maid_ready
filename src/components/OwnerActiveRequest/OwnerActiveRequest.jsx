@@ -42,14 +42,13 @@ function OwnerActiveRequest() {
                   <p>{request.date_completed_by}</p>
                   <p>${request.price}</p>
                   
-                  <button onClick={handleViewRequest}>View</button>
-                  <button>Delete</button>
+                  <button className="btn" onClick={handleViewRequest}>View</button>
+                  <button className="btn">Delete</button>
                 </div>
               )})}
           </div>
 
-          <button className="btn" onClick={handleViewRequest}>View</button>
-          <button className="btn">Delete</button>
+   
 
         </div>
       </div>
