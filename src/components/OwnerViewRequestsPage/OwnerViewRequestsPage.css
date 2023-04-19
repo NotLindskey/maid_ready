@@ -29,6 +29,11 @@
   width: 50rem;
   display: inline;
 }
+
+.break {
+  flex-basis: 100%;
+  height: 0;
+}
 /* .list-active-requests,
 .list-completed-requests {
   background-color: #d9b;

@@ -52,6 +52,9 @@ function OwnerViewRequestsPage() {
           <h4>Active Requests:</h4>
           <OwnerActiveRequest />
         </div>
+        
+        <div className="break"></div>
+      
 
         {/* render 4 recent completed requests */}
         <div className="active-box-container">
