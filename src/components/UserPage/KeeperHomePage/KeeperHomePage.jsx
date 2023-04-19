@@ -22,7 +22,7 @@ function KeeperHomePage() {
     <div className="keeper-home-page-body">
       <div className="keeper-home-page-find-job-container">
         <button
-          className="keeper-home-page-find-job-button"
+          className="keeper-home-page-find-job-button btn"
           onClick={() => {
             history.push("/keeper/job-list");
           }}
@@ -39,7 +39,7 @@ function KeeperHomePage() {
           <p className="keeper-home-active-title">Active</p>
           <div className="keeper-home-active-navigate">
             <div className="arrow-right"></div>
-            <button>view all activity</button>
+            <button >view all activity</button>
           </div>
         </div>
         <JobItem width={60} />

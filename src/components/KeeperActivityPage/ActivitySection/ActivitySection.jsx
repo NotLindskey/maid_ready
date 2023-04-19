@@ -1,4 +1,6 @@
 import JobItem from "../../JobItem/JobItem";
+
+
 function ActivitySection({ title, jobs }) {
   return (
     <div>
