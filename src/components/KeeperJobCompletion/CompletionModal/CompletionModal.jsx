@@ -17,7 +17,7 @@ function CompletionModal(props) {
           onClick={(e) => e.stopPropagation()}
         >
           <h2>{props.title}</h2>
-          <p>{props.children}</p>
+          <div>{props.children}</div>
           <button onClick={onCloseModal} className="btn">
             close
           </button>
