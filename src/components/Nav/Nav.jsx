@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import LogOutButton from "../LogOutButton/LogOutButton";
 import "./Nav.css";
 import { useSelector } from "react-redux";
+import { MdOutlineCleaningServices } from 'react-icons/md';
+import { GrContact, GrInfo } from 'react-icons/gr'
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -10,7 +12,8 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Maid!Ready!</h2>
+        {/* <h2 className="nav-title">Maid!Ready!</h2> */}
+        
       </Link>
       <div style={{display:"flex", alignItems:"center"}}>
 
@@ -21,15 +24,15 @@ function Nav() {
         </Link>
 
         <Link className="navLink" to="/service">
-          Service
+          <MdOutlineCleaningServices/>
         </Link>
 
         <Link className="navLink" to="/about">
-          About
+        <GrInfo/>
         </Link>
 
         <Link className="navLink" to="/contact">
-          Contact
+          <GrContact/>
         </Link>
 
         {/* If no user is logged in, show these links */}
