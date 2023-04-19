@@ -148,6 +148,27 @@ router.get("/user", (req, res) => {
   }
 });
 
+// GET Keeper's Active Jobs
+router.get("/keeper/active", (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `
+    SELECT * FROM "job" 
+    WHERE "job"."keeper_id" = $1 and "job"."status" = 'incomplete' and "job"."claimed" = TRUE;
+    `;
+
+    pool.query(query, [req.user.id])
+      .then((results) => {
+        console.log(results.rows)
+        res.send(results.rows)
+      })
+      .catch((err) => {
+        console.log("Error with getting user's active jobs: ", err);
+        res.sendStatus(500);
+      })
+  } else {
+    res.sendStatus(403);
+  }
+})
 /**
  * POST route
  */
