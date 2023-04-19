@@ -198,12 +198,39 @@ router.put("/apply", (req, res) => {
     pool
       .query(query, [req.body.jobId, req.user.id])
       .then((results) => {
-        console.log(results.rows);
         res.sendStatus(201);
       })
       .catch((err) => {
         console.log("Error with applying to job: ", err);
+        res.sendStatus(500);
       });
+  } else {
+    res.sendStatus(403);
+  }
+});
+
+router.put("/complete", (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `
+    WITH cte AS (
+      SELECT "id"
+      FROM "job"
+      WHERE "claimed" = TRUE AND "keeper_id" IS $2 AND "status" = 'incomplete'
+      LIMIT 1
+    )
+    UPDATE "job" c
+    SET "status" = TRUE 
+    WHERE c."id" = $1;
+    `;
+
+    pool.query(query, [req.body.jobId, req.user.id])
+      .then((results) => {
+        res.sendStatus(201)
+      })
+      .catch((err) => {
+        console.log("Error with completing job: ", err);
+        res.sendStatus(500);
+      })
   } else {
     res.sendStatus(403);
   }
