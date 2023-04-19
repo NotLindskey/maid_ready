@@ -36,7 +36,6 @@ function KeeperJobCompletion() {
             <p>${details.price}</p>
           </div>
         </div>
-        <button className="btn">Complete</button>
       </div>
       <div className="job-details-checklist">
         <div className="job-detail-title">
@@ -44,6 +43,12 @@ function KeeperJobCompletion() {
         </div>
         <div className="job-detail-checklist-container"></div>
       </div>
+
+      <label>
+        <input type="file"></input>
+      </label>
+
+      <button className="btn">Complete</button>
     </div>
   );
 }

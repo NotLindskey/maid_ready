@@ -3,14 +3,6 @@ import { useSelector } from "react-redux";
 import "./JobItemButton.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 function JobItemButton({ status, claimed, keeper, id }) {
-  useEffect(() => {
-    // console.log(`
-    //     status: ${status} \n
-    //     clamied: ${claimed} \n
-    //     keeper: ${keeper} \n
-    //     type: ${userType}
-    //     `);
-  });
   const user = useSelector((store) => store.user);
 
   const history = useHistory();
@@ -32,8 +24,6 @@ function JobItemButton({ status, claimed, keeper, id }) {
           }
         }
       }
-
-      //   history.push(`/keeper/job/details/${id}`);
     }
   };
 
