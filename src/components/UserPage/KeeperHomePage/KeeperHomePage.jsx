@@ -13,10 +13,11 @@ function KeeperHomePage() {
 
   useEffect(() => {
     dispatch({ type: "FETCH_USER_JOBS" });
+    dispatch({ type: "FETCH_ACTIVE_JOBS" });
   }, []);
 
-  if(!userJobs){
-    return <p>loading</p>
+  if (!userJobs) {
+    return <p>loading</p>;
   }
   return (
     <div className="keeper-home-page-body">
@@ -39,7 +40,7 @@ function KeeperHomePage() {
           <p className="keeper-home-active-title">Active</p>
           <div className="keeper-home-active-navigate">
             <div className="arrow-right"></div>
-            <button >view all activity</button>
+            <button>view all activity</button>
           </div>
         </div>
         <JobItem width={60} />
@@ -49,11 +50,15 @@ function KeeperHomePage() {
       <JobFeature
         title={"Previous Jobs"}
         link={"/keeper/activity"}
-        jobs={userJobs.filter((job)=>job.status !== 'incomplete')}
+        jobs={userJobs.filter((job) => job.status !== "incomplete")}
       />
 
       {/* applied jobs */}
-      <JobFeature title={"Acepted Jobs"} link={"/keeper/activity"} jobs={userJobs.filter((job)=>job.status === 'incomplete')}/>
+      <JobFeature
+        title={"Acepted Jobs"}
+        link={"/keeper/activity"}
+        jobs={userJobs.filter((job) => job.status === "incomplete")}
+      />
     </div>
   );
 }
