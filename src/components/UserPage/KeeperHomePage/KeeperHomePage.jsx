@@ -10,7 +10,7 @@ function KeeperHomePage() {
   const history = useHistory();
   const dispatch = useDispatch();
   const userJobs = useSelector((store) => store.job.user_jobs);
-
+  const activeJobs = useSelector((store) => store.job.keeper_active_jobs);
   useEffect(() => {
     dispatch({ type: "FETCH_USER_JOBS" });
     dispatch({ type: "FETCH_ACTIVE_JOBS" });
@@ -34,17 +34,37 @@ function KeeperHomePage() {
 
       {/* conditonal rendering */}
       {/* active job */}
-      <div className="keeper-home-page-active-job">
-        <div className="keeper-home-active-info">
-          <div className="keeper-home-active-dot"></div>
-          <p className="keeper-home-active-title">Active</p>
-          <div className="keeper-home-active-navigate">
-            <div className="arrow-right"></div>
-            <button>view all activity</button>
+      {activeJobs.length && (
+        <div className="keeper-home-page-active-job">
+          <div className="keeper-home-active-info">
+            <div className="keeper-home-active-dot"></div>
+            <p className="keeper-home-active-title">Active</p>
+            <div className="keeper-home-active-navigate">
+              <div className="arrow-right"></div>
+              <button>view all activity</button>
+            </div>
           </div>
+          {activeJobs.map((job) => (
+            <JobItem
+              width={60} // defeault value
+              key={job.id}
+              // display option
+              id={job.id}
+              owner={job.username}
+              street={job.street}
+              city={job.city}
+              state={job.state}
+              zip={job.zipcode}
+              price={job.price}
+              date={job.date_completed_by}
+              // button
+              claimed={job.claimed}
+              status={job.status}
+              keeper_id={job.keeper_id}
+            />
+          ))}
         </div>
-        <JobItem width={60} />
-      </div>
+      )}
 
       {/* previous jobs */}
       <JobFeature
