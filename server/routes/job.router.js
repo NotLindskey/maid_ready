@@ -9,7 +9,7 @@ const router = express.Router();
 // GET owners job requests
 router.get("/owner/request", (req, res) => {
 
-  if(req.isAuthenticated()) {
+  if (req.isAuthenticated()) {
     const query = `SELECT 
     "user"."username", 
     "property"."street", 
@@ -29,15 +29,15 @@ router.get("/owner/request", (req, res) => {
     WHERE "job"."owner_id" = $1;
     `;
     pool.query(query, [req.user.id])
-    .then((result) => {
-      // Send query result as response
-      res.send(result.rows);
-    })
-    .catch((error) => {
-      //Handle error
-      console.log(`Error getting jobs for owner: `, error);
-      res.sendStatus(500);
-    });
+      .then((result) => {
+        // Send query result as response
+        res.send(result.rows);
+      })
+      .catch((error) => {
+        //Handle error
+        console.log(`Error getting jobs for owner: `, error);
+        res.sendStatus(500);
+      });
   } else {
     res.sendStatus(403);
   }
@@ -52,9 +52,8 @@ router.get("/", (req, res) => {
         "property"."city",
         "property"."state",
         "property"."zipcode",
-        "job"."id", 
-        "job"."price",
-        "job"."date_completed_by" 
+        "job".*
+        
         FROM "job"
         JOIN "user" 
         ON "job"."owner_id" = "user"."id"
@@ -200,12 +199,39 @@ router.put("/apply", (req, res) => {
     pool
       .query(query, [req.body.jobId, req.user.id])
       .then((results) => {
-        console.log(results.rows);
         res.sendStatus(201);
       })
       .catch((err) => {
         console.log("Error with applying to job: ", err);
+        res.sendStatus(500);
       });
+  } else {
+    res.sendStatus(403);
+  }
+});
+
+router.put("/complete", (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `
+    WITH cte AS (
+      SELECT "id"
+      FROM "job"
+      WHERE "claimed" = TRUE AND "keeper_id" = $2 AND "status" = 'incomplete'
+      LIMIT 1
+    )
+    UPDATE "job" c
+    SET "status" = 'complete' 
+    WHERE c."id" = $1;
+    `;
+
+    pool.query(query, [req.body.id, req.user.id])
+      .then((results) => {
+        res.sendStatus(201)
+      })
+      .catch((err) => {
+        console.log("Error with completing job: ", err);
+        res.sendStatus(500);
+      })
   } else {
     res.sendStatus(403);
   }

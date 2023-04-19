@@ -37,6 +37,8 @@ import KeeperHomePage from "../UserPage/KeeperHomePage/KeeperHomePage";
 import JobList from "../JobList/JobList";
 import JobDetails from "../JobDetails/JobDetails";
 import KeeperActivityPage from "../KeeperActivityPage/KeeperActivityPage";
+import KeeperJobCompletion from "../KeeperJobCompletion/KeeperJobCompletion";
+
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
 
@@ -120,6 +122,14 @@ function App() {
 
           <ProtectedRoute exact path="/keeper/activity" type="keeper">
             <KeeperActivityPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            exact
+            path="/keeper/job/details/complete/:id"
+            type="keeper"
+          >
+            <KeeperJobCompletion />
           </ProtectedRoute>
 
           {/* ----------------------------------------------------------------

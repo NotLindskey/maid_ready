@@ -13,7 +13,12 @@ function* jobSaga() {
   yield takeLatest("ADD_JOB", addJob);
 
   yield takeLatest("APPLY_TO_JOB", applyToJob); // UPDATE claimed to true and keeper id
+  yield takeLatest("COMPLETE_JOB", completeJob); // UPDATE complete job, status turns to complete
 }
+
+/* -------------------------
+  GET req
+------------------------- */
 
 // fetch all jobs
 function* fetchJobs() {
@@ -84,6 +89,10 @@ function* fetchOwnerRequests() {
   }
 }
 
+/* -------------------------
+  POST req
+------------------------- */
+
 // post job
 function* addJob(action) {
   try {
@@ -98,6 +107,10 @@ function* addJob(action) {
   }
 }
 
+/* -------------------------
+  PUT req
+------------------------- */
+
 // Apply to Job (UPDATE)
 function* applyToJob(action) {
   try {
@@ -106,10 +119,27 @@ function* applyToJob(action) {
       withCredentials: true,
     };
 
-    const response = yield axios.put(`/api/job/apply`, action.payload, config);
+    yield axios.put(`/api/job/apply`, action.payload, config);
     yield put({ type: "FETCH_JOBS" });
   } catch (err) {
     console.log("Error with applying to job: ", err);
+  }
+}
+
+// Complete Job 
+function* completeJob(action) {
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+
+    yield axios.put(`/api/job/complete`, action.payload, config)
+
+    yield put({ type: "FETCH_USER_JOBS" })                             // updates user job
+    yield put({ type: "FETCH_JOB_DETAIL", payload: action.payload })   // update job detail
+  } catch (err) {
+    console.log("Error with completing job: ", err);
   }
 }
 

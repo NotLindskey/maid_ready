@@ -1,6 +1,5 @@
 import JobItem from "../../JobItem/JobItem";
 
-
 function ActivitySection({ title, jobs }) {
   return (
     <div>
@@ -10,8 +9,9 @@ function ActivitySection({ title, jobs }) {
       <div>
         {jobs.map((job) => (
           <JobItem
-            width={20}
+            // defeault value
             key={job.id}
+            // display option
             id={job.id}
             owner={job.username}
             street={job.street}
@@ -20,6 +20,10 @@ function ActivitySection({ title, jobs }) {
             zip={job.zipcode}
             price={job.price}
             date={job.date_completed_by}
+            // button
+            claimed={job.claimed}
+            status={job.status}
+            keeper_id={job.keeper_id}
           />
         ))}
         {/* {jobs ? (=
