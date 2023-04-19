@@ -242,14 +242,15 @@ router.put("/complete", (req, res) => {
  */
 
 // DELETE owner job request
-router.delete('job/:id', (req, res) => {
+router.delete('/owner/delete/:id', (req, res) => {
   if (req.isAuthenticated()) {
     const query= `
     DELETE FROM "job"
-    WHERE "id" = $1;
+    WHERE "id" = $1
+    AND "owner_id" = $2;
     `;
     pool
-      .query(query, [req.params.id])
+      .query(query, [req.params.id, req.user.id])
       .then((result) => {
         console.log('delete result', result);
         res.sendStatus(200);
