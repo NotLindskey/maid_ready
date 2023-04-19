@@ -19,7 +19,6 @@ function OwnerActiveRequest() {
   }, []);
 
   const handleViewRequest = (request) => {
-    console.log('handleViewRequest clicked!');
     console.log(request.id);
     history.push(`/OwnerRequestDetails/${request.id}`);
   };
@@ -52,8 +51,7 @@ function OwnerActiveRequest() {
                   </p>
                   <p>${request.price}</p>
 
-                  <button className="btn" onClick={handleViewRequest}>View</button>
-
+                  <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
                   <button className="btn">Delete</button>
                 </div>
               );
