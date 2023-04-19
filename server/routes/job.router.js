@@ -183,6 +183,55 @@ router.get("/user", (req, res) => {
   }
 });
 
+// GET Keeper's Active Jobs
+router.get("/keeper/active", (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `
+    SELECT 
+    "user"."username", 
+
+    "property"."street",
+    "property"."city",
+    "property"."state",
+    "property"."zipcode",
+        
+    "job".*
+        
+    FROM "job"
+    JOIN "user" 
+    ON "job"."owner_id" = "user"."id"
+    JOIN "property" 
+    ON "property"."id" = "job"."property_id"
+    WHERE "job"."keeper_id" = $1 and "job"."status" = 'incomplete' and "job"."claimed" = TRUE;
+    `;
+
+    pool.query(query, [req.user.id])
+      .then((results) => {
+        // console.log(results.rows)
+        const currentDate = new Date()
+        const currentDateString = currentDate.toISOString().slice(0, 10); // Get the date string without the time
+
+        const activeJobArr = results.rows.reduce((arr, job) => {
+          const dateConverter = new Date(job.date_completed_by);
+          const dateConverterString = dateConverter.toISOString().slice(0, 10);
+
+          if (dateConverterString == currentDateString) {
+            return ([...arr, job])
+          } else {
+            return (arr)
+          }
+        }, [])
+
+        res.send(activeJobArr)
+      })
+      .catch((err) => {
+        console.log("Error with getting user's active jobs: ", err);
+        res.sendStatus(500);
+      })
+  } else {
+    res.sendStatus(403);
+  }
+})
 /**
  * POST route
  */
