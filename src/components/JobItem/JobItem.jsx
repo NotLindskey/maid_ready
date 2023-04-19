@@ -1,13 +1,26 @@
 import "./JobItem.css";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-function JobItem({ width, owner, street, city, state, zip, price, date, id }) {
+function JobItem({
+  width,
+  owner,
+  street,
+  city,
+  state,
+  zip,
+  price,
+  date,
+  id,
+  status,
+  claimed,
+  keeper_id,
+}) {
   const dispatch = useDispatch();
   const history = useHistory();
 
   const navigateHandler = () => {
     if (id) {
-      history.push(`/keeper/job/details/${id}`)
+      history.push(`/keeper/job/details/${id}`);
     }
   };
 
