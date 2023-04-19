@@ -5,7 +5,8 @@
 }
 
 .list-active-requests {
-  background-color: #d9b;
+  background-color: #da9494;
+
   display: inline;  /*this was grid originally */
   grid-template-columns: repeat(3, 30%);
   justify-content: center;

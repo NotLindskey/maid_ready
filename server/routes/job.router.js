@@ -320,4 +320,33 @@ router.put("/complete", (req, res) => {
     res.sendStatus(403);
   }
 });
+
+/**
+ * DELETE route
+ */
+
+// DELETE owner job request
+router.delete('/owner/delete/:id', (req, res) => {
+  if (req.isAuthenticated()) {
+    const query= `
+    DELETE FROM "job"
+    WHERE "id" = $1
+    AND "owner_id" = $2;
+    `;
+    pool
+      .query(query, [req.params.id, req.user.id])
+      .then((result) => {
+        console.log('delete result', result);
+        res.sendStatus(200);
+      })
+      .catch((error) => {
+        console.log("Error with deleting job request: ", error);
+        res.sendStatus(500);
+      })
+    } else {
+      res.sendStatus(403);
+    }
+});
+
+
 module.exports = router;
