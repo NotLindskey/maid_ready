@@ -21,7 +21,9 @@ function KeeperJobCompletion() {
   function handleCloseModal() {
     setIsModalOpen(false);
   }
-
+  function completeJobHandler() {
+    dispatch({ type: "COMPLETE_JOB", payload: { id: jobId } });
+  }
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
@@ -104,7 +106,9 @@ function KeeperJobCompletion() {
             <div className="job-detail-checklist-container"></div>
           </div>
 
-          <button className="btn">complete</button>
+          <button className="btn" onClick={completeJobHandler}>
+            complete
+          </button>
         </div>
       </CompletionModal>
     </div>

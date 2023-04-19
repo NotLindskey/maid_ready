@@ -215,15 +215,15 @@ router.put("/complete", (req, res) => {
     WITH cte AS (
       SELECT "id"
       FROM "job"
-      WHERE "claimed" = TRUE AND "keeper_id" IS $2 AND "status" = 'incomplete'
+      WHERE "claimed" = TRUE AND "keeper_id" = $2 AND "status" = 'incomplete'
       LIMIT 1
     )
     UPDATE "job" c
-    SET "status" = TRUE 
+    SET "status" = 'complete' 
     WHERE c."id" = $1;
     `;
 
-    pool.query(query, [req.body.jobId, req.user.id])
+    pool.query(query, [req.body.id, req.user.id])
       .then((results) => {
         res.sendStatus(201)
       })
