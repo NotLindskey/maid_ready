@@ -28,11 +28,11 @@ function OwnersHomePage() {
       <h2 className='heading'>{heading}</h2>
       <div className='container1'>
         <img src={requestImg} alt="image of two cleaners with cleaning tools" />
-        <button className='btn' onClick={toProperties}>Create A Request</button>
+        <button className='btn1' onClick={toProperties}>Create A Request</button>
       </div>
       <div className='container1'>
         <img src={viewImg} alt="image of a person writing in a planner" />
-        <button className='btn' onClick={viewRequests}>View Requests</button>
+        <button className='btn1' onClick={viewRequests}>View Requests</button>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ function OwnerViewRequestsPage() {
         <h3>View Requests</h3>
       </div>
 
-      <div className="list-section">
+      <div className="job-list-body">
         <div className="list-header">
           <p>Select a list to view:</p>
         </div>
@@ -49,7 +49,7 @@ function OwnerViewRequestsPage() {
         </div>
 
         {/* render 4 recent completed requests */}
-        <div className="list-completed-requests">
+        <div className="active-box-container">
           <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
           {/* <OwnerCompletedRequest /> */}
           {completedRequests.map((request) => {
