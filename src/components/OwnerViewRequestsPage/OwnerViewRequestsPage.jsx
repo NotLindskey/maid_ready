@@ -64,8 +64,8 @@ function OwnerViewRequestsPage() {
                   {request.street} {request.city} {request.state}{' '}
                   {request.zipcode}
                 </p>
-                <p>{request.date_completed_by}</p>
-                <p>{request.price}</p>
+                <p>{new Date(request.date_completed_by).toLocaleDateString('en-US')}</p>
+                <p>${request.price}</p>
                 <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
                 <button className="btn">Delete</button>
               </div>
