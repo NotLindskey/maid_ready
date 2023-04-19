@@ -16,6 +16,7 @@ router.get("/owner/request", (req, res) => {
     "property"."city", 
     "property"."state", 
     "property"."zipcode",
+    "job"."id",
     "job"."date_completed_by",
     "job"."price",
     "job"."status",

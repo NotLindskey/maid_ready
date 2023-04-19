@@ -48,11 +48,7 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent completed requests */}
         <div className="list-completed-requests">
-          <button className="btn" onClick={viewCompletedList}>Completed Requests:</button>
-          <p>
-            `get route to display jobItem only by: status = completed && ORDER
-            BY date_completed_by` LIMIT 4;{' '}
-          </p>
+          <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
           {/* <OwnerCompletedRequest /> */}
           {completedRequests.map(request => {
               return (
