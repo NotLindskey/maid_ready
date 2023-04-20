@@ -1,7 +1,46 @@
 /* --------------------------------------------------------------------------------
+Owners and Keepers Registration button css
+-------------------------------------------------------------------------------- */
+.btn-register {
+  display: inline-block;
+  padding: 10px 20px;
+  border-color: #454b66;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
+  background-color: #da9494;
+  color: #f9f0f4;
+  font-size: 1.1rem;
+  outline: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-register:hover {
+  background-color: #94c5cc;
+  border-color: #da9494;
+  color: #f9f0f4;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------------
+NavLink - Maid Ready Cleaning Standards css
+--------------------------------------------------------------------------------- */
+.nav-cleaning-standards {
+  color: blue;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 200;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-cleaning-standards:hover {
+  color: #ff9800;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------------
 Grid
 -------------------------------------------------------------------------------- */
-
 .grid {
   display: flex;
   flex: 0 1 auto;
