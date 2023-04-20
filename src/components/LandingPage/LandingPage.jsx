@@ -25,8 +25,6 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <h2>{heading}</h2>
-
       <div className="owners-section">
         <h1>Need a quick clean?</h1>
         <p>Maid!Ready! 24/7</p>
@@ -35,17 +33,23 @@ function LandingPage() {
         </p>
         <p> Last-minute houseKeeping service is what we do!</p>
 
-        <button className="btn" onClick={registerOwnerHandle}>Owners Register Here</button>
+        <button className="btn-register" onClick={registerOwnerHandle}>
+          Owners Register Here
+        </button>
       </div>
 
       <div className="keeper-section">
         <h1>Become your own boss!</h1>
         <p> Make a profile and decide when you want to work!</p>
         <p>Choose your bookings based on your current location!</p>
-        <Link to="/CleaningStandards"> Maid Ready Cleaning Standards</Link>
+        <Link to="/CleaningStandards" className="nav-cleaning-standards">
+          <u>Maid Ready Cleaning Standards</u>
+        </Link>
         <br />
         <br />
-        <button className="btn" onClick={registerKeeperHandle}>Become a Keeper</button>
+        <button className="btn-register" onClick={registerKeeperHandle}>
+          Become a Keeper
+        </button>
       </div>
 
       <div className="landing-content">
@@ -58,7 +62,7 @@ function LandingPage() {
         </p>
 
         <div className="grid">
-          <div className="grid-col grid-col_4">
+          <div className="grid-col grid-col_4 ">
             <p>The streaks are talking!</p>
             <p>
               Our Keepers make sure your property looks and smells clean. And
