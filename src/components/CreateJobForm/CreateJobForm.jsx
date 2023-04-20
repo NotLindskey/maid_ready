@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import JobFormCheckList from "./JobFormCheckList/JobFormCheckList";
 function CreateJobForm(props) {
   const property = useSelector((store) => store.property.property);
+  const cleaningStandard = useSelector(
+    (store) => store.job.cleaning_standard_checklist
+  );
   const [heading, setHeading] = useState("Create A Job");
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
@@ -32,6 +35,13 @@ function CreateJobForm(props) {
     return price;
   };
 
+  useEffect(() => {
+    dispatch({ type: "FETCH_CLEANING_STANDARD" });
+  }, []);
+
+  if (!cleaningStandard.length) {
+    return <p>loading</p>;
+  }
   return (
     <div>
       <h2>{heading}</h2>
@@ -59,7 +69,7 @@ function CreateJobForm(props) {
             type="time"
           />
           <br />
-          <JobFormCheckList />
+          <JobFormCheckList standards={cleaningStandard} />
           <input className="btn" type="submit" value="Submit" />
         </form>
       </div>

@@ -138,4 +138,5 @@ export default combineReducers({
   owner_requests, // owner's requests
   request_detail, // request detail
   keeper_active_jobs, // keepers active jobs
+  cleaning_standard_checklist, // cleaning standards
 });
