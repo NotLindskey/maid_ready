@@ -5,23 +5,32 @@ import CompletionModal from "../../KeeperJobCompletion/CompletionModal/Completio
 
 function JobFormCheckList({ standards }) {
   const dispatch = useDispatch();
-  const cleaningStandard = useSelector(
-    (store) => store.job.cleaning_standard_checklist
-  );
 
+  // values of cleaning standards (will show up in checklist)
   const [checkedValues, setCheckedValues] = useState(
     standards.reduce((arr, task) => [...arr, task.task], [])
   );
 
+  // values of custom checklist items (not in checklist)
   const [customValues, setCustomValues] = useState([]);
+  // values of custom checklist (will show up in checklist)
+  const [customChecklist, setCustomChecklist] = useState([]);
+  // value of input field of (Enter task)
+  const [inputTask, setInputTask] = useState("");
 
+  // modal state (false=closed)
   const [isModalOpen, setIsModalOpen] = useState(false);
+  // toggle modal functions
+  // open modal
   function handleButtonClick() {
     setIsModalOpen(true);
   }
+  // close modal
   function handleCloseModal() {
     setIsModalOpen(false);
   }
+
+  // standard checkbox value array (checklist that will show up (only standards))
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
@@ -74,16 +83,16 @@ function JobFormCheckList({ standards }) {
             alignItems: "center",
           }}
         >
-          <div className="input-container">
+          <div className="custom-task-input-container">
             <input
               type="text"
-              id="username"
-              className="text-input"
+              id="custom-task"
+              className="custom-task-checklist"
               autocomplete="off"
               placeholder="Enter task"
               required
             />
-            <label for="username" className="label">
+            <label for="custom-task" className="custom-task-label">
               Enter task
             </label>
           </div>

@@ -1,19 +1,20 @@
-.input-container {
+.custom-task-input-container {
   width: 30rem;
   position: relative;
   margin-left: -2.5rem;
 }
 
-.label {
+.custom-task-label {
   position: absolute;
   left: 10px;
-  top: 14px;
+  top: 15px;
   transition: all 0.2s;
   padding: 0 2px;
   z-index: 1;
+  color: rgb(120, 120, 120);
 }
 
-.text-input {
+.custom-task-checklist {
   padding: 0.8rem;
   width: 100%;
   height: 1rem;
@@ -24,7 +25,7 @@
   transition: all 0.3s;
 }
 
-.label::before {
+.custom-task-label::before {
   content: "";
   height: 5px;
   position: absolute;
@@ -34,11 +35,11 @@
   z-index: -1;
 }
 
-.text-input:focus {
+.custom-task-checklist:focus {
   border: 1px solid blue;
 }
 
-.text-input:focus + .label,
+.custom-task-checklist:focus + .custom-task-label,
 .filled {
   top: -4px;
   color: blue;
@@ -46,13 +47,13 @@
   font-size: 14px;
 }
 
-.text-input::placeholder {
+.custom-task-checklist::placeholder {
   font-size: 16px;
   opacity: 0;
   transition: all 0.3s;
 }
 
-.text-input:focus::placeholder {
+.custom-task-checklist:focus::placeholder {
   opacity: 1;
   animation-delay: 0.2;
 }
