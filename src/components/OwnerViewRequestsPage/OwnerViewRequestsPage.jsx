@@ -60,9 +60,9 @@ function OwnerViewRequestsPage() {
         <div className="active-box-container">
           <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
           {/* <OwnerCompletedRequest /> */}
-          {completedRequests.map((request) => {
+          <div className='job-list-container'>{completedRequests.map((request) => {
             return (
-              <div className="completed-requests" key={request.id}>
+              <div className="job-item-body" key={request.id}>
                 <p>
                   {request.street} {request.city} {request.state}{' '}
                   {request.zipcode}
@@ -74,6 +74,7 @@ function OwnerViewRequestsPage() {
               </div>
             );
           })}
+          </div>
         </div>
       </div>
       <br />
