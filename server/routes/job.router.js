@@ -232,6 +232,24 @@ router.get("/keeper/active", (req, res) => {
     res.sendStatus(403);
   }
 })
+
+// Get cleaning standards
+router.get('/cleaning-standard', (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `SELECT * FROM "cleaning_standard";`
+
+    pool.query(query)
+      .then((results) => {
+        res.send(results.rows)
+      })
+      .catch((err) => {
+        console.log("Error with getting cleaning standards: ", err);
+        res.sendStatus(500);
+      })
+  } else {
+    res.sendStatus(403);
+  }
+})
 /**
  * POST route
  */
@@ -328,7 +346,7 @@ router.put("/complete", (req, res) => {
 // DELETE owner job request
 router.delete('/owner/delete/:id', (req, res) => {
   if (req.isAuthenticated()) {
-    const query= `
+    const query = `
     DELETE FROM "job"
     WHERE "id" = $1
     AND "owner_id" = $2;
@@ -343,9 +361,9 @@ router.delete('/owner/delete/:id', (req, res) => {
         console.log("Error with deleting job request: ", error);
         res.sendStatus(500);
       })
-    } else {
-      res.sendStatus(403);
-    }
+  } else {
+    res.sendStatus(403);
+  }
 });
 
 
