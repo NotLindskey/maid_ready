@@ -63,14 +63,15 @@ Button
 .btn {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #454B66;
+  border-color: #454b66;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #94C5CC;
+  background-color: #da9494;
   color: #454B66;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn1 {
@@ -102,9 +103,10 @@ Button
 }
 
 .btn:hover {
-  background-color: #454B66;
-  color: #94C5CC;
-  text-decoration: none;
+  background-color: #94c5cc;
+  border-color: #da9494;
+  color: #454B66;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .btn:disabled {
