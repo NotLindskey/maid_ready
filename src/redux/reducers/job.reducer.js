@@ -113,6 +113,23 @@ function keeper_active_jobs(state = [], action) {
       return state;
   }
 }
+
+// GET cleaning standards checklist
+function cleaning_standard_checklist(state = [], action) {
+  switch (action.type) {
+    case "SET_CLEANING_STANDARD_CHECKLIST":
+      if (action.payload) {
+        return action.payload
+      }
+      return state;
+    case "CLEANING_STANDARD_CHECKLIST":
+      return [];
+    case "RESET":
+      return [];
+    default:
+      return state;
+  }
+}
 export default combineReducers({
   jobs, // all jobs
   job, // job by id
