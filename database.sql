@@ -46,3 +46,25 @@ CREATE TABLE "job_checklist" (
     "checklist_item_id" INT REFERENCES "checklist_item"
 );
 
+CREATE TABLE "cleaning_standard" (
+    "id" SERIAL PRIMARY KEY,
+    "task" varchar(255) NOT NULL,
+    "description" varchar(1000)
+);
+
+INSERT INTO "cleaning_standard" ("task", "description")
+VALUES 
+('Strip the beds, start load of sheets, if multiple sheets are provided make the bed with the second set that is provided.', null),
+('Wash the comforter and shams (if requested by owner) will be extra charge.',null),
+('Wipe down nightstands, dresser and if needed tv.',null),
+('Clean bathroom: wipe down counters, sink, toilet (don''t forget the base of toilet and neck), tub, mirror, stock paper products, remove any trash. (Repeat if multiple bathrooms)',null),
+('Check supply of hand soap and lotion, fill if necessary.',null),
+('Check supply of hand soap and lotion, fill if necessary.',null),
+('Clean kitchen: wipe down counters, appliances (stove top, fridge front) dishwasher, check inside fridge for any food left behind, remove any trash.',null),
+('Check all drawers and cabinets for dishes, utensils, pots and pans (inventory)',null),
+('Check supply of soap.',null),
+('Clean the living room: wipe down tv stand, tv, side tables, coffee tables, lamps.',null),
+('Wipe windowsills',null),
+('Sweep/dust mop/vacuum the whole house/apartment',null),
+('If balcony or porch is on property may sure to dust/sweep for cob webs.',null);
+
