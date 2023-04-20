@@ -8,7 +8,7 @@ function* jobSaga() {
   yield takeLatest("FETCH_JOB_DETAIL", fetchJobDetail); // GET one job detail
   yield takeLatest("FETCH_USER_JOBS", fetchUserJobs); // GET user's jobs
   yield takeLatest("FETCH_ACTIVE_JOBS", fetchActiveJobs); // GET user's active jobs
-
+  yield takeLatest("FETCH_CLEANING_STANDARD", fetchCleaningStandard); // GET cleaning standards
   yield takeLatest("FETCH_OWNER_REQUESTS", fetchOwnerRequests); // GET owner's requests
   yield takeLatest("FETCH_REQUEST_DETAIL", fetchRequestDetail) // GET one request detail
 
@@ -118,6 +118,20 @@ function* fetchActiveJobs() {
   }
 }
 
+// fetch cleaning standards (checklist)
+function* fetchCleaningStandard() {
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+
+    const cleaningStandard = yield axios.get(`/api/job/cleaning-standard`, config);
+    yield put({ type: "SET_CLEANING_STANDARD_CHECKLIST", payload: cleaningStandard.data });
+  } catch (err) {
+    console.log("Error with getting cleaning standards: ", err);
+  }
+}
 /* -------------------------
   POST req
 ------------------------- */
