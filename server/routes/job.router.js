@@ -132,10 +132,21 @@ router.get("/detail/:id", (req, res) => {
         JOIN "property" 
         ON "property"."id" = "job"."property_id"
         WHERE ("job"."id" = $1  AND ("job"."keeper_id" = $2 OR "job"."keeper_id" IS NULL));`;
+
+    const checklistQuery = `SELECT * FROM "checklist_item" WHERE "checklist_item"."job_id" = $1;`
     pool
       .query(query, [req.params.id, req.user.id])
       .then((result) => {
-        res.send(result.rows);
+        const jobDetails = result.rows
+        pool.query(checklistQuery, [req.params.id])
+          .then((results) => {
+            jobDetails[0].job_checklist = results.rows
+            console.log(jobDetails)
+            res.send(jobDetails);
+          })
+          .catch((error) => {
+            console.log('Error getting job checklist: ', error);
+          })
       })
       .catch((error) => {
         console.log(`Error getting job detail: `, error);
