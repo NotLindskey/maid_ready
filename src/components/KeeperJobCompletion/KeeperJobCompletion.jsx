@@ -2,7 +2,7 @@ import "./KeeperJobCompletion.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import JobItemChecklist from "../JobItem/JobItemChecklist/JobItemChecklist";
 import CompletionModal from "./CompletionModal/CompletionModal";
 import { object } from "prop-types";
 
@@ -62,139 +62,17 @@ function KeeperJobCompletion() {
 
       {/* checklist module */}
       <div className="job-details-checklist">
-        <div className="job-detail-title">
-          <p>Standard Tasks</p>
-        </div>
-        <div className="job-detail-checklist-container">
-          {details.job_checklist.map((task, index) => {
-            if (task.standard && index < indexValueStandard) {
-              return (
-                <div key={task.id} className="job-detail-checklist-main">
-                  <input
-                    type="checkbox"
-                    checked={task.isComplete}
-                    onChange={() => {
-                      dispatch({
-                        type: "CHECK_TASK",
-                        payload: {
-                          task_id: task.id,
-                          job_id: jobId,
-                          task_state: task.isComplete,
-                        },
-                      });
-                    }}
-                  />
-                  <button
-                    className="job-detail-checklist-button"
-                    onClick={() => {
-                      dispatch({
-                        type: "CHECK_TASK",
-                        payload: {
-                          task_id: task.id,
-                          job_id: jobId,
-                          task_state: task.isComplete,
-                        },
-                      });
-                    }}
-                  >
-                    <div className="job-detail-checklist-title">
-                      <p
-                        style={
-                          task.isComplete
-                            ? {
-                                textDecoration: "line-through",
-                                color: "rgb(150,150,150)",
-                              }
-                            : {}
-                        }
-                      >
-                        {task.task}
-                      </p>
-                    </div>
-                  </button>
-                </div>
-              );
-            }
-          })}
+        <JobItemChecklist
+          job_checklist={details.job_checklist.filter((task) => task.standard)}
+          checklist_type={"standard"}
+          jobId={jobId}
+        />
 
-          {indexValueStandard < details.job_checklist.length && (
-            <button
-              className="job-complete-show-more"
-              onClick={() => {
-                setIndexValueStandard(details.job_checklist.length + 1);
-              }}
-            >
-              Show more...
-            </button>
-          )}
-
-          {indexValueStandard > details.job_checklist.length && (
-            <button
-              className="job-complete-show-more"
-              onClick={() => {
-                setIndexValueStandard(8);
-              }}
-            >
-              Show less...
-            </button>
-          )}
-        </div>
-
-        <div className="job-detail-checklist-container">
-          <div className="job-detail-title">
-            <p>Custom Tasks</p>
-          </div>
-          {details.job_checklist.map((task, index) => {
-            if (!task.standard) {
-              return (
-                <div key={task.id} className="job-detail-checklist-main">
-                  <input
-                    type="checkbox"
-                    checked={task.isComplete}
-                    onChange={() => {
-                      dispatch({
-                        type: "CHECK_TASK",
-                        payload: {
-                          task_id: task.id,
-                          job_id: jobId,
-                          task_state: task.isComplete,
-                        },
-                      });
-                    }}
-                  />
-                  <button
-                    className="job-detail-checklist-button"
-                    onClick={() => {
-                      dispatch({
-                        type: "CHECK_TASK",
-                        payload: {
-                          task_id: task.id,
-                          job_id: jobId,
-                          task_state: task.isComplete,
-                        },
-                      });
-                    }}
-                  >
-                    <div className="job-detail-checklist-title">
-                      <p
-                        style={
-                          task.isComplete
-                            ? {
-                                textDecoration: "line-through",
-                                color: "rgb(150,150,150)",
-                              }
-                            : {}
-                        }
-                      >
-                        {task.task}
-                      </p>
-                    </div>
-                  </button>
-                </div>
-              );
-            }
-          })}
-        </div>
+        <JobItemChecklist
+          job_checklist={details.job_checklist.filter((task) => !task.standard)}
+          checklist_type={"custom"}
+          jobId={jobId}
+        />
       </div>
 
       {/* photo module */}
