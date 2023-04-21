@@ -35,16 +35,19 @@ CREATE TABLE "job" (
 );
 
 CREATE TABLE "checklist_item" (
-    "id" SERIAL PRIMARY KEY,
-    "completed" BOOLEAN,
-    "user_id" INT REFERENCES "user"
+	"id" SERIAL PRIMARY KEY,
+	"task" VARCHAR(255) NOT NULL, 
+	"description" VARCHAR(1000),
+	"standard" BOOLEAN NOT NULL DEFAULT FALSE,
+	"job_id" INT REFERENCES "job" ON DELETE CASCADE
 );
 
-CREATE TABLE "job_checklist" (
-    "id" SERIAL PRIMARY KEY,
-    "job_id" INT REFERENCES "job",
-    "checklist_item_id" INT REFERENCES "checklist_item"
-);
+
+-- CREATE TABLE "job_checklist" (
+--     "id" SERIAL PRIMARY KEY,
+--     "job_id" INT REFERENCES "job",
+--     "checklist_item_id" INT REFERENCES "checklist_item"
+-- );
 
 CREATE TABLE "cleaning_standard" (
     "id" SERIAL PRIMARY KEY,

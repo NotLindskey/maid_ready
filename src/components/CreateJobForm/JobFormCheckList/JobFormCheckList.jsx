@@ -258,7 +258,7 @@ function JobFormCheckList({
               Enter task
             </label>
           </div>
-          <button onClick={handleNewTaskInput} type="button">
+          <button onClick={handleNewTaskInput} type="button" className="btn">
             add
           </button>
         </div>
