@@ -13,6 +13,64 @@ overview
 /* overview body */
 .job-details-overview {
   width: 45rem;
+  position: relative;
+}
+
+/* job detail title */
+.job-detail-title {
+  font-size: 30px;
+  border-bottom: solid 1px black;
+  margin-bottom: 1rem;
+  margin-top: 3rem;
+}
+
+.job-detail-title p {
+  margin: 0;
+}
+
+/* detail info */
+.job-detail-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.job-detail-info p {
+  margin: 0;
+}
+
+/* name */
+.job-detail-name {
+  font-size: 27px;
+}
+
+/* location */
+.job-detail-location {
+  font-size: 18px;
+  display: flex;
+  gap: 0.7rem;
+  align-items: center;
+}
+
+.location-dot {
+  height: 4px;
+  width: 4px;
+  border-radius: 100%;
+  background-color: black;
+}
+
+.job-state {
+  margin-left: 1rem;
+}
+/* price */
+.job-detail-price {
+  font-size: 50px;
+}
+
+/* button */
+.job-detail-button-price {
+  position: absolute;
+  bottom: 0.5rem;
+  right: 2rem;
 }
 
 /* ---------

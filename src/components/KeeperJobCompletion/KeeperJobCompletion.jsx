@@ -47,8 +47,11 @@ function KeeperJobCompletion() {
             <p>{details.username}</p>
           </div>
           <div className="job-detail-location">
-            <p>
-              {details.street} {details.city}, {details.state} {details.zipcode}
+            <p className="job-address">{details.street}</p>
+            <div className="location-dot"></div>
+            <p className="job-city">{details.city},</p>
+            <p className="job-state">
+              {details.state} {details.zipcode}
             </p>
           </div>
           <div className="job-detail-date">
@@ -57,6 +60,18 @@ function KeeperJobCompletion() {
           <div className="job-detail-price">
             <p>${details.price}</p>
           </div>
+
+          {/* button module */}
+          {details.status === "incomplete" ? (
+            <button
+              onClick={handleButtonClick}
+              className="btn job-detail-button-price"
+            >
+              complete
+            </button>
+          ) : (
+            <button className="btn">processing...</button>
+          )}
         </div>
       </div>
 
@@ -80,15 +95,6 @@ function KeeperJobCompletion() {
       <label>
         <input type="file"></input>
       </label>
-
-      {/* button module */}
-      {details.status === "incomplete" ? (
-        <button onClick={handleButtonClick} className="btn">
-          complete
-        </button>
-      ) : (
-        <button className="btn">processing...</button>
-      )}
 
       {/* modal module */}
       <CompletionModal
