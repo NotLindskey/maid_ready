@@ -7,12 +7,12 @@ function OwnerActiveRequestList() {
   const history = useHistory();
 
   const handleToHome = () => {
-    history.push('/');
+    history.push('/OwnerViewRequestsPage');
   };
 
   return (
     <div>
-      <p>Active Requests:</p>
+      <h3>Active Requests:</h3>
       <OwnerActiveRequest />
       <br/>
       <div>

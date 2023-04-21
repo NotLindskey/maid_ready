@@ -43,7 +43,7 @@ function OwnerCompletedRequestPage() {
     //   </div>{' '}
     // </div>
     <div>
-      <p>Completed Requests:</p>
+      <h3>Completed Requests:</h3>
       <OwnerCompletedRequest />
     </div>
   );

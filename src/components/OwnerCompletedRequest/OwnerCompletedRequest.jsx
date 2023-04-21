@@ -21,6 +21,10 @@ function OwnerCompletedRequest() {
     dispatch({ type: "FETCH_OWNER_REQUESTS" });
   }, []);
 
+  const handleToHome = () => {
+    history.push('/OwnerViewRequestsPage');
+  };
+
   // Render
   return (
     // <div className="job-list-body">
@@ -58,7 +62,13 @@ function OwnerCompletedRequest() {
           <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
           <button className="btn">Delete</button>
         </div>
-          )})};
+          )})}
+      {/* <br/> */}
+      {/* <div>
+        <button className="btn" onClick={handleToHome}>
+          Back
+        </button>
+      </div> */}
     </div>
   );
 }

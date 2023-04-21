@@ -59,8 +59,8 @@ function OwnerViewRequestsPage() {
             <h4> Completed Requests:</h4>
             <button className="requests-page-view-btn" onClick={()=>{history.push(`/OwnerCompletedRequestsPage`)}}>view</button>
           </div>
-          {/* <OwnerCompletedRequest /> */}
-          <div className='job-list-container'>{completedRequests.map((request) => {
+          <OwnerCompletedRequest />
+          {/* <div className='job-list-container'>{completedRequests.map((request) => {
             return (
               <div className="job-item-body" key={request.id}>
                 <p>
@@ -74,7 +74,7 @@ function OwnerViewRequestsPage() {
               </div>
             );
           })}
-          </div>
+          </div> */}
         </div>
       </div>
       <br />
