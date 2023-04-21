@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import CompletionModal from "../../KeeperJobCompletion/CompletionModal/CompletionModal";
 import { MdArrowDropDown } from "react-icons/md";
+import { BsPlusSquareFill } from "react-icons/bs";
 
 function JobFormCheckList({
   standards,
@@ -97,13 +98,11 @@ function JobFormCheckList({
   const [viewStandard, setViewStandard] = useState(true);
   const toggleStandardTasks = () => {
     setViewStandard(!viewStandard);
-    console.log(viewStandard);
   };
 
   const [viewCustom, setViewCustom] = useState(true);
   const toggleCustomTasks = () => {
     setViewCustom(!viewCustom);
-    console.log(viewCustom);
   };
 
   useEffect(() => {
@@ -131,7 +130,10 @@ function JobFormCheckList({
           />
         </button>
 
-        <div style={viewStandard ? { display: "none" } : {}}>
+        <div
+          style={viewStandard ? { display: "none" } : {}}
+          className="job-form-checklist-standard-main-body"
+        >
           {standards.map((standard) => {
             return (
               <div
@@ -183,17 +185,20 @@ function JobFormCheckList({
           <div className="checklist-custom">
             <button
               onClick={handleButtonClick}
-              className="job-form-custom-buton"
+              className="job-form-custom-button"
               type="button"
             >
-              add task
+              <BsPlusSquareFill size={15} color="#4285F4" />
+              <div className="mock-checkbox-title">
+                <p>add tasks</p>
+              </div>
             </button>
           </div>
 
           <div className="job-form-checklist-custom-list-body">
             {customValues.map((custom, index) => {
               return (
-                <div key={index}>
+                <div key={index} className="job-form-checklist-standard-body">
                   <input
                     type="checkbox"
                     value={custom}
