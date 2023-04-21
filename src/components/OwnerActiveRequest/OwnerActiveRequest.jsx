@@ -1,15 +1,13 @@
 import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-
-import { useEffect, useState } from 'react';
-
+import { useEffect} from 'react';
 import './OwnerActiveRequest.css';
 
 function OwnerActiveRequest() {
   const history = useHistory();
-  const requests = useSelector((store) => store.job.owner_requests);
   const dispatch = useDispatch();
+  const requests = useSelector((store) => store.job.owner_requests);
   const activeRequests = requests.filter(
     (request) => request.status !== 'complete',
   );

@@ -2,19 +2,16 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-
-import JobItem from '../JobItem/JobItem';
 import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedRequest';
 
 function OwnerCompletedRequestPage() {
-  console.log('in the OwnerCompletedRequestPage');
   const dispatch = useDispatch();
   const history = useHistory();
   const jobs = useSelector((store) => store.job.jobs);
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_JOBS' });
-  }, []);
+  // useEffect(() => {
+  //   dispatch({ type: 'FETCH_JOBS' });
+  // }, []);
 
   const goBack = () => {
     history.push('/OwnerViewRequestsPage');
