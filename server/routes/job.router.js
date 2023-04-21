@@ -255,7 +255,6 @@ router.get('/cleaning-standard', (req, res) => {
  */
 router.post("/", (req, res) => {
   if (req.isAuthenticated()) {
-    console.log(req.body)
     const query = `INSERT INTO "job" ("price","date_completed_by", "time", "status", "claimed", "property_id", "owner_id")
                     VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "job"."id"`;
     const standardQuery = `INSERT INTO "checklist_item" ("task","standard","job_id")
@@ -273,7 +272,6 @@ router.post("/", (req, res) => {
         req.user.id,
       ])
       .then((results) => {
-        console.log(results.rows)
         const jobId = results.rows[0].id
         const standardChecklist = req.body.standard_checklist;
         const customChecklist = req.body.custom_checklist;
