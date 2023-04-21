@@ -200,8 +200,9 @@ function* checkTask(action) {
       withCredentials: true,
     };
 
+
     yield axios.put(`/api/job/check/task`, action.payload, config);
-    yield put({ type: "FETCH_JOB_DETAIL", payload: action.payload.job_id })   // update job detail
+    yield put({ type: "FETCH_JOB_DETAIL", payload: { id: action.payload.job_id } })   // update job detail
 
   } catch (err) {
     console.log("Error with updating checked task: ", err)

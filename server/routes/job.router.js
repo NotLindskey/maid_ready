@@ -133,7 +133,7 @@ router.get("/detail/:id", (req, res) => {
         ON "property"."id" = "job"."property_id"
         WHERE ("job"."id" = $1  AND ("job"."keeper_id" = $2 OR "job"."keeper_id" IS NULL));`;
 
-    const checklistQuery = `SELECT * FROM "checklist_item" WHERE "checklist_item"."job_id" = $1;`
+    const checklistQuery = `SELECT * FROM "checklist_item" WHERE "checklist_item"."job_id" = $1 ORDER BY "checklist_item"."id" ASC;`
     pool
       .query(query, [req.params.id, req.user.id])
       .then((result) => {
@@ -141,7 +141,6 @@ router.get("/detail/:id", (req, res) => {
         pool.query(checklistQuery, [req.params.id])
           .then((results) => {
             jobDetails[0].job_checklist = results.rows
-            console.log(jobDetails)
             res.send(jobDetails);
           })
           .catch((error) => {
@@ -380,6 +379,33 @@ router.put("/complete", (req, res) => {
   }
 });
 
+router.put('/check/task', (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `
+    WITH cte AS (
+      SELECT "id"
+      FROM "checklist_item"
+      WHERE "id" = $1 AND "job_id" = $2 AND "isComplete" = $3
+      LIMIT 1
+    )
+    UPDATE "checklist_item" c
+    SET "isComplete" = $4 
+    WHERE c."id" = $1;
+    `;
+
+    pool.query(query, [req.body.task_id, req.body.job_id, req.body.task_state, !req.body.task_state])
+      .then((results) => {
+        res.sendStatus(201)
+      })
+      .catch((err) => {
+        console.log("Error with completing job: ", err);
+        res.sendStatus(500);
+      })
+
+  } else {
+    res.sendStatus(403)
+  }
+})
 /**
  * DELETE route
  */
