@@ -51,9 +51,7 @@ function OwnerViewRequestsPage() {
         <div className="list-active-requests">
           <div className="active-requests-header">
             <h4>Active Requests:</h4>
-            <div className="active-requests-view-btn">
-              <button onClick={()=>{history.push(`/OwnerActiveRequestsPage`)}}>view</button>
-            </div>
+            <button className="requests-page-view-btn" onClick={()=>{history.push(`/OwnerActiveRequestsPage`)}}>view</button>
           </div>
           <OwnerActiveRequest />
         </div>
@@ -63,8 +61,10 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent completed requests */}
         <div className="active-box-container">
-          {/* <button className='btn' onClick={viewCompletedList}>Completed Requests:</button> */}
-          <Link to="/OwnerCompletedRequestsPage"> Completed Requests:</Link>
+          <div className='completed-requests-header'>
+            <h4> Completed Requests:</h4>
+            <button className="requests-page-view-btn" onClick={()=>{history.push(`/OwnerCompletedRequestsPage`)}}>view</button>
+          </div>
           {/* <OwnerCompletedRequest /> */}
           <div className='job-list-container'>{completedRequests.map((request) => {
             return (

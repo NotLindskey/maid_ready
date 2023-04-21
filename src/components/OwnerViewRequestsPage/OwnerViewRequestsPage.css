@@ -28,15 +28,28 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  /* height: 30px; */
 }
 
-/* .active-requests-view-btn {
-  background-color: transparent;
-} */
+.completed-requests-header {
+  background-color: #da9494;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.requests-page-view-btn {
+  background-color: black;
+  border-color: #454B66;
+  color: azure;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
+  outline: 0;
+  cursor: pointer;
+}
 
 .list-header {
-  background-color: #94c5cc;
+  /* background-color: #94c5cc; */
   width: 50rem;
   display: inline;
 }
