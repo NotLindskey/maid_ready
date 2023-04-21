@@ -2,6 +2,7 @@ import "./JobFormCheckList.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import CompletionModal from "../../KeeperJobCompletion/CompletionModal/CompletionModal";
+import { MdArrowDropDown } from "react-icons/md";
 
 function JobFormCheckList({
   standards,
@@ -111,13 +112,23 @@ function JobFormCheckList({
   }, []);
   return (
     <div className="job-form-checklist-body">
-      <div className="job-form-standard-body">
+      <div className="job-form-standard-body" style={{ borderBottom: "none" }}>
         <button
           type="button"
           onClick={toggleStandardTasks}
           className="job-form-standard-button"
         >
-          Standard Tasks
+          <div className="job-form-button-title">
+            <p>Standard Tasks</p>
+          </div>
+          <MdArrowDropDown
+            size={25}
+            className={
+              !viewStandard
+                ? `checklist-button-arrow checklist-arrow-show`
+                : `checklist-button-arrow checklist-arrow-hide`
+            }
+          />
         </button>
 
         <div style={viewStandard ? { display: "none" } : {}}>
@@ -153,7 +164,17 @@ function JobFormCheckList({
           onClick={toggleCustomTasks}
           className="job-form-standard-button"
         >
-          Custom Tasks
+          <div className="job-form-button-title">
+            <p>Custom Tasks</p>
+          </div>
+          <MdArrowDropDown
+            size={25}
+            className={
+              !viewCustom
+                ? `checklist-button-arrow checklist-arrow-show`
+                : `checklist-button-arrow checklist-arrow-hide`
+            }
+          />
         </button>
         <div
           className="job-form-custom-sub-body"
