@@ -25,6 +25,11 @@ function OwnerCompletedRequest() {
     history.push('/OwnerViewRequestsPage');
   };
 
+  const handleViewRequest = (request) => {
+    console.log(request.id);
+    history.push(`/OwnerRequestDetails/${request.id}`);
+  };
+
   // Render
   return (
     // <div className="job-list-body">
@@ -62,13 +67,7 @@ function OwnerCompletedRequest() {
           <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
           <button className="btn">Delete</button>
         </div>
-          )})}
-      {/* <br/> */}
-      {/* <div>
-        <button className="btn" onClick={handleToHome}>
-          Back
-        </button>
-      </div> */}
+          )})} 
     </div>
   );
 }

@@ -6,7 +6,7 @@ import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
 function OwnerActiveRequestList() {
   const history = useHistory();
 
-  const handleToHome = () => {
+  const goBack = () => {
     history.push('/OwnerViewRequestsPage');
   };
 
@@ -16,7 +16,7 @@ function OwnerActiveRequestList() {
       <OwnerActiveRequest />
       <br/>
       <div>
-        <button className="btn" onClick={handleToHome}>
+        <button className="btn" onClick={goBack}>
           Back
         </button>
       </div>
