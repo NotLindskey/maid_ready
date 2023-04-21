@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -22,13 +22,7 @@ function OwnerViewRequestsPage() {
 
   // button to send user back to OwnersHomePage
   const handleToHome = () => {
-    console.log('handleToHome clicked!');
     history.push('/');
-  };
-
-  const viewCompletedList = () => {
-    console.log('viewCompletedList clicked');
-    history.push('OwnerCompletedRequestsPage');
   };
 
   const handleViewRequest = (request) => {
@@ -39,17 +33,20 @@ function OwnerViewRequestsPage() {
   return (
     <div>
       <div>
-        <h3>View Requests</h3>
+        <h2>View Requests</h2>
       </div>
 
       <div className="job-list-body">
         <div className="list-header">
-          <p>Select a list to view:</p>
+          <h3>Select a list to view:</h3>
         </div>
 
         {/* render 4 recent active requests */}
         <div className="list-active-requests">
-          <h4>Active Requests:</h4>
+          <div className="active-requests-header">
+            <h4>Active Requests:</h4>
+            <button className="requests-page-view-btn" onClick={()=>{history.push(`/OwnerActiveRequestsPage`)}}>view</button>
+          </div>
           <OwnerActiveRequest />
         </div>
         
@@ -58,11 +55,14 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent completed requests */}
         <div className="active-box-container">
-          <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
-          {/* <OwnerCompletedRequest /> */}
-          {completedRequests.map((request) => {
+          <div className='completed-requests-header'>
+            <h4> Completed Requests:</h4>
+            <button className="requests-page-view-btn" onClick={()=>{history.push(`/OwnerCompletedRequestsPage`)}}>view</button>
+          </div>
+          <OwnerCompletedRequest />
+          {/* <div className='job-list-container'>{completedRequests.map((request) => {
             return (
-              <div className="completed-requests" key={request.id}>
+              <div className="job-item-body" key={request.id}>
                 <p>
                   {request.street} {request.city} {request.state}{' '}
                   {request.zipcode}
@@ -74,6 +74,7 @@ function OwnerViewRequestsPage() {
               </div>
             );
           })}
+          </div> */}
         </div>
       </div>
       <br />
@@ -81,7 +82,7 @@ function OwnerViewRequestsPage() {
       {/* button to send back to home */}
       <div>
         <button className="btn" onClick={handleToHome}>
-          back
+          Back
         </button>
       </div>
     </div>
