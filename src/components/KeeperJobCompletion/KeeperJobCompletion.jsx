@@ -4,6 +4,7 @@ import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import CompletionModal from "./CompletionModal/CompletionModal";
+import { object } from "prop-types";
 
 function KeeperJobCompletion() {
   const params = useParams();
@@ -28,6 +29,10 @@ function KeeperJobCompletion() {
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
+
+  if (!Object.keys(details).length) {
+    return <p>loading ...</p>;
+  }
   return (
     <div className="job-details-body">
       <div className="job-details-overview">
@@ -55,7 +60,36 @@ function KeeperJobCompletion() {
         <div className="job-detail-title">
           <p>Checklist</p>
         </div>
-        <div className="job-detail-checklist-container"></div>
+        <div className="job-detail-checklist-container">
+          <ul>
+            {details.job_checklist.map((task) => {
+              return (
+                <li key={task.id}>
+                  <button
+                    onClick={() => {
+                      dispatch({
+                        type: "CHECK_TASK",
+                        payload: { task_id: task.id, job_id: jobId },
+                      });
+                    }}
+                  >
+                    <div>
+                      <p
+                        style={
+                          task.isComplete
+                            ? { textDecoration: "line-through" }
+                            : {}
+                        }
+                      >
+                        {task.task}
+                      </p>
+                    </div>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
       </div>
 
       <label>
