@@ -232,13 +232,35 @@ router.get("/keeper/active", (req, res) => {
     res.sendStatus(403);
   }
 })
+
+// Get cleaning standards
+router.get('/cleaning-standard', (req, res) => {
+  if (req.isAuthenticated()) {
+    const query = `SELECT * FROM "cleaning_standard";`
+
+    pool.query(query)
+      .then((results) => {
+        res.send(results.rows)
+      })
+      .catch((err) => {
+        console.log("Error with getting cleaning standards: ", err);
+        res.sendStatus(500);
+      })
+  } else {
+    res.sendStatus(403);
+  }
+})
 /**
  * POST route
  */
 router.post("/", (req, res) => {
   if (req.isAuthenticated()) {
     const query = `INSERT INTO "job" ("price","date_completed_by", "time", "status", "claimed", "property_id", "owner_id")
-                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+                    VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "job"."id"`;
+    const standardQuery = `INSERT INTO "checklist_item" ("task","standard","job_id")
+                            VALUES ($1, TRUE, $2);`;
+    const customQuery = `INSERT INTO "checklist_item" ("task","standard","job_id")
+                            VALUES ($1, FALSE, $2);`;
     pool
       .query(query, [
         req.body.price,
@@ -249,7 +271,33 @@ router.post("/", (req, res) => {
         req.body.property_id,
         req.user.id,
       ])
-      .then(() => {
+      .then((results) => {
+        const jobId = results.rows[0].id
+        const standardChecklist = req.body.standard_checklist;
+        const customChecklist = req.body.custom_checklist;
+
+        if (standardChecklist.length) {
+          req.body.standard_checklist.map((standard) => {
+            pool.query(standardQuery, [standard, jobId])
+              .then((results) => { })
+              .catch((err) => {
+                console.log("Error with posting standard checklist: ", err);
+                res.sendStatus(500);
+              });
+          })
+        }
+
+        if (customChecklist.length) {
+          req.body.custom_checklist.map((standard) => {
+            pool.query(customQuery, [standard, jobId])
+              .then((results) => { })
+              .catch((err) => {
+                console.log("Error with posting custom checklist: ", err);
+                res.sendStatus(500);
+              });
+          })
+        }
+
         res.sendStatus(201);
       })
       .catch((err) => {
@@ -328,7 +376,7 @@ router.put("/complete", (req, res) => {
 // DELETE owner job request
 router.delete('/owner/:id', (req, res) => {
   if (req.isAuthenticated()) {
-    const query= `
+    const query = `
     DELETE FROM "job"
     WHERE "id" = $1
     AND "owner_id" = $2;
@@ -343,9 +391,9 @@ router.delete('/owner/:id', (req, res) => {
         console.log("Error with deleting job request: ", error);
         res.sendStatus(500);
       })
-    } else {
-      res.sendStatus(403);
-    }
+  } else {
+    res.sendStatus(403);
+  }
 });
 
 

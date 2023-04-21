@@ -11,16 +11,16 @@ function CompletionModal(props) {
 
   return (
     <div>
-      <div className={`modal-overlay ${isModalOpen ? "open" : ""}`}>
+      <div
+        className={`modal-overlay ${isModalOpen ? "open" : ""}`}
+        onClick={handleClick}
+      >
         <div
           className={`modal ${isModalOpen ? "open" : ""}`}
           onClick={(e) => e.stopPropagation()}
         >
           <h2>{props.title}</h2>
           <div>{props.children}</div>
-          <button onClick={onCloseModal} className="btn">
-            close
-          </button>
         </div>
       </div>
     </div>
