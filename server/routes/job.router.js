@@ -255,8 +255,13 @@ router.get('/cleaning-standard', (req, res) => {
  */
 router.post("/", (req, res) => {
   if (req.isAuthenticated()) {
+    console.log(req.body)
     const query = `INSERT INTO "job" ("price","date_completed_by", "time", "status", "claimed", "property_id", "owner_id")
-                    VALUES ($1, $2, $3, $4, $5, $6, $7)`;
+                    VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "job"."id"`;
+    const standardQuery = `INSERT INTO "checklist_item" ("task","standard","job_id")
+                            VALUES ($1, TRUE, $2);`;
+    const customQuery = `INSERT INTO "checklist_item" ("task","standard","job_id")
+                            VALUES ($1, FALSE, $2);`;
     pool
       .query(query, [
         req.body.price,
@@ -267,7 +272,34 @@ router.post("/", (req, res) => {
         req.body.property_id,
         req.user.id,
       ])
-      .then(() => {
+      .then((results) => {
+        console.log(results.rows)
+        const jobId = results.rows[0].id
+        const standardChecklist = req.body.standard_checklist;
+        const customChecklist = req.body.custom_checklist;
+
+        if (standardChecklist.length) {
+          req.body.standard_checklist.map((standard) => {
+            pool.query(standardQuery, [standard, jobId])
+              .then((results) => { })
+              .catch((err) => {
+                console.log("Error with posting standard checklist: ", err);
+                res.sendStatus(500);
+              });
+          })
+        }
+
+        if (customChecklist.length) {
+          req.body.custom_checklist.map((standard) => {
+            pool.query(customQuery, [standard, jobId])
+              .then((results) => { })
+              .catch((err) => {
+                console.log("Error with posting custom checklist: ", err);
+                res.sendStatus(500);
+              });
+          })
+        }
+
         res.sendStatus(201);
       })
       .catch((err) => {

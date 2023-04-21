@@ -56,7 +56,7 @@ function JobFormCheckList({
     if (inputTask.trim().replace(/\s+/g, "")) {
       setCustomValues([...customValues, inputTask.trim()]);
       setCustomChecklist([...customChecklist, inputTask]);
-      updateCustomChecklist(newCustomChecklist);
+      updateCustomChecklist([...customValues, newCustomChecklist]);
       setInputTask("");
       handleCloseModal();
     }
@@ -149,7 +149,6 @@ function JobFormCheckList({
               onChange={(e) => {
                 setInputTask(e.target.value);
               }}
-              required
             />
             <label
               htmlFor="custom-task"

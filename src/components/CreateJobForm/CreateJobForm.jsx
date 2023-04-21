@@ -21,7 +21,6 @@ function CreateJobForm(props) {
   // chain prop functions (standard checklist)
   const updateStandardChecklist = (checklist) => {
     setStandardChecklist(checklist);
-    console.log(standardChecklist);
   };
 
   // custom checklist
@@ -29,7 +28,6 @@ function CreateJobForm(props) {
   //chain prop functioin (custom checklist)
   const updateCustomChecklist = (checklist) => {
     setCustomChecklist(checklist);
-    console.log(customChecklist);
   };
 
   const createJob = (event) => {
@@ -42,6 +40,8 @@ function CreateJobForm(props) {
       status: "incomplete",
       claimed: "FALSE",
       property_id: property.id,
+      standard_checklist: standardChecklist,
+      custom_checklist: customChecklist,
     };
     dispatch({ type: "ADD_JOB", payload: newJob });
     history.push("/home");
