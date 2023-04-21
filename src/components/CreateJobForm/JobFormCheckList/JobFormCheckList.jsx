@@ -45,12 +45,27 @@ function JobFormCheckList({ standards }) {
 
   const handleNewTaskInput = () => {
     console.log(inputTask);
-
-    setCustomValues([...customValues, inputTask.trim()]);
-    setInputTask("");
+    if (inputTask.trim().replace(/\s+/g, "")) {
+      setCustomValues([...customValues, inputTask.trim()]);
+      setInputTask("");
+      handleCloseModal();
+    }
 
     console.log(customValues);
   };
+
+  const handleCustomCheckboxChange = (event) => {
+    const value = event.target.value;
+    const isChecked = event.target.checked;
+    if (isChecked) {
+      setCustomChecklist([...customChecklist, value]);
+    } else {
+      setCustomChecklist(customChecklist.filter((val) => val !== value));
+    }
+
+    console.log(customChecklist);
+  };
+
   useEffect(() => {
     dispatch({ type: "FETCH_CLEANING_STANDARD" });
   }, []);
@@ -75,6 +90,23 @@ function JobFormCheckList({ standards }) {
         <button onClick={handleButtonClick} className="btn" type="button">
           add task
         </button>
+      </div>
+
+      <div>
+        {customValues.map((custom, index) => {
+          return (
+            <div key={index}>
+              <input
+                type="checkbox"
+                value={custom}
+                checked={customChecklist.includes(custom)}
+                onChange={handleCustomCheckboxChange}
+                id={`custom-${index}`}
+              />
+              <label htmlFor={`custom-${index}`}>{custom}</label>
+            </div>
+          );
+        })}
       </div>
 
       <CompletionModal
