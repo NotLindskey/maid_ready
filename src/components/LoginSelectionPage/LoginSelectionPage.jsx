@@ -9,6 +9,9 @@ function LoginSelection(){
                 <button className='btn' onClick={()=>{history.push('/login/owner')}}>Sign in/up as an Owner</button>
             </div>
 
+            {/* line to break table to the next row */}
+            <div className="break"></div>
+
             <div className='login-keeper'>
                 <button className='btn' onClick={()=>{history.push('/login/keeper')}}>Sign in/up as a Keeper</button>
             </div>
