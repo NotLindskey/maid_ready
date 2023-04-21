@@ -28,7 +28,7 @@ CREATE TABLE "job" (
     "date_completed_by" DATE NOT NULL,
     "time" TIME NOT NULL,
     "status" VARCHAR (20) NOT NULL,
-    "claimed" BOOLEAN,
+    "claimed" BOOLEAN DEFAULT FALSE NOT NULL, 
     "property_id" INT REFERENCES "property",
     "owner_id" INT REFERENCES "user",
     "keeper_id" INT REFERENCES "user"
