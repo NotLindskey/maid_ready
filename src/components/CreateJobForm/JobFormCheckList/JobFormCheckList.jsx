@@ -99,29 +99,46 @@ function JobFormCheckList({
     console.log(viewStandard);
   };
 
+  const [viewCustom, setViewCustom] = useState(true);
+  const toggleCustomTasks = () => {
+    setViewCustom(!viewCustom);
+    console.log(viewCustom);
+  };
+
   useEffect(() => {
     // dispatch({ type: "FETCH_CLEANING_STANDARD" });
     updateStandardChecklist(checkedValues);
   }, []);
   return (
-    <div>
-      <div>
-        <button type="button" onClick={toggleStandardTasks}>
+    <div className="job-form-checklist-body">
+      <div className="job-form-standard-body">
+        <button
+          type="button"
+          onClick={toggleStandardTasks}
+          className="job-form-standard-button"
+        >
           Standard Tasks
         </button>
 
-        <div>
+        <div style={viewStandard ? { display: "none" } : {}}>
           {standards.map((standard) => {
             return (
-              <div key={standard.id}>
+              <div
+                key={standard.id}
+                className="job-form-checklist-standard-body"
+              >
                 <input
+                  className="job-form-checklist-standard-input"
                   type="checkbox"
                   value={standard.task}
                   checked={checkedValues.includes(standard.task)}
                   onChange={handleCheckboxChange}
                   id={`standard-${standard.id}`}
                 />
-                <label htmlFor={`standard-${standard.id}`}>
+                <label
+                  htmlFor={`standard-${standard.id}`}
+                  className="job-form-checklist-standard-label"
+                >
                   {standard.task}
                 </label>
               </div>
@@ -130,27 +147,45 @@ function JobFormCheckList({
         </div>
       </div>
 
-      <div className="checklist-custom">
-        <button onClick={handleButtonClick} className="btn" type="button">
-          add task
+      <div className="job-form-custom-body">
+        <button
+          type="button"
+          onClick={toggleCustomTasks}
+          className="job-form-standard-button"
+        >
+          Custom Tasks
         </button>
-      </div>
+        <div
+          className="job-form-custom-sub-body"
+          style={viewCustom ? { display: "none" } : {}}
+        >
+          <div className="checklist-custom">
+            <button
+              onClick={handleButtonClick}
+              className="job-form-custom-buton"
+              type="button"
+            >
+              add task
+            </button>
+          </div>
 
-      <div>
-        {customValues.map((custom, index) => {
-          return (
-            <div key={index}>
-              <input
-                type="checkbox"
-                value={custom}
-                checked={customChecklist.includes(custom)}
-                onChange={handleCustomCheckboxChange}
-                id={`custom-${index}`}
-              />
-              <label htmlFor={`custom-${index}`}>{custom}</label>
-            </div>
-          );
-        })}
+          <div className="job-form-checklist-custom-list-body">
+            {customValues.map((custom, index) => {
+              return (
+                <div key={index}>
+                  <input
+                    type="checkbox"
+                    value={custom}
+                    checked={customChecklist.includes(custom)}
+                    onChange={handleCustomCheckboxChange}
+                    id={`custom-${index}`}
+                  />
+                  <label htmlFor={`custom-${index}`}>{custom}</label>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       <CompletionModal
