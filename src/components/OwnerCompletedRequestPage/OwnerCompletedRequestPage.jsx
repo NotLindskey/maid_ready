@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 
 import JobItem from '../JobItem/JobItem';
+import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedRequest';
 
 function OwnerCompletedRequestPage() {
   console.log('in the OwnerCompletedRequestPage');
@@ -15,31 +16,35 @@ function OwnerCompletedRequestPage() {
   }, []);
 
   return (
+    // <div>
+    //   <h2>Completed Requests</h2>
+    //   <div className="job-list-body">
+    //     <div className="job-list-container">
+    //       {jobs.length ? (
+    //         jobs.map((job) => (
+    //           <div>
+    //             <JobItem
+    //               key={job.id}
+    //               id={job.id}
+    //               owner={job.username}
+    //               street={job.street}
+    //               city={job.city}
+    //               state={job.state}
+    //               zip={job.zipcode}
+    //               price={job.price}
+    //               date={job.date_completed_by}
+    //             />
+    //           </div>
+    //         ))
+    //       ) : (
+    //         <p>no jobs found</p>
+    //       )}
+    //     </div>
+    //   </div>{' '}
+    // </div>
     <div>
-      <h2>Completed Requests</h2>
-      <div className="job-list-body">
-        <div className="job-list-container">
-          {jobs.length ? (
-            jobs.map((job) => (
-              <div>
-                <JobItem
-                  key={job.id}
-                  id={job.id}
-                  owner={job.username}
-                  street={job.street}
-                  city={job.city}
-                  state={job.state}
-                  zip={job.zipcode}
-                  price={job.price}
-                  date={job.date_completed_by}
-                />
-              </div>
-            ))
-          ) : (
-            <p>no jobs found</p>
-          )}
-        </div>
-      </div>{' '}
+      <p>Completed Requests:</p>
+      <OwnerCompletedRequest />
     </div>
   );
 }

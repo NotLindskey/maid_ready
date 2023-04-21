@@ -26,7 +26,7 @@ function OwnerActiveRequest() {
   return (
     <div className="active-box-container">
       <div className="active-request-header">
-        <h2>Property</h2> 
+        {/* <h2>Property</h2>  */}
         <div className="active-request-content">
           {/* <div className="active-request-image">Insert Image Property Here</div> */}
           <div className="job-list-container">

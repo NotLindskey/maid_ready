@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory, Link } from 'react-router-dom';
+import { useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -22,13 +22,7 @@ function OwnerViewRequestsPage() {
 
   // button to send user back to OwnersHomePage
   const handleToHome = () => {
-    console.log('handleToHome clicked!');
     history.push('/');
-  };
-
-  const viewCompletedList = () => {
-    console.log('viewCompletedList clicked');
-    history.push('OwnerCompletedRequestsPage');
   };
 
   const handleViewRequest = (request) => {
@@ -39,12 +33,12 @@ function OwnerViewRequestsPage() {
   return (
     <div>
       <div>
-        <h3>View Requests</h3>
+        <h2>View Requests</h2>
       </div>
 
       <div className="job-list-body">
         <div className="list-header">
-          <p>Select a list to view:</p>
+          <h3>Select a list to view:</h3>
         </div>
 
         {/* render 4 recent active requests */}
@@ -88,7 +82,7 @@ function OwnerViewRequestsPage() {
       {/* button to send back to home */}
       <div>
         <button className="btn" onClick={handleToHome}>
-          back
+          Back
         </button>
       </div>
     </div>
