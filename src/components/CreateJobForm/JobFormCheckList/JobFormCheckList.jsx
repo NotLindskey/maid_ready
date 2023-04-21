@@ -52,8 +52,11 @@ function JobFormCheckList({
 
   const handleNewTaskInput = () => {
     console.log(inputTask);
+    let newCustomChecklist = inputTask;
     if (inputTask.trim().replace(/\s+/g, "")) {
       setCustomValues([...customValues, inputTask.trim()]);
+      setCustomChecklist([...customChecklist, inputTask]);
+      updateCustomChecklist(newCustomChecklist);
       setInputTask("");
       handleCloseModal();
     }
