@@ -62,7 +62,6 @@ VALUES
 ('Wipe down nightstands, dresser and if needed tv.',null),
 ('Clean bathroom: wipe down counters, sink, toilet (don''t forget the base of toilet and neck), tub, mirror, stock paper products, remove any trash. (Repeat if multiple bathrooms)',null),
 ('Check supply of hand soap and lotion, fill if necessary.',null),
-('Check supply of hand soap and lotion, fill if necessary.',null),
 ('Clean kitchen: wipe down counters, appliances (stove top, fridge front) dishwasher, check inside fridge for any food left behind, remove any trash.',null),
 ('Check all drawers and cabinets for dishes, utensils, pots and pans (inventory)',null),
 ('Check supply of soap.',null),
