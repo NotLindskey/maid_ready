@@ -38,14 +38,16 @@ function JobFormCheckList({
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
+    let newCheckedValues;
+
     if (isChecked) {
-      setCheckedValues([...checkedValues, value]);
+      newCheckedValues = [...checkedValues, value];
     } else {
-      setCheckedValues(checkedValues.filter((val) => val !== value));
+      newCheckedValues = checkedValues.filter((val) => val !== value);
     }
 
-    updateStandardChecklist(checkedValues);
-    // console.log(checkedValues); // Outputs an array of the checked values
+    setCheckedValues(newCheckedValues);
+    updateStandardChecklist(newCheckedValues);
   };
 
   const handleNewTaskInput = () => {
@@ -62,14 +64,16 @@ function JobFormCheckList({
   const handleCustomCheckboxChange = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
+    let newCustomChecklist;
+
     if (isChecked) {
-      setCustomChecklist([...customChecklist, value]);
+      newCustomChecklist = [...customChecklist, value];
     } else {
-      setCustomChecklist(customChecklist.filter((val) => val !== value));
+      newCustomChecklist = customChecklist.filter((val) => val !== value);
     }
 
-    updateCustomChecklist(customChecklist);
-    // console.log(customChecklist);
+    setCustomChecklist(newCustomChecklist);
+    updateCustomChecklist(newCustomChecklist);
   };
 
   useEffect(() => {
