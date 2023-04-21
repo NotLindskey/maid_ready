@@ -21,11 +21,35 @@
   gap: 3rem;
 
   width: 80rem;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+}
+
+.active-requests-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.completed-requests-header {
+  background-color: #da9494;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.requests-page-view-btn {
+  background-color: black;
+  border-color: #454B66;
+  color: azure;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
+  outline: 0;
+  cursor: pointer;
 }
 
 .list-header {
-  background-color: #94c5cc;
+  /* background-color: #94c5cc; */
   width: 50rem;
   display: inline;
 }
@@ -33,6 +57,11 @@
 .break {
   flex-basis: 100%;
   height: 0;
+}
+
+.job-list-body {
+  display: flex;
+flex-direction: column
 }
 /* .list-active-requests,
 .list-completed-requests {
