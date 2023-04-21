@@ -3,7 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import CompletionModal from "../../KeeperJobCompletion/CompletionModal/CompletionModal";
 
-function JobFormCheckList({ standards }) {
+function JobFormCheckList({
+  standards,
+  updateStandardChecklist,
+  updateCustomChecklist,
+}) {
   const dispatch = useDispatch();
 
   // values of cleaning standards (will show up in checklist)
@@ -40,6 +44,7 @@ function JobFormCheckList({ standards }) {
       setCheckedValues(checkedValues.filter((val) => val !== value));
     }
 
+    updateStandardChecklist(checkedValues);
     // console.log(checkedValues); // Outputs an array of the checked values
   };
 
@@ -51,7 +56,7 @@ function JobFormCheckList({ standards }) {
       handleCloseModal();
     }
 
-    console.log(customValues);
+    // console.log(customValues);
   };
 
   const handleCustomCheckboxChange = (event) => {
@@ -63,11 +68,13 @@ function JobFormCheckList({ standards }) {
       setCustomChecklist(customChecklist.filter((val) => val !== value));
     }
 
-    console.log(customChecklist);
+    updateCustomChecklist(customChecklist);
+    // console.log(customChecklist);
   };
 
   useEffect(() => {
-    dispatch({ type: "FETCH_CLEANING_STANDARD" });
+    // dispatch({ type: "FETCH_CLEANING_STANDARD" });
+    updateStandardChecklist(checkedValues);
   }, []);
   return (
     <div>

@@ -11,9 +11,26 @@ function CreateJobForm(props) {
   const [date, setDate] = useState("");
   const [time, setTime] = useState("");
   const [today, setToday] = useState(new Date().toJSON().slice(0, 10));
+
   const dispatch = useDispatch();
   const history = useHistory();
   let price = 0;
+
+  // standard checklist
+  const [standardChecklist, setStandardChecklist] = useState(cleaningStandard);
+  // chain prop functions (standard checklist)
+  const updateStandardChecklist = (checklist) => {
+    setStandardChecklist(checklist);
+    console.log(standardChecklist);
+  };
+
+  // custom checklist
+  const [customChecklist, setCustomChecklist] = useState([]);
+  //chain prop functioin (custom checklist)
+  const updateCustomChecklist = (checklist) => {
+    setCustomChecklist(checklist);
+    console.log(customChecklist);
+  };
 
   const createJob = (event) => {
     event.preventDefault();
@@ -42,6 +59,7 @@ function CreateJobForm(props) {
   if (!cleaningStandard.length) {
     return <p>loading</p>;
   }
+
   return (
     <div>
       <h2>{heading}</h2>
@@ -69,7 +87,11 @@ function CreateJobForm(props) {
             type="time"
           />
           <br />
-          <JobFormCheckList standards={cleaningStandard} />
+          <JobFormCheckList
+            standards={cleaningStandard}
+            updateStandardChecklist={updateStandardChecklist}
+            updateCustomChecklist={updateCustomChecklist}
+          />
           <input className="btn" type="submit" value="Submit" />
         </form>
       </div>
