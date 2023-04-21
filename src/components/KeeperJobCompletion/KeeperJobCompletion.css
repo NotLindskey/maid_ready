@@ -1,11 +1,30 @@
 /* ---------
+body
+---------- */
+.job-details-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ---------
+overview
+---------- */
+/* overview body */
+.job-details-overview {
+  width: 45rem;
+}
+
+/* ---------
 checklist 
 ---------- */
 /* checklist main div */
 .job-detail-checklist-main {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 1rem;
+  width: 45rem;
 }
 /* checklist button */
 .job-detail-checklist-button {
@@ -25,7 +44,7 @@ checklist
   text-align: start;
 }
 .job-detail-checklist-title {
-  width: 45rem;
+  width: 40rem;
   display: flex;
 }
 

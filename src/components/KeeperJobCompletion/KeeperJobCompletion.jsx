@@ -27,7 +27,7 @@ function KeeperJobCompletion() {
     handleCloseModal();
   }
 
-  const [indexValueStandard, setIndexValueStandard] = useState(8);
+  const [indexValueStandard, setIndexValueStandard] = useState(7);
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
@@ -37,6 +37,7 @@ function KeeperJobCompletion() {
   }
   return (
     <div className="job-details-body">
+      {/* overview module */}
       <div className="job-details-overview">
         <div className="job-detail-title">
           <p>Overview</p>
@@ -58,9 +59,11 @@ function KeeperJobCompletion() {
           </div>
         </div>
       </div>
+
+      {/* checklist module */}
       <div className="job-details-checklist">
         <div className="job-detail-title">
-          <p>Checklist</p>
+          <p>Standard Tasks</p>
         </div>
         <div className="job-detail-checklist-container">
           {details.job_checklist.map((task, index) => {
@@ -138,6 +141,9 @@ function KeeperJobCompletion() {
         </div>
 
         <div className="job-detail-checklist-container">
+          <div className="job-detail-title">
+            <p>Custom Tasks</p>
+          </div>
           {details.job_checklist.map((task, index) => {
             if (!task.standard) {
               return (
@@ -191,10 +197,13 @@ function KeeperJobCompletion() {
         </div>
       </div>
 
+      {/* photo module */}
+
       <label>
         <input type="file"></input>
       </label>
 
+      {/* button module */}
       {details.status === "incomplete" ? (
         <button onClick={handleButtonClick} className="btn">
           complete
@@ -203,6 +212,7 @@ function KeeperJobCompletion() {
         <button className="btn">processing...</button>
       )}
 
+      {/* modal module */}
       <CompletionModal
         isModalOpen={isModalOpen}
         onCloseModal={handleCloseModal}
@@ -245,7 +255,7 @@ function KeeperJobCompletion() {
           </div>
 
           <button className="btn" onClick={completeJobHandler}>
-            complete
+            submit
           </button>
         </div>
       </CompletionModal>
