@@ -41,6 +41,7 @@ import KeeperJobCompletion from "../KeeperJobCompletion/KeeperJobCompletion";
 import KeeperNav from "../KeeperNav/KeeperNav";
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
+import LogoBar from "../LogoBar/LogoBar";
 
 function App() {
   const dispatch = useDispatch();
@@ -55,6 +56,8 @@ function App() {
     <Router>
       <div>
         <Nav />
+        <LogoBar/>
+        <br></br>
         {user.account_type === "keeper" && <KeeperNav />}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}

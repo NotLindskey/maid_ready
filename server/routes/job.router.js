@@ -374,7 +374,7 @@ router.put("/complete", (req, res) => {
  */
 
 // DELETE owner job request
-router.delete('/owner/delete/:id', (req, res) => {
+router.delete('/owner/:id', (req, res) => {
   if (req.isAuthenticated()) {
     const query = `
     DELETE FROM "job"

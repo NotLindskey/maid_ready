@@ -11,13 +11,8 @@ function Nav() {
 
   return (
     <div className="nav">
-      <Link to="/home">
-        {/* <h2 className="nav-title">Maid!Ready!</h2> */}
-        
-      </Link>
+      <div></div>
       <div style={{display:"flex", alignItems:"center"}}>
-
-        <p style={{marginRight:"3rem"}}>account type: {user.account_type}</p>
 
         <Link className="navLink" to="/why-us">
           Why Us
@@ -52,7 +47,7 @@ function Nav() {
           <LogOutButton className="navLink" />
           
         )}
-      </div>
+        </div>
     </div>
   );
 }
