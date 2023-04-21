@@ -69,7 +69,11 @@ function KeeperJobCompletion() {
                     onClick={() => {
                       dispatch({
                         type: "CHECK_TASK",
-                        payload: { task_id: task.id, job_id: jobId },
+                        payload: {
+                          task_id: task.id,
+                          job_id: jobId,
+                          task_state: task.isComplete,
+                        },
                       });
                     }}
                   >

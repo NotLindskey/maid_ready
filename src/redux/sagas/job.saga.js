@@ -20,6 +20,8 @@ function* jobSaga() {
 
   yield takeLatest("APPLY_TO_JOB", applyToJob); // UPDATE claimed to true and keeper id
   yield takeLatest("COMPLETE_JOB", completeJob); // UPDATE complete job, status turns to complete
+
+  yield takeLatest("CHECK_TASK", checkTask);// UPDATE check task
 }
 
 /* -------------------------
@@ -187,6 +189,22 @@ function* completeJob(action) {
     yield put({ type: "FETCH_JOB_DETAIL", payload: action.payload })   // update job detail
   } catch (err) {
     console.log("Error with completing job: ", err);
+  }
+}
+
+// Check Task
+function* checkTask(action) {
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+    };
+
+    yield axios.put(`/api/job/check/task`, action.payload, config);
+    yield put({ type: "FETCH_JOB_DETAIL", payload: action.payload.job_id })   // update job detail
+
+  } catch (err) {
+    console.log("Error with updating checked task: ", err)
   }
 }
 
