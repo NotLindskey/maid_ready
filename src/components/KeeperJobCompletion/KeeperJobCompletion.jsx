@@ -26,6 +26,8 @@ function KeeperJobCompletion() {
     dispatch({ type: "COMPLETE_JOB", payload: { id: jobId } });
     handleCloseModal();
   }
+
+  const [indexValueStandard, setIndexValueStandard] = useState(8);
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
@@ -61,11 +63,26 @@ function KeeperJobCompletion() {
           <p>Checklist</p>
         </div>
         <div className="job-detail-checklist-container">
-          <ul>
-            {details.job_checklist.map((task) => {
+          {details.job_checklist.map((task, index) => {
+            if (task.standard && index < indexValueStandard) {
               return (
-                <li key={task.id}>
+                <div key={task.id} className="job-detail-checklist-main">
+                  <input
+                    type="checkbox"
+                    checked={task.isComplete}
+                    onChange={() => {
+                      dispatch({
+                        type: "CHECK_TASK",
+                        payload: {
+                          task_id: task.id,
+                          job_id: jobId,
+                          task_state: task.isComplete,
+                        },
+                      });
+                    }}
+                  />
                   <button
+                    className="job-detail-checklist-button"
                     onClick={() => {
                       dispatch({
                         type: "CHECK_TASK",
@@ -77,11 +94,14 @@ function KeeperJobCompletion() {
                       });
                     }}
                   >
-                    <div>
+                    <div className="job-detail-checklist-title">
                       <p
                         style={
                           task.isComplete
-                            ? { textDecoration: "line-through" }
+                            ? {
+                                textDecoration: "line-through",
+                                color: "rgb(150,150,150)",
+                              }
                             : {}
                         }
                       >
@@ -89,16 +109,92 @@ function KeeperJobCompletion() {
                       </p>
                     </div>
                   </button>
-                </li>
+                </div>
               );
-            })}
-          </ul>
+            }
+          })}
+
+          {indexValueStandard < details.job_checklist.length && (
+            <button
+              className="job-complete-show-more"
+              onClick={() => {
+                setIndexValueStandard(details.job_checklist.length + 1);
+              }}
+            >
+              Show more...
+            </button>
+          )}
+
+          {indexValueStandard > details.job_checklist.length && (
+            <button
+              className="job-complete-show-more"
+              onClick={() => {
+                setIndexValueStandard(8);
+              }}
+            >
+              Show less...
+            </button>
+          )}
+        </div>
+
+        <div className="job-detail-checklist-container">
+          {details.job_checklist.map((task, index) => {
+            if (!task.standard) {
+              return (
+                <div key={task.id} className="job-detail-checklist-main">
+                  <input
+                    type="checkbox"
+                    checked={task.isComplete}
+                    onChange={() => {
+                      dispatch({
+                        type: "CHECK_TASK",
+                        payload: {
+                          task_id: task.id,
+                          job_id: jobId,
+                          task_state: task.isComplete,
+                        },
+                      });
+                    }}
+                  />
+                  <button
+                    className="job-detail-checklist-button"
+                    onClick={() => {
+                      dispatch({
+                        type: "CHECK_TASK",
+                        payload: {
+                          task_id: task.id,
+                          job_id: jobId,
+                          task_state: task.isComplete,
+                        },
+                      });
+                    }}
+                  >
+                    <div className="job-detail-checklist-title">
+                      <p
+                        style={
+                          task.isComplete
+                            ? {
+                                textDecoration: "line-through",
+                                color: "rgb(150,150,150)",
+                              }
+                            : {}
+                        }
+                      >
+                        {task.task}
+                      </p>
+                    </div>
+                  </button>
+                </div>
+              );
+            }
+          })}
         </div>
       </div>
 
       <label>
         <input type="file"></input>
       </label>
+
       {details.status === "incomplete" ? (
         <button onClick={handleButtonClick} className="btn">
           complete
@@ -106,6 +202,7 @@ function KeeperJobCompletion() {
       ) : (
         <button className="btn">processing...</button>
       )}
+
       <CompletionModal
         isModalOpen={isModalOpen}
         onCloseModal={handleCloseModal}

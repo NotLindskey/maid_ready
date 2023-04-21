@@ -1,0 +1,41 @@
+/* ---------
+checklist 
+---------- */
+/* checklist main div */
+.job-detail-checklist-main {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+/* checklist button */
+.job-detail-checklist-button {
+  background-color: transparent;
+  border: none;
+  transition: color ease 0.1s;
+}
+.job-detail-checklist-button:hover {
+  color: rgb(100, 100, 100);
+  cursor: pointer;
+}
+
+/* checklist title */
+.job-detail-checklist-button p {
+  font-size: 18px;
+  padding: 0;
+  text-align: start;
+}
+.job-detail-checklist-title {
+  width: 45rem;
+  display: flex;
+}
+
+/* show more buttons */
+.job-complete-show-more {
+  border: none;
+  background-color: transparent;
+  font-size: 15px;
+  color: rgb(120, 120, 120);
+}
+.job-complete-show-more:hover {
+  cursor: pointer;
+}
