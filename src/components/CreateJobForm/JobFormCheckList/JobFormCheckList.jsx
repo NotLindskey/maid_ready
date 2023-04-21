@@ -43,6 +43,14 @@ function JobFormCheckList({ standards }) {
     // console.log(checkedValues); // Outputs an array of the checked values
   };
 
+  const handleNewTaskInput = () => {
+    console.log(inputTask);
+
+    setCustomValues([...customValues, inputTask.trim()]);
+    setInputTask("");
+
+    console.log(customValues);
+  };
   useEffect(() => {
     dispatch({ type: "FETCH_CLEANING_STANDARD" });
   }, []);
@@ -58,7 +66,7 @@ function JobFormCheckList({ standards }) {
               onChange={handleCheckboxChange}
               id={`standard-${standard.id}`}
             />
-            <label for={`standard-${standard.id}`}>{standard.task}</label>
+            <label htmlFor={`standard-${standard.id}`}>{standard.task}</label>
           </div>
         );
       })}
@@ -88,15 +96,35 @@ function JobFormCheckList({ standards }) {
               type="text"
               id="custom-task"
               className="custom-task-checklist"
-              autocomplete="off"
+              style={inputTask ? { border: "1px solid blue" } : {}}
+              autoComplete="off"
               placeholder="Enter task"
+              value={inputTask}
+              onChange={(e) => {
+                setInputTask(e.target.value);
+              }}
               required
             />
-            <label for="custom-task" className="custom-task-label">
+            <label
+              htmlFor="custom-task"
+              className="custom-task-label"
+              style={
+                inputTask
+                  ? {
+                      top: "-4px",
+                      color: "blue",
+                      backgroundColor: "white",
+                      fontSize: "14px",
+                    }
+                  : {}
+              }
+            >
               Enter task
             </label>
           </div>
-          <button>add</button>
+          <button onClick={handleNewTaskInput} type="button">
+            add
+          </button>
         </div>
       </CompletionModal>
     </div>
