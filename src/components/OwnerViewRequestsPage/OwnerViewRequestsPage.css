@@ -24,6 +24,17 @@
   /* flex-wrap: wrap; */
 }
 
+.active-requests-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  /* height: 30px; */
+}
+
+/* .active-requests-view-btn {
+  background-color: transparent;
+} */
+
 .list-header {
   background-color: #94c5cc;
   width: 50rem;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 
@@ -49,7 +49,12 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent active requests */}
         <div className="list-active-requests">
-          <h4>Active Requests:</h4>
+          <div className="active-requests-header">
+            <h4>Active Requests:</h4>
+            <div className="active-requests-view-btn">
+              <button onClick={()=>{history.push(`/OwnerActiveRequestsPage`)}}>view</button>
+            </div>
+          </div>
           <OwnerActiveRequest />
         </div>
         
@@ -58,7 +63,8 @@ function OwnerViewRequestsPage() {
 
         {/* render 4 recent completed requests */}
         <div className="active-box-container">
-          <button className='btn' onClick={viewCompletedList}>Completed Requests:</button>
+          {/* <button className='btn' onClick={viewCompletedList}>Completed Requests:</button> */}
+          <Link to="/OwnerCompletedRequestsPage"> Completed Requests:</Link>
           {/* <OwnerCompletedRequest /> */}
           <div className='job-list-container'>{completedRequests.map((request) => {
             return (
