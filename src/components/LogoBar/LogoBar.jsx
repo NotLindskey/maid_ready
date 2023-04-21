@@ -1,10 +1,11 @@
 import "./LogoBar.css"
+import image from "../../images/cleaning.png"
 
 function LogoBar() {
     return(
         <div>
             <div className="logo">
-                <img src="../images/cleaning (3).png" alt="Maid!Ready!" width='125' height='125'></img>
+                <img src={image} alt="Maid!Ready!" width="100" height="100"></img>
             </div>
         </div>
     )
