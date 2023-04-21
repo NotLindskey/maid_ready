@@ -8,31 +8,13 @@ function JobFormCheckList({
   updateStandardChecklist,
   updateCustomChecklist,
 }) {
-  const dispatch = useDispatch();
-
+  /* -------------------
+    standard checklist
+  ------------------- */
   // values of cleaning standards (will show up in checklist)
   const [checkedValues, setCheckedValues] = useState(
     standards.reduce((arr, task) => [...arr, task.task], [])
   );
-
-  // values of custom checklist items (not in checklist)
-  const [customValues, setCustomValues] = useState([]);
-  // values of custom checklist (will show up in checklist)
-  const [customChecklist, setCustomChecklist] = useState([]);
-  // value of input field of (Enter task)
-  const [inputTask, setInputTask] = useState("");
-
-  // modal state (false=closed)
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  // toggle modal functions
-  // open modal
-  function handleButtonClick() {
-    setIsModalOpen(true);
-  }
-  // close modal
-  function handleCloseModal() {
-    setIsModalOpen(false);
-  }
 
   // standard checkbox value array (checklist that will show up (only standards))
   const handleCheckboxChange = (event) => {
@@ -50,19 +32,13 @@ function JobFormCheckList({
     updateStandardChecklist(newCheckedValues);
   };
 
-  const handleNewTaskInput = () => {
-    console.log(inputTask);
-    let newCustomChecklist = inputTask;
-    if (inputTask.trim().replace(/\s+/g, "")) {
-      setCustomValues([...customValues, inputTask.trim()]);
-      setCustomChecklist([...customChecklist, inputTask]);
-      updateCustomChecklist([...customValues, newCustomChecklist]);
-      setInputTask("");
-      handleCloseModal();
-    }
-
-    // console.log(customValues);
-  };
+  /* -------------------
+    custom checklist
+  ------------------- */
+  // values of custom checklist items (not in checklist)
+  const [customValues, setCustomValues] = useState([]);
+  // values of custom checklist (will show up in checklist)
+  const [customChecklist, setCustomChecklist] = useState([]);
 
   const handleCustomCheckboxChange = (event) => {
     const value = event.target.value;
@@ -79,26 +55,80 @@ function JobFormCheckList({
     updateCustomChecklist(newCustomChecklist);
   };
 
+  /* -------------------
+    input state
+  ------------------- */
+  // value of input field of (Enter task)
+  const [inputTask, setInputTask] = useState("");
+
+  const handleNewTaskInput = () => {
+    console.log(inputTask);
+    let newCustomChecklist = inputTask;
+    if (inputTask.trim().replace(/\s+/g, "")) {
+      setCustomValues([...customValues, inputTask.trim()]);
+      setCustomChecklist([...customChecklist, inputTask]);
+      updateCustomChecklist([...customValues, newCustomChecklist]);
+      setInputTask("");
+      handleCloseModal();
+    }
+
+    // console.log(customValues);
+  };
+
+  /* -------------------
+    toggle modal
+  ------------------- */
+  // modal state (false=closed)
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  // toggle modal functions
+  // open modal
+  function handleButtonClick() {
+    setIsModalOpen(true);
+  }
+  // close modal
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
+  /* -------------------
+    toggle standard 
+  ------------------- */
+  const [viewStandard, setViewStandard] = useState(true);
+  const toggleStandardTasks = () => {
+    setViewStandard(!viewStandard);
+    console.log(viewStandard);
+  };
+
   useEffect(() => {
     // dispatch({ type: "FETCH_CLEANING_STANDARD" });
     updateStandardChecklist(checkedValues);
   }, []);
   return (
     <div>
-      {standards.map((standard) => {
-        return (
-          <div key={standard.id}>
-            <input
-              type="checkbox"
-              value={standard.task}
-              checked={checkedValues.includes(standard.task)}
-              onChange={handleCheckboxChange}
-              id={`standard-${standard.id}`}
-            />
-            <label htmlFor={`standard-${standard.id}`}>{standard.task}</label>
-          </div>
-        );
-      })}
+      <div>
+        <button type="button" onClick={toggleStandardTasks}>
+          Standard Tasks
+        </button>
+
+        <div>
+          {standards.map((standard) => {
+            return (
+              <div key={standard.id}>
+                <input
+                  type="checkbox"
+                  value={standard.task}
+                  checked={checkedValues.includes(standard.task)}
+                  onChange={handleCheckboxChange}
+                  id={`standard-${standard.id}`}
+                />
+                <label htmlFor={`standard-${standard.id}`}>
+                  {standard.task}
+                </label>
+              </div>
+            );
+          })}
+        </div>
+      </div>
 
       <div className="checklist-custom">
         <button onClick={handleButtonClick} className="btn" type="button">

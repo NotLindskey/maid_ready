@@ -95,8 +95,6 @@ function CreateJobForm(props) {
           <input className="btn" type="submit" value="Submit" />
         </form>
       </div>
-      {JSON.stringify(standardChecklist)}
-      {JSON.stringify(customChecklist)}
     </div>
   );
 }
