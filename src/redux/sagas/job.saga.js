@@ -8,6 +8,7 @@ function* jobSaga() {
   yield takeLatest("FETCH_JOB_DETAIL", fetchJobDetail); // GET one job detail
   yield takeLatest("FETCH_USER_JOBS", fetchUserJobs); // GET user's jobs
   yield takeLatest("FETCH_ACTIVE_JOBS", fetchActiveJobs); // GET user's active jobs
+  yield takeLatest ("DELETE_OWNER_REQUEST", deleteJob); // DELETE job request 
 
   yield takeLatest("FETCH_OWNER_REQUESTS", fetchOwnerRequests); // GET owner's requests
   yield takeLatest("FETCH_REQUEST_DETAIL", fetchRequestDetail) // GET one request detail
@@ -169,6 +170,28 @@ function* completeJob(action) {
     yield put({ type: "FETCH_JOB_DETAIL", payload: action.payload })   // update job detail
   } catch (err) {
     console.log("Error with completing job: ", err);
+  }
+}
+
+/* -------------------------
+  DELETE req
+------------------------- */
+
+// DELETE owner job request
+function* deleteJob(action) {
+  console.log('delete payload ', action.payload);
+  const id = action.payload;
+  try {
+    const config = {
+      headers: { "Content-Type": "application/json" },
+      withCredentials: true,
+  };
+
+  yield axios.delete(`/api/job/owner/${id}`, config);
+  yield put({ type: "FETCH_OWNER_REQUESTS" });
+
+  }catch (err) {
+    console.log("Error deleting job ", err);
   }
 }
 

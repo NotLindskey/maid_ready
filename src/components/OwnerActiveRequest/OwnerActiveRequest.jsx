@@ -18,6 +18,14 @@ function OwnerActiveRequest() {
     dispatch({ type: "FETCH_OWNER_REQUESTS" });
   }, []);
 
+ const handleDelete = (request) => {
+  console.log(`Delete clicked at: ${request.id}`);
+  dispatch({
+    type: "DELETE_OWNER_REQUEST",
+    payload: request.id
+  })
+ }
+
   const handleViewRequest = (request) => {
     console.log(request.id);
     history.push(`/OwnerRequestDetails/${request.id}`);
@@ -45,14 +53,12 @@ function OwnerActiveRequest() {
                     {request.zipcode}
                   </p>
                   <p>
-                    <p>
                       {new Date(request.date_completed_by).toLocaleDateString()}
-                    </p>
                   </p>
                   <p>${request.price}</p>
 
                   <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
-                  <button className="btn">Delete</button>
+                  <button className="btn" onClick={() => handleDelete(request)}>Delete</button>
                 </div>
               );
             })}
