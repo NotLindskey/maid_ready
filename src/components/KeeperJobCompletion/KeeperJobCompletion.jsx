@@ -81,12 +81,14 @@ function KeeperJobCompletion() {
           job_checklist={details.job_checklist.filter((task) => task.standard)}
           checklist_type={"standard"}
           jobId={jobId}
+          pageType={"change"}
         />
 
         <JobItemChecklist
           job_checklist={details.job_checklist.filter((task) => !task.standard)}
           checklist_type={"custom"}
           jobId={jobId}
+          pageType={"change"}
         />
       </div>
 
