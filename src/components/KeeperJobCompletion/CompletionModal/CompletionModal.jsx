@@ -20,7 +20,7 @@ function CompletionModal(props) {
           onClick={(e) => e.stopPropagation()}
         >
           <h2>{props.title}</h2>
-          <div>{props.children}</div>
+          <div className="modal-main-body">{props.children}</div>
         </div>
       </div>
     </div>

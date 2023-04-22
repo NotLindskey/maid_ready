@@ -105,7 +105,7 @@ function KeeperJobCompletion() {
         title="Review"
       >
         <div className="job-details-body">
-          <div className="job-details-overview">
+          <div className="job-details-overview" style={{ width: "32rem" }}>
             <div className="job-detail-title">
               <p>Overview</p>
             </div>
@@ -114,9 +114,11 @@ function KeeperJobCompletion() {
                 <p>{details.username}</p>
               </div>
               <div className="job-detail-location">
-                <p>
-                  {details.street} {details.city}, {details.state}{" "}
-                  {details.zipcode}
+                <p className="job-address">{details.street}</p>
+                <div className="location-dot"></div>
+                <p className="job-city">{details.city},</p>
+                <p className="job-state">
+                  {details.state} {details.zipcode}
                 </p>
               </div>
               <div className="job-detail-date">
@@ -125,24 +127,39 @@ function KeeperJobCompletion() {
               <div className="job-detail-price">
                 <p>${details.price}</p>
               </div>
+
+              {/* button module */}
+              <button
+                className="btn btn job-detail-button-price"
+                onClick={completeJobHandler}
+              >
+                submit
+              </button>
             </div>
-          </div>
-          <div className="job-details-checklist">
-            <div className="job-detail-title">
-              <p>Checklist</p>
-            </div>
-            <div className="job-detail-checklist-container"></div>
-          </div>
-          <div className="job-details-checklist">
-            <div className="job-detail-title">
-              <p>photos</p>
-            </div>
-            <div className="job-detail-checklist-container"></div>
           </div>
 
-          <button className="btn" onClick={completeJobHandler}>
-            submit
-          </button>
+          {/* checklist module */}
+          <div className="job-details-checklist" style={{ width: "32rem" }}>
+            <JobItemChecklist
+              job_checklist={details.job_checklist.filter(
+                (task) => task.standard
+              )}
+              checklist_type={"standard"}
+              jobId={jobId}
+              pageType={"view"}
+              isModal={true}
+            />
+
+            <JobItemChecklist
+              job_checklist={details.job_checklist.filter(
+                (task) => !task.standard
+              )}
+              checklist_type={"custom"}
+              jobId={jobId}
+              pageType={"view"}
+              isModal={true}
+            />
+          </div>
         </div>
       </CompletionModal>
     </div>

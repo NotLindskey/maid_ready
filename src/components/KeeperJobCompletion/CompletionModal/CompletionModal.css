@@ -29,9 +29,18 @@
   transition: opacity 0.1s ease-in-out;
   pointer-events: none;
   box-shadow: rgba(50, 50, 50, 0.3) 2px 4px 10px 2px;
+
+  height: 50rem;
+  width: 35rem;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 .modal.open {
   opacity: 1;
   pointer-events: auto;
+}
+
+.is-modal-checklist {
+  width: 29rem;
 }
