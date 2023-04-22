@@ -1,9 +1,9 @@
-.container {
+/* .container { */
   /* display: grid; */
   /* flex-direction: column; */
   /* justify-content: center; */
   /* align-items: center; */
-}
+/* } */
 
 .owners-section {
   display: flex-grid;
