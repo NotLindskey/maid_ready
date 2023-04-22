@@ -103,6 +103,7 @@ function KeeperJobCompletion() {
         isModalOpen={isModalOpen}
         onCloseModal={handleCloseModal}
         title="Review"
+        page="complete"
       >
         <div className="job-details-body">
           <div className="job-details-overview" style={{ width: "32rem" }}>

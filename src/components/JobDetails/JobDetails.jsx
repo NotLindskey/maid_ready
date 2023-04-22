@@ -1,8 +1,11 @@
 import "./JobDetails.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AiOutlineCheck, AiOutlineLoading } from "react-icons/ai";
+import { CiCircleCheck } from "react-icons/ci";
 import JobItemChecklist from "../JobItem/JobItemChecklist/JobItemChecklist";
+import CompletionModal from "../KeeperJobCompletion/CompletionModal/CompletionModal";
 function JobDetails() {
   const params = useParams();
   const history = useHistory();
@@ -12,13 +15,24 @@ function JobDetails() {
   const details = useSelector((store) => store.job.job_detail);
 
   const jobApplyHandler = async () => {
-    await dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
-    history.push("/keeper/job-list");
+    handleButtonClick();
+    // await dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
+    //history.push("/keeper/job-list");
   };
 
   const jobCompleteHandler = () => {
     dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(true);
+
+  function handleButtonClick() {
+    setIsModalOpen(true);
+  }
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
@@ -92,6 +106,34 @@ function JobDetails() {
           <></>
         )}
       </div>
+
+      <CompletionModal
+        isModalOpen={isModalOpen}
+        onCloseModal={handleCloseModal}
+        title=""
+        redirect={true}
+      >
+        <div className="apply-animation-body">
+          <div
+            className="apply-animation-loading-state"
+            style={
+              true
+                ? { backgroundColor: "#40c59d" }
+                : { backgroundColor: "#7c6d9e" }
+            }
+          >
+            {true ? (
+              <CiCircleCheck size={105} className="success" color="white" />
+            ) : (
+              <AiOutlineLoading size={95} className="loading" color="white" />
+            )}
+          </div>
+          <div className="apply-animation-main-body">
+            <p>Applied!</p>
+            <button>close</button>
+          </div>
+        </div>
+      </CompletionModal>
     </div>
   );
 }

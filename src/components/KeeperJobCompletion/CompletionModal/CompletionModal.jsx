@@ -1,7 +1,7 @@
 import "./CompletionModal.css";
 import { useState } from "react";
 function CompletionModal(props) {
-  const { isModalOpen, onCloseModal } = props;
+  const { isModalOpen, onCloseModal, page } = props;
 
   function handleClick(e) {
     if (e.target === e.currentTarget) {
@@ -16,11 +16,12 @@ function CompletionModal(props) {
         onClick={handleClick}
       >
         <div
-          className={`modal ${isModalOpen ? "open" : ""}`}
+          className={`modal ${isModalOpen ? "open" : ""} ${
+            page === "complete" ? "modal-complete" : ""
+          }`}
           onClick={(e) => e.stopPropagation()}
         >
-          <h2>{props.title}</h2>
-          <div className="modal-main-body">{props.children}</div>
+          {props.children}
         </div>
       </div>
     </div>
