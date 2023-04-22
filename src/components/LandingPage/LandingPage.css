@@ -1,3 +1,36 @@
+.container {
+  /* display: grid; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+
+.owners-section {
+  display: flex-grid;
+  text-align: center;
+}
+
+.keeper-section {
+  display: flex;
+  flex-direction: row;
+  background-color: #da9494;
+  align-content: space-around;
+  justify-content: space-around;
+  
+}
+
+.keeper-section-element {
+  text-align: center;
+  align-self: center;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 /* --------------------------------------------------------------------------------
 NavLink - Maid Ready Cleaning Standards css
 --------------------------------------------------------------------------------- */
@@ -24,7 +57,7 @@ Grid
   flex-direction: row;
   flex-wrap: wrap;
   /* defaults to 'flex-start' */
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: flex-start;
 }
 
@@ -51,7 +84,12 @@ Grid
 
 .grid-col_4 {
   flex-basis: 33.33333333%;
-  max-width: 33.33333333%;
+  max-width: 32%;
+
+  border-style: solid;
+  border-color: #94c5cc;
+  border-radius: 10px;
+  background-color: #94c5cc; 
 }
 
 .grid-col_5 {
@@ -92,4 +130,9 @@ Grid
 .grid-col_12 {
   flex-basis: 100%;
   max-width: 100%;
+}
+
+.break {
+  flex-basis: 100%;
+  height: 0;
 }

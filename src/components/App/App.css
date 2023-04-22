@@ -10,10 +10,14 @@ body {
   background-color: #f9f0f4;
 }
 
-img {
+.logo {
   display: inline-block;
   max-width: 100%;
-  box-shadow: #454b45 0px 8px 5px;
+  /* box-shadow: #454b45 0px 8px 5px; */
+}
+
+h1 {
+  color: #454B66;
 }
 
 h2 {
@@ -22,6 +26,10 @@ h2 {
 }
 
 h3 {
+  color: #454B66;
+}
+
+p {
   color: #454B66;
 }
 
