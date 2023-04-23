@@ -27,7 +27,6 @@ function KeeperJobCompletion() {
     handleCloseModal();
   }
 
-  const [indexValueStandard, setIndexValueStandard] = useState(7);
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);
@@ -70,26 +69,40 @@ function KeeperJobCompletion() {
               complete
             </button>
           ) : (
-            <button className="btn">processing...</button>
+            <button className="btn job-detail-button-price">
+              processing...
+            </button>
           )}
         </div>
       </div>
 
       {/* checklist module */}
       <div className="job-details-checklist">
-        <JobItemChecklist
-          job_checklist={details.job_checklist.filter((task) => task.standard)}
-          checklist_type={"standard"}
-          jobId={jobId}
-          pageType={"change"}
-        />
+        {details.job_checklist.filter((task) => task.standard).length ? (
+          <JobItemChecklist
+            job_checklist={details.job_checklist.filter(
+              (task) => task.standard
+            )}
+            checklist_type={"standard"}
+            jobId={jobId}
+            pageType={"change"}
+          />
+        ) : (
+          <></>
+        )}
 
-        <JobItemChecklist
-          job_checklist={details.job_checklist.filter((task) => !task.standard)}
-          checklist_type={"custom"}
-          jobId={jobId}
-          pageType={"change"}
-        />
+        {details.job_checklist.filter((task) => !task.standard).length ? (
+          <JobItemChecklist
+            job_checklist={details.job_checklist.filter(
+              (task) => !task.standard
+            )}
+            checklist_type={"custom"}
+            jobId={jobId}
+            pageType={"change"}
+          />
+        ) : (
+          <></>
+        )}
       </div>
 
       {/* photo module */}
@@ -103,9 +116,11 @@ function KeeperJobCompletion() {
         isModalOpen={isModalOpen}
         onCloseModal={handleCloseModal}
         title="Review"
+        page="complete"
       >
-        <div className="job-details-body">
-          <div className="job-details-overview">
+        <div className="job-details-body" style={{ marginBottom: "2rem" }}>
+          <h1 style={{ marginBottom: "-1rem" }}>Review</h1>
+          <div className="job-details-overview" style={{ width: "32rem" }}>
             <div className="job-detail-title">
               <p>Overview</p>
             </div>
@@ -114,9 +129,11 @@ function KeeperJobCompletion() {
                 <p>{details.username}</p>
               </div>
               <div className="job-detail-location">
-                <p>
-                  {details.street} {details.city}, {details.state}{" "}
-                  {details.zipcode}
+                <p className="job-address">{details.street}</p>
+                <div className="location-dot"></div>
+                <p className="job-city">{details.city},</p>
+                <p className="job-state">
+                  {details.state} {details.zipcode}
                 </p>
               </div>
               <div className="job-detail-date">
@@ -125,24 +142,47 @@ function KeeperJobCompletion() {
               <div className="job-detail-price">
                 <p>${details.price}</p>
               </div>
+
+              {/* button module */}
+              <button
+                className="btn btn job-detail-button-price"
+                onClick={completeJobHandler}
+              >
+                submit
+              </button>
             </div>
-          </div>
-          <div className="job-details-checklist">
-            <div className="job-detail-title">
-              <p>Checklist</p>
-            </div>
-            <div className="job-detail-checklist-container"></div>
-          </div>
-          <div className="job-details-checklist">
-            <div className="job-detail-title">
-              <p>photos</p>
-            </div>
-            <div className="job-detail-checklist-container"></div>
           </div>
 
-          <button className="btn" onClick={completeJobHandler}>
-            submit
-          </button>
+          {/* checklist module */}
+          <div className="job-details-checklist" style={{ width: "32rem" }}>
+            {details.job_checklist.filter((task) => task.standard).length ? (
+              <JobItemChecklist
+                job_checklist={details.job_checklist.filter(
+                  (task) => task.standard
+                )}
+                checklist_type={"standard"}
+                jobId={jobId}
+                pageType={"view"}
+                isModal={true}
+              />
+            ) : (
+              <></>
+            )}
+
+            {details.job_checklist.filter((task) => !task.standard).length ? (
+              <JobItemChecklist
+                job_checklist={details.job_checklist.filter(
+                  (task) => !task.standard
+                )}
+                checklist_type={"custom"}
+                jobId={jobId}
+                pageType={"view"}
+                isModal={true}
+              />
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </CompletionModal>
     </div>

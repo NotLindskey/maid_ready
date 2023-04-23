@@ -217,17 +217,19 @@ function JobFormCheckList({
       <CompletionModal
         isModalOpen={isModalOpen}
         onCloseModal={handleCloseModal}
-        title="add task"
       >
         <div
           style={{
             width: "40rem",
-            height: "7rem",
+            height: "12rem",
             display: "flex",
             flexDirection: "column",
             alignItems: "center",
           }}
         >
+          <div>
+            <p>Add Task</p>
+          </div>
           <div className="custom-task-input-container">
             <input
               type="text"

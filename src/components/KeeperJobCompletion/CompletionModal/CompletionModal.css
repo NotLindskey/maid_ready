@@ -22,7 +22,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background-color: white;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
   z-index: 11;
   opacity: 0;
@@ -30,8 +30,18 @@
   pointer-events: none;
   box-shadow: rgba(50, 50, 50, 0.3) 2px 4px 10px 2px;
 }
+.modal-complete {
+  height: 50rem;
+  width: 35rem;
+  overflow: scroll;
+  overflow-x: hidden;
+}
 
 .modal.open {
   opacity: 1;
   pointer-events: auto;
+}
+
+.is-modal-checklist {
+  width: 29rem;
 }

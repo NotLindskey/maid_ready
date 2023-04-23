@@ -1,6 +1,12 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-function JobItemChecklist({ job_checklist, checklist_type, jobId, pageType }) {
+function JobItemChecklist({
+  job_checklist,
+  checklist_type,
+  jobId,
+  pageType,
+  isModal,
+}) {
   const [indexValueStandard, setIndexValueStandard] = useState(7);
   const dispatch = useDispatch();
   return (
@@ -60,6 +66,7 @@ function JobItemChecklist({ job_checklist, checklist_type, jobId, pageType }) {
                               }
                             : {}
                         }
+                        className={isModal ? "is-modal-checklist" : ""}
                       >
                         {task.task}
                       </p>
@@ -141,6 +148,7 @@ function JobItemChecklist({ job_checklist, checklist_type, jobId, pageType }) {
                               }
                             : {}
                         }
+                        className={isModal ? "is-modal-checklist" : ""}
                       >
                         {task.task}
                       </p>

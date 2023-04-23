@@ -1,0 +1,32 @@
+.keeper-activity-page-body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.keeper-activity-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.activity-section-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.activity-section-title p {
+  font-size: 22px;
+}
+
+.activity-section-job-item {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.activity-section-show-more {
+  width: 7rem;
+}

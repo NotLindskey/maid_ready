@@ -1,8 +1,11 @@
 import "./JobDetails.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { AiOutlineCheck, AiOutlineLoading } from "react-icons/ai";
+import { CiCircleCheck } from "react-icons/ci";
 import JobItemChecklist from "../JobItem/JobItemChecklist/JobItemChecklist";
+import CompletionModal from "../KeeperJobCompletion/CompletionModal/CompletionModal";
 function JobDetails() {
   const params = useParams();
   const history = useHistory();
@@ -11,16 +14,32 @@ function JobDetails() {
   const dispatch = useDispatch();
   const details = useSelector((store) => store.job.job_detail);
 
+  const [isLoading, setIstLoading] = useState(false);
   const jobApplyHandler = async () => {
+    handleButtonClick();
     await dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
-    history.push("/keeper/job-list");
+    dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
+
+    setIstLoading(true);
+    //history.push("/keeper/job-list");
   };
 
   const jobCompleteHandler = () => {
     dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleButtonClick() {
+    setIsModalOpen(true);
+  }
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
+    setIstLoading(false);
   }, []);
 
   if (!Object.keys(details).length) {
@@ -53,12 +72,21 @@ function JobDetails() {
           </div>
 
           {details.claimed ? (
-            <button
-              className="btn job-detail-button-price"
-              onClick={jobCompleteHandler}
-            >
-              delete
-            </button>
+            details.status === "complete" ? (
+              <button
+                className="btn job-detail-button-price"
+                onClick={jobCompleteHandler}
+              >
+                delete
+              </button>
+            ) : (
+              <button
+                className="btn job-detail-button-price"
+                onClick={jobCompleteHandler}
+              >
+                cancel
+              </button>
+            )
           ) : (
             <button
               onClick={jobApplyHandler}
@@ -92,6 +120,35 @@ function JobDetails() {
           <></>
         )}
       </div>
+
+      <CompletionModal
+        isModalOpen={isModalOpen}
+        onCloseModal={handleCloseModal}
+        title=""
+        redirect={true}
+        noPadding={true}
+      >
+        <div className="apply-animation-body">
+          <div
+            className="apply-animation-loading-state"
+            style={
+              isLoading
+                ? { backgroundColor: "#DA9494" }
+                : { backgroundColor: "#7c6d9e" }
+            }
+          >
+            {isLoading ? (
+              <CiCircleCheck size={105} className="success" color="white" />
+            ) : (
+              <AiOutlineLoading size={95} className="loading" color="white" />
+            )}
+          </div>
+          <div className="apply-animation-main-body">
+            <p>Applied!</p>
+            <button onClick={handleCloseModal}>close</button>
+          </div>
+        </div>
+      </CompletionModal>
     </div>
   );
 }
