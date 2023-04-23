@@ -6,12 +6,11 @@ import { useSelector } from 'react-redux';
 import LogoBar from '../LogoBar/LogoBar';
 
 import {
-  MdOutlineCleaningServices,
   MdOutlineMessage,
   MdHome,
   MdLogin,
 } from 'react-icons/md';
-import { FaInfoCircle } from 'react-icons/fa';
+
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -32,13 +31,6 @@ function Nav() {
           <MdHome />
         </Link>
 
-        <Link className="navLink" to="/service">
-          <MdOutlineCleaningServices />
-        </Link>
-
-        <Link className="navLink" to="/about">
-          <FaInfoCircle />
-        </Link>
 
         <Link className="navLink" to="/contact">
           <MdOutlineMessage />
