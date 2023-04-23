@@ -78,7 +78,7 @@ Button
   border-width: 1px 1px 3px;
   border-radius: 4px;
   background-color: #da9494;
-  color: #454b66;
+  color: #f9f0f4;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -99,7 +99,7 @@ Button
   border-width: 1px 1px 3px;
   border-radius: 4px;
   background-color: #454b66;
-  color: #da9494;
+  color: #f9f0f4;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -108,6 +108,8 @@ Button
 
 .btn-inverted:hover {
   background-color: #94c5cc;
+  border-color: #454b66;
+  color: #454b66;
   border-color: #454b66;
   color: #f9f0f4;
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
