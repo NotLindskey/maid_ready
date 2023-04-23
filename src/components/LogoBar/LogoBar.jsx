@@ -5,7 +5,7 @@ function LogoBar() {
     return(
         <div>
             <div className="logo">
-                <img src={image} alt="Maid!Ready!" width="100" height="100"></img>
+                <img src={image} alt="Maid!Ready!" width="115" height="115"></img>
             </div>
         </div>
     )

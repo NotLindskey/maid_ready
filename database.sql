@@ -39,7 +39,8 @@ CREATE TABLE "checklist_item" (
 	"task" VARCHAR(255) NOT NULL, 
 	"description" VARCHAR(1000),
 	"standard" BOOLEAN NOT NULL DEFAULT FALSE,
-	"job_id" INT REFERENCES "job" ON DELETE CASCADE
+	"job_id" INT REFERENCES "job" ON DELETE CASCADE,
+    "isComplete" BOOLEAN NOT NULL DEFAULT FALSE
 );
 
 
