@@ -25,7 +25,7 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <div className="owners-section">
+      <div className="owners-container">
         <h1>Need a quick clean?</h1>
         <p>Maid!Ready! 24/7</p>
         <p>
@@ -38,7 +38,7 @@ function LandingPage() {
         </button>
       </div>
 
-      <div className="keeper-section">
+      <div className="keepers-container">
         <h1>Become your own boss!</h1>
         <p> Make a profile and decide when you want to work!</p>
         <p>Choose your bookings based on your current location!</p>
@@ -47,7 +47,7 @@ function LandingPage() {
         </Link>
         <br />
         <br />
-        <button className="btn" onClick={registerKeeperHandle}>
+        <button className="btn-inverted" onClick={registerKeeperHandle}>
           Become a Keeper
         </button>
       </div>
@@ -62,21 +62,21 @@ function LandingPage() {
         </p>
 
         <div className="grid">
-          <div className="grid-col grid-col_4 ">
+          <div className="grid-col grid-col_4 grid-box-container ">
             <p>The streaks are talking!</p>
             <p>
               Our Keepers make sure your property looks and smells clean. And
               trust, none of them are for the streaks!
             </p>
           </div>
-          <div className="grid-col grid-col_4">
+          <div className="grid-col grid-col_4 grid-box-container">
             <p>Eco-Friendly</p>
             <p>
               We live here too, we we provide mindful cleaning services that
               wont harm our environment.
             </p>
           </div>
-          <div className="grid-col grid-col_4">
+          <div className="grid-col grid-col_4 grid-box-container">
             <p>Magic</p>
             <p>
               A clean, fresh smelling space after each guest, And you never even
