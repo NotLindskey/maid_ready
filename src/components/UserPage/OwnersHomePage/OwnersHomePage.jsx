@@ -3,7 +3,7 @@ import {useSelector} from 'react-redux';
 import requestImg from './Request.png'; 
 import viewImg from './View.png';
 import { useHistory } from 'react-router';
-import UserPage from '../UserPage';
+import OwnersHomePageStyle from './OwnersHomePage.css';
 
 function OwnersHomePage() {
   // Using hooks we're creating local state for a "heading" variable with
@@ -27,11 +27,11 @@ function OwnersHomePage() {
       {/* <UserPage /> */}
       <h2 className='heading'>{heading}</h2>
       <div className='container1'>
-        <img src={requestImg} alt="image of two cleaners with cleaning tools" />
+        <img src={requestImg} alt="image of two cleaners with cleaning tools" width='500' height='375'/>
         <button className='btn1' onClick={toProperties}>Create A Request</button>
       </div>
       <div className='container1'>
-        <img src={viewImg} alt="image of a person writing in a planner" />
+        <img src={viewImg} alt="image of a person writing in a planner" width='500' height='375'/>
         <button className='btn1' onClick={viewRequests}>View Requests</button>
       </div>
     </div>
