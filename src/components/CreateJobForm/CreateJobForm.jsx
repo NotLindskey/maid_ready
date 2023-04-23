@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import JobFormCheckList from "./JobFormCheckList/JobFormCheckList";
+import './CreateJobForm.css'
+
 function CreateJobForm(props) {
   const property = useSelector((store) => store.property.property);
   const cleaningStandard = useSelector(
