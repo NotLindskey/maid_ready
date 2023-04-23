@@ -2,3 +2,13 @@
     display: flex;
     justify-content: center;
 }
+
+.job-info {
+    font-size: 18px;
+}
+
+.overview-heading {
+    font-size: 20px;
+    border-bottom: solid 1px;
+    padding-bottom: 5px;
+}

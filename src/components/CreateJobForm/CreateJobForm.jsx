@@ -67,23 +67,25 @@ function CreateJobForm(props) {
       <h2>{heading}</h2>
       <div className="job-form">
         <form onSubmit={createJob}>
-          <p>Address:</p>
-          <p>
+          <h3 className="overview-heading">Overview</h3>
+          <p className="job-info">
             {property.street} {property.city} {property.state}{" "}
             {property.zipcode}
           </p>
-          <p>{property.sq_footage} sq ft.</p>
-          <p>Price: ${calculatePrice()}</p>
-          <label htmlFor="date">Date Completed By:</label>
+          <p className="job-info"> {property.sq_footage} sq ft.</p>
+          <p className="job-info">Price: ${calculatePrice()}</p>
+          <label className="job-info" htmlFor="date">Date Completed By:</label>
           <input
+            className="job-info"
             value={date}
             min={today}
             onChange={(event) => setDate(event.target.value)}
             type="date"
           />
           <br />
-          <label htmlFor="time">Time:</label>
+          <label className="job-info" htmlFor="time">Time:</label>
           <input
+            className="job-info"
             value={time}
             onChange={(event) => setTime(event.target.value)}
             type="time"
