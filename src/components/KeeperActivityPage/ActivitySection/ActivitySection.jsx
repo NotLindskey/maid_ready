@@ -24,6 +24,7 @@ function ActivitySection({ title, jobs }) {
             claimed={job.claimed}
             status={job.status}
             keeper_id={job.keeper_id}
+            width={60}
           />
         ))}
         {/* {jobs ? (=
