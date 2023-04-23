@@ -1,3 +1,8 @@
 .add-property-form {
-    
+    /* align-items: center; */
+    margin: auto;
+    width: 50%;
+    justify-content: center;
+    border: 1px black solid;
+    /* background-color: blueviolet; */
 }

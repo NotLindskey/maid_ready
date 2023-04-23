@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import './AddPropertyPage.css'
 
 function AddPropertyPage(props) {
   const store = useSelector((store) => store);
@@ -32,7 +33,8 @@ function AddPropertyPage(props) {
       <h2>{heading}</h2>
       <div className='add-property-form'>
         <form onSubmit ={addProperty}>
-            <label htmlFor="street address">Street Address:</label> 
+            <label htmlFor="street address">Street Address:</label>
+            <br /> 
             <input value={street} onChange={(event) => setStreet(event.target.value)} type="text"/>
             <br/>
             <label htmlFor="city">City:</label>
