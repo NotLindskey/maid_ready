@@ -16,7 +16,11 @@ function KeeperActivityPage() {
   return (
     <div className="keeper-activity-page-body">
       <div className="keeper-activity-main">
-        <ActivitySection jobs={activeJobs} title={"Active Jobs"} />
+        <ActivitySection
+          jobs={activeJobs}
+          title={"Active Jobs"}
+          isActive={true}
+        />
         <ActivitySection
           jobs={userJobs.filter((job) => job.status === "incomplete")}
           title={"Applied Jobs"}
