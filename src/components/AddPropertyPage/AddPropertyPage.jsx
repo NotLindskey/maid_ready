@@ -58,7 +58,9 @@ function AddPropertyPage(props) {
             <br />
             <input value={sqFootage} onChange={(event) => setSqFootage(event.target.value)} className="property-input" type="number"/>
             </div>
-            <input className="btn" type="submit" value="Submit" />
+            <div className='submit-btn'>
+              <input className="btn" type="submit" value="Submit" />
+            </div>
         </form>
       </div>
     </div>
