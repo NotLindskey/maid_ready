@@ -5,11 +5,10 @@ import { useHistory } from "react-router-dom";
 function LoginPage({ type }) {
   const history = useHistory();
 
-
   return (
     <div>
       <h2>Welcome {type}</h2>
-      <LoginForm />
+      <LoginForm account_type={type} />
       <center>
         <button
           type="button"
