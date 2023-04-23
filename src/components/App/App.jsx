@@ -1,47 +1,47 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import {
   HashRouter as Router,
   Redirect,
   Route,
   Switch,
-} from "react-router-dom";
+} from 'react-router-dom';
 
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from 'react-redux';
 
-import Nav from "../Nav/Nav";
-import Footer from "../Footer/Footer";
+import Nav from '../Nav/Nav';
+import Footer from '../Footer/Footer';
 
-import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from "../AboutPage/AboutPage";
-import UserPage from "../UserPage/UserPage";
-import InfoPage from "../InfoPage/InfoPage";
-import LandingPage from "../LandingPage/LandingPage";
-import LoginPage from "../LoginPage/LoginPage";
-import RegisterPage from "../RegisterPage/RegisterPage";
-import AdminPage from "../AdminPage/AdminPage";
-import OwnerRegistration from "../RegisterPage/RegisterOwnerPage";
-import KeeperRegistration from "../RegisterPage/RegisterKeeperPage";
-import CleaningStandards from "../LandingPage/CleaningStandards";
+import AboutPage from '../AboutPage/AboutPage';
+import UserPage from '../UserPage/UserPage';
+import InfoPage from '../InfoPage/InfoPage';
+import LandingPage from '../LandingPage/LandingPage';
+import LoginPage from '../LoginPage/LoginPage';
+import RegisterPage from '../RegisterPage/RegisterPage';
+import AdminPage from '../AdminPage/AdminPage';
+import OwnerRegistration from '../RegisterPage/RegisterOwnerPage';
+import KeeperRegistration from '../RegisterPage/RegisterKeeperPage';
+import CleaningStandards from '../LandingPage/CleaningStandards';
 
-import OwnersHomePage from "../UserPage/OwnersHomePage/OwnersHomePage";
-import OwnerRequestDetails from "../OwnerRequestDetails/OwnerRequestDetails";
-import OwnerViewRequestsPage from "../OwnerViewRequestsPage/OwnerViewRequestsPage";
-import OwnerActiveRequestsPage from "../OwnerActiveRequestPage/OwnerActiveRequestPage";
-import OwnerCompletedRequestsPage from "../OwnerCompletedRequestPage/OwnerCompletedRequestPage";
-import PropertiesPage from "../PropertiesPage/PropertiesPage";
-import CreateJobForm from "../CreateJobForm/CreateJobForm";
-import AddPropertyPage from "../AddPropertyPage/AddPropertyPage";
+import OwnersHomePage from '../UserPage/OwnersHomePage/OwnersHomePage';
+import OwnerRequestDetails from '../OwnerRequestDetails/OwnerRequestDetails';
+import OwnerViewRequestsPage from '../OwnerViewRequestsPage/OwnerViewRequestsPage';
+import OwnerActiveRequestsPage from '../OwnerActiveRequestPage/OwnerActiveRequestPage';
+import OwnerCompletedRequestsPage from '../OwnerCompletedRequestPage/OwnerCompletedRequestPage';
+import PropertiesPage from '../PropertiesPage/PropertiesPage';
+import CreateJobForm from '../CreateJobForm/CreateJobForm';
+import AddPropertyPage from '../AddPropertyPage/AddPropertyPage';
 
-import KeeperHomePage from "../UserPage/KeeperHomePage/KeeperHomePage";
-import JobList from "../JobList/JobList";
-import JobDetails from "../JobDetails/JobDetails";
-import KeeperActivityPage from "../KeeperActivityPage/KeeperActivityPage";
-import KeeperJobCompletion from "../KeeperJobCompletion/KeeperJobCompletion";
-import KeeperNav from "../KeeperNav/KeeperNav";
-import "./App.css";
-import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
-import LogoBar from "../LogoBar/LogoBar";
+import KeeperHomePage from '../UserPage/KeeperHomePage/KeeperHomePage';
+import JobList from '../JobList/JobList';
+import JobDetails from '../JobDetails/JobDetails';
+import KeeperActivityPage from '../KeeperActivityPage/KeeperActivityPage';
+import KeeperJobCompletion from '../KeeperJobCompletion/KeeperJobCompletion';
+import KeeperNav from '../KeeperNav/KeeperNav';
+import './App.css';
+import LoginSelection from '../LoginSelectionPage/LoginSelectionPage';
+import LogoBar from '../LogoBar/LogoBar';
 
 function App() {
   const dispatch = useDispatch();
@@ -49,16 +49,14 @@ function App() {
   const user = useSelector((store) => store.user);
 
   useEffect(() => {
-    dispatch({ type: "FETCH_USER" });
+    dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
 
   return (
     <Router>
       <div>
         <Nav />
-        <LogoBar/>
-        <br></br>
-        {user.account_type === "keeper" && <KeeperNav />}
+        {user.account_type === 'keeper' && <KeeperNav />}
         <Switch>
           {/* Visiting localhost:3000 will redirect to localhost:3000/home */}
           <Redirect exact from="/" to="/home" />
@@ -91,11 +89,11 @@ function App() {
             path="/home"
             type="all"
           >
-            {user.account_type === "owner" ? (
+            {user.account_type === 'owner' ? (
               <OwnersHomePage />
-            ) : user.account_type === "keeper" ? (
+            ) : user.account_type === 'keeper' ? (
               <KeeperHomePage />
-            ) : user.account_type === "admin" ? (
+            ) : user.account_type === 'admin' ? (
               <AdminPage />
             ) : (
               <LoginPage />

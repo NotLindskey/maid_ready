@@ -18,7 +18,7 @@ function CleaningStandards() {
 }
 
   return (
-    <div className='container'>
+    <div>
         <div>
             <h2>{heading}</h2>
             <ol>
@@ -50,11 +50,11 @@ function CleaningStandards() {
             <li>Cleaning Rags</li>
         </ul>
       </div>
-      <div>
-        <p>Become A Keeper!</p>
-
-        <button className='btn' onClick={goBack}>Back</button>
-        
+      <div style={{display:'flex', flexDirection:'column'}}>
+        <p style={{textAlign:'center'}}>Become A Keeper!</p>
+        {/* line to break table to the next row */}
+        <div className="break"></div>
+        <button className='btn' style={{alignSelf:'center'}} onClick={goBack}>Back</button>
       </div>
 
     </div>

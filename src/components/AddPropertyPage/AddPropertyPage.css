@@ -1,0 +1,32 @@
+.add-property-form {
+    margin: auto;
+    width: 40%;
+    height: 390px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    border: 1px black solid;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.746);
+}
+
+.submit-btn {
+    margin-left: 240px; 
+    margin-top: 10px;
+}
+
+.label {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.property-input {
+    padding: 5px;
+    width: 70%;
+    font-size: 18px;
+    border: black solid;
+    border-width: thin;
+}
+
+.property-input-div {
+    margin-left: 120px;  
+}
