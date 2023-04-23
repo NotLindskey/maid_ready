@@ -16,16 +16,20 @@ function AddPropertyPage(props) {
 
   const addProperty = (event) => {
     event.preventDefault();
-    const newProperty = {
-      street,
-      city,
-      state,
-      zipcode,
-      sq_footage: sqFootage,
-    }
-
-    dispatch({type: 'ADD_PROPERTY', payload: newProperty});
-    history.push('/properties');
+    if (street === "" || city === "" || state === "" || zipcode === "" || sqFootage === "") {
+      alert("All fields are required.");
+    } else {
+      const newProperty = {
+        street,
+        city,
+        state,
+        zipcode,
+        sq_footage: sqFootage,
+      }
+  
+      dispatch({type: 'ADD_PROPERTY', payload: newProperty});
+      history.push('/properties');
+    };
   }
 
   return (
