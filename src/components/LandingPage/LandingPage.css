@@ -1,9 +1,12 @@
 .landing-container {
-  display: grid;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-left: 4.5em;
+  /* display: grid; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  padding: 10px;
+  margin: auto;
+  position: relative;
+  margin-left: 4em;
   margin-right: 4em;
 }
 
