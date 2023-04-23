@@ -79,19 +79,31 @@ function KeeperJobCompletion() {
 
       {/* checklist module */}
       <div className="job-details-checklist">
-        <JobItemChecklist
-          job_checklist={details.job_checklist.filter((task) => task.standard)}
-          checklist_type={"standard"}
-          jobId={jobId}
-          pageType={"change"}
-        />
+        {details.job_checklist.filter((task) => task.standard).length ? (
+          <JobItemChecklist
+            job_checklist={details.job_checklist.filter(
+              (task) => task.standard
+            )}
+            checklist_type={"standard"}
+            jobId={jobId}
+            pageType={"change"}
+          />
+        ) : (
+          <></>
+        )}
 
-        <JobItemChecklist
-          job_checklist={details.job_checklist.filter((task) => !task.standard)}
-          checklist_type={"custom"}
-          jobId={jobId}
-          pageType={"change"}
-        />
+        {details.job_checklist.filter((task) => !task.standard).length ? (
+          <JobItemChecklist
+            job_checklist={details.job_checklist.filter(
+              (task) => !task.standard
+            )}
+            checklist_type={"custom"}
+            jobId={jobId}
+            pageType={"change"}
+          />
+        ) : (
+          <></>
+        )}
       </div>
 
       {/* photo module */}
@@ -107,7 +119,8 @@ function KeeperJobCompletion() {
         title="Review"
         page="complete"
       >
-        <div className="job-details-body">
+        <div className="job-details-body" style={{ marginBottom: "2rem" }}>
+          <h1 style={{ marginBottom: "-1rem" }}>Review</h1>
           <div className="job-details-overview" style={{ width: "32rem" }}>
             <div className="job-detail-title">
               <p>Overview</p>
@@ -143,25 +156,33 @@ function KeeperJobCompletion() {
 
           {/* checklist module */}
           <div className="job-details-checklist" style={{ width: "32rem" }}>
-            <JobItemChecklist
-              job_checklist={details.job_checklist.filter(
-                (task) => task.standard
-              )}
-              checklist_type={"standard"}
-              jobId={jobId}
-              pageType={"view"}
-              isModal={true}
-            />
+            {details.job_checklist.filter((task) => task.standard).length ? (
+              <JobItemChecklist
+                job_checklist={details.job_checklist.filter(
+                  (task) => task.standard
+                )}
+                checklist_type={"standard"}
+                jobId={jobId}
+                pageType={"view"}
+                isModal={true}
+              />
+            ) : (
+              <></>
+            )}
 
-            <JobItemChecklist
-              job_checklist={details.job_checklist.filter(
-                (task) => !task.standard
-              )}
-              checklist_type={"custom"}
-              jobId={jobId}
-              pageType={"view"}
-              isModal={true}
-            />
+            {details.job_checklist.filter((task) => !task.standard).length ? (
+              <JobItemChecklist
+                job_checklist={details.job_checklist.filter(
+                  (task) => !task.standard
+                )}
+                checklist_type={"custom"}
+                jobId={jobId}
+                pageType={"view"}
+                isModal={true}
+              />
+            ) : (
+              <></>
+            )}
           </div>
         </div>
       </CompletionModal>
