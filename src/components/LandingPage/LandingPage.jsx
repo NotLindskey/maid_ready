@@ -127,7 +127,9 @@ function LandingPage() {
             </p>
           </div>
           <div className="grid-col grid-col_4 grid-box-container">
-            <p>Eco-Friendly</p>
+            <p>
+              <strong>Eco-Friendly</strong>
+            </p>
             <p>
               We live here too, we we provide mindful cleaning services that
               won't harm our environment.
