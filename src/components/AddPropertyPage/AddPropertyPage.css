@@ -2,7 +2,17 @@
     /* align-items: center; */
     margin: auto;
     width: 50%;
+    padding: 10px;
     justify-content: center;
     border: 1px black solid;
     /* background-color: blueviolet; */
+}
+
+/* .form {
+    justify-content: center;
+} */
+
+.property-input {
+    padding: 5px;
+    width: 70%;
 }

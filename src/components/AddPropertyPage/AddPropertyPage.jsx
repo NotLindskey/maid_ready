@@ -35,23 +35,23 @@ function AddPropertyPage(props) {
         <form onSubmit ={addProperty}>
             <label htmlFor="street address">Street Address</label>
             <br /> 
-            <input value={street} onChange={(event) => setStreet(event.target.value)} type="text"/>
+            <input value={street} onChange={(event) => setStreet(event.target.value)} className="property-input" type="text"/>
             <br />
             <label htmlFor="city">City</label>
             <br />
-            <input value={city} onChange={(event) => setCity(event.target.value)} type="text"/>
+            <input value={city} onChange={(event) => setCity(event.target.value)} className="property-input" type="text"/>
             <br />
             <label htmlFor="state">State</label>
             <br />
-            <input value={state} onChange={(event) => setState(event.target.value)} type="text"/>
+            <input value={state} onChange={(event) => setState(event.target.value)} className="property-input" type="text"/>
             <br />
             <label htmlFor="zipcode">Zip Code</label>
             <br />
-            <input value={zipcode} onChange={(event) => setZipcode(event.target.value)} type="text"/>
+            <input value={zipcode} onChange={(event) => setZipcode(event.target.value)} className="property-input" type="text"/>
             <br/>
             <label htmlFor="sqFootage">Sq Footage</label>
             <br />
-            <input value={sqFootage} onChange={(event) => setSqFootage(event.target.value)} type="number"/>
+            <input value={sqFootage} onChange={(event) => setSqFootage(event.target.value)} className="property-input" type="number"/>
             <br />
             <input className="btn" type="submit" value="Submit" />
         </form>
