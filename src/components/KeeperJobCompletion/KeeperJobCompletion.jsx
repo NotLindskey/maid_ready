@@ -70,7 +70,9 @@ function KeeperJobCompletion() {
               complete
             </button>
           ) : (
-            <button className="btn">processing...</button>
+            <button className="btn job-detail-button-price">
+              processing...
+            </button>
           )}
         </div>
       </div>

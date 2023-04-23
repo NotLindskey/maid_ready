@@ -14,9 +14,13 @@ function JobDetails() {
   const dispatch = useDispatch();
   const details = useSelector((store) => store.job.job_detail);
 
+  const [isLoading, setIstLoading] = useState(false);
   const jobApplyHandler = async () => {
     handleButtonClick();
-    // await dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
+    await dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
+    dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
+
+    setIstLoading(true);
     //history.push("/keeper/job-list");
   };
 
@@ -24,7 +28,7 @@ function JobDetails() {
     dispatch({ type: "APPLY_TO_JOB", payload: { jobId: details.id } });
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handleButtonClick() {
     setIsModalOpen(true);
@@ -35,6 +39,7 @@ function JobDetails() {
 
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
+    setIstLoading(false);
   }, []);
 
   if (!Object.keys(details).length) {
@@ -67,12 +72,21 @@ function JobDetails() {
           </div>
 
           {details.claimed ? (
-            <button
-              className="btn job-detail-button-price"
-              onClick={jobCompleteHandler}
-            >
-              delete
-            </button>
+            details.status === "complete" ? (
+              <button
+                className="btn job-detail-button-price"
+                onClick={jobCompleteHandler}
+              >
+                delete
+              </button>
+            ) : (
+              <button
+                className="btn job-detail-button-price"
+                onClick={jobCompleteHandler}
+              >
+                cancel
+              </button>
+            )
           ) : (
             <button
               onClick={jobApplyHandler}
@@ -112,17 +126,18 @@ function JobDetails() {
         onCloseModal={handleCloseModal}
         title=""
         redirect={true}
+        noPadding={true}
       >
         <div className="apply-animation-body">
           <div
             className="apply-animation-loading-state"
             style={
-              true
-                ? { backgroundColor: "#40c59d" }
+              isLoading
+                ? { backgroundColor: "#DA9494" }
                 : { backgroundColor: "#7c6d9e" }
             }
           >
-            {true ? (
+            {isLoading ? (
               <CiCircleCheck size={105} className="success" color="white" />
             ) : (
               <AiOutlineLoading size={95} className="loading" color="white" />
@@ -130,7 +145,7 @@ function JobDetails() {
           </div>
           <div className="apply-animation-main-body">
             <p>Applied!</p>
-            <button>close</button>
+            <button onClick={handleCloseModal}>close</button>
           </div>
         </div>
       </CompletionModal>

@@ -1,7 +1,7 @@
 import "./CompletionModal.css";
 import { useState } from "react";
 function CompletionModal(props) {
-  const { isModalOpen, onCloseModal, page } = props;
+  const { isModalOpen, onCloseModal, page, noPadding } = props;
 
   function handleClick(e) {
     if (e.target === e.currentTarget) {
@@ -20,6 +20,7 @@ function CompletionModal(props) {
             page === "complete" ? "modal-complete" : ""
           }`}
           onClick={(e) => e.stopPropagation()}
+          style={noPadding ? { padding: "0px" } : {}}
         >
           {props.children}
         </div>
