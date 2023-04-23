@@ -53,28 +53,28 @@ router.post('/logout', (req, res) => {
 
 //delete a user from the admin page
 //we are using a POST command so we could send multiple pieces of data from the front end
-router.post('/deleteUser', (req,res) => {
+router.post('/deleteUser', (req, res) => {
   let queryText = `DELETE FROM "user" WHERE "username" = '${req.body.userName}' AND "account_type" = '${req.body.accountType}';`;
 
   pool.query(queryText)
-  .then(() => {
-    res.sendStatus(200);
-  }).catch((error) => {
-    console.log('error in user.router.js /deleteUser', error);
-  });
+    .then(() => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log('error in user.router.js /deleteUser', error);
+    });
 });
 
 //get admins to populate table on AdminPage
-router.get('/getAdmins', (req,res) => {
+router.get('/getAdmins', (req, res) => {
   let queryText = `SELECT * FROM "user" WHERE "account_type" = 'admin' ORDER BY "username";`
 
   pool.query(queryText)
-  .then((response) => {
-    res.send(response.rows);
-  }).catch((error) => {
-    console.log('error in /getAdmins', error);
-    res.sendStatus(500);
-  });
+    .then((response) => {
+      res.send(response.rows);
+    }).catch((error) => {
+      console.log('error in /getAdmins', error);
+      res.sendStatus(500);
+    });
 });
 
 //gets suggestions as you type on the AdminPage
@@ -82,12 +82,12 @@ router.get('/getSuggestions/:id', (req, res) => {
   let queryText = `SELECT "id", "username", "email", "account_type"  FROM "user" where "username" LIKE '${req.params.id}%' ORDER BY "username" LIMIT 5;`;
 
   pool.query(queryText)
-  .then((response) => {
-    res.send(response.rows);
-  }).catch((error) => {
-    console.log('error in /getSuggestions', error);
-    res.sendStatus(500);
-  })
+    .then((response) => {
+      res.send(response.rows);
+    }).catch((error) => {
+      console.log('error in /getSuggestions', error);
+      res.sendStatus(500);
+    })
 })
 
 module.exports = router;

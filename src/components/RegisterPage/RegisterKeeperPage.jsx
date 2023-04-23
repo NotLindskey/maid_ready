@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
-import { useHistory } from 'react-router-dom';
-import RegisterForm from '../RegisterForm/RegisterForm';
+import { useHistory } from "react-router-dom";
+import RegisterForm from "../RegisterForm/RegisterForm";
 
 function RegisterKeeperPage() {
   const history = useHistory();
@@ -10,14 +10,14 @@ function RegisterKeeperPage() {
     <div>
       <h2>Welcome Keeper</h2>
       <p>Register here:</p>
-      <RegisterForm />
+      <RegisterForm account_type="keeper" />
 
       <center>
         <button
           type="button"
           className="btn btn_asLink"
           onClick={() => {
-            history.push('/login/keeper');
+            history.push("/login/keeper");
           }}
         >
           Login
