@@ -43,8 +43,31 @@ NavLink - Maid Ready Cleaning Standards css
 }
 
 .nav-cleaning-standards:hover {
-  color: #ff9800;
+  color: #f9f0f4;
   box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------------
+container
+-------------------------------------------------------------------------------- */
+.container {
+  margin: 0 auto;
+  text-align: center;
+  padding: 15px;
+}
+
+.owners-container {
+  background-color: #f9f0f4;
+}
+
+.keepers-container {
+  background-color: #da9494;
+}
+
+.grid-box-container {
+  background-color: #94c5cc;
+  /* padding: 50px; */
+  margin: 4px;
 }
 
 /* --------------------------------------------------------------------------------
