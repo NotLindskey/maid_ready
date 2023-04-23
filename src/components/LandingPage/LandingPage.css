@@ -8,49 +8,6 @@
   position: relative;
   margin-left: 4em;
   margin-right: 4em;
-}
-
-.owners-section {
-  display: flex-grid;
-  background-color: #f9f0f4;
-  text-align: center;
-}
-
-.keeper-section {
-  display: flex;
-  flex-direction: row;
-  background-color: #da9494;
-  align-content: space-around;
-  justify-content: space-around;
-}
-
-.keeper-section-element {
-  text-align: center;
-  align-self: center;
-}
-
-.landing-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-/* --------------------------------------------------------------------------------
-NavLink - Maid Ready Cleaning Standards css
---------------------------------------------------------------------------------- */
-.nav-cleaning-standards {
-  color: blue;
-  text-decoration: none;
-  font-size: 12px;
-  font-weight: 200;
-  transition: all 0.2s ease-in-out;
-}
-
-.nav-cleaning-standards:hover {
-  color: #f9f0f4;
-  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
-}
 
 /* --------------------------------------------------------------------------------
 container
@@ -87,6 +44,57 @@ fade in on scroll
   opacity: 1;
 }
 
+/* --------------------------------------------------------------------------------
+owners section
+--------------------------------------------------------------------------------- */
+.owners-section {
+  display: flex-grid;
+  background-color: #f9f0f4;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------------
+keepers section
+--------------------------------------------------------------------------------- */
+.keeper-section {
+  display: flex;
+  flex-direction: row;
+  background-color: #da9494;
+  align-content: space-around;
+  justify-content: space-around;
+}
+
+.keeper-section-element {
+  text-align: center;
+  align-self: center;
+}
+
+/* --------------------------------------------------------------------------------
+keepers section - NavLink - Maid Ready Cleaning Standards css
+--------------------------------------------------------------------------------- */
+.nav-cleaning-standards {
+  color: blue;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 200;
+  transition: all 0.2s ease-in-out;
+}
+
+.nav-cleaning-standards:hover {
+  color: #f9f0f4;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* --------------------------------------------------------------------------------
+landing content
+--------------------------------------------------------------------------------- */
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 /* --------------------------------------------------------------------------------
 Grid
 -------------------------------------------------------------------------------- */

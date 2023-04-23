@@ -1,4 +1,27 @@
 .completed-box-container {
-  background-color: rgb(159, 156, 156);
-  width: 15%;
+  background-color: #f9f0f4;
+  justify-content: center;
+  width: auto;
+}
+
+.job-item-body-complete-card {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin-top: 1.5em;
+  gap: 0.2rem;
+  padding: 1.5rem;
+  height: 13rem;
+  width: 22rem;
+  transition: box-shadow ease 0.3s;
+}
+
+.job-item-body-complete-card p {
+  margin: 0;
+}
+
+.job-item-body-complete-card:hover {
+  box-shadow: rgba(99, 99, 99, 0.3) 1px 2px 9px 1px;
 }

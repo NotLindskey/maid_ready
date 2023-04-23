@@ -18,7 +18,7 @@ function OwnerCompletedRequest() {
 
   useEffect(() => {
     // dispatch({ type: 'FETCH_JOBS' });
-    dispatch({ type: "FETCH_OWNER_REQUESTS" });
+    dispatch({ type: 'FETCH_OWNER_REQUESTS' });
   }, []);
 
   const handleToHome = () => {
@@ -32,42 +32,31 @@ function OwnerCompletedRequest() {
 
   // Render
   return (
-    // <div className="job-list-body">
-    //   <div className="job-list-container">
-    //     {jobs.length ? (
-    //       jobs.map((job) => (
-    //         <div>
-    //           <JobItem
-    //             key={job.id}
-    //             id={job.id}
-    //             owner={job.username}
-    //             street={job.street}
-    //             city={job.city}
-    //             state={job.state}
-    //             zip={job.zipcode}
-    //             price={job.price}
-    //             date={job.date_completed_by}
-    //           />
-    //         </div>
-    //       ))
-    //     ) : (
-    //       <p>no jobs found</p>
-    //     )}
-    //   </div>
-    // </div>
-    <div className='job-list-container'>{completedRequests.map((request) => {
-      return (
-        <div className="job-item-body" key={request.id}>
-          <p>
-            {request.street} {request.city} {request.state}{' '}
-            {request.zipcode}
-          </p>
-          <p>{new Date(request.date_completed_by).toLocaleDateString('en-US')}</p>
-          <p>${request.price}</p>
-          <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
-          <button className="btn">Delete</button>
-        </div>
-          )})} 
+    <div className="job-list-container">
+      {completedRequests.map((request) => {
+        return (
+          <div className="job-item-body-complete-card" key={request.id}>
+            <p>
+              <strong>Address:</strong> {request.street} {request.city}{' '}
+              {request.state} {request.zipcode}
+            </p>
+            <p>
+              <strong>Date completed:</strong>
+              {new Date(request.date_completed_by).toLocaleDateString('en-US')}
+            </p>
+            <p>
+              <strong>Price:</strong> ${request.price}
+            </p>
+            <p>
+              <strong>Status:</strong> Completed by Keeper
+            </p>
+            <button className="btn" onClick={() => handleViewRequest(request)}>
+              View
+            </button>
+            <button className="btn">Delete</button>
+          </div>
+        );
+      })}
     </div>
   );
 }
