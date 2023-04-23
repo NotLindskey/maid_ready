@@ -27,7 +27,7 @@ function LandingPage() {
 
   return (
     <div className="container">
-      <div className="owners-section">
+      <div className="owners-container">
         <h1>Need a quick clean?</h1>
         <h2 style={{color: 'red'}}>Maid!Ready! 24/7</h2>
         <p>
@@ -95,23 +95,22 @@ function LandingPage() {
           <br></br>
 
         <div className="grid">
-          <div className="grid-col grid-col_4 ">
+          <div className="grid-col grid-col_4 grid-box-container ">
             <p>The streaks are talking!</p>
             <p>
               Our Keepers make sure your property looks and smells clean. And
               trust, none of them are for the streaks!
             </p>
           </div>
-          
-          <div className="grid-col grid-col_4">
+          <div className="grid-col grid-col_4 grid-box-container">
+
             <p>Eco-Friendly</p>
             <p>
               We live here too, we we provide mindful cleaning services that
               won't harm our environment.
             </p>
           </div>
-          
-          <div className="grid-col grid-col_4">
+          <div className="grid-col grid-col_4 grid-box-container">
             <p>Magic</p>
             <p>
               A clean, fresh smelling space after each guest, And you never even

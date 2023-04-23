@@ -22,11 +22,11 @@ h1 {
 
 h2 {
   text-align: center;
-  color: #454B66;
+  color: #454b66;
 }
 
 h3 {
-  color: #454B66;
+  color: #454b66;
 }
 
 p {
@@ -46,8 +46,6 @@ Container
   position: relative;
   width: 100%;
   max-width: 400px;
-  
-
 }
 
 .container1 .btn1 {
@@ -67,7 +65,7 @@ Container
 }
 
 .container1 .btn1:hover {
-  background-color: #454B66;
+  background-color: #454b66;
 }
 /* --------------------------------------------------------------------------------
 Button
@@ -80,21 +78,49 @@ Button
   border-width: 1px 1px 3px;
   border-radius: 4px;
   background-color: #da9494;
-  color: #454B66;
+  color: #454b66;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
 
+.btn:hover {
+  background-color: #94c5cc;
+  border-color: #da9494;
+  color: #454b66;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-inverted {
+  display: inline-block;
+  padding: 10px 20px;
+  border-color: #454b66;
+  border-width: 1px 1px 3px;
+  border-radius: 4px;
+  background-color: #454b66;
+  color: #da9494;
+  font-size: 1.1rem;
+  outline: 0;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-inverted:hover {
+  background-color: #94c5cc;
+  border-color: #da9494;
+  color: #454b66;
+  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
 .btn1 {
   display: inline-block;
   padding: 10px 20px;
-  border-color: #454B66;
+  border-color: #454b66;
   border-width: 1px 1px 3px;
   border-radius: 4px;
   background-color: #3c887f;
-  color: #454B66;
+  color: #454b66;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -113,13 +139,6 @@ Button
 .btn_sizeFull {
   display: block;
   width: 100%;
-}
-
-.btn:hover {
-  background-color: #94c5cc;
-  border-color: #da9494;
-  color: #454B66;
-  box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .btn:disabled {
