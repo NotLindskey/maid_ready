@@ -43,7 +43,7 @@ function LandingPage() {
   };
 
   return (
-    <div className="container">
+    <div className="landing-container">
       <div className="owners-container">
         <h1>Need a quick clean?</h1>
         <h2 style={{ color: 'red' }}>Maid!Ready! 24/7</h2>
@@ -89,13 +89,13 @@ function LandingPage() {
       <div className="break"></div>
       <br />
 
-      <div className="">
-        <div className="landing-content fade-in">
-          <h1>
+      <div>
+        <div className="landing-content">
+          <h1 className="fade-in">
             Get last-minute house keeping for your short term or vacation
             rental.
           </h1>
-          <p>
+          <p className="fade-in">
             stop missing out on instant bookings just because you don't have a
             scheduled cleaning. Make us your between clean!
           </p>
