@@ -33,16 +33,28 @@ function ActivitySection({ title, jobs, isActive }) {
             );
           }
         })}
-        {/* {jobs ? (=
-          jobs.length > 0 ?
-          {
-            jobs.map((jobs)=>{return()})
-          } : (
-            <p>no jobs found</p>
-          )
+
+        {indexValueShow < jobs.length && jobs.length > 2 ? (
+          <button
+            className="job-complete-show-more activity-section-show-more"
+            onClick={() => {
+              setIndexValueShow(jobs.length + 1);
+            }}
+          >
+            Show more...
+          </button>
+        ) : indexValueShow > jobs.length && jobs.length > 2 ? (
+          <button
+            className="job-complete-show-more activity-section-show-more"
+            onClick={() => {
+              setIndexValueShow(2);
+            }}
+          >
+            Show less...
+          </button>
         ) : (
-          <p>no jobs found</p>
-        )} */}
+          <></>
+        )}
       </div>
     </div>
   );

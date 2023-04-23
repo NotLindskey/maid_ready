@@ -26,3 +26,7 @@
   flex-direction: column;
   gap: 1rem;
 }
+
+.activity-section-show-more {
+  width: 7rem;
+}

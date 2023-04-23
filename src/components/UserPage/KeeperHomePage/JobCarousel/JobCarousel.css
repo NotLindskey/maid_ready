@@ -5,7 +5,7 @@
 .job-carousel-job-listing-container {
   height: 16rem;
   width: 80rem;
-  overflow: scroll;
+  overflow-x: scroll;
   position: relative;
 
   display: flex;

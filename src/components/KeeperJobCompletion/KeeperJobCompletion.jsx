@@ -27,7 +27,6 @@ function KeeperJobCompletion() {
     handleCloseModal();
   }
 
-  const [indexValueStandard, setIndexValueStandard] = useState(7);
   useEffect(() => {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
   }, []);

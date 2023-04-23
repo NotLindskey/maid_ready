@@ -23,11 +23,11 @@ function KeeperActivityPage() {
         />
         <ActivitySection
           jobs={userJobs.filter((job) => job.status === "incomplete")}
-          title={"Applied Jobs"}
+          title={"Accepted Jobs"}
         />
         <ActivitySection
           jobs={userJobs.filter((job) => job.status !== "incomplete")}
-          title={"previous jobs"}
+          title={"Previous Jobs"}
         />
       </div>
     </div>
