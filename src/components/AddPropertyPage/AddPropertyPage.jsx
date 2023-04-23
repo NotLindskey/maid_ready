@@ -33,26 +33,31 @@ function AddPropertyPage(props) {
       <h2>{heading}</h2>
       <div className='add-property-form'>
         <form onSubmit ={addProperty}>
+            <div className='property-input-div'>
             <label htmlFor="street address">Street Address</label>
             <br /> 
             <input value={street} onChange={(event) => setStreet(event.target.value)} className="property-input" type="text"/>
-            <br />
+            </div>
+            <div className='property-input-div'>
             <label htmlFor="city">City</label>
             <br />
             <input value={city} onChange={(event) => setCity(event.target.value)} className="property-input" type="text"/>
-            <br />
+            </div>
+            <div className='property-input-div'>
             <label htmlFor="state">State</label>
             <br />
             <input value={state} onChange={(event) => setState(event.target.value)} className="property-input" type="text"/>
-            <br />
+            </div>
+            <div className='property-input-div'>
             <label htmlFor="zipcode">Zip Code</label>
             <br />
             <input value={zipcode} onChange={(event) => setZipcode(event.target.value)} className="property-input" type="text"/>
-            <br/>
+            </div>
+            <div className='property-input-div'>
             <label htmlFor="sqFootage">Sq Footage</label>
             <br />
             <input value={sqFootage} onChange={(event) => setSqFootage(event.target.value)} className="property-input" type="number"/>
-            <br />
+            </div>
             <input className="btn" type="submit" value="Submit" />
         </form>
       </div>

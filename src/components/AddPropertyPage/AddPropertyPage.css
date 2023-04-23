@@ -1,18 +1,36 @@
 .add-property-form {
     /* align-items: center; */
+   
     margin: auto;
-    width: 50%;
-    padding: 10px;
-    justify-content: center;
+    width: 40%;
+    height: 390px;
+    padding-top: 30px;
+    
+    /* justify-content: center; */
     border: 1px black solid;
-    /* background-color: blueviolet; */
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.746);
 }
 
 /* .form {
     justify-content: center;
 } */
-
+.btn {
+    /* margin-left: 200px; */
+    display:block; 
+    margin: 0 auto;
+    margin-top: 10px;
+}
 .property-input {
     padding: 5px;
     width: 70%;
+    border: black solid;
+    border-width: thin;
+
+}
+
+.property-input-div {
+    /* justify-content: center; */
+    /* align-items: center; */
+    margin-left: 120px;  
 }
