@@ -5,6 +5,7 @@
     width: 40%;
     height: 390px;
     padding-top: 30px;
+    padding-bottom: 30px;
     
     /* justify-content: center; */
     border: 1px black solid;
@@ -21,9 +22,15 @@
     margin: 0 auto;
     margin-top: 10px;
 }
+
+.label {
+    font-size: 18px;
+    font-weight: bold;
+}
 .property-input {
     padding: 5px;
     width: 70%;
+    font-size: 18px;
     border: black solid;
     border-width: thin;
 
