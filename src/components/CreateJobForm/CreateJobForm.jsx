@@ -96,7 +96,9 @@ function CreateJobForm(props) {
             updateStandardChecklist={updateStandardChecklist}
             updateCustomChecklist={updateCustomChecklist}
           />
-          <input className="btn" type="submit" value="Submit" />
+          <div className="job-submit-btn">
+            <input className="btn" type="submit" value="Submit" />
+          </div>
         </form>
       </div>
     </div>

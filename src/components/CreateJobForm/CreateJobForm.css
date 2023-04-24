@@ -7,6 +7,12 @@
     font-size: 18px;
 }
 
+.job-submit-btn {
+    margin-top: 10px; 
+    display: flex;
+    justify-content: center;
+}
+
 .overview-heading {
     font-size: 20px;
     border-bottom: solid 1px;
