@@ -13,7 +13,7 @@ import Footer from "../Footer/Footer";
 
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute";
 
-import AboutPage from "../AboutPage/AboutPage";
+import WhyUs from "../WhyUs/WhyUs";
 import UserPage from "../UserPage/UserPage";
 import InfoPage from "../InfoPage/InfoPage";
 import LandingPage from "../LandingPage/LandingPage";
@@ -64,8 +64,8 @@ function App() {
           {/* ----------------------------------------------------------------
             NOT Protected Routes
           ---------------------------------------------------------------- */}
-          <Route exact path="/about">
-            <AboutPage />
+          <Route exact path="/why-us">
+            <WhyUs />
           </Route>
 
           <Route exact path="/CleaningStandards">
