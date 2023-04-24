@@ -23,25 +23,29 @@ function JobCarousel({ jobs }) {
       <div className="job-carousel-job-listing-container">
         <div className="job-carousel-job-listing-container-sub">
           {jobs ? (
-            jobs.map((job) => (
-              <JobItem
-                // defeault value
-                key={job.id}
-                // display option
-                id={job.id}
-                owner={job.username}
-                street={job.street}
-                city={job.city}
-                state={job.state}
-                zip={job.zipcode}
-                price={job.price}
-                date={job.date_completed_by}
-                // button
-                claimed={job.claimed}
-                status={job.status}
-                keeper_id={job.keeper_id}
-              />
-            ))
+            jobs.map((job, index) => {
+              if (index < 6) {
+                return (
+                  <JobItem
+                    // defeault value
+                    key={job.id}
+                    // display option
+                    id={job.id}
+                    owner={job.username}
+                    street={job.street}
+                    city={job.city}
+                    state={job.state}
+                    zip={job.zipcode}
+                    price={job.price}
+                    date={job.date_completed_by}
+                    // button
+                    claimed={job.claimed}
+                    status={job.status}
+                    keeper_id={job.keeper_id}
+                  />
+                );
+              }
+            })
           ) : (
             <p> no jobs </p>
           )}
