@@ -1,21 +1,18 @@
+import { useHistory } from 'react-router-dom';
 import './LogoBar.css';
-import image from '../../images/cleaning.png';
 
 function LogoBar() {
+  const history = useHistory();
+
   const logoClicked = () => {
     console.log('logo clicked!');
+    history.push('/home');
   };
 
   return (
     <div>
-      <div className="nav-logo">
-        <img
-          src={image}
-          onClick={logoClicked}
-          alt="Maid!Ready!"
-          width="115"
-          height="115"
-        ></img>
+      <div>
+        <div className="logo-image" onClick={logoClicked}></div>
       </div>
     </div>
   );
