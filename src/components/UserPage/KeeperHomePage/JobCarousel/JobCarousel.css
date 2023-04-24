@@ -50,3 +50,18 @@
 .keeper-job-feature {
   position: relative;
 }
+
+.job-carousel-no-jobs {
+  background-color: rgb(150, 150, 150, 0.1);
+  height: 14rem;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 25px;
+  margin-top: 2rem;
+
+  color: rgb(100, 100, 100);
+}

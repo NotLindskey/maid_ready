@@ -74,7 +74,14 @@ function JobFeature({ title, link, jobs }) {
         </div>
       </div>
 
-      <JobCarousel jobs={jobs} moveState={moveState} />
+      {jobs.length ? (
+        <JobCarousel jobs={jobs} moveState={moveState} />
+      ) : (
+        <div className="job-carousel-job-listing-container job-carousel-no-jobs">
+          {" "}
+          No {title}
+        </div>
+      )}
     </div>
   );
 }
