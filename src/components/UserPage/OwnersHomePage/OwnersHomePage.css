@@ -1,4 +1,15 @@
 .container1 {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
+}
+
+.box-container {
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.1);
+  border: 3px solid #f9f0f4;
+  transition: box-shadow ease 0.4s;
+}
+
+.box-container:hover {
+  box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.6);
+  border: 3px solid #f9f0f4;
 }
