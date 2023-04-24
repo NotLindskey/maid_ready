@@ -3,6 +3,11 @@ import { useHistory, Link } from 'react-router-dom';
 import './LandingPage.css';
 import sprayImage from '../../images/Spray.png';
 import houseImage from '../../images/house.png';
+import speedClean from '../../images/speed-clean.png';
+import relax from '../../images/relax.png';
+import commotion from '../../images/commotion.png';
+import mindfulness from '../../images/mindfulness.png';
+import lastMinute from '../../images/last-minute.png';
 
 // CUSTOM COMPONENTS
 import RegisterForm from '../RegisterForm/RegisterForm';
@@ -28,6 +33,10 @@ function LandingPage() {
     };
   }, []);
 
+  const handleScrollTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const onLogin = (event) => {
     history.push('/login');
   };
@@ -46,11 +55,21 @@ function LandingPage() {
     <div className="landing-container">
       <div className="owners-container">
         <h1>Need a quick clean?</h1>
-        <h2 style={{ color: 'red' }}>Maid!Ready! 24/7</h2>
+        <h2>
+          <span className="red-text">Maid!Ready! 24/7</span>
+        </h2>
         <p>
-          Worry no more! We're your on demand solution when you're in a pinch.
+          Worry no more! We're your <strong>on demand</strong> solution when
+          you're in a pinch.
         </p>
         <p> Last-minute housekeeping service is what we do!</p>
+
+        <img
+          src={speedClean}
+          alt="picture of a vacuum"
+          width="240"
+          height="170"
+        ></img>
 
         <button className="btn" onClick={registerOwnerHandle}>
           Owners Register Here
@@ -79,7 +98,9 @@ function LandingPage() {
         </div>
       </div>
 
-      <div style={{ backgroundColor: '#da9494', textAlign: 'center' }}>
+      <div
+        style={{ backgroundColor: '#da9494', textAlign: 'center', padding: 20 }}
+      >
         <button className="btn-inverted fade-in" onClick={registerKeeperHandle}>
           Become a Keeper
         </button>
@@ -92,12 +113,16 @@ function LandingPage() {
       <div>
         <div className="landing-content">
           <h1 className="fade-in">
-            Get last-minute house keeping for your short term or vacation
-            rental.
+            Get <span className="red-text">last-minute housekeeping</span> for
+            your
+            <br />
+            short term or vacation rental.
           </h1>
           <p className="fade-in">
-            stop missing out on instant bookings just because you don't have a
-            scheduled cleaning. Make us your between clean!
+            Stop missing out on <strong>instant bookings</strong> just because
+            you don't have a scheduled
+            <br />
+            cleaning. Make us your between clean!
           </p>
 
           <div>
@@ -144,6 +169,156 @@ function LandingPage() {
               have to lift a finger.
             </p>
           </div>
+        </div>
+
+        <div className="owners-request-service fade-in">
+          <h3>Sit back and relax,</h3>
+          <h3 className="red-text">We handle cleaning.</h3>
+          <p>
+            <img
+              src={relax}
+              alt="picture of a vacuum"
+              width="240"
+              height="200"
+            ></img>
+            You've been such a great host! Your property is conveniently located
+            and super inviting.
+          </p>
+          <br />
+          <p>
+            So, yeah, naturally, people want to <em>book it!</em> And that may
+            mean instant reservation requests. Forget scheduling accommodations
+            around your regularly scheduled cleanings. And don't you dare grab a
+            mop. Maximize your profits and leave the in-between cleaning to us!
+          </p>
+
+          <p>
+            <strong>
+              Your time is better spent doing the things that matter the most.
+            </strong>
+          </p>
+
+          <button
+            className="btn"
+            onClick={() => history.push('/register/owner')}
+          >
+            Request Service Today
+          </button>
+        </div>
+
+        <div className="commotion-section fade-in">
+          <p>Join the commotion,</p>
+          <p className="red-text">We are at your service!</p>
+          <br />
+
+          <img
+            src={commotion}
+            alt="picture of a vacuum"
+            width="260"
+            height="270"
+          ></img>
+
+          <p>
+            <strong>We LOVE what we do!</strong>
+          </p>
+          <p>
+            our team of keepers <em>want</em> to help. The schedule they create
+            is completely their choice. Talk about empowering!
+          </p>
+          <br />
+
+          <p>
+            <strong>Worry less. Play more!</strong>
+          </p>
+          <p>
+            Spend time with those who matter most. Do the things that are most
+            important. Have fun! Leave the dirty work to us.
+          </p>
+          <br />
+
+          <p>
+            <strong>Tell your friends about us!</strong>
+            <p>Get a free cleaning when you refer a friend!</p>
+            (Good for up to $100 off)
+          </p>
+          <br />
+
+          <div>
+            <button
+              className="btn"
+              onClick={() => history.push('/register/owner')}
+            >
+              Book A Cleaning
+            </button>
+          </div>
+        </div>
+
+        <div className="booked-section fade-in">
+          <p>Most rentals are booked</p>
+          <p className="red-text">last minute.</p>
+          <br />
+          <img
+            src={lastMinute}
+            alt="picture of a vacuum"
+            width="220"
+            height="210"
+          ></img>
+          <p>
+            Have your space "made-ready" by Maid!Ready! and you'll always be
+            ready
+          </p>
+          <p>
+            The season is heating up, and people are getting out and moving
+            about, Don't let your scheduled cleaning service determine your
+            rental availability.
+            <em>
+              Most rentals are booked at the last minute during peak season.
+            </em>
+          </p>
+        </div>
+
+        <div className="keepers-practice fade-in">
+          <p>Our keepers practice</p>
+          <p className="red-text">mindful housekeeping.</p>
+          <p>your dirt is our business</p>
+
+          <img
+            src={mindfulness}
+            alt="picture of a vacuum"
+            width="250"
+            height="240"
+          ></img>
+          <br />
+          <p>We respect your personal belongings and environment</p>
+          <p>
+            Our keepers are background checked before arriving at a property for
+            completing a service
+          </p>
+          <p>
+            We keep you informed every step of the way. You'll know when a
+            request was submitted, accepted, and completed.
+          </p>
+          <p>
+            We take pride in caring for our community. We live here too, so we
+            use the safest products on the market.
+          </p>
+
+          <div>
+            <button
+              className="btn"
+              onClick={() => history.push('/register/keeper')}
+            >
+              Book Today!
+            </button>
+          </div>
+        </div>
+
+        <br />
+
+        <div>
+          <button className="btn fade-in" onClick={handleScrollTop}>
+            Back to top
+          </button>
         </div>
       </div>
     </div>

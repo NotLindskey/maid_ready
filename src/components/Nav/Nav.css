@@ -22,10 +22,10 @@
 
 .navLink {
   display: inline-block;
-  color: #454B66;
+  color: #454b66;
   background-color: #da9494;
   text-align: center;
-  padding: 24px 10px;
+  padding: 24px 13px;
   text-decoration: none;
   font-size: 15px;
 
@@ -37,7 +37,8 @@
 }
 
 .navLink:hover {
-  background-color: #94C5CC;
+  background-color: #94c5cc;
+  box-shadow: 0 0 10px #94c5cc;
 }
 
 .break {
