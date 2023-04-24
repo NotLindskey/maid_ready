@@ -6,7 +6,7 @@ function ActivitySection({ title, jobs, isActive }) {
     <div className="activity-section-body">
       <div className="activity-section-title">
         {isActive && <div className="keeper-home-active-dot"></div>}
-        <p>{title} :</p>
+        <p>{title}:</p>
       </div>
       <div className="activity-section-job-item">
         {jobs.length ? (

@@ -71,19 +71,18 @@ function KeeperHomePage() {
       ) : (
         <div></div>
       )}
+      {/* applied jobs */}
+      <JobFeature
+        title={"Accepted Jobs"}
+        link={"/keeper/activity"}
+        jobs={userJobs.filter((job) => job.status === "incomplete")}
+      />
 
       {/* previous jobs */}
       <JobFeature
         title={"Previous Jobs"}
         link={"/keeper/activity"}
         jobs={userJobs.filter((job) => job.status !== "incomplete")}
-      />
-
-      {/* applied jobs */}
-      <JobFeature
-        title={"Accepted Jobs"}
-        link={"/keeper/activity"}
-        jobs={userJobs.filter((job) => job.status === "incomplete")}
       />
     </div>
   );
