@@ -1,14 +1,11 @@
 .landing-container {
-  /* display: grid; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* align-items: center; */
   padding: 10px;
   margin: auto;
   position: relative;
   margin-left: 4em;
   margin-right: 4em;
 }
+
 /* --------------------------------------------------------------------------------
 container
 -------------------------------------------------------------------------------- */
@@ -19,7 +16,9 @@ container
 }
 
 .owners-container {
-  background-color: #f9f0f4;
+  background-color: white;
+  text-align: center;
+  padding: 20px;
 }
 
 .keepers-container {
@@ -28,14 +27,13 @@ container
 
 .grid-box-container {
   background-color: #94c5cc;
-  /* padding: 50px; */
-  margin: 4px;
+  height: 200px;
+  text-align: center;
 }
 
 /* --------------------------------------------------------------------------------
 fade in on scroll
 -------------------------------------------------------------------------------- */
-
 .fade-in {
   opacity: 0;
   transition: opacity 1.3s ease-out;
@@ -53,6 +51,20 @@ owners section
   text-align: center;
 }
 
+.owners-request-service {
+  background-color: white;
+  padding: 5px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
+.commotion-section {
+  background-color: #94c5cc;
+  padding: 5px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
 /* --------------------------------------------------------------------------------
 keepers section
 --------------------------------------------------------------------------------- */
@@ -67,6 +79,13 @@ keepers section
 .keeper-section-element {
   text-align: center;
   align-self: center;
+}
+
+.keepers-practice {
+  background-color: #94c5cc;
+  padding: 5px;
+  padding-bottom: 20px;
+  margin-top: 30px;
 }
 
 /* --------------------------------------------------------------------------------
@@ -88,12 +107,29 @@ keepers section - NavLink - Maid Ready Cleaning Standards css
 /* --------------------------------------------------------------------------------
 landing content
 --------------------------------------------------------------------------------- */
-
 .landing-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------------
+booked-section
+-------------------------------------------------------------------------------- */
+.booked-section {
+  background-color: white;
+  padding: 5px;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
+/* --------------------------------------------------------------------------------
+red-text
+-------------------------------------------------------------------------------- */
+.red-text {
+  color: red;
 }
 /* --------------------------------------------------------------------------------
 Grid
@@ -111,7 +147,7 @@ Grid
 
 .grid-col {
   flex: 0 0 auto;
-  padding: 0 0.5rem 0.5rem;
+  padding: 1.5rem 1.5rem 1.5rem 1.5rem;
   box-sizing: border-box;
 }
 
@@ -133,11 +169,6 @@ Grid
 .grid-col_4 {
   flex-basis: 33.33333333%;
   max-width: 32%;
-
-  border-style: solid;
-  border-color: #94c5cc;
-  border-radius: 10px;
-  background-color: #94c5cc;
 }
 
 .grid-col_5 {
