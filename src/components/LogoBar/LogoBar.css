@@ -1,8 +1,8 @@
-.logo {
-    display: flex;
-    margin-left: 20px;
-    align-items: center;
-    justify-content: left;
-    flex-basis: 100%;
-    background-color: #f9f0f4;
-  }
+.logo-image {
+  width: 115px;
+  height: 115px;
+  background-image: url('../../images/cleaning.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}

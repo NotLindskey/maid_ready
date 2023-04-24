@@ -5,12 +5,7 @@ import './Nav.css';
 import { useSelector } from 'react-redux';
 import LogoBar from '../LogoBar/LogoBar';
 
-import {
-  MdOutlineMessage,
-  MdHome,
-  MdLogin,
-} from 'react-icons/md';
-
+import { MdOutlineMessage, MdHome, MdLogin } from 'react-icons/md';
 
 function Nav() {
   const user = useSelector((store) => store.user);
@@ -22,7 +17,7 @@ function Nav() {
           <LogoBar />
         </div>
       </div>
-      <div style={{ display: 'flex', alignItems: 'center' }}>
+      <div>
         <Link className="navLink" to="/why-us">
           Why Us
         </Link>
@@ -30,7 +25,6 @@ function Nav() {
         <Link className="navLink" to="/home">
           <MdHome />
         </Link>
-
 
         <Link className="navLink" to="/contact">
           <MdOutlineMessage />

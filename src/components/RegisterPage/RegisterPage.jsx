@@ -3,14 +3,13 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import RegisterForm from '../RegisterForm/RegisterForm';
 
-function RegisterPage({type}) {
+function RegisterPage({ type }) {
   const history = useHistory();
 
   return (
     <div>
       <h2>Welcome {type}</h2>
-      <p>Register here:</p>
-      <RegisterForm account_type={type}/>
+      <RegisterForm account_type={type} />
 
       <center>
         <button
