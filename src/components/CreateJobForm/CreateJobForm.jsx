@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import JobFormCheckList from "./JobFormCheckList/JobFormCheckList";
+import './CreateJobForm.css'
+
 function CreateJobForm(props) {
   const property = useSelector((store) => store.property.property);
   const cleaningStandard = useSelector(
@@ -32,19 +34,22 @@ function CreateJobForm(props) {
 
   const createJob = (event) => {
     event.preventDefault();
-
-    const newJob = {
-      price,
-      date_completed_by: date,
-      time,
-      status: "incomplete",
-      claimed: "FALSE",
-      property_id: property.id,
-      standard_checklist: standardChecklist,
-      custom_checklist: customChecklist,
+    if (date === "" || time=== "") {
+      alert("Date and time fields are required.");
+    } else {
+        const newJob = {
+          price,
+          date_completed_by: date,
+          time,
+          status: "incomplete",
+          claimed: "FALSE",
+          property_id: property.id,
+          standard_checklist: standardChecklist,
+          custom_checklist: customChecklist,
+       };
+        dispatch({ type: "ADD_JOB", payload: newJob });
+        history.push("/home");
     };
-    dispatch({ type: "ADD_JOB", payload: newJob });
-    history.push("/home");
   };
 
   const calculatePrice = () => {
@@ -65,23 +70,25 @@ function CreateJobForm(props) {
       <h2>{heading}</h2>
       <div className="job-form">
         <form onSubmit={createJob}>
-          <p>Address:</p>
-          <p>
+          <h3 className="overview-heading">Overview</h3>
+          <p className="job-info">
             {property.street} {property.city} {property.state}{" "}
             {property.zipcode}
           </p>
-          <p>{property.sq_footage} sq ft.</p>
-          <p>Price: ${calculatePrice()}</p>
-          <label htmlFor="date">Date Completed By:</label>
+          <p className="job-info"> {property.sq_footage} sq ft.</p>
+          <p className="job-info">Price: ${calculatePrice()}</p>
+          <label className="job-info" htmlFor="date">Date Completed By:</label>
           <input
+            className="job-info"
             value={date}
             min={today}
             onChange={(event) => setDate(event.target.value)}
             type="date"
           />
           <br />
-          <label htmlFor="time">Time:</label>
+          <label className="job-info" htmlFor="time">Time:</label>
           <input
+            className="job-info"
             value={time}
             onChange={(event) => setTime(event.target.value)}
             type="time"
@@ -92,7 +99,9 @@ function CreateJobForm(props) {
             updateStandardChecklist={updateStandardChecklist}
             updateCustomChecklist={updateCustomChecklist}
           />
-          <input className="btn" type="submit" value="Submit" />
+          <div className="job-submit-btn">
+            <input className="btn" type="submit" value="Submit" />
+          </div>
         </form>
       </div>
     </div>

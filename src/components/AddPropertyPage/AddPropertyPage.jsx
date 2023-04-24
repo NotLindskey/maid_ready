@@ -16,16 +16,20 @@ function AddPropertyPage(props) {
 
   const addProperty = (event) => {
     event.preventDefault();
-    const newProperty = {
-      street,
-      city,
-      state,
-      zipcode,
-      sq_footage: sqFootage,
-    }
-
-    dispatch({type: 'ADD_PROPERTY', payload: newProperty});
-    history.push('/properties');
+    if (street === "" || city === "" || state === "" || zipcode === "" || sqFootage === "") {
+      alert("All fields are required.");
+    } else {
+      const newProperty = {
+        street,
+        city,
+        state,
+        zipcode,
+        sq_footage: sqFootage,
+      }
+  
+      dispatch({type: 'ADD_PROPERTY', payload: newProperty});
+      history.push('/properties');
+    };
   }
 
   return (
@@ -58,7 +62,7 @@ function AddPropertyPage(props) {
               <br />
               <input value={sqFootage} onChange={(event) => setSqFootage(event.target.value)} className="property-input" type="number"/>
             </div>
-            <div className='submit-btn'>
+            <div className='property-submit-btn'>
               <input className="btn" type="submit" value="Submit" />
             </div>
         </form>
