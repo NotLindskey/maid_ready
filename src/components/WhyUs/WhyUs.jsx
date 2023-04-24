@@ -35,8 +35,6 @@ function AboutPage() {
 
             Becoming a "keeper" on Maid!Ready! has many benefits. First and foremost, you get to choose when and where you work. You have the flexibility to accept or decline jobs based on your preferences and availability, so you can maintain a healthy work-life balance. Plus, you can earn money on the side or make it your full-time job, depending on your needs.
 
-            But being a "keeper" on Maid!Ready! isn't just about flexibility and income. It's also about being part of a community of like-minded individuals who share your passion for cleanliness and hospitality. Our platform allows you to connect with other keepers and property owners, exchange tips and best practices, and build your network in the short term rental industry.
-
             So whether you're looking for a side hustle or a new career path, Maid!Ready! is the perfect platform for you. With our easy-to-use app, reliable payment system, and friendly support team, you can start your journey as a "keeper" today and take control of your work and your life.
         </p>
       </div>
