@@ -16,19 +16,55 @@ function KeeperActivityPage() {
   return (
     <div className="keeper-activity-page-body">
       <div className="keeper-activity-main">
-        <ActivitySection
-          jobs={activeJobs}
-          title={"Active Jobs"}
-          isActive={true}
-        />
-        <ActivitySection
-          jobs={userJobs.filter((job) => job.status === "incomplete")}
-          title={"Accepted Jobs"}
-        />
-        <ActivitySection
-          jobs={userJobs.filter((job) => job.status !== "incomplete")}
-          title={"Previous Jobs"}
-        />
+        {activeJobs.length ? (
+          <ActivitySection
+            jobs={activeJobs}
+            title={"Active Jobs"}
+            isActive={true}
+          />
+        ) : (
+          <div className="activity-section-body">
+            <div className="activity-section-title">
+              {true && <div className="keeper-home-active-dot"></div>}
+              <p>Active Jobs:</p>
+            </div>
+            <div className="activity-section-no-jobs">
+              <p>No Active Jobs</p>
+            </div>
+          </div>
+        )}
+
+        {userJobs.filter((job) => job.status === "incomplete").length ? (
+          <ActivitySection
+            jobs={userJobs.filter((job) => job.status === "incomplete")}
+            title={"Accepted Jobs"}
+          />
+        ) : (
+          <div className="activity-section-body">
+            <div className="activity-section-title">
+              <p>Accepted Jobs:</p>
+            </div>
+            <div className="activity-section-no-jobs">
+              <p>no accepted jobs</p>
+            </div>
+          </div>
+        )}
+
+        {userJobs.filter((job) => job.status !== "incomplete").length ? (
+          <ActivitySection
+            jobs={userJobs.filter((job) => job.status !== "incomplete")}
+            title={"Previous Jobs"}
+          />
+        ) : (
+          <div className="activity-section-body">
+            <div className="activity-section-title">
+              <p>Previous Jobs:</p>
+            </div>
+            <div className="activity-section-no-jobs">
+              <p>No Previous Jobs</p>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

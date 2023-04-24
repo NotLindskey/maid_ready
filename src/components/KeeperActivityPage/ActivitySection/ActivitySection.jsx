@@ -6,33 +6,37 @@ function ActivitySection({ title, jobs, isActive }) {
     <div className="activity-section-body">
       <div className="activity-section-title">
         {isActive && <div className="keeper-home-active-dot"></div>}
-        <p>{title} :</p>
+        <p>{title}:</p>
       </div>
       <div className="activity-section-job-item">
-        {jobs.map((job, index) => {
-          if (index < indexValueShow) {
-            return (
-              <JobItem
-                // defeault value
-                key={job.id}
-                // display option
-                id={job.id}
-                owner={job.username}
-                street={job.street}
-                city={job.city}
-                state={job.state}
-                zip={job.zipcode}
-                price={job.price}
-                date={job.date_completed_by}
-                // button
-                claimed={job.claimed}
-                status={job.status}
-                keeper_id={job.keeper_id}
-                width={60}
-              />
-            );
-          }
-        })}
+        {jobs.length ? (
+          jobs.map((job, index) => {
+            if (index < indexValueShow) {
+              return (
+                <JobItem
+                  // defeault value
+                  key={job.id}
+                  // display option
+                  id={job.id}
+                  owner={job.username}
+                  street={job.street}
+                  city={job.city}
+                  state={job.state}
+                  zip={job.zipcode}
+                  price={job.price}
+                  date={job.date_completed_by}
+                  // button
+                  claimed={job.claimed}
+                  status={job.status}
+                  keeper_id={job.keeper_id}
+                  width={60}
+                />
+              );
+            }
+          })
+        ) : (
+          <p>No Jobs</p>
+        )}
 
         {indexValueShow < jobs.length && jobs.length > 2 ? (
           <button

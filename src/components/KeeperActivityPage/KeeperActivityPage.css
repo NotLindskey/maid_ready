@@ -30,3 +30,21 @@
 .activity-section-show-more {
   width: 7rem;
 }
+
+.keeper-activity-main {
+  width: 60rem;
+}
+
+.activity-section-no-jobs {
+  background-color: rgb(150, 150, 150, 0.1);
+  height: 10rem;
+  width: 62rem;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 25px;
+  color: rgb(100, 100, 100);
+}
