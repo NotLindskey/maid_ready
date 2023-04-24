@@ -19,6 +19,15 @@
   margin-left: 1rem;
   transition: transform ease-out 0.5s;
   padding-right: 3rem;
+}
 
+.move-right-1-four {
   transform: translateX(-26rem);
+}
+.move-right-1-five-six {
+  transform: translateX(-52rem);
+}
+
+.move-right-2-six {
+  transform: translateX(-78rem);
 }
