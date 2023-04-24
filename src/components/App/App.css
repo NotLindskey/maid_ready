@@ -201,3 +201,25 @@ input {
   margin: 5px;
   margin-bottom: 10px;
 }
+
+
+/* --------------------------------------------------------------------------------
+Cleaning Standars Treatment
+-------------------------------------------------------------------------------- */
+
+.cleaning-standards-header {
+  background-color: #94c5cc;
+  text-align: center;
+  padding: 20px;
+  max-width: 100%;
+  margin: 20px 2%;
+  
+}
+
+.cleaning-standards-div {
+  padding: 20px;
+  margin: auto;
+  position: relative;
+  width: 100%;
+  max-width: 90%;
+}
