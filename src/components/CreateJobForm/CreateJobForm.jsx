@@ -34,19 +34,22 @@ function CreateJobForm(props) {
 
   const createJob = (event) => {
     event.preventDefault();
-
-    const newJob = {
-      price,
-      date_completed_by: date,
-      time,
-      status: "incomplete",
-      claimed: "FALSE",
-      property_id: property.id,
-      standard_checklist: standardChecklist,
-      custom_checklist: customChecklist,
+    if (date === "" || time=== "") {
+      alert("Date and time fields are required.");
+    } else {
+        const newJob = {
+          price,
+          date_completed_by: date,
+          time,
+          status: "incomplete",
+          claimed: "FALSE",
+          property_id: property.id,
+          standard_checklist: standardChecklist,
+          custom_checklist: customChecklist,
+       };
+        dispatch({ type: "ADD_JOB", payload: newJob });
+        history.push("/home");
     };
-    dispatch({ type: "ADD_JOB", payload: newJob });
-    history.push("/home");
   };
 
   const calculatePrice = () => {
