@@ -9,9 +9,9 @@
     background-color: rgba(255, 255, 255, 0.746);
 }
 
-.submit-btn {
-    margin-left: 240px; 
-    margin-top: 10px;
+.property-submit-btn {
+    display: flex;
+    justify-content: center;
 }
 
 .label {
