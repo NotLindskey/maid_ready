@@ -34,3 +34,18 @@
 .keeper-activity-main {
   width: 60rem;
 }
+
+.activity-section-no-jobs {
+  background-color: rgb(150, 150, 150, 0.1);
+  height: 10rem;
+  width: 62rem;
+  border-radius: 10px;
+  box-shadow: rgba(100, 100, 100, 0.05) 0px 30px 60px -12px inset,
+    rgba(100, 100, 100, 0.2) 0px 18px 36px -18px inset;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 25px;
+}

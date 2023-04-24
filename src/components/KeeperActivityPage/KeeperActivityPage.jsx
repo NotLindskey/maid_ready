@@ -28,7 +28,9 @@ function KeeperActivityPage() {
               {true && <div className="keeper-home-active-dot"></div>}
               <p>Active Jobs :</p>
             </div>
-            <p>no active jobs</p>
+            <div className="activity-section-no-jobs">
+              <p>No Active Jobs</p>
+            </div>
           </div>
         )}
 
@@ -42,7 +44,9 @@ function KeeperActivityPage() {
             <div className="activity-section-title">
               <p>Accepted Jobs :</p>
             </div>
-            <p>no accepted jobs</p>
+            <div className="activity-section-no-jobs">
+              <p>no accepted jobs</p>
+            </div>
           </div>
         )}
 
@@ -56,7 +60,9 @@ function KeeperActivityPage() {
             <div className="activity-section-title">
               <p>Previous Jobs :</p>
             </div>
-            <p>no previous jobs</p>
+            <div className="activity-section-no-jobs">
+              <p>No Previous Jobs</p>
+            </div>
           </div>
         )}
       </div>
