@@ -20,7 +20,10 @@ function CleaningStandards() {
   return (
     <div>
         <div>
-            <h2>{heading}</h2>
+          <div>
+            <h2 className="cleaning-standards-header">{heading}</h2>
+          </div>
+          <div className="cleaning-standards-div">
             <ol>
                 <li>Strip the beds, start load of sheets, if multiple sheets are provided make the bed with the second set that is provided.</li>
                 <li>Wash the comforter and shams (if requested by owner) will be extra charge.</li>
@@ -36,19 +39,23 @@ function CleaningStandards() {
                 <li>Sweep/dust mop/vacuum the whole house/apartment</li>
                 <li>If balcony or porch is on property may sure to dust/sweep for cob webs.</li>
             </ol>
+          </div>
       </div>
       <div>
         <h2>**Make sure to wipe down all doorknobs, handles and light switches**</h2>
-        <ul>
-            <li>Windex</li>
-            <li>Clorox</li>
-            <li>Toilet Paper</li>
-            <li>Paper Towels</li>
-            <li>Liquid Handsoap</li>
-            <li>Broom Dustpan</li>
-            <li>Dust Mop</li>
-            <li>Cleaning Rags</li>
-        </ul>
+        <div className="cleaning-standards-div">
+          <h3>Products Used:</h3>
+          <ul>
+              <li>Windex</li>
+              <li>Clorox</li>
+              <li>Toilet Paper</li>
+              <li>Paper Towels</li>
+              <li>Liquid Handsoap</li>
+              <li>Broom Dustpan</li>
+              <li>Dust Mop</li>
+              <li>Cleaning Rags</li>
+          </ul>
+        </div>
       </div>
       <div style={{display:'flex', flexDirection:'column'}}>
         <p style={{textAlign:'center'}}>Become A Keeper!</p>
