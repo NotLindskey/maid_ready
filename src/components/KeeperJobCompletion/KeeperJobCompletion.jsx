@@ -13,7 +13,7 @@ function KeeperJobCompletion() {
 
   const dispatch = useDispatch();
   const details = useSelector((store) => store.job.job_detail);
-
+  const [description, setDescription] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   function handleButtonClick() {
@@ -105,11 +105,20 @@ function KeeperJobCompletion() {
         )}
       </div>
 
-      {/* photo module */}
+      {/* description module */}
 
-      <label>
-        <input type="file"></input>
-      </label>
+      <div className="keeper-complete-textarea-body">
+        <div className="job-detail-title">
+          <p>Description</p>
+        </div>
+        <textarea
+          className="keeper-complete-textarea"
+          value={description}
+          onChange={(e) => {
+            setDescription(e.target.value);
+          }}
+        />
+      </div>
 
       {/* modal module */}
       <CompletionModal
@@ -182,6 +191,17 @@ function KeeperJobCompletion() {
             ) : (
               <></>
             )}
+
+            <div className="keeper-complete-textarea-body">
+              <div className="job-detail-title">
+                <p>Description</p>
+              </div>
+              <textarea
+                style={{ outline: "none", width: "26rem" }}
+                className="keeper-complete-textarea"
+                value={description}
+              />
+            </div>
           </div>
         </div>
       </CompletionModal>
