@@ -41,7 +41,7 @@ import KeeperJobCompletion from "../KeeperJobCompletion/KeeperJobCompletion";
 import KeeperNav from "../KeeperNav/KeeperNav";
 import "./App.css";
 import LoginSelection from "../LoginSelectionPage/LoginSelectionPage";
-import LogoBar from "../LogoBar/LogoBar";
+import ContactPage from "../ContactPage/ContactPage";
 
 function App() {
   const dispatch = useDispatch();
@@ -70,6 +70,10 @@ function App() {
 
           <Route exact path="/CleaningStandards">
             <CleaningStandards />
+          </Route>
+
+          <Route exact path="/contact">
+            <ContactPage />
           </Route>
 
           {/* ----------------------------------------------------------------
