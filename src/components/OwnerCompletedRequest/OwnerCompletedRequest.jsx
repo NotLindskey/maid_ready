@@ -30,6 +30,14 @@ function OwnerCompletedRequest() {
     history.push(`/OwnerRequestDetails/${request.id}`);
   };
 
+  const completedDelete = (request) => {
+    console.log(`Completed Job Delete at: ${request.id}`);
+    dispatch({
+      type: 'DELETE_COMPLETED_REQUEST',
+      payload: request.id
+    });
+  };
+
   // Render
   return (
     <div className="job-list-container">
@@ -53,7 +61,7 @@ function OwnerCompletedRequest() {
             <button className="btn" onClick={() => handleViewRequest(request)}>
               View
             </button>
-            <button className="btn">Delete</button>
+            <button className="btn" onClick={() => completedDelete(request)}>Delete</button>
           </div>
         );
       })}

@@ -9,6 +9,7 @@ function* jobSaga() {
   yield takeLatest("FETCH_USER_JOBS", fetchUserJobs); // GET user's jobs
   yield takeLatest("FETCH_ACTIVE_JOBS", fetchActiveJobs); // GET user's active jobs
   yield takeLatest("DELETE_OWNER_REQUEST", deleteJob); // DELETE job request 
+  yield takeLatest("DELETE_COMPLETED_REQUEST", deleteJob); // DELETE completed job request
 
   yield takeLatest("FETCH_CLEANING_STANDARD", fetchCleaningStandard); // GET cleaning standards
 
