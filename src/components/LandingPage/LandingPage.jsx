@@ -54,26 +54,28 @@ function LandingPage() {
   return (
     <div className="landing-container">
       <div className="owners-container">
-        <h1>Need a quick clean?</h1>
-        <h2>
-          <span className="red-text">Maid!Ready! 24/7</span>
-        </h2>
-        <p>
-          Worry no more! We're your <strong>on demand</strong> solution when
-          you're in a pinch.
-        </p>
-        <p> Last-minute housekeeping service is what we do!</p>
-
-        <img
-          src={speedClean}
-          alt="picture of a vacuum"
-          width="240"
-          height="170"
-        ></img>
-
-        <button className="btn" onClick={registerOwnerHandle}>
-          Owners Register Here
-        </button>
+        <div className="owners-content">
+          <img
+            src={speedClean}
+            alt="picture of a vacuum"
+            width="260"
+            height="190"
+          ></img>
+          <div className="owners-text">
+            <h1>Need a quick clean?</h1>
+            <h2>
+              <span className="red-text">Maid!Ready! 24/7</span>
+            </h2>
+            <p>
+              Worry no more! We're your <strong>on demand</strong> solution when
+              you're in a pinch.
+            </p>
+            <p> Last-minute housekeeping service is what we do!</p>
+            <button className="btn" onClick={registerOwnerHandle}>
+              Owners Register Here
+            </button>
+          </div>
+        </div>
       </div>
 
       {/* line to break table to the next row */}
@@ -172,153 +174,157 @@ function LandingPage() {
         </div>
 
         <div className="owners-request-service fade-in">
-          <h3>Sit back and relax,</h3>
-          <h3 className="red-text">We handle cleaning.</h3>
-          <p>
+          <div className="image-container">
             <img
               src={relax}
               alt="picture of a vacuum"
               width="240"
               height="200"
-            ></img>
-            You've been such a great host! Your property is conveniently located
-            and super inviting.
-          </p>
-          <br />
-          <p>
-            So, yeah, naturally, people want to <em>book it!</em> And that may
-            mean instant reservation requests. Forget scheduling accommodations
-            around your regularly scheduled cleanings. And don't you dare grab a
-            mop. Maximize your profits and leave the in-between cleaning to us!
-          </p>
-
-          <p>
-            <strong>
-              Your time is better spent doing the things that matter the most.
-            </strong>
-          </p>
-
-          <button
-            className="btn"
-            onClick={() => history.push('/register/owner')}
-          >
-            Request Service Today
-          </button>
+            />
+          </div>
+          <div className="text-container">
+            <h3>Sit back and relax,</h3>
+            <h3 className="red-text">We handle cleaning.</h3>
+            <p>
+              You've been such a great host! Your property is conveniently
+              located and super inviting. So, yeah, naturally, people want to{' '}
+              <em>book it!</em> And that may mean instant reservation requests.
+              Forget scheduling accommodations around your regularly scheduled
+              cleanings. And don't you dare grab a mop. Maximize your profits
+              and leave the in-between cleaning to us!
+            </p>
+            <p>
+              <strong>
+                Your time is better spent doing the things that matter the most.
+              </strong>
+            </p>
+            <div className="button-container">
+              <button
+                className="btn"
+                onClick={() => history.push('/register/owner')}
+              >
+                Request Service Today
+              </button>
+            </div>
+          </div>
         </div>
 
         <div className="commotion-section fade-in">
-          <p>Join the commotion,</p>
-          <p className="red-text">We are at your service!</p>
-          <br />
-
+          <div className="content-wrapper">
+            <strong>Join the commotion</strong>
+            <br />
+            <span className="red-text">
+              <strong>We are at your service!</strong>
+            </span>
+            <p>
+              <strong>We LOVE what we do!</strong>
+              <br />
+              our team of keepers <em>want</em> to help. The schedule they
+              create is completely their choice. Talk about empowering!
+            </p>
+            <p>
+              <strong>Worry less. Play more!</strong>
+              <br />
+              Spend time with those who matter most. Do the things that are most
+              important. Have fun! Leave the dirty work to us.
+            </p>
+            <p>
+              <strong>Tell your friends about us!</strong>
+              <br />
+              Get a free cleaning when you refer a friend! (Good for up to $100
+              off)
+            </p>
+            <div>
+              <button
+                className="btn"
+                onClick={() => history.push('/register/owner')}
+              >
+                Book A Cleaning
+              </button>
+            </div>
+          </div>
           <img
+            className="img-commotion"
             src={commotion}
-            alt="picture of a vacuum"
+            alt="picture of commotion"
             width="260"
             height="270"
-          ></img>
-
-          <p>
-            <strong>We LOVE what we do!</strong>
-          </p>
-          <p>
-            our team of keepers <em>want</em> to help. The schedule they create
-            is completely their choice. Talk about empowering!
-          </p>
-          <br />
-
-          <p>
-            <strong>Worry less. Play more!</strong>
-          </p>
-          <p>
-            Spend time with those who matter most. Do the things that are most
-            important. Have fun! Leave the dirty work to us.
-          </p>
-          <br />
-
-          <p>
-            <strong>Tell your friends about us!</strong>
-            <p>Get a free cleaning when you refer a friend!</p>
-            (Good for up to $100 off)
-          </p>
-          <br />
-
-          <div>
-            <button
-              className="btn"
-              onClick={() => history.push('/register/owner')}
-            >
-              Book A Cleaning
-            </button>
-          </div>
+          />
         </div>
 
         <div className="booked-section fade-in">
-          <p>Most rentals are booked</p>
-          <p className="red-text">last minute.</p>
-          <br />
-          <img
-            src={lastMinute}
-            alt="picture of a vacuum"
-            width="220"
-            height="210"
-          ></img>
-          <p>
-            Have your space "made-ready" by Maid!Ready! and you'll always be
-            ready
-          </p>
-          <p>
-            The season is heating up, and people are getting out and moving
-            about, Don't let your scheduled cleaning service determine your
-            rental availability.
-            <em>
-              Most rentals are booked at the last minute during peak season.
-            </em>
-          </p>
-        </div>
-
-        <div className="keepers-practice fade-in">
-          <p>Our keepers practice</p>
-          <p className="red-text">mindful housekeeping.</p>
-          <p>your dirt is our business</p>
-
-          <img
-            src={mindfulness}
-            alt="picture of a vacuum"
-            width="250"
-            height="240"
-          ></img>
-          <br />
-          <p>We respect your personal belongings and environment</p>
-          <p>
-            Our keepers are background checked before arriving at a property for
-            completing a service
-          </p>
-          <p>
-            We keep you informed every step of the way. You'll know when a
-            request was submitted, accepted, and completed.
-          </p>
-          <p>
-            We take pride in caring for our community. We live here too, so we
-            use the safest products on the market.
-          </p>
-
-          <div>
-            <button
-              className="btn"
-              onClick={() => history.push('/register/keeper')}
-            >
-              Book Today!
-            </button>
+          <div className="image-wrapper">
+            <img
+              src={lastMinute}
+              alt="picture of a vacuum"
+              width="220"
+              height="210"
+            />
+          </div>
+          <div className="text-wrapper">
+            <p>
+              Most rentals are booked
+              <span className="red-text"> last minute.</span>
+            </p>
+            <p>
+              Have your space "made-ready" by Maid!Ready! and you'll always be
+              ready
+            </p>
+            <p>
+              The season is heating up, and people are getting out and moving
+              about, Don't let your scheduled cleaning service determine your
+              rental availability.
+              <br />
+              <p>
+                <em>
+                  Most rentals are booked at the last minute during peak season.
+                </em>
+              </p>
+            </p>
           </div>
         </div>
 
-        <br />
+        <div className="keepers-practice fade-in">
+          <div className="text-container">
+            <p>
+              Our keepers practice
+              <span className="red-text"> mindful housekeeping.</span>
+            </p>
 
-        <div>
-          <button className="btn fade-in" onClick={handleScrollTop}>
-            Back to top
-          </button>
+            <p>your dirt is our business!</p>
+
+            <p>We respect your personal belongings and environment</p>
+            <p>
+              Our keepers are background checked before arriving at a property
+              for completing a service
+            </p>
+            <p>
+              We keep you informed every step of the way. You'll know when a
+              request was submitted, accepted, and completed.
+            </p>
+            <p>
+              We take pride in caring for our community. We live here too, so we
+              use the safest products on the market.
+            </p>
+
+            <div>
+              <button
+                className="btn"
+                onClick={() => history.push('/register/keeper')}
+              >
+                Book Today!
+              </button>
+            </div>
+          </div>
+
+          <div className="image-container">
+            <img
+              src={mindfulness}
+              alt="picture of a vacuum"
+              width="250"
+              height="240"
+            ></img>
+          </div>
         </div>
       </div>
     </div>
