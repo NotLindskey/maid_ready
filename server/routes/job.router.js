@@ -421,7 +421,6 @@ router.delete('/owner/:id', (req, res) => {
     pool
       .query(query, [req.params.id, req.user.id])
       .then((result) => {
-        console.log('delete result', result);
         res.sendStatus(200);
       })
       .catch((error) => {

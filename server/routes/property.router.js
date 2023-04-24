@@ -43,10 +43,12 @@ router.get('/:id', (req, res) => {
 router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
       const query = `INSERT INTO "property" ("street", "city", "state", "zipcode", "sq_footage", "owner_id")
-                    VALUES ($1, $2, $3, $4, $5, $6)`;
+                    VALUES ($1, $2, $3, $4, $5, $6);
+                    INSERT INTO "checklist_item" ("task", "standard", "job_id")
+                    VALUES ($7, $8, $9);`;
       pool.query(query, [req.body.street, req.body.city, req.body.state, req.body.zipcode, req.body.sq_footage, req.user.id])
         .then(() => {
-          res.sendStatus(201);
+          res.send(201);
         })
         .catch(err => {
           console.log('ERROR: Posting property', err);
