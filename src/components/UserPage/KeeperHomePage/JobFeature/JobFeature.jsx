@@ -2,6 +2,8 @@ import "./JobFeature.css";
 import JobCarousel from "../JobCarousel/JobCarousel";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+
+import { CiCircleChevLeft, CiCircleChevRight } from "react-icons/ci";
 function JobFeature({ title, link, jobs }) {
   const history = useHistory();
 
@@ -44,11 +46,16 @@ function JobFeature({ title, link, jobs }) {
           </button>
         </div>
 
-        <div>
-          <button onClick={moveLeft} disabled={moveState === 0}>
-            left
+        <div className="keeper-home-carousel-button-body">
+          <button
+            onClick={moveLeft}
+            disabled={moveState === 0}
+            className="keeper-home-carousel-button"
+          >
+            <CiCircleChevLeft size={40} />
           </button>
           <button
+            className="keeper-home-carousel-button"
             onClick={moveRight}
             disabled={
               jobs.length <= 3
@@ -62,10 +69,8 @@ function JobFeature({ title, link, jobs }) {
                 : false
             }
           >
-            right
+            <CiCircleChevRight size={40} />
           </button>
-          <p>{jobs.length}</p>
-          <p>{moveState}</p>
         </div>
       </div>
 

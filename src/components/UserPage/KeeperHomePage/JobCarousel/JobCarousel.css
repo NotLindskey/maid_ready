@@ -31,3 +31,22 @@
 .move-right-2-six {
   transform: translateX(-78rem);
 }
+
+.keeper-home-carousel-button {
+  background-color: transparent;
+  border: none;
+}
+
+.keeper-home-carousel-button:hover {
+  cursor: pointer;
+}
+
+.keeper-home-carousel-button-body {
+  position: absolute;
+  top: -7.5px;
+  right: 2.5rem;
+}
+
+.keeper-job-feature {
+  position: relative;
+}
