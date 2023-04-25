@@ -17,7 +17,7 @@ function* jobSaga() {
   yield takeLatest("FETCH_OWNER_REQUESTS", fetchOwnerRequests); // GET owner's requests
   yield takeLatest("FETCH_REQUEST_DETAIL", fetchRequestDetail) // GET one request detail
 
-  yield takeLatest("ADD_JOB", addJob);
+  yield takeLatest("ADD_JOB", addJob); // ADD a job
 
   yield takeLatest("APPLY_TO_JOB", applyToJob); // UPDATE claimed to true and keeper id
   yield takeLatest("COMPLETE_JOB", completeJob); // UPDATE complete job, status turns to complete
