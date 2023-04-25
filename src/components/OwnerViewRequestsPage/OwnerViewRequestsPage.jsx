@@ -1,8 +1,7 @@
 import React from 'react';
 import { useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-
+import { useEffect } from 'react';
 import OwnerActiveRequest from '../OwnerActiveRequest/OwnerActiveRequest';
 import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedRequest';
 import './OwnerViewRequestsPage.css';
@@ -11,10 +10,8 @@ function OwnerViewRequestsPage() {
   const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
   const dispatch = useDispatch();
-  const completedRequests = requests.filter(
-    (request) => request.status === 'complete',
-  );
 
+  // get all requests
   useEffect(() => {
     dispatch({ type: "FETCH_OWNER_REQUESTS" });
     dispatch({type: "RESET_JOB_DETAIL"})
@@ -25,11 +22,7 @@ function OwnerViewRequestsPage() {
     history.push('/');
   };
 
-  const handleViewRequest = (request) => {
-    console.log(request.id);
-    history.push(`/OwnerRequestDetails/${request.id}`);
-  };
-
+  // display active and completed requests
   return (
     <div>
       <div>
@@ -51,7 +44,6 @@ function OwnerViewRequestsPage() {
         </div>
         
         <div className="break"></div>
-      
 
         {/* render 4 recent completed requests */}
         <div className="active-box-container">
@@ -60,21 +52,6 @@ function OwnerViewRequestsPage() {
             <button className="requests-page-view-btn" onClick={()=>{history.push(`/OwnerCompletedRequestsPage`)}}>view</button>
           </div>
           <OwnerCompletedRequest />
-          {/* <div className='job-list-container'>{completedRequests.map((request) => {
-            return (
-              <div className="job-item-body" key={request.id}>
-                <p>
-                  {request.street} {request.city} {request.state}{' '}
-                  {request.zipcode}
-                </p>
-                <p>{new Date(request.date_completed_by).toLocaleDateString('en-US')}</p>
-                <p>${request.price}</p>
-                <button className="btn" onClick={() => handleViewRequest(request)}>View</button>
-                <button className="btn">Delete</button>
-              </div>
-            );
-          })}
-          </div> */}
         </div>
       </div>
       <br />
