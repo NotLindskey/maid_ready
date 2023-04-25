@@ -1,14 +1,12 @@
 import "./KeeperJobCompletion.css";
 import { useDispatch, useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import JobItemChecklist from "../JobItem/JobItemChecklist/JobItemChecklist";
 import CompletionModal from "./CompletionModal/CompletionModal";
-import { object } from "prop-types";
 
 function KeeperJobCompletion() {
   const params = useParams();
-  const history = useHistory();
   const jobId = params.id;
 
   const dispatch = useDispatch();

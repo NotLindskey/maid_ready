@@ -2,7 +2,7 @@ import "./JobDetails.css";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { AiOutlineCheck, AiOutlineLoading } from "react-icons/ai";
+import { AiOutlineLoading } from "react-icons/ai";
 import { CiCircleCheck } from "react-icons/ci";
 import JobItemChecklist from "../JobItem/JobItemChecklist/JobItemChecklist";
 import CompletionModal from "../KeeperJobCompletion/CompletionModal/CompletionModal";
@@ -21,7 +21,6 @@ function JobDetails() {
     dispatch({ type: "FETCH_JOB_DETAIL", payload: { id: jobId } });
 
     setIstLoading(true);
-    //history.push("/keeper/job-list");
   };
 
   const jobCompleteHandler = () => {

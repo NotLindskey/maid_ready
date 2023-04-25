@@ -1,4 +1,4 @@
-import styles from "./KeeperActivityPage.css";
+import "./KeeperActivityPage.css";
 import ActivitySection from "./ActivitySection/ActivitySection";
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";

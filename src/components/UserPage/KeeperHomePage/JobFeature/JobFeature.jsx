@@ -8,7 +8,6 @@ function JobFeature({ title, link, jobs }) {
   const history = useHistory();
 
   const [moveState, setMoveState] = useState(0);
-  const [testState, setTestState] = useState(0);
   const moveLeft = () => {
     if (moveState >= 1) {
       setMoveState(moveState - 1);

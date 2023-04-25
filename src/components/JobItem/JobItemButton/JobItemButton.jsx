@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./JobItemButton.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
