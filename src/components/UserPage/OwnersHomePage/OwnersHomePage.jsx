@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import requestImg from './Request.png';
 import viewImg from './View.png';
 import { useHistory } from 'react-router';
+import './OwnersHomePage.css';
 
 function OwnersHomePage() {
   const [heading, setHeading] = useState('Owners Home Page');
