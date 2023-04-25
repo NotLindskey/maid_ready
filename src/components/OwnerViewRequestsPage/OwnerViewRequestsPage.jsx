@@ -7,7 +7,6 @@ import OwnerCompletedRequest from '../OwnerCompletedRequest/OwnerCompletedReques
 import './OwnerViewRequestsPage.css';
 
 function OwnerViewRequestsPage() {
-  const requests = useSelector((store) => store.job.owner_requests);
   const history = useHistory();
   const dispatch = useDispatch();
 
