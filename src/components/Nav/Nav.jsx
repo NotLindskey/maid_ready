@@ -37,9 +37,7 @@ function Nav() {
             <MdLogin />
           </Link>
         ) : (
-          // <Link className="navLink" to="/user">
-          //     User
-          //   </Link>
+          
           <LogOutButton className="navLink" />
         )}
       </div>

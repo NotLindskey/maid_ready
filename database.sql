@@ -70,4 +70,3 @@ VALUES
 ('Wipe windowsills',null),
 ('Sweep/dust mop/vacuum the whole house/apartment',null),
 ('If balcony or porch is on property may sure to dust/sweep for cob webs.',null);
-
