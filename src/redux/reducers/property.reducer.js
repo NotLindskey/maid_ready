@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 
+// select all properties
 const properties = (state = [], action) => {
     if (action.type === 'SET_PROPERTIES') {
         return action.payload;
@@ -7,6 +8,7 @@ const properties = (state = [], action) => {
       return state;
   };
 
+  // select specific property
   const property = (state = {}, action) => {
     if (action.type === 'SET_PROPERTY') {
         return action.payload;
@@ -15,6 +17,6 @@ const properties = (state = [], action) => {
   };
   
   export default combineReducers({
-    properties,
-    property,
+    properties, // all properties
+    property,// specific property
   });
