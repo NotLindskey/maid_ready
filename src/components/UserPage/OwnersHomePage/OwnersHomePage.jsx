@@ -7,17 +7,17 @@ function OwnersHomePage() {
   const [heading, setHeading] = useState('Owners Home Page');
   const history = useHistory();
 
-  {/* navigate to Properties Page */}
+  // navigate to Properties Page
   const toProperties = () => {
     history.push('/properties');
   };
 
-  {/* navigate to View Requests Page */}
+  // navigate to View Requests Page
   const viewRequests = () => {
     history.push('/OwnerViewRequestsPage');
   };
   
-  {/* page with two images, one link to create a request and another link to view requests */}
+  // page with two images, one link to create a request and another link to view requests */}
   return (
     <div>
       <h2 className="heading">{heading}</h2>
