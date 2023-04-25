@@ -32,6 +32,7 @@ function CreateJobForm(props) {
     setCustomChecklist(checklist);
   };
 
+  // input validation, send data to add job if all fields have input
   const createJob = (event) => {
     event.preventDefault();
     if (date === "" || time=== "") {
@@ -52,6 +53,7 @@ function CreateJobForm(props) {
     };
   };
 
+  // calculate price based on property sq footage
   const calculatePrice = () => {
     price = 0.08 * property.sq_footage;
     return price;
@@ -65,6 +67,7 @@ function CreateJobForm(props) {
     return <p>loading</p>;
   }
 
+  // form to create job
   return (
     <div>
       <h2>{heading}</h2>
