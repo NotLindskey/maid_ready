@@ -12,10 +12,12 @@ function OwnerActiveRequest() {
     (request) => request.status !== 'complete',
   );
 
+  // get all requests
   useEffect(() => {
     dispatch({ type: 'FETCH_OWNER_REQUESTS' });
   }, []);
 
+  // delete request
   const handleDelete = (request) => {
     console.log(`Delete clicked at: ${request.id}`);
     dispatch({
@@ -24,11 +26,13 @@ function OwnerActiveRequest() {
     });
   };
 
+  // navigate to request details page
   const handleViewRequest = (request) => {
     console.log(request.id);
     history.push(`/OwnerRequestDetails/${request.id}`);
   };
 
+  // list active requests on View Requests page
   return (
     <div className="active-box-container">
       <div className="job-list-container">
