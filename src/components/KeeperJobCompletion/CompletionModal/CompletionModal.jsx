@@ -1,5 +1,4 @@
 import "./CompletionModal.css";
-import { useState } from "react";
 function CompletionModal(props) {
   const { isModalOpen, onCloseModal, page, noPadding } = props;
 

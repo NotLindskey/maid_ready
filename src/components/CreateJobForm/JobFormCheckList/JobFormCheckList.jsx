@@ -73,8 +73,6 @@ function JobFormCheckList({
       setInputTask("");
       handleCloseModal();
     }
-
-    // console.log(customValues);
   };
 
   /* -------------------
@@ -82,6 +80,7 @@ function JobFormCheckList({
   ------------------- */
   // modal state (false=closed)
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   // toggle modal functions
   // open modal
   function handleButtonClick() {
@@ -106,7 +105,6 @@ function JobFormCheckList({
   };
 
   useEffect(() => {
-    // dispatch({ type: "FETCH_CLEANING_STANDARD" });
     updateStandardChecklist(checkedValues);
   }, []);
   return (

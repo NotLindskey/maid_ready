@@ -40,18 +40,13 @@ function JobItem({
           {city}, {state} {zip}
         </p>
       </div>
-      {/* <div className="job-item-distance">
-        <p>3.1 miles away</p>
-      </div> */}
+
       <div className="job-item-due-date">
         <p>{date}</p>
       </div>
       <div className="job-item-price">
         <p>${price}</p>
       </div>
-      {/* <button className="job-item-accept-button btn" onClick={navigateHandler}>
-        view
-      </button> */}
 
       <JobItemButton
         status={status}
