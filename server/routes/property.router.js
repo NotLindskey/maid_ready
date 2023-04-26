@@ -5,6 +5,8 @@ const router = express.Router();
 /**
  * GET route
  */
+
+// get all properties
 router.get('/', (req, res) => {
   if (req.isAuthenticated()) {
     const query = `SELECT * FROM "property" WHERE "owner_id" = $1;`;
@@ -21,6 +23,7 @@ router.get('/', (req, res) => {
   }
 });
 
+// get specific property
 router.get('/:id', (req, res) => {
   if (req.isAuthenticated()) {
     const query = `SELECT * FROM "property" WHERE "id" = $1 AND "owner_id" = $2;`;
@@ -40,6 +43,8 @@ router.get('/:id', (req, res) => {
 /**
  * POST route
  */
+
+// add property
 router.post('/', (req, res) => {
     if (req.isAuthenticated()) {
       const query = `INSERT INTO "property" ("street", "city", "state", "zipcode", "sq_footage", "owner_id")

@@ -4,7 +4,6 @@ import { useHistory } from 'react-router-dom';
 import './AddPropertyPage.css'
 
 function AddPropertyPage(props) {
-  const store = useSelector((store) => store);
   const [heading, setHeading] = useState('Add A Property');
   const [street, setStreet] = useState('');
   const [city, setCity] = useState('');
@@ -14,6 +13,7 @@ function AddPropertyPage(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // input validation, send data to add property if all fields have input
   const addProperty = (event) => {
     event.preventDefault();
     if (street === "" || city === "" || state === "" || zipcode === "" || sqFootage === "") {
@@ -31,7 +31,7 @@ function AddPropertyPage(props) {
       history.push('/properties');
     };
   }
-
+  // form to add property
   return (
     <div>
       <h2>{heading}</h2>

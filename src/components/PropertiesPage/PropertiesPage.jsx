@@ -9,29 +9,31 @@ function PropertiesPage(props) {
   const dispatch = useDispatch();
   const history = useHistory();
 
+  // get properties from database
   useEffect(() => {
     dispatch({ type: 'FETCH_PROPERTIES' });
   }, []);
 
+  // navigate to Add A Property page
   const toAddAProperty = () => {
     history.push('properties/add');
   };
 
+  // get data for selected property, navigate to Create Job page
   const selectProperty = (property) => {
     dispatch({ type: 'FETCH_PROPERTY', payload: property });
     history.push('/job/create');
   };
 
+  // lists owner's properties and button to select property to create job
   return (
     <div className="properties-container">
       <h2>{heading}</h2>
-
       <div>
         <button className="btn" onClick={toAddAProperty}>
           Add A Property
         </button>
       </div>
-
       <div className="scroll-select-property">
         <div>
           <p className="center">Choose a property:</p>

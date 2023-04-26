@@ -65,6 +65,7 @@ function user_jobs(state = [], action) {
   }
 }
 
+// get owner requests for view requests page
 function owner_requests(state = [], action) {
   switch (action.type) {
     case "SET_OWNER_REQUESTS":
@@ -81,6 +82,7 @@ function owner_requests(state = [], action) {
   }
 }
 
+// get request details
 function request_detail(state = {}, action) {
   switch (action.type) {
     case "SET_REQUEST_DETAIL":
