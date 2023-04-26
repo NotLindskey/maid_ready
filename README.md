@@ -23,7 +23,7 @@ Before you get started, make sure you have the following software installed on y
 ## Create the database and tables in SQL
 
 1. - Create a database called `maid_ready_app`.
-2. - Create these tables: `user`, `property`, `job`, `checklist_item`, `job_checklist` from the database.sql file.
+2. - Create these tables: `user`, `property`, `job`, `checklist_item`, `cleaning_standard` from the database.sql file.
      ![database.sql-file-location](documentation/images/database-location.png)
 
 **_ If you would like to name your database something else, you will need to change `maid_ready_app` to the name of your new database name in `server/modules/pool.js` file _**

@@ -44,12 +44,6 @@ CREATE TABLE "checklist_item" (
 );
 
 
--- CREATE TABLE "job_checklist" (
---     "id" SERIAL PRIMARY KEY,
---     "job_id" INT REFERENCES "job",
---     "checklist_item_id" INT REFERENCES "checklist_item"
--- );
-
 CREATE TABLE "cleaning_standard" (
     "id" SERIAL PRIMARY KEY,
     "task" varchar(255) NOT NULL,
