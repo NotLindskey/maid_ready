@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router-dom';
 import { useEffect } from 'react';
@@ -12,25 +11,24 @@ function OwnerRequestDetails() {
   const requestId = params.id;
   const dispatch = useDispatch();
 
+  // get request detail from database
   useEffect(() => {
-    //   dispatch({ type: "FETCH_JOB_DETAIL", payload: {id: requestId} });
-    // }, []);
     dispatch({ type: 'FETCH_REQUEST_DETAIL', payload: { id: requestId } });
   }, []);
 
+  // navigate to View Requests Page
   const goBack = () => {
     history.push('/OwnerViewRequestsPage');
   };
 
+  // card that lists request details
   return (
     <div className="request-details">
       <div className="request-details-content">
         <div className="request-details-header">
           <h2>Request Details</h2>
         </div>
-
         <br />
-
         <div className="grid">
           <div className="grid-content-section">
             <div className="request-details-text">

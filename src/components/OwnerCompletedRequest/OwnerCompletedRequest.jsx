@@ -2,9 +2,6 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
-
-import JobItem from '../JobItem/JobItem';
-
 import './OwnerCompletedRequest.css';
 
 function OwnerCompletedRequest() {
@@ -14,22 +11,19 @@ function OwnerCompletedRequest() {
   const completedRequests = requests.filter(
     (request) => request.status === 'complete',
   );
-  // const jobs = useSelector((store) => store.job.jobs);
 
+  // get all requests
   useEffect(() => {
-    // dispatch({ type: 'FETCH_JOBS' });
     dispatch({ type: 'FETCH_OWNER_REQUESTS' });
   }, []);
 
-  const handleToHome = () => {
-    history.push('/OwnerViewRequestsPage');
-  };
-
+  // navigate to request details page
   const handleViewRequest = (request) => {
     console.log(request.id);
     history.push(`/OwnerRequestDetails/${request.id}`);
   };
 
+  // delete completed request
   const completedDelete = (request) => {
     console.log(`Completed Job Delete at: ${request.id}`);
     dispatch({
@@ -38,7 +32,7 @@ function OwnerCompletedRequest() {
     });
   };
 
-  // Render
+  // display card of completed request details
   return (
     <div className="job-list-container">
       {completedRequests.map((request) => {

@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
+// fetch all properties
 function* fetchProperties() {
     try {
       const config = {
@@ -14,6 +15,7 @@ function* fetchProperties() {
     }
   }
 
+  // fetch property by id
   function* fetchProperty(action) {
     try {
       const config = {
@@ -27,6 +29,7 @@ function* fetchProperties() {
     }
   }
 
+  // add new property
   function* addProperty(action) {
     try {
       const config = {
@@ -40,6 +43,7 @@ function* fetchProperties() {
     }
   }
 
+  // delete a property
   function* deleteProperty(action) {
     try {
       const config = {
@@ -53,6 +57,7 @@ function* fetchProperties() {
     }
   }
   
+  // update a property
   function* updateProperty(action) {
     try {
       const config = {
@@ -66,12 +71,13 @@ function* fetchProperties() {
     }
   }
 
+  // watcher function
   function* propertySaga() {
-    yield takeLatest('FETCH_PROPERTIES', fetchProperties);
-    yield takeLatest('FETCH_PROPERTY', fetchProperty);
-    yield takeLatest('ADD_PROPERTY', addProperty);
-    yield takeLatest('DELETE_PROPERTY', deleteProperty);
-    yield takeLatest('UPDATE_PROPERTY', updateProperty);
+    yield takeLatest('FETCH_PROPERTIES', fetchProperties); // GET all properties
+    yield takeLatest('FETCH_PROPERTY', fetchProperty); // GET a specific property
+    yield takeLatest('ADD_PROPERTY', addProperty); // ADD a property
+    yield takeLatest('DELETE_PROPERTY', deleteProperty); // DELETE a property
+    yield takeLatest('UPDATE_PROPERTY', updateProperty); // UPDATE a property
   }
 
   export default propertySaga;
